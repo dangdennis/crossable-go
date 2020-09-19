@@ -15,7 +15,7 @@ import (
 )
 
 func main() {
-	client, err := db.Client()
+	client := db.Client()
 
 	defer func() {
 		err := client.Disconnect()
@@ -31,7 +31,7 @@ func main() {
 	}
 
 	defer func() {
-		dg.Close()
+		_ = dg.Close()
 	}()
 
 	// Register the messageCreate func as a callback for MessageCreate events.

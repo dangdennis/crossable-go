@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c3e67fb9-c979-4b19-b287-50dc79d567d4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/consumers/consumers.go" beforeDir="false" afterPath="$PROJECT_DIR$/consumers/consumers.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/migrate.lock" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/migrate.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/schema.prisma" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1hjb3euH9DWYKYCU3izyk8YIiGq" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ask.go.tool.to.install.GoGolangCILintTaskConsumer" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="619" y="402" key="#Notifications" timestamp="1600529728483">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="619" y="402" key="#Notifications/0.23.1792.1097@0.23.1792.1097" timestamp="1600529728483" />
+    <state x="547" y="356" key="EditFileWatcherDialog" timestamp="1600529713874">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="547" y="356" key="EditFileWatcherDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1600529713874" />
+    <state x="253" y="186" key="SettingsEditor" timestamp="1600529742899">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="253" y="186" key="SettingsEditor/0.23.1792.1097@0.23.1792.1097" timestamp="1600529742899" />
+    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup" timestamp="1600530858845">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="561" y="268" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1600530858845" />
+  </component>
+</project>

@@ -4,17 +4,17 @@ var client *PrismaClient
 
 // Client returns a singleton db client.
 // It initializes the connection once if not connected yet.
-func Client() (*PrismaClient, error) {
+func Client() *PrismaClient {
 	if client != nil {
-		return client, nil
+		return client
 	}
 
 	// Connect to the db via prisma
 	client = NewClient()
 	err := client.Connect()
 	if err != nil {
-		return client, err
+		panic(err)
 	}
 
-	return client, nil
+	return client
 }

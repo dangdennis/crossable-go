@@ -1,47 +1,57 @@
 package repositories
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/dangdennis/crossing/db"
 )
 
+// FindUserByDiscordID finds a user entity by their discord id
+func FindUserByDiscordID(client *db.PrismaClient, discordID string) (db.UserModel, error) {
+	return client.User.FindOne(
+		db.User.ID.Equals(discordID),
+	).Exec(context.Background())
+}
+
+// UserAttrs defines the request `create` payload
+type UserAttrs struct {
+	DiscordUserID   string
+	Email           *string
+	DiscordUsername *string
+	FirstName       *string
+	LastName        *string
+}
+
 // CreateUser creates a user
-func CreateUser(db *db.PrismaClient) {
-	fmt.Println("creating a user!")
-	// create a user
-	// createdUser, err := client.User.CreateOne(
-	// 	db.User.Email.Set("john.doe@example.com"),
-	// 	db.User.Name.Set("John Doe"),
-	// 	db.User.Age.Set(5),
+func CreateUser(client *db.PrismaClient, attrs UserAttrs) (db.UserModel, error) {
+	fmt.Println("creating a user")
 
-	// 	// ID is optional, which is why it's specified last. if you don't set it
-	// 	// an ID is auto generated for you
-	// 	db.User.ID.Set("123"),
-	// ).Exec(ctx)
+	user, err := client.User.CreateOne(
+		db.User.DiscordUserID.Set(attrs.DiscordUserID),
+		db.User.DiscordUsername.SetOptional(attrs.DiscordUsername),
+		db.User.Email.SetOptional(attrs.Email),
+		db.User.FirstName.SetOptional(attrs.FirstName),
+		db.User.LastName.SetOptional(attrs.LastName),
+	).Exec(context.Background())
+	if err != nil {
+		return user, err
+	}
 
-	// log.Printf("created user: %+v", createdUser)
+	return user, nil
+}
 
-	// // find a single user
-	// user, err := client.User.FindOne(
-	// 	db.User.Email.Equals("john.doe@example.com"),
-	// ).Exec(ctx)
-	// if err != nil {
-	// 	panic(err)
-	// }
+// CreateAvatar creates an avatar
+func CreateAvatar(client *db.PrismaClient, userID string) (db.AvatarModel, error) {
+	fmt.Println("creating an avatar")
 
-	// log.Printf("user: %+v", user)
+	avatar, err := client.Avatar.CreateOne(
+		db.Avatar.User.Link(
+			db.User.ID.Equals(userID),
+		)).Exec(context.Background())
+	if err != nil {
+		return avatar, err
+	}
 
-	// // for optional/nullable values, you need to check the function and create two return values
-	// // `name` is a string, and `ok` is a bool whether the record is null or not. If it's null,
-	// // `ok` is false, and `name` will default to Go's default values; in this case an empty string (""). Otherwise,
-	// // `ok` is true and `name` will be "John Doe".
-	// name, ok := user.Name()
-
-	// if !ok {
-	// 	log.Printf("user's name is null")
-	// 	return
-	// }
-
-	// log.Printf("The users's name is: %s", name)
+	return avatar, nil
 }
