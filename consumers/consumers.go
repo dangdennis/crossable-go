@@ -2,6 +2,7 @@ package consumers
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/bwmarrin/discordgo"
 
@@ -26,18 +27,31 @@ func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		return
 	}
 
-	// If the message is "ping" reply with "Pong!"
-	if m.Content == "ping" {
+	switch m.Content {
+	case "!ping":
 		_, _ = s.ChannelMessageSend(m.ChannelID, "Pong!")
-	}
-
-	// If the message is "pong" reply with "Ping!"
-	if m.Content == "pong" {
+	case "!pong":
 		_, _ = s.ChannelMessageSend(m.ChannelID, "Ping!")
+	case "!raid":
+		RaidCommand(s, m)
+	case "!join":
+		JoinCommand(s, m)
+	case "!attack":
+		AttackCommand(s, m)
+	case "!help":
+		HelpCommand(s, m)
+	case "!bomb":
+		BombCommand(s, m)
 	}
 }
 
+// initUser creates a new user account if the current account is not found
 func initUser(m *discordgo.MessageCreate) error {
+	// Consider hardening this with an additional cache layer. Check the LRU cache for a discord user id that's recently messaged the channel
+	if !strings.HasPrefix(m.Content, "!") {
+		return nil
+	}
+
 	_, err := repositories.FindUserByDiscordID(db.Client(), m.Author.ID)
 	if err == nil {
 		fmt.Println("user already exists")
