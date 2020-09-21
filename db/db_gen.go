@@ -11866,7 +11866,7 @@ generator db {
 }
 
 model User {
-    id              String    @default(cuid()) @id
+    id              Int    @default(autoincrement()) @id
     createdAt       DateTime  @default(now())
     deletedAt       DateTime?
     updatedAt       DateTime  @updatedAt
@@ -11879,18 +11879,18 @@ model User {
 }
 
 model Avatar {
-    id             String           @default(cuid()) @id
+    id             Int           @default(autoincrement()) @id
     createdAt      DateTime         @default(now())
     deletedAt      DateTime?
     updatedAt      DateTime         @updatedAt
     User           User             @relation(fields: [userId], references: [id])
-    userId         String
+    userId         Int
     RaidAttack     RaidAttack[]
     AvatarsOnRaids AvatarsOnRaids[]
 }
 
 model Raid {
-    id                 String              @default(cuid()) @id
+    id                 Int              @default(autoincrement()) @id
     createdAt          DateTime            @default(now())
     deletedAt          DateTime?
     updatedAt          DateTime            @updatedAt
@@ -11905,7 +11905,7 @@ model Raid {
 }
 
 model RaidBoss {
-    id                String              @default(cuid()) @id
+    id                Int              @default(autoincrement()) @id
     createdAt         DateTime            @default(now())
     deletedAt         DateTime?
     updatedAt         DateTime            @updatedAt
@@ -11920,11 +11920,11 @@ model RaidAttack {
     deletedAt  DateTime?
     updatedAt  DateTime  @updatedAt
     raid       Raid      @relation(fields: [raidId], references: [id])
-    raidId     String
+    raidId     Int
     avatar     Avatar    @relation(fields: [avatarId], references: [id])
-    avatarId   String
+    avatarId   Int
     RaidBoss   RaidBoss  @relation(fields: [raidBossId], references: [id])
-    raidBossId String
+    raidBossId Int
 
     @@id([raidId, avatarId, raidBossId])
 }
@@ -11934,9 +11934,9 @@ model AvatarsOnRaids {
     deletedAt DateTime?
     updatedAt DateTime  @updatedAt
     raid      Raid      @relation(fields: [raidId], references: [id])
-    raidId    String
+    raidId    Int
     avatar    Avatar    @relation(fields: [avatarId], references: [id])
-    avatarId  String
+    avatarId  Int
 
     @@id([raidId, avatarId])
 }
@@ -11946,9 +11946,9 @@ model RaidBossesOnRaids {
     deletedAt  DateTime?
     updatedAt  DateTime  @updatedAt
     raid       Raid      @relation(fields: [raidId], references: [id])
-    raidId     String
+    raidId     Int
     raidBoss   RaidBoss  @relation(fields: [raidBossId], references: [id])
-    raidBossId String
+    raidBossId Int
 
     @@id([raidId, raidBossId])
 }
@@ -12068,7 +12068,7 @@ type UserModel struct {
 
 // InternalUser holds the actual data
 type InternalUser struct {
-	ID              string    `json:"id"`
+	ID              int       `json:"id"`
 	CreatedAt       DateTime  `json:"createdAt"`
 	DeletedAt       *DateTime `json:"deletedAt"`
 	UpdatedAt       DateTime  `json:"updatedAt"`
@@ -12134,11 +12134,11 @@ type AvatarModel struct {
 
 // InternalAvatar holds the actual data
 type InternalAvatar struct {
-	ID        string    `json:"id"`
+	ID        int       `json:"id"`
 	CreatedAt DateTime  `json:"createdAt"`
 	DeletedAt *DateTime `json:"deletedAt"`
 	UpdatedAt DateTime  `json:"updatedAt"`
-	UserID    string    `json:"userId"`
+	UserID    int       `json:"userId"`
 }
 
 // RelationsAvatar holds the relation data separately
@@ -12184,7 +12184,7 @@ type RaidModel struct {
 
 // InternalRaid holds the actual data
 type InternalRaid struct {
-	ID                 string    `json:"id"`
+	ID                 int       `json:"id"`
 	CreatedAt          DateTime  `json:"createdAt"`
 	DeletedAt          *DateTime `json:"deletedAt"`
 	UpdatedAt          DateTime  `json:"updatedAt"`
@@ -12245,7 +12245,7 @@ type RaidBossModel struct {
 
 // InternalRaidBoss holds the actual data
 type InternalRaidBoss struct {
-	ID        string    `json:"id"`
+	ID        int       `json:"id"`
 	CreatedAt DateTime  `json:"createdAt"`
 	DeletedAt *DateTime `json:"deletedAt"`
 	UpdatedAt DateTime  `json:"updatedAt"`
@@ -12298,9 +12298,9 @@ type InternalRaidAttack struct {
 	CreatedAt  DateTime  `json:"createdAt"`
 	DeletedAt  *DateTime `json:"deletedAt"`
 	UpdatedAt  DateTime  `json:"updatedAt"`
-	RaidID     string    `json:"raidId"`
-	AvatarID   string    `json:"avatarId"`
-	RaidBossID string    `json:"raidBossId"`
+	RaidID     int       `json:"raidId"`
+	AvatarID   int       `json:"avatarId"`
+	RaidBossID int       `json:"raidBossId"`
 }
 
 // RelationsRaidAttack holds the relation data separately
@@ -12349,8 +12349,8 @@ type InternalAvatarsOnRaids struct {
 	CreatedAt DateTime  `json:"createdAt"`
 	DeletedAt *DateTime `json:"deletedAt"`
 	UpdatedAt DateTime  `json:"updatedAt"`
-	RaidID    string    `json:"raidId"`
-	AvatarID  string    `json:"avatarId"`
+	RaidID    int       `json:"raidId"`
+	AvatarID  int       `json:"avatarId"`
 }
 
 // RelationsAvatarsOnRaids holds the relation data separately
@@ -12391,8 +12391,8 @@ type InternalRaidBossesOnRaids struct {
 	CreatedAt  DateTime  `json:"createdAt"`
 	DeletedAt  *DateTime `json:"deletedAt"`
 	UpdatedAt  DateTime  `json:"updatedAt"`
-	RaidID     string    `json:"raidId"`
-	RaidBossID string    `json:"raidBossId"`
+	RaidID     int       `json:"raidId"`
+	RaidBossID int       `json:"raidBossId"`
 }
 
 // RelationsRaidBossesOnRaids holds the relation data separately
@@ -12432,7 +12432,7 @@ type userQuery struct {
 	// ID
 	//
 	// @required
-	ID userQueryIDString
+	ID userQueryIDInt
 
 	// CreatedAt
 	//
@@ -12524,10 +12524,10 @@ func (userQuery) Or(params ...iUserParams) userParams {
 // type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
-type userQueryIDString struct{}
+type userQueryIDInt struct{}
 
 // Set the required value of ID
-func (r userQueryIDString) Set(value string) userSetParams {
+func (r userQueryIDInt) Set(value int) userSetParams {
 
 	return userSetParams{
 		data: builder.Field{
@@ -12538,7 +12538,7 @@ func (r userQueryIDString) Set(value string) userSetParams {
 
 }
 
-func (r userQueryIDString) Equals(value string) userWithPrismaIDEqualsParamsUnique {
+func (r userQueryIDInt) Equals(value int) userWithPrismaIDEqualsParamsUnique {
 	return userWithPrismaIDEqualsParamsUnique{
 		data: builder.Field{
 			Name:  "id",
@@ -12547,7 +12547,7 @@ func (r userQueryIDString) Equals(value string) userWithPrismaIDEqualsParamsUniq
 	}
 }
 
-func (r userQueryIDString) In(values []string) userParamsUnique {
+func (r userQueryIDInt) In(values []int) userParamsUnique {
 	f := builder.Field{
 		Name:   "id",
 		Action: "in",
@@ -12563,7 +12563,7 @@ func (r userQueryIDString) In(values []string) userParamsUnique {
 	}
 }
 
-func (r userQueryIDString) Order(direction runtime.Direction) userParams {
+func (r userQueryIDInt) Order(direction runtime.Direction) userParams {
 	return userParams{
 		data: builder.Field{
 			Name:  "id",
@@ -12572,7 +12572,7 @@ func (r userQueryIDString) Order(direction runtime.Direction) userParams {
 	}
 }
 
-func (r userQueryIDString) Cursor(cursor string) userCursorParams {
+func (r userQueryIDInt) Cursor(cursor string) userCursorParams {
 	return userCursorParams{
 		data: builder.Field{
 			Name:  "id",
@@ -12581,30 +12581,40 @@ func (r userQueryIDString) Cursor(cursor string) userCursorParams {
 	}
 }
 
-func (r userQueryIDString) Contains(value string) userParamsUnique {
+func (r userQueryIDInt) LT(value int) userParamsUnique {
 	return userParamsUnique{
 		data: builder.Field{
-			Action: "contains",
+			Action: "lt",
 			Name:   "id",
 			Value:  value,
 		},
 	}
 }
 
-func (r userQueryIDString) HasPrefix(value string) userParamsUnique {
+func (r userQueryIDInt) GT(value int) userParamsUnique {
 	return userParamsUnique{
 		data: builder.Field{
-			Action: "starts_with",
+			Action: "gt",
 			Name:   "id",
 			Value:  value,
 		},
 	}
 }
 
-func (r userQueryIDString) HasSuffix(value string) userParamsUnique {
+func (r userQueryIDInt) LTE(value int) userParamsUnique {
 	return userParamsUnique{
 		data: builder.Field{
-			Action: "ends_with",
+			Action: "lte",
+			Name:   "id",
+			Value:  value,
+		},
+	}
+}
+
+func (r userQueryIDInt) GTE(value int) userParamsUnique {
+	return userParamsUnique{
+		data: builder.Field{
+			Action: "gte",
 			Name:   "id",
 			Value:  value,
 		},
@@ -13556,7 +13566,7 @@ type avatarQuery struct {
 	// ID
 	//
 	// @required
-	ID avatarQueryIDString
+	ID avatarQueryIDInt
 
 	// CreatedAt
 	//
@@ -13578,7 +13588,7 @@ type avatarQuery struct {
 	// UserID
 	//
 	// @required
-	UserID avatarQueryUserIDString
+	UserID avatarQueryUserIDInt
 
 	RaidAttack avatarQueryRaidAttackRelations
 
@@ -13629,10 +13639,10 @@ func (avatarQuery) Or(params ...iAvatarParams) avatarParams {
 // type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
-type avatarQueryIDString struct{}
+type avatarQueryIDInt struct{}
 
 // Set the required value of ID
-func (r avatarQueryIDString) Set(value string) avatarSetParams {
+func (r avatarQueryIDInt) Set(value int) avatarSetParams {
 
 	return avatarSetParams{
 		data: builder.Field{
@@ -13643,7 +13653,7 @@ func (r avatarQueryIDString) Set(value string) avatarSetParams {
 
 }
 
-func (r avatarQueryIDString) Equals(value string) avatarWithPrismaIDEqualsParamsUnique {
+func (r avatarQueryIDInt) Equals(value int) avatarWithPrismaIDEqualsParamsUnique {
 	return avatarWithPrismaIDEqualsParamsUnique{
 		data: builder.Field{
 			Name:  "id",
@@ -13652,7 +13662,7 @@ func (r avatarQueryIDString) Equals(value string) avatarWithPrismaIDEqualsParams
 	}
 }
 
-func (r avatarQueryIDString) In(values []string) avatarParamsUnique {
+func (r avatarQueryIDInt) In(values []int) avatarParamsUnique {
 	f := builder.Field{
 		Name:   "id",
 		Action: "in",
@@ -13668,7 +13678,7 @@ func (r avatarQueryIDString) In(values []string) avatarParamsUnique {
 	}
 }
 
-func (r avatarQueryIDString) Order(direction runtime.Direction) avatarParams {
+func (r avatarQueryIDInt) Order(direction runtime.Direction) avatarParams {
 	return avatarParams{
 		data: builder.Field{
 			Name:  "id",
@@ -13677,7 +13687,7 @@ func (r avatarQueryIDString) Order(direction runtime.Direction) avatarParams {
 	}
 }
 
-func (r avatarQueryIDString) Cursor(cursor string) avatarCursorParams {
+func (r avatarQueryIDInt) Cursor(cursor string) avatarCursorParams {
 	return avatarCursorParams{
 		data: builder.Field{
 			Name:  "id",
@@ -13686,30 +13696,40 @@ func (r avatarQueryIDString) Cursor(cursor string) avatarCursorParams {
 	}
 }
 
-func (r avatarQueryIDString) Contains(value string) avatarParamsUnique {
+func (r avatarQueryIDInt) LT(value int) avatarParamsUnique {
 	return avatarParamsUnique{
 		data: builder.Field{
-			Action: "contains",
+			Action: "lt",
 			Name:   "id",
 			Value:  value,
 		},
 	}
 }
 
-func (r avatarQueryIDString) HasPrefix(value string) avatarParamsUnique {
+func (r avatarQueryIDInt) GT(value int) avatarParamsUnique {
 	return avatarParamsUnique{
 		data: builder.Field{
-			Action: "starts_with",
+			Action: "gt",
 			Name:   "id",
 			Value:  value,
 		},
 	}
 }
 
-func (r avatarQueryIDString) HasSuffix(value string) avatarParamsUnique {
+func (r avatarQueryIDInt) LTE(value int) avatarParamsUnique {
 	return avatarParamsUnique{
 		data: builder.Field{
-			Action: "ends_with",
+			Action: "lte",
+			Name:   "id",
+			Value:  value,
+		},
+	}
+}
+
+func (r avatarQueryIDInt) GTE(value int) avatarParamsUnique {
+	return avatarParamsUnique{
+		data: builder.Field{
+			Action: "gte",
 			Name:   "id",
 			Value:  value,
 		},
@@ -14078,10 +14098,10 @@ func (r avatarQueryUserRelations) Link(
 }
 
 // base struct
-type avatarQueryUserIDString struct{}
+type avatarQueryUserIDInt struct{}
 
 // Set the required value of UserID
-func (r avatarQueryUserIDString) Set(value string) avatarWithPrismaUserIDSetParams {
+func (r avatarQueryUserIDInt) Set(value int) avatarWithPrismaUserIDSetParams {
 
 	return avatarWithPrismaUserIDSetParams{
 		data: builder.Field{
@@ -14092,7 +14112,7 @@ func (r avatarQueryUserIDString) Set(value string) avatarWithPrismaUserIDSetPara
 
 }
 
-func (r avatarQueryUserIDString) Equals(value string) avatarWithPrismaUserIDEqualsParams {
+func (r avatarQueryUserIDInt) Equals(value int) avatarWithPrismaUserIDEqualsParams {
 	return avatarWithPrismaUserIDEqualsParams{
 		data: builder.Field{
 			Name:  "userId",
@@ -14101,7 +14121,7 @@ func (r avatarQueryUserIDString) Equals(value string) avatarWithPrismaUserIDEqua
 	}
 }
 
-func (r avatarQueryUserIDString) In(values []string) avatarParams {
+func (r avatarQueryUserIDInt) In(values []int) avatarParams {
 	f := builder.Field{
 		Name:   "userId",
 		Action: "in",
@@ -14117,7 +14137,7 @@ func (r avatarQueryUserIDString) In(values []string) avatarParams {
 	}
 }
 
-func (r avatarQueryUserIDString) Order(direction runtime.Direction) avatarParams {
+func (r avatarQueryUserIDInt) Order(direction runtime.Direction) avatarParams {
 	return avatarParams{
 		data: builder.Field{
 			Name:  "userId",
@@ -14126,30 +14146,40 @@ func (r avatarQueryUserIDString) Order(direction runtime.Direction) avatarParams
 	}
 }
 
-func (r avatarQueryUserIDString) Contains(value string) avatarParams {
+func (r avatarQueryUserIDInt) LT(value int) avatarParams {
 	return avatarParams{
 		data: builder.Field{
-			Action: "contains",
+			Action: "lt",
 			Name:   "userId",
 			Value:  value,
 		},
 	}
 }
 
-func (r avatarQueryUserIDString) HasPrefix(value string) avatarParams {
+func (r avatarQueryUserIDInt) GT(value int) avatarParams {
 	return avatarParams{
 		data: builder.Field{
-			Action: "starts_with",
+			Action: "gt",
 			Name:   "userId",
 			Value:  value,
 		},
 	}
 }
 
-func (r avatarQueryUserIDString) HasSuffix(value string) avatarParams {
+func (r avatarQueryUserIDInt) LTE(value int) avatarParams {
 	return avatarParams{
 		data: builder.Field{
-			Action: "ends_with",
+			Action: "lte",
+			Name:   "userId",
+			Value:  value,
+		},
+	}
+}
+
+func (r avatarQueryUserIDInt) GTE(value int) avatarParams {
+	return avatarParams{
+		data: builder.Field{
+			Action: "gte",
 			Name:   "userId",
 			Value:  value,
 		},
@@ -14402,7 +14432,7 @@ type raidQuery struct {
 	// ID
 	//
 	// @required
-	ID raidQueryIDString
+	ID raidQueryIDInt
 
 	// CreatedAt
 	//
@@ -14495,10 +14525,10 @@ func (raidQuery) Or(params ...iRaidParams) raidParams {
 // type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
-type raidQueryIDString struct{}
+type raidQueryIDInt struct{}
 
 // Set the required value of ID
-func (r raidQueryIDString) Set(value string) raidSetParams {
+func (r raidQueryIDInt) Set(value int) raidSetParams {
 
 	return raidSetParams{
 		data: builder.Field{
@@ -14509,7 +14539,7 @@ func (r raidQueryIDString) Set(value string) raidSetParams {
 
 }
 
-func (r raidQueryIDString) Equals(value string) raidWithPrismaIDEqualsParamsUnique {
+func (r raidQueryIDInt) Equals(value int) raidWithPrismaIDEqualsParamsUnique {
 	return raidWithPrismaIDEqualsParamsUnique{
 		data: builder.Field{
 			Name:  "id",
@@ -14518,7 +14548,7 @@ func (r raidQueryIDString) Equals(value string) raidWithPrismaIDEqualsParamsUniq
 	}
 }
 
-func (r raidQueryIDString) In(values []string) raidParamsUnique {
+func (r raidQueryIDInt) In(values []int) raidParamsUnique {
 	f := builder.Field{
 		Name:   "id",
 		Action: "in",
@@ -14534,7 +14564,7 @@ func (r raidQueryIDString) In(values []string) raidParamsUnique {
 	}
 }
 
-func (r raidQueryIDString) Order(direction runtime.Direction) raidParams {
+func (r raidQueryIDInt) Order(direction runtime.Direction) raidParams {
 	return raidParams{
 		data: builder.Field{
 			Name:  "id",
@@ -14543,7 +14573,7 @@ func (r raidQueryIDString) Order(direction runtime.Direction) raidParams {
 	}
 }
 
-func (r raidQueryIDString) Cursor(cursor string) raidCursorParams {
+func (r raidQueryIDInt) Cursor(cursor string) raidCursorParams {
 	return raidCursorParams{
 		data: builder.Field{
 			Name:  "id",
@@ -14552,30 +14582,40 @@ func (r raidQueryIDString) Cursor(cursor string) raidCursorParams {
 	}
 }
 
-func (r raidQueryIDString) Contains(value string) raidParamsUnique {
+func (r raidQueryIDInt) LT(value int) raidParamsUnique {
 	return raidParamsUnique{
 		data: builder.Field{
-			Action: "contains",
+			Action: "lt",
 			Name:   "id",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidQueryIDString) HasPrefix(value string) raidParamsUnique {
+func (r raidQueryIDInt) GT(value int) raidParamsUnique {
 	return raidParamsUnique{
 		data: builder.Field{
-			Action: "starts_with",
+			Action: "gt",
 			Name:   "id",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidQueryIDString) HasSuffix(value string) raidParamsUnique {
+func (r raidQueryIDInt) LTE(value int) raidParamsUnique {
 	return raidParamsUnique{
 		data: builder.Field{
-			Action: "ends_with",
+			Action: "lte",
+			Name:   "id",
+			Value:  value,
+		},
+	}
+}
+
+func (r raidQueryIDInt) GTE(value int) raidParamsUnique {
+	return raidParamsUnique{
+		data: builder.Field{
+			Action: "gte",
 			Name:   "id",
 			Value:  value,
 		},
@@ -15689,7 +15729,7 @@ type raidBossQuery struct {
 	// ID
 	//
 	// @required
-	ID raidBossQueryIDString
+	ID raidBossQueryIDInt
 
 	// CreatedAt
 	//
@@ -15766,10 +15806,10 @@ func (raidBossQuery) Or(params ...iRaidBossParams) raidBossParams {
 // type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
-type raidBossQueryIDString struct{}
+type raidBossQueryIDInt struct{}
 
 // Set the required value of ID
-func (r raidBossQueryIDString) Set(value string) raidBossSetParams {
+func (r raidBossQueryIDInt) Set(value int) raidBossSetParams {
 
 	return raidBossSetParams{
 		data: builder.Field{
@@ -15780,7 +15820,7 @@ func (r raidBossQueryIDString) Set(value string) raidBossSetParams {
 
 }
 
-func (r raidBossQueryIDString) Equals(value string) raidBossWithPrismaIDEqualsParamsUnique {
+func (r raidBossQueryIDInt) Equals(value int) raidBossWithPrismaIDEqualsParamsUnique {
 	return raidBossWithPrismaIDEqualsParamsUnique{
 		data: builder.Field{
 			Name:  "id",
@@ -15789,7 +15829,7 @@ func (r raidBossQueryIDString) Equals(value string) raidBossWithPrismaIDEqualsPa
 	}
 }
 
-func (r raidBossQueryIDString) In(values []string) raidBossParamsUnique {
+func (r raidBossQueryIDInt) In(values []int) raidBossParamsUnique {
 	f := builder.Field{
 		Name:   "id",
 		Action: "in",
@@ -15805,7 +15845,7 @@ func (r raidBossQueryIDString) In(values []string) raidBossParamsUnique {
 	}
 }
 
-func (r raidBossQueryIDString) Order(direction runtime.Direction) raidBossParams {
+func (r raidBossQueryIDInt) Order(direction runtime.Direction) raidBossParams {
 	return raidBossParams{
 		data: builder.Field{
 			Name:  "id",
@@ -15814,7 +15854,7 @@ func (r raidBossQueryIDString) Order(direction runtime.Direction) raidBossParams
 	}
 }
 
-func (r raidBossQueryIDString) Cursor(cursor string) raidBossCursorParams {
+func (r raidBossQueryIDInt) Cursor(cursor string) raidBossCursorParams {
 	return raidBossCursorParams{
 		data: builder.Field{
 			Name:  "id",
@@ -15823,30 +15863,40 @@ func (r raidBossQueryIDString) Cursor(cursor string) raidBossCursorParams {
 	}
 }
 
-func (r raidBossQueryIDString) Contains(value string) raidBossParamsUnique {
+func (r raidBossQueryIDInt) LT(value int) raidBossParamsUnique {
 	return raidBossParamsUnique{
 		data: builder.Field{
-			Action: "contains",
+			Action: "lt",
 			Name:   "id",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidBossQueryIDString) HasPrefix(value string) raidBossParamsUnique {
+func (r raidBossQueryIDInt) GT(value int) raidBossParamsUnique {
 	return raidBossParamsUnique{
 		data: builder.Field{
-			Action: "starts_with",
+			Action: "gt",
 			Name:   "id",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidBossQueryIDString) HasSuffix(value string) raidBossParamsUnique {
+func (r raidBossQueryIDInt) LTE(value int) raidBossParamsUnique {
 	return raidBossParamsUnique{
 		data: builder.Field{
-			Action: "ends_with",
+			Action: "lte",
+			Name:   "id",
+			Value:  value,
+		},
+	}
+}
+
+func (r raidBossQueryIDInt) GTE(value int) raidBossParamsUnique {
+	return raidBossParamsUnique{
+		data: builder.Field{
+			Action: "gte",
 			Name:   "id",
 			Value:  value,
 		},
@@ -16620,21 +16670,21 @@ type raidAttackQuery struct {
 	// RaidID
 	//
 	// @required
-	RaidID raidAttackQueryRaidIDString
+	RaidID raidAttackQueryRaidIDInt
 
 	Avatar raidAttackQueryAvatarRelations
 
 	// AvatarID
 	//
 	// @required
-	AvatarID raidAttackQueryAvatarIDString
+	AvatarID raidAttackQueryAvatarIDInt
 
 	RaidBoss raidAttackQueryRaidBossRelations
 
 	// RaidBossID
 	//
 	// @required
-	RaidBossID raidAttackQueryRaidBossIDString
+	RaidBossID raidAttackQueryRaidBossIDInt
 }
 
 func (raidAttackQuery) Not(params ...iRaidAttackParams) raidAttackParams {
@@ -17063,10 +17113,10 @@ func (r raidAttackQueryRaidRelations) Link(
 }
 
 // base struct
-type raidAttackQueryRaidIDString struct{}
+type raidAttackQueryRaidIDInt struct{}
 
 // Set the required value of RaidID
-func (r raidAttackQueryRaidIDString) Set(value string) raidAttackWithPrismaRaidIDSetParams {
+func (r raidAttackQueryRaidIDInt) Set(value int) raidAttackWithPrismaRaidIDSetParams {
 
 	return raidAttackWithPrismaRaidIDSetParams{
 		data: builder.Field{
@@ -17077,7 +17127,7 @@ func (r raidAttackQueryRaidIDString) Set(value string) raidAttackWithPrismaRaidI
 
 }
 
-func (r raidAttackQueryRaidIDString) Equals(value string) raidAttackWithPrismaRaidIDEqualsParams {
+func (r raidAttackQueryRaidIDInt) Equals(value int) raidAttackWithPrismaRaidIDEqualsParams {
 	return raidAttackWithPrismaRaidIDEqualsParams{
 		data: builder.Field{
 			Name:  "raidId",
@@ -17086,7 +17136,7 @@ func (r raidAttackQueryRaidIDString) Equals(value string) raidAttackWithPrismaRa
 	}
 }
 
-func (r raidAttackQueryRaidIDString) In(values []string) raidAttackParams {
+func (r raidAttackQueryRaidIDInt) In(values []int) raidAttackParams {
 	f := builder.Field{
 		Name:   "raidId",
 		Action: "in",
@@ -17102,7 +17152,7 @@ func (r raidAttackQueryRaidIDString) In(values []string) raidAttackParams {
 	}
 }
 
-func (r raidAttackQueryRaidIDString) Order(direction runtime.Direction) raidAttackParams {
+func (r raidAttackQueryRaidIDInt) Order(direction runtime.Direction) raidAttackParams {
 	return raidAttackParams{
 		data: builder.Field{
 			Name:  "raidId",
@@ -17111,30 +17161,40 @@ func (r raidAttackQueryRaidIDString) Order(direction runtime.Direction) raidAtta
 	}
 }
 
-func (r raidAttackQueryRaidIDString) Contains(value string) raidAttackParams {
+func (r raidAttackQueryRaidIDInt) LT(value int) raidAttackParams {
 	return raidAttackParams{
 		data: builder.Field{
-			Action: "contains",
+			Action: "lt",
 			Name:   "raidId",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidAttackQueryRaidIDString) HasPrefix(value string) raidAttackParams {
+func (r raidAttackQueryRaidIDInt) GT(value int) raidAttackParams {
 	return raidAttackParams{
 		data: builder.Field{
-			Action: "starts_with",
+			Action: "gt",
 			Name:   "raidId",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidAttackQueryRaidIDString) HasSuffix(value string) raidAttackParams {
+func (r raidAttackQueryRaidIDInt) LTE(value int) raidAttackParams {
 	return raidAttackParams{
 		data: builder.Field{
-			Action: "ends_with",
+			Action: "lte",
+			Name:   "raidId",
+			Value:  value,
+		},
+	}
+}
+
+func (r raidAttackQueryRaidIDInt) GTE(value int) raidAttackParams {
+	return raidAttackParams{
+		data: builder.Field{
+			Action: "gte",
 			Name:   "raidId",
 			Value:  value,
 		},
@@ -17201,10 +17261,10 @@ func (r raidAttackQueryAvatarRelations) Link(
 }
 
 // base struct
-type raidAttackQueryAvatarIDString struct{}
+type raidAttackQueryAvatarIDInt struct{}
 
 // Set the required value of AvatarID
-func (r raidAttackQueryAvatarIDString) Set(value string) raidAttackWithPrismaAvatarIDSetParams {
+func (r raidAttackQueryAvatarIDInt) Set(value int) raidAttackWithPrismaAvatarIDSetParams {
 
 	return raidAttackWithPrismaAvatarIDSetParams{
 		data: builder.Field{
@@ -17215,7 +17275,7 @@ func (r raidAttackQueryAvatarIDString) Set(value string) raidAttackWithPrismaAva
 
 }
 
-func (r raidAttackQueryAvatarIDString) Equals(value string) raidAttackWithPrismaAvatarIDEqualsParams {
+func (r raidAttackQueryAvatarIDInt) Equals(value int) raidAttackWithPrismaAvatarIDEqualsParams {
 	return raidAttackWithPrismaAvatarIDEqualsParams{
 		data: builder.Field{
 			Name:  "avatarId",
@@ -17224,7 +17284,7 @@ func (r raidAttackQueryAvatarIDString) Equals(value string) raidAttackWithPrisma
 	}
 }
 
-func (r raidAttackQueryAvatarIDString) In(values []string) raidAttackParams {
+func (r raidAttackQueryAvatarIDInt) In(values []int) raidAttackParams {
 	f := builder.Field{
 		Name:   "avatarId",
 		Action: "in",
@@ -17240,7 +17300,7 @@ func (r raidAttackQueryAvatarIDString) In(values []string) raidAttackParams {
 	}
 }
 
-func (r raidAttackQueryAvatarIDString) Order(direction runtime.Direction) raidAttackParams {
+func (r raidAttackQueryAvatarIDInt) Order(direction runtime.Direction) raidAttackParams {
 	return raidAttackParams{
 		data: builder.Field{
 			Name:  "avatarId",
@@ -17249,30 +17309,40 @@ func (r raidAttackQueryAvatarIDString) Order(direction runtime.Direction) raidAt
 	}
 }
 
-func (r raidAttackQueryAvatarIDString) Contains(value string) raidAttackParams {
+func (r raidAttackQueryAvatarIDInt) LT(value int) raidAttackParams {
 	return raidAttackParams{
 		data: builder.Field{
-			Action: "contains",
+			Action: "lt",
 			Name:   "avatarId",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidAttackQueryAvatarIDString) HasPrefix(value string) raidAttackParams {
+func (r raidAttackQueryAvatarIDInt) GT(value int) raidAttackParams {
 	return raidAttackParams{
 		data: builder.Field{
-			Action: "starts_with",
+			Action: "gt",
 			Name:   "avatarId",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidAttackQueryAvatarIDString) HasSuffix(value string) raidAttackParams {
+func (r raidAttackQueryAvatarIDInt) LTE(value int) raidAttackParams {
 	return raidAttackParams{
 		data: builder.Field{
-			Action: "ends_with",
+			Action: "lte",
+			Name:   "avatarId",
+			Value:  value,
+		},
+	}
+}
+
+func (r raidAttackQueryAvatarIDInt) GTE(value int) raidAttackParams {
+	return raidAttackParams{
+		data: builder.Field{
+			Action: "gte",
 			Name:   "avatarId",
 			Value:  value,
 		},
@@ -17339,10 +17409,10 @@ func (r raidAttackQueryRaidBossRelations) Link(
 }
 
 // base struct
-type raidAttackQueryRaidBossIDString struct{}
+type raidAttackQueryRaidBossIDInt struct{}
 
 // Set the required value of RaidBossID
-func (r raidAttackQueryRaidBossIDString) Set(value string) raidAttackWithPrismaRaidBossIDSetParams {
+func (r raidAttackQueryRaidBossIDInt) Set(value int) raidAttackWithPrismaRaidBossIDSetParams {
 
 	return raidAttackWithPrismaRaidBossIDSetParams{
 		data: builder.Field{
@@ -17353,7 +17423,7 @@ func (r raidAttackQueryRaidBossIDString) Set(value string) raidAttackWithPrismaR
 
 }
 
-func (r raidAttackQueryRaidBossIDString) Equals(value string) raidAttackWithPrismaRaidBossIDEqualsParams {
+func (r raidAttackQueryRaidBossIDInt) Equals(value int) raidAttackWithPrismaRaidBossIDEqualsParams {
 	return raidAttackWithPrismaRaidBossIDEqualsParams{
 		data: builder.Field{
 			Name:  "raidBossId",
@@ -17362,7 +17432,7 @@ func (r raidAttackQueryRaidBossIDString) Equals(value string) raidAttackWithPris
 	}
 }
 
-func (r raidAttackQueryRaidBossIDString) In(values []string) raidAttackParams {
+func (r raidAttackQueryRaidBossIDInt) In(values []int) raidAttackParams {
 	f := builder.Field{
 		Name:   "raidBossId",
 		Action: "in",
@@ -17378,7 +17448,7 @@ func (r raidAttackQueryRaidBossIDString) In(values []string) raidAttackParams {
 	}
 }
 
-func (r raidAttackQueryRaidBossIDString) Order(direction runtime.Direction) raidAttackParams {
+func (r raidAttackQueryRaidBossIDInt) Order(direction runtime.Direction) raidAttackParams {
 	return raidAttackParams{
 		data: builder.Field{
 			Name:  "raidBossId",
@@ -17387,30 +17457,40 @@ func (r raidAttackQueryRaidBossIDString) Order(direction runtime.Direction) raid
 	}
 }
 
-func (r raidAttackQueryRaidBossIDString) Contains(value string) raidAttackParams {
+func (r raidAttackQueryRaidBossIDInt) LT(value int) raidAttackParams {
 	return raidAttackParams{
 		data: builder.Field{
-			Action: "contains",
+			Action: "lt",
 			Name:   "raidBossId",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidAttackQueryRaidBossIDString) HasPrefix(value string) raidAttackParams {
+func (r raidAttackQueryRaidBossIDInt) GT(value int) raidAttackParams {
 	return raidAttackParams{
 		data: builder.Field{
-			Action: "starts_with",
+			Action: "gt",
 			Name:   "raidBossId",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidAttackQueryRaidBossIDString) HasSuffix(value string) raidAttackParams {
+func (r raidAttackQueryRaidBossIDInt) LTE(value int) raidAttackParams {
 	return raidAttackParams{
 		data: builder.Field{
-			Action: "ends_with",
+			Action: "lte",
+			Name:   "raidBossId",
+			Value:  value,
+		},
+	}
+}
+
+func (r raidAttackQueryRaidBossIDInt) GTE(value int) raidAttackParams {
+	return raidAttackParams{
+		data: builder.Field{
+			Action: "gte",
 			Name:   "raidBossId",
 			Value:  value,
 		},
@@ -17442,14 +17522,14 @@ type avatarsOnRaidsQuery struct {
 	// RaidID
 	//
 	// @required
-	RaidID avatarsOnRaidsQueryRaidIDString
+	RaidID avatarsOnRaidsQueryRaidIDInt
 
 	Avatar avatarsOnRaidsQueryAvatarRelations
 
 	// AvatarID
 	//
 	// @required
-	AvatarID avatarsOnRaidsQueryAvatarIDString
+	AvatarID avatarsOnRaidsQueryAvatarIDInt
 }
 
 func (avatarsOnRaidsQuery) Not(params ...iAvatarsOnRaidsParams) avatarsOnRaidsParams {
@@ -17875,10 +17955,10 @@ func (r avatarsOnRaidsQueryRaidRelations) Link(
 }
 
 // base struct
-type avatarsOnRaidsQueryRaidIDString struct{}
+type avatarsOnRaidsQueryRaidIDInt struct{}
 
 // Set the required value of RaidID
-func (r avatarsOnRaidsQueryRaidIDString) Set(value string) avatarsOnRaidsWithPrismaRaidIDSetParams {
+func (r avatarsOnRaidsQueryRaidIDInt) Set(value int) avatarsOnRaidsWithPrismaRaidIDSetParams {
 
 	return avatarsOnRaidsWithPrismaRaidIDSetParams{
 		data: builder.Field{
@@ -17889,7 +17969,7 @@ func (r avatarsOnRaidsQueryRaidIDString) Set(value string) avatarsOnRaidsWithPri
 
 }
 
-func (r avatarsOnRaidsQueryRaidIDString) Equals(value string) avatarsOnRaidsWithPrismaRaidIDEqualsParams {
+func (r avatarsOnRaidsQueryRaidIDInt) Equals(value int) avatarsOnRaidsWithPrismaRaidIDEqualsParams {
 	return avatarsOnRaidsWithPrismaRaidIDEqualsParams{
 		data: builder.Field{
 			Name:  "raidId",
@@ -17898,7 +17978,7 @@ func (r avatarsOnRaidsQueryRaidIDString) Equals(value string) avatarsOnRaidsWith
 	}
 }
 
-func (r avatarsOnRaidsQueryRaidIDString) In(values []string) avatarsOnRaidsParams {
+func (r avatarsOnRaidsQueryRaidIDInt) In(values []int) avatarsOnRaidsParams {
 	f := builder.Field{
 		Name:   "raidId",
 		Action: "in",
@@ -17914,7 +17994,7 @@ func (r avatarsOnRaidsQueryRaidIDString) In(values []string) avatarsOnRaidsParam
 	}
 }
 
-func (r avatarsOnRaidsQueryRaidIDString) Order(direction runtime.Direction) avatarsOnRaidsParams {
+func (r avatarsOnRaidsQueryRaidIDInt) Order(direction runtime.Direction) avatarsOnRaidsParams {
 	return avatarsOnRaidsParams{
 		data: builder.Field{
 			Name:  "raidId",
@@ -17923,30 +18003,40 @@ func (r avatarsOnRaidsQueryRaidIDString) Order(direction runtime.Direction) avat
 	}
 }
 
-func (r avatarsOnRaidsQueryRaidIDString) Contains(value string) avatarsOnRaidsParams {
+func (r avatarsOnRaidsQueryRaidIDInt) LT(value int) avatarsOnRaidsParams {
 	return avatarsOnRaidsParams{
 		data: builder.Field{
-			Action: "contains",
+			Action: "lt",
 			Name:   "raidId",
 			Value:  value,
 		},
 	}
 }
 
-func (r avatarsOnRaidsQueryRaidIDString) HasPrefix(value string) avatarsOnRaidsParams {
+func (r avatarsOnRaidsQueryRaidIDInt) GT(value int) avatarsOnRaidsParams {
 	return avatarsOnRaidsParams{
 		data: builder.Field{
-			Action: "starts_with",
+			Action: "gt",
 			Name:   "raidId",
 			Value:  value,
 		},
 	}
 }
 
-func (r avatarsOnRaidsQueryRaidIDString) HasSuffix(value string) avatarsOnRaidsParams {
+func (r avatarsOnRaidsQueryRaidIDInt) LTE(value int) avatarsOnRaidsParams {
 	return avatarsOnRaidsParams{
 		data: builder.Field{
-			Action: "ends_with",
+			Action: "lte",
+			Name:   "raidId",
+			Value:  value,
+		},
+	}
+}
+
+func (r avatarsOnRaidsQueryRaidIDInt) GTE(value int) avatarsOnRaidsParams {
+	return avatarsOnRaidsParams{
+		data: builder.Field{
+			Action: "gte",
 			Name:   "raidId",
 			Value:  value,
 		},
@@ -18013,10 +18103,10 @@ func (r avatarsOnRaidsQueryAvatarRelations) Link(
 }
 
 // base struct
-type avatarsOnRaidsQueryAvatarIDString struct{}
+type avatarsOnRaidsQueryAvatarIDInt struct{}
 
 // Set the required value of AvatarID
-func (r avatarsOnRaidsQueryAvatarIDString) Set(value string) avatarsOnRaidsWithPrismaAvatarIDSetParams {
+func (r avatarsOnRaidsQueryAvatarIDInt) Set(value int) avatarsOnRaidsWithPrismaAvatarIDSetParams {
 
 	return avatarsOnRaidsWithPrismaAvatarIDSetParams{
 		data: builder.Field{
@@ -18027,7 +18117,7 @@ func (r avatarsOnRaidsQueryAvatarIDString) Set(value string) avatarsOnRaidsWithP
 
 }
 
-func (r avatarsOnRaidsQueryAvatarIDString) Equals(value string) avatarsOnRaidsWithPrismaAvatarIDEqualsParams {
+func (r avatarsOnRaidsQueryAvatarIDInt) Equals(value int) avatarsOnRaidsWithPrismaAvatarIDEqualsParams {
 	return avatarsOnRaidsWithPrismaAvatarIDEqualsParams{
 		data: builder.Field{
 			Name:  "avatarId",
@@ -18036,7 +18126,7 @@ func (r avatarsOnRaidsQueryAvatarIDString) Equals(value string) avatarsOnRaidsWi
 	}
 }
 
-func (r avatarsOnRaidsQueryAvatarIDString) In(values []string) avatarsOnRaidsParams {
+func (r avatarsOnRaidsQueryAvatarIDInt) In(values []int) avatarsOnRaidsParams {
 	f := builder.Field{
 		Name:   "avatarId",
 		Action: "in",
@@ -18052,7 +18142,7 @@ func (r avatarsOnRaidsQueryAvatarIDString) In(values []string) avatarsOnRaidsPar
 	}
 }
 
-func (r avatarsOnRaidsQueryAvatarIDString) Order(direction runtime.Direction) avatarsOnRaidsParams {
+func (r avatarsOnRaidsQueryAvatarIDInt) Order(direction runtime.Direction) avatarsOnRaidsParams {
 	return avatarsOnRaidsParams{
 		data: builder.Field{
 			Name:  "avatarId",
@@ -18061,30 +18151,40 @@ func (r avatarsOnRaidsQueryAvatarIDString) Order(direction runtime.Direction) av
 	}
 }
 
-func (r avatarsOnRaidsQueryAvatarIDString) Contains(value string) avatarsOnRaidsParams {
+func (r avatarsOnRaidsQueryAvatarIDInt) LT(value int) avatarsOnRaidsParams {
 	return avatarsOnRaidsParams{
 		data: builder.Field{
-			Action: "contains",
+			Action: "lt",
 			Name:   "avatarId",
 			Value:  value,
 		},
 	}
 }
 
-func (r avatarsOnRaidsQueryAvatarIDString) HasPrefix(value string) avatarsOnRaidsParams {
+func (r avatarsOnRaidsQueryAvatarIDInt) GT(value int) avatarsOnRaidsParams {
 	return avatarsOnRaidsParams{
 		data: builder.Field{
-			Action: "starts_with",
+			Action: "gt",
 			Name:   "avatarId",
 			Value:  value,
 		},
 	}
 }
 
-func (r avatarsOnRaidsQueryAvatarIDString) HasSuffix(value string) avatarsOnRaidsParams {
+func (r avatarsOnRaidsQueryAvatarIDInt) LTE(value int) avatarsOnRaidsParams {
 	return avatarsOnRaidsParams{
 		data: builder.Field{
-			Action: "ends_with",
+			Action: "lte",
+			Name:   "avatarId",
+			Value:  value,
+		},
+	}
+}
+
+func (r avatarsOnRaidsQueryAvatarIDInt) GTE(value int) avatarsOnRaidsParams {
+	return avatarsOnRaidsParams{
+		data: builder.Field{
+			Action: "gte",
 			Name:   "avatarId",
 			Value:  value,
 		},
@@ -18116,14 +18216,14 @@ type raidBossesOnRaidsQuery struct {
 	// RaidID
 	//
 	// @required
-	RaidID raidBossesOnRaidsQueryRaidIDString
+	RaidID raidBossesOnRaidsQueryRaidIDInt
 
 	RaidBoss raidBossesOnRaidsQueryRaidBossRelations
 
 	// RaidBossID
 	//
 	// @required
-	RaidBossID raidBossesOnRaidsQueryRaidBossIDString
+	RaidBossID raidBossesOnRaidsQueryRaidBossIDInt
 }
 
 func (raidBossesOnRaidsQuery) Not(params ...iRaidBossesOnRaidsParams) raidBossesOnRaidsParams {
@@ -18549,10 +18649,10 @@ func (r raidBossesOnRaidsQueryRaidRelations) Link(
 }
 
 // base struct
-type raidBossesOnRaidsQueryRaidIDString struct{}
+type raidBossesOnRaidsQueryRaidIDInt struct{}
 
 // Set the required value of RaidID
-func (r raidBossesOnRaidsQueryRaidIDString) Set(value string) raidBossesOnRaidsWithPrismaRaidIDSetParams {
+func (r raidBossesOnRaidsQueryRaidIDInt) Set(value int) raidBossesOnRaidsWithPrismaRaidIDSetParams {
 
 	return raidBossesOnRaidsWithPrismaRaidIDSetParams{
 		data: builder.Field{
@@ -18563,7 +18663,7 @@ func (r raidBossesOnRaidsQueryRaidIDString) Set(value string) raidBossesOnRaidsW
 
 }
 
-func (r raidBossesOnRaidsQueryRaidIDString) Equals(value string) raidBossesOnRaidsWithPrismaRaidIDEqualsParams {
+func (r raidBossesOnRaidsQueryRaidIDInt) Equals(value int) raidBossesOnRaidsWithPrismaRaidIDEqualsParams {
 	return raidBossesOnRaidsWithPrismaRaidIDEqualsParams{
 		data: builder.Field{
 			Name:  "raidId",
@@ -18572,7 +18672,7 @@ func (r raidBossesOnRaidsQueryRaidIDString) Equals(value string) raidBossesOnRai
 	}
 }
 
-func (r raidBossesOnRaidsQueryRaidIDString) In(values []string) raidBossesOnRaidsParams {
+func (r raidBossesOnRaidsQueryRaidIDInt) In(values []int) raidBossesOnRaidsParams {
 	f := builder.Field{
 		Name:   "raidId",
 		Action: "in",
@@ -18588,7 +18688,7 @@ func (r raidBossesOnRaidsQueryRaidIDString) In(values []string) raidBossesOnRaid
 	}
 }
 
-func (r raidBossesOnRaidsQueryRaidIDString) Order(direction runtime.Direction) raidBossesOnRaidsParams {
+func (r raidBossesOnRaidsQueryRaidIDInt) Order(direction runtime.Direction) raidBossesOnRaidsParams {
 	return raidBossesOnRaidsParams{
 		data: builder.Field{
 			Name:  "raidId",
@@ -18597,30 +18697,40 @@ func (r raidBossesOnRaidsQueryRaidIDString) Order(direction runtime.Direction) r
 	}
 }
 
-func (r raidBossesOnRaidsQueryRaidIDString) Contains(value string) raidBossesOnRaidsParams {
+func (r raidBossesOnRaidsQueryRaidIDInt) LT(value int) raidBossesOnRaidsParams {
 	return raidBossesOnRaidsParams{
 		data: builder.Field{
-			Action: "contains",
+			Action: "lt",
 			Name:   "raidId",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidBossesOnRaidsQueryRaidIDString) HasPrefix(value string) raidBossesOnRaidsParams {
+func (r raidBossesOnRaidsQueryRaidIDInt) GT(value int) raidBossesOnRaidsParams {
 	return raidBossesOnRaidsParams{
 		data: builder.Field{
-			Action: "starts_with",
+			Action: "gt",
 			Name:   "raidId",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidBossesOnRaidsQueryRaidIDString) HasSuffix(value string) raidBossesOnRaidsParams {
+func (r raidBossesOnRaidsQueryRaidIDInt) LTE(value int) raidBossesOnRaidsParams {
 	return raidBossesOnRaidsParams{
 		data: builder.Field{
-			Action: "ends_with",
+			Action: "lte",
+			Name:   "raidId",
+			Value:  value,
+		},
+	}
+}
+
+func (r raidBossesOnRaidsQueryRaidIDInt) GTE(value int) raidBossesOnRaidsParams {
+	return raidBossesOnRaidsParams{
+		data: builder.Field{
+			Action: "gte",
 			Name:   "raidId",
 			Value:  value,
 		},
@@ -18687,10 +18797,10 @@ func (r raidBossesOnRaidsQueryRaidBossRelations) Link(
 }
 
 // base struct
-type raidBossesOnRaidsQueryRaidBossIDString struct{}
+type raidBossesOnRaidsQueryRaidBossIDInt struct{}
 
 // Set the required value of RaidBossID
-func (r raidBossesOnRaidsQueryRaidBossIDString) Set(value string) raidBossesOnRaidsWithPrismaRaidBossIDSetParams {
+func (r raidBossesOnRaidsQueryRaidBossIDInt) Set(value int) raidBossesOnRaidsWithPrismaRaidBossIDSetParams {
 
 	return raidBossesOnRaidsWithPrismaRaidBossIDSetParams{
 		data: builder.Field{
@@ -18701,7 +18811,7 @@ func (r raidBossesOnRaidsQueryRaidBossIDString) Set(value string) raidBossesOnRa
 
 }
 
-func (r raidBossesOnRaidsQueryRaidBossIDString) Equals(value string) raidBossesOnRaidsWithPrismaRaidBossIDEqualsParams {
+func (r raidBossesOnRaidsQueryRaidBossIDInt) Equals(value int) raidBossesOnRaidsWithPrismaRaidBossIDEqualsParams {
 	return raidBossesOnRaidsWithPrismaRaidBossIDEqualsParams{
 		data: builder.Field{
 			Name:  "raidBossId",
@@ -18710,7 +18820,7 @@ func (r raidBossesOnRaidsQueryRaidBossIDString) Equals(value string) raidBossesO
 	}
 }
 
-func (r raidBossesOnRaidsQueryRaidBossIDString) In(values []string) raidBossesOnRaidsParams {
+func (r raidBossesOnRaidsQueryRaidBossIDInt) In(values []int) raidBossesOnRaidsParams {
 	f := builder.Field{
 		Name:   "raidBossId",
 		Action: "in",
@@ -18726,7 +18836,7 @@ func (r raidBossesOnRaidsQueryRaidBossIDString) In(values []string) raidBossesOn
 	}
 }
 
-func (r raidBossesOnRaidsQueryRaidBossIDString) Order(direction runtime.Direction) raidBossesOnRaidsParams {
+func (r raidBossesOnRaidsQueryRaidBossIDInt) Order(direction runtime.Direction) raidBossesOnRaidsParams {
 	return raidBossesOnRaidsParams{
 		data: builder.Field{
 			Name:  "raidBossId",
@@ -18735,30 +18845,40 @@ func (r raidBossesOnRaidsQueryRaidBossIDString) Order(direction runtime.Directio
 	}
 }
 
-func (r raidBossesOnRaidsQueryRaidBossIDString) Contains(value string) raidBossesOnRaidsParams {
+func (r raidBossesOnRaidsQueryRaidBossIDInt) LT(value int) raidBossesOnRaidsParams {
 	return raidBossesOnRaidsParams{
 		data: builder.Field{
-			Action: "contains",
+			Action: "lt",
 			Name:   "raidBossId",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidBossesOnRaidsQueryRaidBossIDString) HasPrefix(value string) raidBossesOnRaidsParams {
+func (r raidBossesOnRaidsQueryRaidBossIDInt) GT(value int) raidBossesOnRaidsParams {
 	return raidBossesOnRaidsParams{
 		data: builder.Field{
-			Action: "starts_with",
+			Action: "gt",
 			Name:   "raidBossId",
 			Value:  value,
 		},
 	}
 }
 
-func (r raidBossesOnRaidsQueryRaidBossIDString) HasSuffix(value string) raidBossesOnRaidsParams {
+func (r raidBossesOnRaidsQueryRaidBossIDInt) LTE(value int) raidBossesOnRaidsParams {
 	return raidBossesOnRaidsParams{
 		data: builder.Field{
-			Action: "ends_with",
+			Action: "lte",
+			Name:   "raidBossId",
+			Value:  value,
+		},
+	}
+}
+
+func (r raidBossesOnRaidsQueryRaidBossIDInt) GTE(value int) raidBossesOnRaidsParams {
+	return raidBossesOnRaidsParams{
+		data: builder.Field{
+			Action: "gte",
 			Name:   "raidBossId",
 			Value:  value,
 		},

@@ -31,7 +31,7 @@
       "tag": "CreateField",
       "model": "User",
       "field": "id",
-      "type": "String",
+      "type": "Int",
       "arity": "Required"
     },
     {
@@ -57,7 +57,7 @@
         "directive": "default"
       },
       "argument": "",
-      "value": "cuid()"
+      "value": "autoincrement()"
     },
     {
       "tag": "CreateDirective",
@@ -150,7 +150,7 @@
       "model": "User",
       "field": "email",
       "type": "String",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateDirective",
@@ -166,7 +166,32 @@
     {
       "tag": "CreateField",
       "model": "User",
-      "field": "name",
+      "field": "discordUsername",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "discordUsername"
+        },
+        "directive": "unique"
+      }
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "firstName",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "lastName",
       "type": "String",
       "arity": "Optional"
     },
@@ -175,7 +200,7 @@
       "model": "User",
       "field": "avatar",
       "type": "Avatar",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateModel",
@@ -185,7 +210,7 @@
       "tag": "CreateField",
       "model": "Avatar",
       "field": "id",
-      "type": "String",
+      "type": "Int",
       "arity": "Required"
     },
     {
@@ -211,7 +236,7 @@
         "directive": "default"
       },
       "argument": "",
-      "value": "cuid()"
+      "value": "autoincrement()"
     },
     {
       "tag": "CreateDirective",
@@ -331,7 +356,7 @@
       "tag": "CreateField",
       "model": "Avatar",
       "field": "userId",
-      "type": "String",
+      "type": "Int",
       "arity": "Required"
     },
     {
@@ -356,7 +381,7 @@
       "tag": "CreateField",
       "model": "Raid",
       "field": "id",
-      "type": "String",
+      "type": "Int",
       "arity": "Required"
     },
     {
@@ -382,7 +407,7 @@
         "directive": "default"
       },
       "argument": "",
-      "value": "cuid()"
+      "value": "autoincrement()"
     },
     {
       "tag": "CreateDirective",
@@ -566,7 +591,7 @@
       "tag": "CreateField",
       "model": "RaidBoss",
       "field": "id",
-      "type": "String",
+      "type": "Int",
       "arity": "Required"
     },
     {
@@ -592,7 +617,7 @@
         "directive": "default"
       },
       "argument": "",
-      "value": "cuid()"
+      "value": "autoincrement()"
     },
     {
       "tag": "CreateDirective",
@@ -668,6 +693,17 @@
       "field": "name",
       "type": "String",
       "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "RaidBoss",
+          "field": "name"
+        },
+        "directive": "unique"
+      }
     },
     {
       "tag": "CreateField",
@@ -801,7 +837,7 @@
       "tag": "CreateField",
       "model": "RaidAttack",
       "field": "raidId",
-      "type": "String",
+      "type": "Int",
       "arity": "Required"
     },
     {
@@ -854,7 +890,7 @@
       "tag": "CreateField",
       "model": "RaidAttack",
       "field": "avatarId",
-      "type": "String",
+      "type": "Int",
       "arity": "Required"
     },
     {
@@ -907,7 +943,7 @@
       "tag": "CreateField",
       "model": "RaidAttack",
       "field": "raidBossId",
-      "type": "String",
+      "type": "Int",
       "arity": "Required"
     },
     {
@@ -1044,7 +1080,7 @@
       "tag": "CreateField",
       "model": "AvatarsOnRaids",
       "field": "raidId",
-      "type": "String",
+      "type": "Int",
       "arity": "Required"
     },
     {
@@ -1097,7 +1133,7 @@
       "tag": "CreateField",
       "model": "AvatarsOnRaids",
       "field": "avatarId",
-      "type": "String",
+      "type": "Int",
       "arity": "Required"
     },
     {
@@ -1234,7 +1270,7 @@
       "tag": "CreateField",
       "model": "RaidBossesOnRaids",
       "field": "raidId",
-      "type": "String",
+      "type": "Int",
       "arity": "Required"
     },
     {
@@ -1287,7 +1323,7 @@
       "tag": "CreateField",
       "model": "RaidBossesOnRaids",
       "field": "raidBossId",
-      "type": "String",
+      "type": "Int",
       "arity": "Required"
     },
     {

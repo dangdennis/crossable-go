@@ -10,7 +10,7 @@ import (
 // FindUserByDiscordID finds a user entity by their discord id
 func FindUserByDiscordID(db *prisma.PrismaClient, discordID string) (prisma.UserModel, error) {
 	return db.User.FindOne(
-		prisma.User.ID.Equals(discordID),
+		prisma.User.DiscordUserID.Equals(discordID),
 	).Exec(context.Background())
 }
 
@@ -42,12 +42,12 @@ func CreateUser(db *prisma.PrismaClient, attrs UserAttrs) (prisma.UserModel, err
 }
 
 // CreateAvatar creates an avatar
-func CreateAvatar(db *prisma.PrismaClient, userID string) (prisma.AvatarModel, error) {
+func CreateAvatar(db *prisma.PrismaClient, userID uint64) (prisma.AvatarModel, error) {
 	fmt.Println("creating an avatar")
 
 	avatar, err := db.Avatar.CreateOne(
 		prisma.Avatar.User.Link(
-			prisma.User.ID.Equals(userID),
+			prisma.User.ID.Equals(int(userID)),
 		)).Exec(context.Background())
 	if err != nil {
 		return avatar, err

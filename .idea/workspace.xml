@@ -20,8 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3e67fb9-c979-4b19-b287-50dc79d567d4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seeder/seeder.go" beforeDir="false" afterPath="$PROJECT_DIR$/seeder/seeder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200917004835-crossing_dev/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200917004835-crossing_dev/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200917004835-crossing_dev/steps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200919111249-crossing_dev/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200919111249-crossing_dev/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200919111249-crossing_dev/steps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200920211445-crossing_dev/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200920211445-crossing_dev/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200920211445-crossing_dev/steps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/migrate.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,22 +125,22 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="547" y="356" key="EditFileWatcherDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1600529713874" />
-    <state width="1750" height="322" key="GridCell.Tab.0.bottom" timestamp="1600654113967">
+    <state width="1750" height="322" key="GridCell.Tab.0.bottom" timestamp="1600654586839">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="322" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1600654113967" />
-    <state width="1750" height="322" key="GridCell.Tab.0.center" timestamp="1600654113966">
+    <state width="1750" height="322" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586839" />
+    <state width="1750" height="322" key="GridCell.Tab.0.center" timestamp="1600654586838">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="322" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1600654113966" />
-    <state width="1750" height="322" key="GridCell.Tab.0.left" timestamp="1600654113966">
+    <state width="1750" height="322" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
+    <state width="1750" height="322" key="GridCell.Tab.0.left" timestamp="1600654586838">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="322" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1600654113966" />
-    <state width="1750" height="322" key="GridCell.Tab.0.right" timestamp="1600654113967">
+    <state width="1750" height="322" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
+    <state width="1750" height="322" key="GridCell.Tab.0.right" timestamp="1600654586838">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state width="1750" height="322" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1600654113967" />
+    <state width="1750" height="322" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
     <state width="1750" height="322" key="GridCell.Tab.1.bottom" timestamp="1600654113968">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
