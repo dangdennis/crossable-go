@@ -1,3 +1,8 @@
+# Installation
+
+1. Execute `./db_rebuild.sh`
+2. `go run main.go`
+
 https://github.com/prisma/prisma-client-go/blob/master/docs/quickstart.md
 
 1. create the migration script(s)
