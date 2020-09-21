@@ -1,4 +1,4 @@
-package seeder
+package main
 
 import (
 	"context"
@@ -7,7 +7,7 @@ import (
 
 	"github.com/brianvoe/gofakeit/v5"
 
-	prisma "github.com/dangdennis/crossing/db"
+	prisma "github.com/dangdennis/crossing/bot/db"
 	"github.com/dangdennis/crossing/repositories"
 )
 
