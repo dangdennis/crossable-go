@@ -20,14 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3e67fb9-c979-4b19-b287-50dc79d567d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/seeder/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consumers/consumers.go" beforeDir="false" afterPath="$PROJECT_DIR$/consumers/consumers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consumers/raid_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/consumers/raid_consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/db/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bot/db/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeder/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/seeder/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeder/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/seeder/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeder/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/seeder/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

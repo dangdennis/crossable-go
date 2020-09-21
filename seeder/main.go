@@ -6,9 +6,9 @@ import (
 	"time"
 
 	"github.com/brianvoe/gofakeit/v5"
+	"github.com/dangdennis/crossing/repositories"
 
 	prisma "github.com/dangdennis/crossing/bot/db"
-	"github.com/dangdennis/crossing/repositories"
 )
 
 func main() {
