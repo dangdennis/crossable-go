@@ -42,12 +42,12 @@ func CreateUser(db *prisma.PrismaClient, attrs UserAttrs) (prisma.UserModel, err
 }
 
 // CreateAvatar creates an avatar
-func CreateAvatar(db *prisma.PrismaClient, userID uint64) (prisma.AvatarModel, error) {
+func CreateAvatar(db *prisma.PrismaClient, userID int) (prisma.AvatarModel, error) {
 	fmt.Println("creating an avatar")
 
 	avatar, err := db.Avatar.CreateOne(
 		prisma.Avatar.User.Link(
-			prisma.User.ID.Equals(int(userID)),
+			prisma.User.ID.Equals(userID),
 		)).Exec(context.Background())
 	if err != nil {
 		return avatar, err

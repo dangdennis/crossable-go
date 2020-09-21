@@ -56,9 +56,9 @@ func initUser(m *discordgo.MessageCreate) error {
 	if err == nil {
 		fmt.Println("user already exists")
 		return nil
-	} else {
-		fmt.Println("initializing new user")
 	}
+
+	fmt.Println("initializing new user")
 
 	user, err := repositories.CreateUser(prisma.Client(), repositories.UserAttrs{DiscordUserID: m.Author.ID})
 	if err != nil {
