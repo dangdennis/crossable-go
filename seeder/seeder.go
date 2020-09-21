@@ -19,11 +19,8 @@ func Run() {
 
 	// USERS
 	gofakeit.Seed(gofakeit.Int64())
-	d1 := strconv.FormatUint(uint64(gofakeit.Number(10000000, 90000000)), 10)
-	d2 := strconv.FormatUint(uint64(gofakeit.Number(10000000, 90000000)), 10)
-	fmt.Println(d2)
 	user1, err := repositories.CreateUser(db, repositories.UserAttrs{
-		DiscordUserID:   d1,
+		DiscordUserID:   strconv.FormatUint(uint64(gofakeit.Number(10000000, 90000000)), 10),
 		Email:           toPtrString(gofakeit.Email()),
 		DiscordUsername: toPtrString(gofakeit.Username()),
 		FirstName:       toPtrString(gofakeit.FirstName()),
@@ -61,14 +58,12 @@ func Run() {
 		prisma.RaidBoss.Image.Set("https://cdn.vox-cdn.com/thumbor/k6m7tw54mdYa2yJoYbk3FuIYFZg=/0x0:1024x576/1920x0/filters:focal(0x0:1024x576):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/19748343/155054_the_lich_king.jpg"),
 	).Exec(context.Background())
 	handleError(err)
-	fmt.Println(bossLichKing)
 
 	bossAlienQueen, err := db.RaidBoss.CreateOne(
 		prisma.RaidBoss.Name.Set("The Alien Queen"),
 		prisma.RaidBoss.Image.Set("https://vignette.wikia.nocookie.net/avp/images/7/74/Promo07.PNG/revision/latest?cb=20120527102557"),
 	).Exec(context.Background())
 	handleError(err)
-	fmt.Println(bossAlienQueen)
 
 	now := time.Now()
 	later := time.Now().Add(49 * time.Hour)
@@ -80,13 +75,6 @@ func Run() {
 		prisma.Raid.StartTime.Set(now.Add(1*time.Second)),
 		prisma.Raid.EndTime.Set(later),
 		prisma.Raid.CompletionProgress.Set(1.0),
-		prisma.Raid.RaidBossesOnRaids.Link(
-			prisma.RaidBossesOnRaids.RaidBossID.Equals(bossLichKing.ID),
-		),
-		// prisma.Raid.AvatarsOnRaids.Link(
-		// 	prisma.AvatarsOnRaids.AvatarID.Equals(avatar1.ID),
-		// prisma.AvatarsOnRaids.AvatarID.Equals(avatar2.ID),
-		// ),
 	).Exec(context.Background())
 	handleError(err)
 
@@ -95,16 +83,27 @@ func Run() {
 		prisma.Raid.PlayerLimit.Set(20),
 		prisma.Raid.StartTime.Set(now),
 		prisma.Raid.EndTime.Set(later),
-		// prisma.Raid.RaidBossesOnRaids.Link(
-		// 	prisma.RaidBossesOnRaids.RaidBossID.Equals(bossAlienQueen.ID),
-		// ),
-		// prisma.Raid.AvatarsOnRaids.Link(
-		// 	prisma.AvatarsOnRaids.AvatarID.Equals(avatar1.ID),
-		// prisma.AvatarsOnRaids.AvatarID.Equals(avatar2.ID),
-		// ),
 	).Exec(context.Background())
 	handleError(err)
 
+	// RAID BOSSES IN RAID
+	_, err = db.RaidBossesOnRaids.CreateOne(
+		prisma.RaidBossesOnRaids.Raid.Link(
+			prisma.Raid.ID.Equals(raid1.ID)),
+		prisma.RaidBossesOnRaids.RaidBoss.Link(
+			prisma.RaidBoss.ID.Equals(bossLichKing.ID)),
+	).Exec(context.Background())
+	handleError(err)
+
+	_, err = db.RaidBossesOnRaids.CreateOne(
+		prisma.RaidBossesOnRaids.Raid.Link(
+			prisma.Raid.ID.Equals(raid2.ID)),
+		prisma.RaidBossesOnRaids.RaidBoss.Link(
+			prisma.RaidBoss.ID.Equals(bossAlienQueen.ID)),
+	).Exec(context.Background())
+	handleError(err)
+
+	// AVATARS ON RAIDS
 	avatar1OnRaid1, err := db.AvatarsOnRaids.CreateOne(
 		prisma.AvatarsOnRaids.Raid.Link(
 			prisma.Raid.ID.Equals(raid1.ID),
@@ -125,10 +124,30 @@ func Run() {
 	).Exec(context.Background())
 	handleError(err)
 
-	fmt.Println(avatar1)
-	fmt.Println(avatar2)
+	avatar2OnRaid1, err := db.AvatarsOnRaids.CreateOne(
+		prisma.AvatarsOnRaids.Raid.Link(
+			prisma.Raid.ID.Equals(raid1.ID),
+		),
+		prisma.AvatarsOnRaids.Avatar.Link(
+			prisma.Avatar.ID.Equals(avatar2.ID),
+		),
+	).Exec(context.Background())
+	handleError(err)
+
+	avatar2OnRaid2, err := db.AvatarsOnRaids.CreateOne(
+		prisma.AvatarsOnRaids.Raid.Link(
+			prisma.Raid.ID.Equals(raid2.ID),
+		),
+		prisma.AvatarsOnRaids.Avatar.Link(
+			prisma.Avatar.ID.Equals(avatar2.ID),
+		),
+	).Exec(context.Background())
+	handleError(err)
+
 	fmt.Println(avatar1OnRaid1)
 	fmt.Println(avatar1OnRaid2)
+	fmt.Println(avatar2OnRaid1)
+	fmt.Println(avatar2OnRaid2)
 }
 
 func handleError(err error) {
