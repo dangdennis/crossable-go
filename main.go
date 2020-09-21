@@ -9,13 +9,13 @@ import (
 
 	"github.com/bwmarrin/discordgo"
 
-	"github.com/dangdennis/crossing/bot/consumers"
-	"github.com/dangdennis/crossing/bot/db"
-	"github.com/dangdennis/crossing/bot/env"
+	"github.com/dangdennis/crossing/consumers"
+	prisma "github.com/dangdennis/crossing/db"
+	"github.com/dangdennis/crossing/env"
 )
 
 func main() {
-	client := db.Client()
+	client := prisma.Client()
 
 	defer func() {
 		err := client.Disconnect()

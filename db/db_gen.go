@@ -11866,16 +11866,16 @@ generator db {
 }
 
 model User {
-    id            String    @default(cuid()) @id
-    createdAt     DateTime  @default(now())
-    deletedAt     DateTime?
-    updatedAt     DateTime  @updatedAt
-    discordUserId String    @unique
-    email         String?    @unique
-    discordUsername String? @unique
-    firstName      String?
-    lastName      String?
-    avatar        Avatar?
+    id              String    @default(cuid()) @id
+    createdAt       DateTime  @default(now())
+    deletedAt       DateTime?
+    updatedAt       DateTime  @updatedAt
+    discordUserId   String    @unique
+    email           String?   @unique
+    discordUsername String?   @unique
+    firstName       String?
+    lastName        String?
+    avatar          Avatar?
 }
 
 model Avatar {
@@ -11909,7 +11909,7 @@ model RaidBoss {
     createdAt         DateTime            @default(now())
     deletedAt         DateTime?
     updatedAt         DateTime            @updatedAt
-    name              String
+    name              String              @unique
     image             String?
     RaidBossesOnRaids RaidBossesOnRaids[]
     RaidAttack        RaidAttack[]
@@ -15709,6 +15709,7 @@ type raidBossQuery struct {
 	// Name
 	//
 	// @required
+	// @unique
 	Name raidBossQueryNameString
 
 	// Image
@@ -16169,8 +16170,8 @@ func (r raidBossQueryNameString) Set(value string) raidBossWithPrismaNameSetPara
 
 }
 
-func (r raidBossQueryNameString) Equals(value string) raidBossWithPrismaNameEqualsParams {
-	return raidBossWithPrismaNameEqualsParams{
+func (r raidBossQueryNameString) Equals(value string) raidBossWithPrismaNameEqualsParamsUnique {
+	return raidBossWithPrismaNameEqualsParamsUnique{
 		data: builder.Field{
 			Name:  "name",
 			Value: value,
@@ -16178,7 +16179,7 @@ func (r raidBossQueryNameString) Equals(value string) raidBossWithPrismaNameEqua
 	}
 }
 
-func (r raidBossQueryNameString) In(values []string) raidBossParams {
+func (r raidBossQueryNameString) In(values []string) raidBossParamsUnique {
 	f := builder.Field{
 		Name:   "name",
 		Action: "in",
@@ -16189,7 +16190,7 @@ func (r raidBossQueryNameString) In(values []string) raidBossParams {
 			Value: v,
 		})
 	}
-	return raidBossParams{
+	return raidBossParamsUnique{
 		data: f,
 	}
 }
@@ -16203,8 +16204,17 @@ func (r raidBossQueryNameString) Order(direction runtime.Direction) raidBossPara
 	}
 }
 
-func (r raidBossQueryNameString) Contains(value string) raidBossParams {
-	return raidBossParams{
+func (r raidBossQueryNameString) Cursor(cursor string) raidBossCursorParams {
+	return raidBossCursorParams{
+		data: builder.Field{
+			Name:  "name",
+			Value: cursor,
+		},
+	}
+}
+
+func (r raidBossQueryNameString) Contains(value string) raidBossParamsUnique {
+	return raidBossParamsUnique{
 		data: builder.Field{
 			Action: "contains",
 			Name:   "name",
@@ -16213,8 +16223,8 @@ func (r raidBossQueryNameString) Contains(value string) raidBossParams {
 	}
 }
 
-func (r raidBossQueryNameString) HasPrefix(value string) raidBossParams {
-	return raidBossParams{
+func (r raidBossQueryNameString) HasPrefix(value string) raidBossParamsUnique {
+	return raidBossParamsUnique{
 		data: builder.Field{
 			Action: "starts_with",
 			Name:   "name",
@@ -16223,8 +16233,8 @@ func (r raidBossQueryNameString) HasPrefix(value string) raidBossParams {
 	}
 }
 
-func (r raidBossQueryNameString) HasSuffix(value string) raidBossParams {
-	return raidBossParams{
+func (r raidBossQueryNameString) HasSuffix(value string) raidBossParamsUnique {
+	return raidBossParamsUnique{
 		data: builder.Field{
 			Action: "ends_with",
 			Name:   "name",

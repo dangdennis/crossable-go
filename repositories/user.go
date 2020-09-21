@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	prisma "github.com/dangdennis/crossing/bot/db"
+	prisma "github.com/dangdennis/crossing/db"
 )
 
 // FindUserByDiscordID finds a user entity by their discord id

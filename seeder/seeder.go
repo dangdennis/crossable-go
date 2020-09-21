@@ -1,4 +1,4 @@
-package main
+package seeder
 
 import (
 	"context"
@@ -6,12 +6,14 @@ import (
 	"time"
 
 	"github.com/brianvoe/gofakeit/v5"
+
 	"github.com/dangdennis/crossing/repositories"
 
-	prisma "github.com/dangdennis/crossing/bot/db"
+	prisma "github.com/dangdennis/crossing/db"
 )
 
-func main() {
+// Run runs the seeder
+func Run() {
 	db := prisma.Client()
 
 	// USERS
@@ -65,7 +67,7 @@ func main() {
 	later := time.Now().Add(49 * time.Hour)
 
 	// RAIDS
-	raid1, err := db.Raid.CreateOne(
+	_, err = db.Raid.CreateOne(
 		prisma.Raid.Active.Set(true),
 		prisma.Raid.PlayerLimit.Set(20),
 		prisma.Raid.StartTime.Set(now.Add(1*time.Second)),
@@ -81,7 +83,7 @@ func main() {
 	).Exec(context.Background())
 	handleError(err)
 
-	raid2, err := db.Raid.CreateOne(
+	_, err = db.Raid.CreateOne(
 		prisma.Raid.Active.Set(true),
 		prisma.Raid.PlayerLimit.Set(20),
 		prisma.Raid.StartTime.Set(now),
