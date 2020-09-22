@@ -25,4 +25,8 @@ Real serious commands:
 // BombCommand handles !bomb
 func BombCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	fmt.Println("handling !bomb")
+	// query for user rows
+	// soft_delete user rows
+	// soft delete avatar rows
+	// soft delete avatarOnRaids rows
 }

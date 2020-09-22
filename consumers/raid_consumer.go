@@ -50,9 +50,19 @@ func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 // JoinCommand handles !join
 func JoinCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	fmt.Println("handling !join")
+	// query active raid
+	// query for user
+	// query for their avatar
+	// add their avatar to avatarOnRaids for active raid
 }
 
 // ActionCommand handles !action
 func ActionCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	fmt.Println("handling !action")
+	// query active raid
+	// query for user
+	// query for avatar
+	// perform action
+	// - reveal next story segment
+	// - increase raid's completion progress
 }
