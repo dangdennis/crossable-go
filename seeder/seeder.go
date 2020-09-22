@@ -70,7 +70,7 @@ func Run() {
 
 	// RAIDS
 	raid1, err := db.Raid.CreateOne(
-		prisma.Raid.Active.Set(true),
+		prisma.Raid.Active.Set(false),
 		prisma.Raid.PlayerLimit.Set(20),
 		prisma.Raid.StartTime.Set(now.Add(1*time.Second)),
 		prisma.Raid.EndTime.Set(later),
