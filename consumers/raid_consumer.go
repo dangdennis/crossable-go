@@ -38,6 +38,10 @@ func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	if raid.CompletionProgress < 1 {
 		health := (1 - raid.CompletionProgress) * 100
 		_, err = s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("%s has %.2f%% HP left!", boss.Name, health))
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
 		return
 
 	}
@@ -77,6 +81,21 @@ func JoinCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	err = raids.JoinRaid(db, raid, avatar)
 	if err != nil {
 		log.Error("failed to add avatar to raid", zap.Error(err))
+		return
+	}
+
+	username := m.Author.Username
+	if username == "" {
+		_, err = s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("A new member has joined the raid!"))
+		if err != nil {
+			log.Error("failed to send message", zap.Error(err))
+		}
+		return
+	}
+
+	_, err = s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("%s has joined the raid!", username))
+	if err != nil {
+		log.Error("failed to send message", zap.Error(err))
 	}
 }
 
