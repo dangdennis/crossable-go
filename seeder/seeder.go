@@ -8,9 +8,8 @@ import (
 
 	"github.com/brianvoe/gofakeit/v5"
 
-	"github.com/dangdennis/crossing/repositories"
-
 	prisma "github.com/dangdennis/crossing/db"
+	"github.com/dangdennis/crossing/repositories/users"
 )
 
 // Run runs the seeder
@@ -19,7 +18,7 @@ func Run() {
 
 	// USERS
 	gofakeit.Seed(gofakeit.Int64())
-	user1, err := repositories.CreateUser(db, repositories.UserAttrs{
+	user1, err := users.CreateUser(db, users.UserAttrs{
 		DiscordUserID:   strconv.FormatUint(uint64(gofakeit.Number(10000000, 90000000)), 10),
 		Email:           toPtrString(gofakeit.Email()),
 		DiscordUsername: toPtrString(gofakeit.Username()),
@@ -28,7 +27,7 @@ func Run() {
 	})
 	handleError(err)
 
-	user2, err := repositories.CreateUser(db, repositories.UserAttrs{
+	user2, err := users.CreateUser(db, users.UserAttrs{
 		DiscordUserID:   strconv.FormatUint(uint64(gofakeit.Number(10000000, 90000000)), 10),
 		Email:           toPtrString(gofakeit.Email()),
 		DiscordUsername: toPtrString(gofakeit.Username()),

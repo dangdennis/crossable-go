@@ -6,12 +6,12 @@ import (
 	"github.com/bwmarrin/discordgo"
 
 	"github.com/dangdennis/crossing/db"
-	"github.com/dangdennis/crossing/repositories"
+	"github.com/dangdennis/crossing/repositories/raids"
 )
 
 // RaidCommand handles !raid
 func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
-	raid, err := repositories.FindWeeklyActiveRaid(db.Client())
+	raid, err := raids.FindWeeklyActiveRaid(db.Client())
 	if err != nil {
 		fmt.Println(err)
 		_, err := s.ChannelMessageSend(m.ChannelID, `No active raid this week.`)

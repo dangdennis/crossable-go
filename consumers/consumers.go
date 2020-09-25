@@ -7,7 +7,7 @@ import (
 	"github.com/bwmarrin/discordgo"
 
 	prisma "github.com/dangdennis/crossing/db"
-	"github.com/dangdennis/crossing/repositories"
+	"github.com/dangdennis/crossing/repositories/users"
 )
 
 // MessageCreate consumes Discord MessageCreate events
@@ -49,7 +49,7 @@ func initUser(m *discordgo.MessageCreate) error {
 		return nil
 	}
 
-	_, err := repositories.FindUserByDiscordID(prisma.Client(), m.Author.ID)
+	_, err := users.FindUserByDiscordID(prisma.Client(), m.Author.ID)
 	if err == nil {
 		fmt.Println("user already exists")
 		return nil
@@ -57,12 +57,12 @@ func initUser(m *discordgo.MessageCreate) error {
 
 	fmt.Println("initializing new user")
 
-	user, err := repositories.CreateUser(prisma.Client(), repositories.UserAttrs{DiscordUserID: m.Author.ID})
+	user, err := users.CreateUser(prisma.Client(), users.UserAttrs{DiscordUserID: m.Author.ID})
 	if err != nil {
 		return err
 	}
 
-	_, err = repositories.CreateAvatar(prisma.Client(), user.ID)
+	_, err = users.CreateAvatar(prisma.Client(), user.ID)
 	if err != nil {
 		return err
 	}
