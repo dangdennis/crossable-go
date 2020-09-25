@@ -4,10 +4,16 @@ import (
 	"context"
 	"fmt"
 
+	"go.uber.org/zap"
+
 	prisma "github.com/dangdennis/crossing/db"
 	"github.com/dangdennis/crossing/libs/logger"
-	"go.uber.org/zap"
 )
+
+// CreateRaid creates a new raid
+func CreateRaid(db *prisma.PrismaClient) (r prisma.RaidModel, err error) {
+	return db.Raid.CreateOne().Exec(context.Background())
+}
 
 // FindWeeklyActiveRaid gets the active raid of the week and its raid bosses
 // TODO Pass time boundaries (start and end of a week) for better testability
@@ -32,8 +38,8 @@ func FindWeeklyActiveRaid(db *prisma.PrismaClient) (r prisma.RaidModel, err erro
 }
 
 // JoinRaid adds a user's avatar to a raid as a member
-func JoinRaid(db *prisma.PrismaClient, raid prisma.RaidModel, avatar prisma.AvatarModel) error {
-	_, err := db.AvatarsOnRaids.CreateOne(
+func JoinRaid(db *prisma.PrismaClient, raid prisma.RaidModel, avatar prisma.AvatarModel) (prisma.AvatarsOnRaidsModel, error) {
+	raidMember, err := db.AvatarsOnRaids.CreateOne(
 		prisma.AvatarsOnRaids.Raid.Link(
 			prisma.Raid.ID.Equals(raid.ID),
 		),
@@ -42,10 +48,10 @@ func JoinRaid(db *prisma.PrismaClient, raid prisma.RaidModel, avatar prisma.Avat
 		),
 	).Exec(context.Background())
 	if err != nil {
-		return err
+		return raidMember, err
 	}
 
 	logger.GetLogger().Info("successfully added avatar to raid", zap.Int("avatarID", avatar.ID), zap.Int("raidID", raid.ID))
 
-	return nil
+	return raidMember, nil
 }

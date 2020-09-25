@@ -2,6 +2,7 @@ package seeder
 
 import (
 	"context"
+	"crypto/rand"
 	"fmt"
 	"strconv"
 	"time"
@@ -15,9 +16,10 @@ import (
 // Run runs the seeder
 func Run() {
 	db := prisma.Client()
+	rando, _ := rand.Prime(rand.Reader, 128)
 
 	// USERS
-	gofakeit.Seed(gofakeit.Int64())
+	gofakeit.Seed(rando.Int64())
 	user1, err := users.CreateUser(db, users.UserAttrs{
 		DiscordUserID:   strconv.FormatUint(uint64(gofakeit.Number(10000000, 90000000)), 10),
 		Email:           toPtrString(gofakeit.Email()),

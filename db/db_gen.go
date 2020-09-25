@@ -5282,7 +5282,7 @@ func (r avatarCreateOne) Exec(ctx context.Context) (AvatarModel, error) {
 
 // Creates a single user.
 func (r raidActions) CreateOne(
-	_active raidWithPrismaActiveSetParams, _playerLimit raidWithPrismaPlayerLimitSetParams,
+
 	optional ...raidSetParams,
 ) raidCreateOne {
 	var v raidCreateOne
@@ -5295,9 +5295,6 @@ func (r raidActions) CreateOne(
 	v.query.Outputs = raidOutput
 
 	var fields []builder.Field
-
-	fields = append(fields, _active.data)
-	fields = append(fields, _playerLimit.data)
 
 	for _, q := range optional {
 		fields = append(fields, q.data)
@@ -11866,7 +11863,7 @@ generator db {
 }
 
 model User {
-    id              Int    @default(autoincrement()) @id
+    id              Int       @default(autoincrement()) @id
     createdAt       DateTime  @default(now())
     deletedAt       DateTime?
     updatedAt       DateTime  @updatedAt
@@ -11879,7 +11876,7 @@ model User {
 }
 
 model Avatar {
-    id             Int           @default(autoincrement()) @id
+    id             Int              @default(autoincrement()) @id
     createdAt      DateTime         @default(now())
     deletedAt      DateTime?
     updatedAt      DateTime         @updatedAt
@@ -11890,22 +11887,22 @@ model Avatar {
 }
 
 model Raid {
-    id                 Int              @default(autoincrement()) @id
+    id                 Int                 @default(autoincrement()) @id
     createdAt          DateTime            @default(now())
     deletedAt          DateTime?
     updatedAt          DateTime            @updatedAt
     startTime          DateTime            @default(now())
     endTime            DateTime?
     completionProgress Float               @default(0)
-    active             Boolean
-    playerLimit        Int
+    active             Boolean             @default(false)
+    playerLimit        Int                 @default(10)
     RaidAttack         RaidAttack[]
     AvatarsOnRaids     AvatarsOnRaids[]
     RaidBossesOnRaids  RaidBossesOnRaids[]
 }
 
 model RaidBoss {
-    id                Int              @default(autoincrement()) @id
+    id                Int                 @default(autoincrement()) @id
     createdAt         DateTime            @default(now())
     deletedAt         DateTime?
     updatedAt         DateTime            @updatedAt
@@ -15230,9 +15227,9 @@ func (r raidQueryCompletionProgressFloat) GTE(value float64) raidParams {
 type raidQueryActiveBoolean struct{}
 
 // Set the required value of Active
-func (r raidQueryActiveBoolean) Set(value bool) raidWithPrismaActiveSetParams {
+func (r raidQueryActiveBoolean) Set(value bool) raidSetParams {
 
-	return raidWithPrismaActiveSetParams{
+	return raidSetParams{
 		data: builder.Field{
 			Name:  "active",
 			Value: value,
@@ -15279,9 +15276,9 @@ func (r raidQueryActiveBoolean) Order(direction runtime.Direction) raidParams {
 type raidQueryPlayerLimitInt struct{}
 
 // Set the required value of PlayerLimit
-func (r raidQueryPlayerLimitInt) Set(value int) raidWithPrismaPlayerLimitSetParams {
+func (r raidQueryPlayerLimitInt) Set(value int) raidSetParams {
 
-	return raidWithPrismaPlayerLimitSetParams{
+	return raidSetParams{
 		data: builder.Field{
 			Name:  "playerLimit",
 			Value: value,

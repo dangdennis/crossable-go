@@ -78,7 +78,7 @@ func JoinCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 		return
 	}
 
-	err = raids.JoinRaid(db, raid, avatar)
+	_, err = raids.JoinRaid(db, raid, avatar)
 	if err != nil {
 		log.Error("failed to add avatar to raid", zap.Error(err))
 		return
