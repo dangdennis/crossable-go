@@ -32,7 +32,7 @@ func FindWeeklyActiveRaid(db *prisma.PrismaClient) (r prisma.RaidModel, err erro
 }
 
 // JoinRaid adds a user's avatar to a raid as a member
-func JoinRaid(db *prisma.PrismaClient, avatar prisma.AvatarModel, raid prisma.RaidModel) error {
+func JoinRaid(db *prisma.PrismaClient, raid prisma.RaidModel, avatar prisma.AvatarModel) error {
 	_, err := db.AvatarsOnRaids.CreateOne(
 		prisma.AvatarsOnRaids.Raid.Link(
 			prisma.Raid.ID.Equals(raid.ID),

@@ -4,9 +4,12 @@ import (
 	"fmt"
 
 	"github.com/bwmarrin/discordgo"
+	"go.uber.org/zap"
 
 	"github.com/dangdennis/crossing/db"
+	"github.com/dangdennis/crossing/libs/logger"
 	"github.com/dangdennis/crossing/repositories/raids"
+	"github.com/dangdennis/crossing/repositories/users"
 )
 
 // RaidCommand handles !raid
@@ -50,10 +53,31 @@ func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 // JoinCommand handles !join
 func JoinCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	fmt.Println("handling !join")
-	// query active raid
-	// query for user
-	// query for their avatar
-	// add their avatar to avatarOnRaids for active raid
+	db := db.Client()
+	log := logger.GetLogger()
+
+	raid, err := raids.FindWeeklyActiveRaid(db)
+	if err != nil {
+		log.Error("failed to get weekly active raid", zap.Error(err))
+		return
+	}
+
+	user, err := users.FindUserByDiscordID(db, m.Author.ID)
+	if err != nil {
+		log.Error("failed to get weekly active raid", zap.Error(err))
+		return
+	}
+
+	avatar, ok := user.Avatar()
+	if !ok {
+		log.Error("user does not have avatar", zap.Int("userID", user.ID), zap.Error(err))
+		return
+	}
+
+	err = raids.JoinRaid(db, raid, avatar)
+	if err != nil {
+		log.Error("failed to add avatar to raid", zap.Error(err))
+	}
 }
 
 // ActionCommand handles !action

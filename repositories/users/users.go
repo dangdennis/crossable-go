@@ -7,10 +7,12 @@ import (
 	prisma "github.com/dangdennis/crossing/db"
 )
 
-// FindUserByDiscordID finds a user entity by their discord id
+// FindUserByDiscordID finds a user entity by their discord id and their avatar
 func FindUserByDiscordID(db *prisma.PrismaClient, discordID string) (prisma.UserModel, error) {
 	return db.User.FindOne(
 		prisma.User.DiscordUserID.Equals(discordID),
+	).With(
+		prisma.User.Avatar.Fetch(),
 	).Exec(context.Background())
 }
 
