@@ -27,7 +27,6 @@ model Avatar {
     updatedAt      DateTime         @updatedAt
     User           User             @relation(fields: [userId], references: [id])
     userId         Int
-    RaidAttack     RaidAttack[]
     AvatarsOnRaids AvatarsOnRaids[]
 }
 
@@ -41,9 +40,10 @@ model Raid {
     completionProgress Float               @default(0)
     active             Boolean             @default(false)
     playerLimit        Int                 @default(10)
-    RaidAttack         RaidAttack[]
+    playerCount        Int                 @default(0)
     AvatarsOnRaids     AvatarsOnRaids[]
     RaidBossesOnRaids  RaidBossesOnRaids[]
+    StoriesOnRaids     StoriesOnRaids[]
 }
 
 model RaidBoss {
@@ -54,27 +54,13 @@ model RaidBoss {
     name              String              @unique
     image             String?
     RaidBossesOnRaids RaidBossesOnRaids[]
-    RaidAttack        RaidAttack[]
-}
-
-model RaidAttack {
-    createdAt  DateTime  @default(now())
-    deletedAt  DateTime?
-    updatedAt  DateTime  @updatedAt
-    raid       Raid      @relation(fields: [raidId], references: [id])
-    raidId     Int
-    avatar     Avatar    @relation(fields: [avatarId], references: [id])
-    avatarId   Int
-    RaidBoss   RaidBoss  @relation(fields: [raidBossId], references: [id])
-    raidBossId Int
-
-    @@id([raidId, avatarId, raidBossId])
 }
 
 model AvatarsOnRaids {
     createdAt DateTime  @default(now())
     deletedAt DateTime?
     updatedAt DateTime  @updatedAt
+    position  Int
     raid      Raid      @relation(fields: [raidId], references: [id])
     raidId    Int
     avatar    Avatar    @relation(fields: [avatarId], references: [id])
@@ -93,4 +79,55 @@ model RaidBossesOnRaids {
     raidBossId Int
 
     @@id([raidId, raidBossId])
+}
+
+model Story {
+    id        Int       @default(autoincrement()) @id
+    createdAt DateTime  @default(now())
+    deletedAt DateTime?
+    updatedAt DateTime  @updatedAt
+}
+
+model StoriesOnRaids {
+    createdAt  DateTime  @default(now())
+    deletedAt  DateTime?
+    updatedAt  DateTime  @updatedAt
+    raid       Raid      @relation(fields: [raidId], references: [id])
+    raidId     Int
+    story      Story      @relation(fields: [storyId], references: [id])
+    storyId    Int
+    raidBoss   RaidBoss  @relation(fields: [raidBossId], references: [id])
+    raidBossId Int
+
+    @@id([raidId, storyId, raidBossId])
+}
+
+model Event {
+    id        Int       @default(autoincrement()) @id
+    createdAt DateTime  @default(now())
+    deletedAt DateTime?
+    updatedAt DateTime  @updatedAt
+    story     Story     @relation(fields: [storyId], references: [id])
+    storyId   Int
+    sequence  Int
+}
+
+model Action {
+    id        Int       @default(autoincrement()) @id
+    createdAt DateTime  @default(now())
+    deletedAt DateTime?
+    updatedAt DateTime  @updatedAt
+    // raid       Raid      @relation(fields: [raidId], references: [id])
+    // raidId     Int
+    // avatar     Avatar    @relation(fields: [avatarId], references: [id])
+    // avatarId   Int
+    // RaidBoss   RaidBoss  @relation(fields: [raidBossId], references: [id])
+    // raidBossId Int
+}
+
+model Message {
+    id        Int       @default(autoincrement()) @id
+    createdAt DateTime  @default(now())
+    deletedAt DateTime?
+    updatedAt DateTime  @updatedAt
 }
