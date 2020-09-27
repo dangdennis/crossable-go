@@ -6283,6 +6283,70 @@ func (p eventWithPrismaActionEqualsParamsUnique) actionField() {}
 func (eventWithPrismaActionEqualsParamsUnique) unique() {}
 func (eventWithPrismaActionEqualsParamsUnique) equals() {}
 
+type iEventWithPrismaMessagesOnEventsEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	eventModel()
+	messagesOnEventsField()
+}
+
+type eventWithPrismaMessagesOnEventsSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p eventWithPrismaMessagesOnEventsSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p eventWithPrismaMessagesOnEventsSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p eventWithPrismaMessagesOnEventsSetParams) eventModel() {}
+
+func (p eventWithPrismaMessagesOnEventsSetParams) messagesOnEventsField() {}
+
+type eventWithPrismaMessagesOnEventsEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p eventWithPrismaMessagesOnEventsEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p eventWithPrismaMessagesOnEventsEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p eventWithPrismaMessagesOnEventsEqualsParams) eventModel() {}
+
+func (p eventWithPrismaMessagesOnEventsEqualsParams) messagesOnEventsField() {}
+
+func (eventWithPrismaMessagesOnEventsSetParams) settable()  {}
+func (eventWithPrismaMessagesOnEventsEqualsParams) equals() {}
+
+type eventWithPrismaMessagesOnEventsEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p eventWithPrismaMessagesOnEventsEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p eventWithPrismaMessagesOnEventsEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p eventWithPrismaMessagesOnEventsEqualsParamsUnique) eventModel()            {}
+func (p eventWithPrismaMessagesOnEventsEqualsParamsUnique) messagesOnEventsField() {}
+
+func (eventWithPrismaMessagesOnEventsEqualsParamsUnique) unique() {}
+func (eventWithPrismaMessagesOnEventsEqualsParamsUnique) equals() {}
+
 type actionActions struct {
 	// client holds the prisma client
 	client *PrismaClient
@@ -6981,6 +7045,7 @@ var messageOutput = []builder.Output{
 	{Name: "deletedAt"},
 	{Name: "updatedAt"},
 	{Name: "content"},
+	{Name: "type"},
 }
 
 type iMessageRelationWith interface {
@@ -7464,6 +7529,70 @@ func (p messageWithPrismaContentEqualsParamsUnique) contentField() {}
 func (messageWithPrismaContentEqualsParamsUnique) unique() {}
 func (messageWithPrismaContentEqualsParamsUnique) equals() {}
 
+type iMessageWithPrismaTypeEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	messageModel()
+	typeField()
+}
+
+type messageWithPrismaTypeSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messageWithPrismaTypeSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p messageWithPrismaTypeSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messageWithPrismaTypeSetParams) messageModel() {}
+
+func (p messageWithPrismaTypeSetParams) typeField() {}
+
+type messageWithPrismaTypeEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messageWithPrismaTypeEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p messageWithPrismaTypeEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messageWithPrismaTypeEqualsParams) messageModel() {}
+
+func (p messageWithPrismaTypeEqualsParams) typeField() {}
+
+func (messageWithPrismaTypeSetParams) settable()  {}
+func (messageWithPrismaTypeEqualsParams) equals() {}
+
+type messageWithPrismaTypeEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messageWithPrismaTypeEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p messageWithPrismaTypeEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messageWithPrismaTypeEqualsParamsUnique) messageModel() {}
+func (p messageWithPrismaTypeEqualsParamsUnique) typeField()    {}
+
+func (messageWithPrismaTypeEqualsParamsUnique) unique() {}
+func (messageWithPrismaTypeEqualsParamsUnique) equals() {}
+
 type iMessageWithPrismaMessagesOnActionsEqualsParams interface {
 	field() builder.Field
 	getQuery() builder.Query
@@ -7527,6 +7656,70 @@ func (p messageWithPrismaMessagesOnActionsEqualsParamsUnique) messagesOnActionsF
 
 func (messageWithPrismaMessagesOnActionsEqualsParamsUnique) unique() {}
 func (messageWithPrismaMessagesOnActionsEqualsParamsUnique) equals() {}
+
+type iMessageWithPrismaMessagesOnEventsEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	messageModel()
+	messagesOnEventsField()
+}
+
+type messageWithPrismaMessagesOnEventsSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messageWithPrismaMessagesOnEventsSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p messageWithPrismaMessagesOnEventsSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messageWithPrismaMessagesOnEventsSetParams) messageModel() {}
+
+func (p messageWithPrismaMessagesOnEventsSetParams) messagesOnEventsField() {}
+
+type messageWithPrismaMessagesOnEventsEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messageWithPrismaMessagesOnEventsEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p messageWithPrismaMessagesOnEventsEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messageWithPrismaMessagesOnEventsEqualsParams) messageModel() {}
+
+func (p messageWithPrismaMessagesOnEventsEqualsParams) messagesOnEventsField() {}
+
+func (messageWithPrismaMessagesOnEventsSetParams) settable()  {}
+func (messageWithPrismaMessagesOnEventsEqualsParams) equals() {}
+
+type messageWithPrismaMessagesOnEventsEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messageWithPrismaMessagesOnEventsEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p messageWithPrismaMessagesOnEventsEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messageWithPrismaMessagesOnEventsEqualsParamsUnique) messageModel()          {}
+func (p messageWithPrismaMessagesOnEventsEqualsParamsUnique) messagesOnEventsField() {}
+
+func (messageWithPrismaMessagesOnEventsEqualsParamsUnique) unique() {}
+func (messageWithPrismaMessagesOnEventsEqualsParamsUnique) equals() {}
 
 type messagesOnActionsActions struct {
 	// client holds the prisma client
@@ -8150,6 +8343,628 @@ func (p messagesOnActionsWithPrismaActionIDEqualsParamsUnique) actionIDField()  
 func (messagesOnActionsWithPrismaActionIDEqualsParamsUnique) unique() {}
 func (messagesOnActionsWithPrismaActionIDEqualsParamsUnique) equals() {}
 
+type messagesOnEventsActions struct {
+	// client holds the prisma client
+	client *PrismaClient
+}
+
+var messagesOnEventsOutput = []builder.Output{
+	{Name: "createdAt"},
+	{Name: "deletedAt"},
+	{Name: "updatedAt"},
+	{Name: "messageId"},
+	{Name: "eventId"},
+}
+
+type iMessagesOnEventsRelationWith interface {
+	getQuery() builder.Query
+	with()
+	messagesOnEventsRelation()
+}
+
+type iMessagesOnEventsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	messagesOnEventsModel()
+}
+
+type messagesOnEventsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsParams) messagesOnEventsModel() {}
+
+type iMessagesOnEventsOrderByParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	messagesOnEventsModel()
+}
+
+type messagesOnEventsOrderByParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsOrderByParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsOrderByParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsOrderByParams) messagesOnEventsModel() {}
+
+type iMessagesOnEventsCursorParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	messagesOnEventsModel()
+	isCursor()
+}
+
+type messagesOnEventsCursorParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsCursorParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsCursorParams) isCursor() {}
+
+func (p messagesOnEventsCursorParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsCursorParams) messagesOnEventsModel() {}
+
+type iMessagesOnEventsParamsUnique interface {
+	field() builder.Field
+	getQuery() builder.Query
+	unique()
+	messagesOnEventsModel()
+}
+
+type messagesOnEventsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsParamsUnique) messagesOnEventsModel() {}
+
+func (messagesOnEventsParamsUnique) unique() {}
+
+func (p messagesOnEventsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+type iMessagesOnEventsEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	messagesOnEventsModel()
+}
+
+type messagesOnEventsEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsEqualsParams) messagesOnEventsModel() {}
+
+func (messagesOnEventsEqualsParams) equals() {}
+
+func (p messagesOnEventsEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+type iMessagesOnEventsEqualsParamsUnique interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	unique()
+	messagesOnEventsModel()
+}
+
+type messagesOnEventsEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsEqualsParamsUnique) messagesOnEventsModel() {}
+
+func (messagesOnEventsEqualsParamsUnique) unique() {}
+func (messagesOnEventsEqualsParamsUnique) equals() {}
+
+func (p messagesOnEventsEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+type iMessagesOnEventsSetParams interface {
+	field() builder.Field
+	settable()
+}
+
+type messagesOnEventsSetParams struct {
+	data builder.Field
+}
+
+func (messagesOnEventsSetParams) settable() {}
+
+func (p messagesOnEventsSetParams) field() builder.Field {
+	return p.data
+}
+
+type iMessagesOnEventsWithPrismaCreatedAtEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	messagesOnEventsModel()
+	createdAtField()
+}
+
+type messagesOnEventsWithPrismaCreatedAtSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaCreatedAtSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaCreatedAtSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaCreatedAtSetParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaCreatedAtSetParams) createdAtField() {}
+
+type messagesOnEventsWithPrismaCreatedAtEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaCreatedAtEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaCreatedAtEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaCreatedAtEqualsParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaCreatedAtEqualsParams) createdAtField() {}
+
+func (messagesOnEventsWithPrismaCreatedAtSetParams) settable()  {}
+func (messagesOnEventsWithPrismaCreatedAtEqualsParams) equals() {}
+
+type messagesOnEventsWithPrismaCreatedAtEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaCreatedAtEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaCreatedAtEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaCreatedAtEqualsParamsUnique) messagesOnEventsModel() {}
+func (p messagesOnEventsWithPrismaCreatedAtEqualsParamsUnique) createdAtField()        {}
+
+func (messagesOnEventsWithPrismaCreatedAtEqualsParamsUnique) unique() {}
+func (messagesOnEventsWithPrismaCreatedAtEqualsParamsUnique) equals() {}
+
+type iMessagesOnEventsWithPrismaDeletedAtEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	messagesOnEventsModel()
+	deletedAtField()
+}
+
+type messagesOnEventsWithPrismaDeletedAtSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaDeletedAtSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaDeletedAtSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaDeletedAtSetParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaDeletedAtSetParams) deletedAtField() {}
+
+type messagesOnEventsWithPrismaDeletedAtEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaDeletedAtEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaDeletedAtEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaDeletedAtEqualsParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaDeletedAtEqualsParams) deletedAtField() {}
+
+func (messagesOnEventsWithPrismaDeletedAtSetParams) settable()  {}
+func (messagesOnEventsWithPrismaDeletedAtEqualsParams) equals() {}
+
+type messagesOnEventsWithPrismaDeletedAtEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaDeletedAtEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaDeletedAtEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaDeletedAtEqualsParamsUnique) messagesOnEventsModel() {}
+func (p messagesOnEventsWithPrismaDeletedAtEqualsParamsUnique) deletedAtField()        {}
+
+func (messagesOnEventsWithPrismaDeletedAtEqualsParamsUnique) unique() {}
+func (messagesOnEventsWithPrismaDeletedAtEqualsParamsUnique) equals() {}
+
+type iMessagesOnEventsWithPrismaUpdatedAtEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	messagesOnEventsModel()
+	updatedAtField()
+}
+
+type messagesOnEventsWithPrismaUpdatedAtSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaUpdatedAtSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaUpdatedAtSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaUpdatedAtSetParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaUpdatedAtSetParams) updatedAtField() {}
+
+type messagesOnEventsWithPrismaUpdatedAtEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaUpdatedAtEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaUpdatedAtEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaUpdatedAtEqualsParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaUpdatedAtEqualsParams) updatedAtField() {}
+
+func (messagesOnEventsWithPrismaUpdatedAtSetParams) settable()  {}
+func (messagesOnEventsWithPrismaUpdatedAtEqualsParams) equals() {}
+
+type messagesOnEventsWithPrismaUpdatedAtEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaUpdatedAtEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaUpdatedAtEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaUpdatedAtEqualsParamsUnique) messagesOnEventsModel() {}
+func (p messagesOnEventsWithPrismaUpdatedAtEqualsParamsUnique) updatedAtField()        {}
+
+func (messagesOnEventsWithPrismaUpdatedAtEqualsParamsUnique) unique() {}
+func (messagesOnEventsWithPrismaUpdatedAtEqualsParamsUnique) equals() {}
+
+type iMessagesOnEventsWithPrismaMessageEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	messagesOnEventsModel()
+	messageField()
+}
+
+type messagesOnEventsWithPrismaMessageSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaMessageSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaMessageSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaMessageSetParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaMessageSetParams) messageField() {}
+
+type messagesOnEventsWithPrismaMessageEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaMessageEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaMessageEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaMessageEqualsParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaMessageEqualsParams) messageField() {}
+
+func (messagesOnEventsWithPrismaMessageSetParams) settable()  {}
+func (messagesOnEventsWithPrismaMessageEqualsParams) equals() {}
+
+type messagesOnEventsWithPrismaMessageEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaMessageEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaMessageEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaMessageEqualsParamsUnique) messagesOnEventsModel() {}
+func (p messagesOnEventsWithPrismaMessageEqualsParamsUnique) messageField()          {}
+
+func (messagesOnEventsWithPrismaMessageEqualsParamsUnique) unique() {}
+func (messagesOnEventsWithPrismaMessageEqualsParamsUnique) equals() {}
+
+type iMessagesOnEventsWithPrismaMessageIDEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	messagesOnEventsModel()
+	messageIDField()
+}
+
+type messagesOnEventsWithPrismaMessageIDSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaMessageIDSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaMessageIDSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaMessageIDSetParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaMessageIDSetParams) messageIDField() {}
+
+type messagesOnEventsWithPrismaMessageIDEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaMessageIDEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaMessageIDEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaMessageIDEqualsParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaMessageIDEqualsParams) messageIDField() {}
+
+func (messagesOnEventsWithPrismaMessageIDSetParams) settable()  {}
+func (messagesOnEventsWithPrismaMessageIDEqualsParams) equals() {}
+
+type messagesOnEventsWithPrismaMessageIDEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaMessageIDEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaMessageIDEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaMessageIDEqualsParamsUnique) messagesOnEventsModel() {}
+func (p messagesOnEventsWithPrismaMessageIDEqualsParamsUnique) messageIDField()        {}
+
+func (messagesOnEventsWithPrismaMessageIDEqualsParamsUnique) unique() {}
+func (messagesOnEventsWithPrismaMessageIDEqualsParamsUnique) equals() {}
+
+type iMessagesOnEventsWithPrismaEventEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	messagesOnEventsModel()
+	eventField()
+}
+
+type messagesOnEventsWithPrismaEventSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaEventSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaEventSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaEventSetParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaEventSetParams) eventField() {}
+
+type messagesOnEventsWithPrismaEventEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaEventEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaEventEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaEventEqualsParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaEventEqualsParams) eventField() {}
+
+func (messagesOnEventsWithPrismaEventSetParams) settable()  {}
+func (messagesOnEventsWithPrismaEventEqualsParams) equals() {}
+
+type messagesOnEventsWithPrismaEventEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaEventEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaEventEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaEventEqualsParamsUnique) messagesOnEventsModel() {}
+func (p messagesOnEventsWithPrismaEventEqualsParamsUnique) eventField()            {}
+
+func (messagesOnEventsWithPrismaEventEqualsParamsUnique) unique() {}
+func (messagesOnEventsWithPrismaEventEqualsParamsUnique) equals() {}
+
+type iMessagesOnEventsWithPrismaEventIDEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	messagesOnEventsModel()
+	eventIDField()
+}
+
+type messagesOnEventsWithPrismaEventIDSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaEventIDSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaEventIDSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaEventIDSetParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaEventIDSetParams) eventIDField() {}
+
+type messagesOnEventsWithPrismaEventIDEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaEventIDEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaEventIDEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaEventIDEqualsParams) messagesOnEventsModel() {}
+
+func (p messagesOnEventsWithPrismaEventIDEqualsParams) eventIDField() {}
+
+func (messagesOnEventsWithPrismaEventIDSetParams) settable()  {}
+func (messagesOnEventsWithPrismaEventIDEqualsParams) equals() {}
+
+type messagesOnEventsWithPrismaEventIDEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messagesOnEventsWithPrismaEventIDEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p messagesOnEventsWithPrismaEventIDEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messagesOnEventsWithPrismaEventIDEqualsParamsUnique) messagesOnEventsModel() {}
+func (p messagesOnEventsWithPrismaEventIDEqualsParamsUnique) eventIDField()          {}
+
+func (messagesOnEventsWithPrismaEventIDEqualsParamsUnique) unique() {}
+func (messagesOnEventsWithPrismaEventIDEqualsParamsUnique) equals() {}
+
 // --- template create.gotpl ---
 
 // Creates a single user.
@@ -8720,7 +9535,7 @@ func (r actionCreateOne) Exec(ctx context.Context) (ActionModel, error) {
 
 // Creates a single user.
 func (r messageActions) CreateOne(
-	_content messageWithPrismaContentSetParams,
+	_content messageWithPrismaContentSetParams, _type messageWithPrismaTypeSetParams,
 	optional ...messageSetParams,
 ) messageCreateOne {
 	var v messageCreateOne
@@ -8735,6 +9550,7 @@ func (r messageActions) CreateOne(
 	var fields []builder.Field
 
 	fields = append(fields, _content.data)
+	fields = append(fields, _type.data)
 
 	for _, q := range optional {
 		fields = append(fields, q.data)
@@ -8830,6 +9646,64 @@ func (r messagesOnActionsCreateOne) Exec(ctx context.Context) (MessagesOnActions
 		return MessagesOnActionsModel{}, fmt.Errorf(first.Message)
 	}
 	return v.Data.CreateOneMessagesOnActions, err
+}
+
+// Creates a single user.
+func (r messagesOnEventsActions) CreateOne(
+	_message messagesOnEventsWithPrismaMessageSetParams, _event messagesOnEventsWithPrismaEventSetParams,
+	optional ...messagesOnEventsSetParams,
+) messagesOnEventsCreateOne {
+	var v messagesOnEventsCreateOne
+	v.query = builder.NewQuery()
+	v.query.Client = r.client
+
+	v.query.Operation = "mutation"
+	v.query.Method = "createOne"
+	v.query.Model = "MessagesOnEvents"
+	v.query.Outputs = messagesOnEventsOutput
+
+	var fields []builder.Field
+
+	fields = append(fields, _message.data)
+
+	fields = append(fields, _event.data)
+
+	for _, q := range optional {
+		fields = append(fields, q.data)
+	}
+
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+func (r messagesOnEventsCreateOne) With(params ...iMessagesOnEventsRelationWith) messagesOnEventsCreateOne {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+type messagesOnEventsCreateOne struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsCreateOne) Exec(ctx context.Context) (MessagesOnEventsModel, error) {
+	var v createOneMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return MessagesOnEventsModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.CreateOneMessagesOnEvents, err
 }
 
 // --- template find.gotpl ---
@@ -15015,6 +15889,235 @@ func (r eventToActionDeleteMany) Exec(ctx context.Context) (int, error) {
 	return v.Data.DeleteManyEvent.Count, err
 }
 
+type eventToMessagesOnEventsFindOne struct {
+	query builder.Query
+}
+
+func (r eventToMessagesOnEventsFindOne) getQuery() builder.Query {
+	return r.query
+}
+
+func (r eventToMessagesOnEventsFindOne) with()          {}
+func (r eventToMessagesOnEventsFindOne) eventModel()    {}
+func (r eventToMessagesOnEventsFindOne) eventRelation() {}
+
+func (r eventToMessagesOnEventsFindOne) With(params ...iMessagesOnEventsRelationWith) eventToMessagesOnEventsFindOne {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r eventToMessagesOnEventsFindOne) Exec(ctx context.Context) (
+	EventModel,
+	error,
+) {
+	var v findOneEventResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return EventModel{}, fmt.Errorf(first.Message)
+	}
+
+	if v.Data.FindOneEvent == nil {
+		return EventModel{}, ErrNotFound
+	}
+
+	return *v.Data.FindOneEvent, err
+}
+
+func (r eventToMessagesOnEventsFindOne) Update(params ...iEventSetParams) eventToMessagesOnEventsUpdateOne {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "Event"
+	r.query.Outputs = eventOutput
+
+	var v eventToMessagesOnEventsUpdateOne
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type eventToMessagesOnEventsUpdateOne struct {
+	query builder.Query
+}
+
+func (r eventToMessagesOnEventsUpdateOne) Exec(ctx context.Context) (EventModel, error) {
+	var v updateOneEventResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return EventModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateOneEvent, err
+}
+
+func (r eventToMessagesOnEventsFindOne) Delete() eventToMessagesOnEventsDeleteOne {
+	var v eventToMessagesOnEventsDeleteOne
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "Event"
+	v.query.Outputs = eventOutput
+	return v
+}
+
+type eventToMessagesOnEventsDeleteOne struct {
+	query builder.Query
+}
+
+func (r eventToMessagesOnEventsDeleteOne) Exec(ctx context.Context) (EventModel, error) {
+	var v deleteOneEventResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return EventModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteOneEvent, err
+}
+
+type eventToMessagesOnEventsFindMany struct {
+	query builder.Query
+}
+
+func (r eventToMessagesOnEventsFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r eventToMessagesOnEventsFindMany) with()          {}
+func (r eventToMessagesOnEventsFindMany) eventModel()    {}
+func (r eventToMessagesOnEventsFindMany) eventRelation() {}
+
+func (r eventToMessagesOnEventsFindMany) With(params ...iMessagesOnEventsRelationWith) eventToMessagesOnEventsFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r eventToMessagesOnEventsFindMany) OrderBy(param iEventOrderByParams) eventToMessagesOnEventsFindMany {
+	direction, _ := param.field().Value.(runtime.Direction)
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "orderBy",
+		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
+	})
+	return r
+}
+
+func (r eventToMessagesOnEventsFindMany) Skip(count int) eventToMessagesOnEventsFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r eventToMessagesOnEventsFindMany) Take(count int) eventToMessagesOnEventsFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r eventToMessagesOnEventsFindMany) Cursor(cursor iEventCursorParams) eventToMessagesOnEventsFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r eventToMessagesOnEventsFindMany) Exec(ctx context.Context) (
+	[]EventModel,
+	error,
+) {
+	var v findManyEventResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return []EventModel{}, fmt.Errorf(first.Message)
+	}
+
+	return v.Data.FindManyEvent, err
+}
+
+func (r eventToMessagesOnEventsFindMany) Update(params ...iEventSetParams) eventToMessagesOnEventsUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "Event"
+	r.query.Outputs = countOutput
+
+	var v eventToMessagesOnEventsUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type eventToMessagesOnEventsUpdateMany struct {
+	query builder.Query
+}
+
+func (r eventToMessagesOnEventsUpdateMany) Exec(ctx context.Context) (int, error) {
+	var v updateManyEventResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateManyEvent.Count, err
+}
+
+func (r eventToMessagesOnEventsFindMany) Delete() eventToMessagesOnEventsDeleteMany {
+	var v eventToMessagesOnEventsDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "Event"
+	v.query.Outputs = countOutput
+	return v
+}
+
+type eventToMessagesOnEventsDeleteMany struct {
+	query builder.Query
+}
+
+func (r eventToMessagesOnEventsDeleteMany) Exec(ctx context.Context) (int, error) {
+	var v deleteManyEventResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteManyEvent.Count, err
+}
+
 type eventFindOne struct {
 	query builder.Query
 }
@@ -16274,6 +17377,235 @@ func (r messageToMessagesOnActionsDeleteMany) Exec(ctx context.Context) (int, er
 	return v.Data.DeleteManyMessage.Count, err
 }
 
+type messageToMessagesOnEventsFindOne struct {
+	query builder.Query
+}
+
+func (r messageToMessagesOnEventsFindOne) getQuery() builder.Query {
+	return r.query
+}
+
+func (r messageToMessagesOnEventsFindOne) with()            {}
+func (r messageToMessagesOnEventsFindOne) messageModel()    {}
+func (r messageToMessagesOnEventsFindOne) messageRelation() {}
+
+func (r messageToMessagesOnEventsFindOne) With(params ...iMessagesOnEventsRelationWith) messageToMessagesOnEventsFindOne {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r messageToMessagesOnEventsFindOne) Exec(ctx context.Context) (
+	MessageModel,
+	error,
+) {
+	var v findOneMessageResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return MessageModel{}, fmt.Errorf(first.Message)
+	}
+
+	if v.Data.FindOneMessage == nil {
+		return MessageModel{}, ErrNotFound
+	}
+
+	return *v.Data.FindOneMessage, err
+}
+
+func (r messageToMessagesOnEventsFindOne) Update(params ...iMessageSetParams) messageToMessagesOnEventsUpdateOne {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "Message"
+	r.query.Outputs = messageOutput
+
+	var v messageToMessagesOnEventsUpdateOne
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type messageToMessagesOnEventsUpdateOne struct {
+	query builder.Query
+}
+
+func (r messageToMessagesOnEventsUpdateOne) Exec(ctx context.Context) (MessageModel, error) {
+	var v updateOneMessageResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return MessageModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateOneMessage, err
+}
+
+func (r messageToMessagesOnEventsFindOne) Delete() messageToMessagesOnEventsDeleteOne {
+	var v messageToMessagesOnEventsDeleteOne
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "Message"
+	v.query.Outputs = messageOutput
+	return v
+}
+
+type messageToMessagesOnEventsDeleteOne struct {
+	query builder.Query
+}
+
+func (r messageToMessagesOnEventsDeleteOne) Exec(ctx context.Context) (MessageModel, error) {
+	var v deleteOneMessageResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return MessageModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteOneMessage, err
+}
+
+type messageToMessagesOnEventsFindMany struct {
+	query builder.Query
+}
+
+func (r messageToMessagesOnEventsFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r messageToMessagesOnEventsFindMany) with()            {}
+func (r messageToMessagesOnEventsFindMany) messageModel()    {}
+func (r messageToMessagesOnEventsFindMany) messageRelation() {}
+
+func (r messageToMessagesOnEventsFindMany) With(params ...iMessagesOnEventsRelationWith) messageToMessagesOnEventsFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r messageToMessagesOnEventsFindMany) OrderBy(param iMessageOrderByParams) messageToMessagesOnEventsFindMany {
+	direction, _ := param.field().Value.(runtime.Direction)
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "orderBy",
+		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
+	})
+	return r
+}
+
+func (r messageToMessagesOnEventsFindMany) Skip(count int) messageToMessagesOnEventsFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r messageToMessagesOnEventsFindMany) Take(count int) messageToMessagesOnEventsFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r messageToMessagesOnEventsFindMany) Cursor(cursor iMessageCursorParams) messageToMessagesOnEventsFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r messageToMessagesOnEventsFindMany) Exec(ctx context.Context) (
+	[]MessageModel,
+	error,
+) {
+	var v findManyMessageResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return []MessageModel{}, fmt.Errorf(first.Message)
+	}
+
+	return v.Data.FindManyMessage, err
+}
+
+func (r messageToMessagesOnEventsFindMany) Update(params ...iMessageSetParams) messageToMessagesOnEventsUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "Message"
+	r.query.Outputs = countOutput
+
+	var v messageToMessagesOnEventsUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type messageToMessagesOnEventsUpdateMany struct {
+	query builder.Query
+}
+
+func (r messageToMessagesOnEventsUpdateMany) Exec(ctx context.Context) (int, error) {
+	var v updateManyMessageResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateManyMessage.Count, err
+}
+
+func (r messageToMessagesOnEventsFindMany) Delete() messageToMessagesOnEventsDeleteMany {
+	var v messageToMessagesOnEventsDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "Message"
+	v.query.Outputs = countOutput
+	return v
+}
+
+type messageToMessagesOnEventsDeleteMany struct {
+	query builder.Query
+}
+
+func (r messageToMessagesOnEventsDeleteMany) Exec(ctx context.Context) (int, error) {
+	var v deleteManyMessageResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteManyMessage.Count, err
+}
+
 type messageFindOne struct {
 	query builder.Query
 }
@@ -17302,6 +18634,750 @@ func (r messagesOnActionsDeleteMany) Exec(ctx context.Context) (int, error) {
 		return -1, fmt.Errorf(first.Message)
 	}
 	return v.Data.DeleteManyMessagesOnActions.Count, err
+}
+
+type messagesOnEventsToMessageFindOne struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsToMessageFindOne) getQuery() builder.Query {
+	return r.query
+}
+
+func (r messagesOnEventsToMessageFindOne) with()                     {}
+func (r messagesOnEventsToMessageFindOne) messagesOnEventsModel()    {}
+func (r messagesOnEventsToMessageFindOne) messagesOnEventsRelation() {}
+
+func (r messagesOnEventsToMessageFindOne) With(params ...iMessageRelationWith) messagesOnEventsToMessageFindOne {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r messagesOnEventsToMessageFindOne) Exec(ctx context.Context) (
+	MessagesOnEventsModel,
+	error,
+) {
+	var v findOneMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return MessagesOnEventsModel{}, fmt.Errorf(first.Message)
+	}
+
+	if v.Data.FindOneMessagesOnEvents == nil {
+		return MessagesOnEventsModel{}, ErrNotFound
+	}
+
+	return *v.Data.FindOneMessagesOnEvents, err
+}
+
+func (r messagesOnEventsToMessageFindOne) Update(params ...iMessagesOnEventsSetParams) messagesOnEventsToMessageUpdateOne {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "MessagesOnEvents"
+	r.query.Outputs = messagesOnEventsOutput
+
+	var v messagesOnEventsToMessageUpdateOne
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type messagesOnEventsToMessageUpdateOne struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsToMessageUpdateOne) Exec(ctx context.Context) (MessagesOnEventsModel, error) {
+	var v updateOneMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return MessagesOnEventsModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateOneMessagesOnEvents, err
+}
+
+func (r messagesOnEventsToMessageFindOne) Delete() messagesOnEventsToMessageDeleteOne {
+	var v messagesOnEventsToMessageDeleteOne
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "MessagesOnEvents"
+	v.query.Outputs = messagesOnEventsOutput
+	return v
+}
+
+type messagesOnEventsToMessageDeleteOne struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsToMessageDeleteOne) Exec(ctx context.Context) (MessagesOnEventsModel, error) {
+	var v deleteOneMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return MessagesOnEventsModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteOneMessagesOnEvents, err
+}
+
+type messagesOnEventsToMessageFindMany struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsToMessageFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r messagesOnEventsToMessageFindMany) with()                     {}
+func (r messagesOnEventsToMessageFindMany) messagesOnEventsModel()    {}
+func (r messagesOnEventsToMessageFindMany) messagesOnEventsRelation() {}
+
+func (r messagesOnEventsToMessageFindMany) With(params ...iMessageRelationWith) messagesOnEventsToMessageFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r messagesOnEventsToMessageFindMany) OrderBy(param iMessagesOnEventsOrderByParams) messagesOnEventsToMessageFindMany {
+	direction, _ := param.field().Value.(runtime.Direction)
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "orderBy",
+		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
+	})
+	return r
+}
+
+func (r messagesOnEventsToMessageFindMany) Skip(count int) messagesOnEventsToMessageFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r messagesOnEventsToMessageFindMany) Take(count int) messagesOnEventsToMessageFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r messagesOnEventsToMessageFindMany) Cursor(cursor iMessagesOnEventsCursorParams) messagesOnEventsToMessageFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r messagesOnEventsToMessageFindMany) Exec(ctx context.Context) (
+	[]MessagesOnEventsModel,
+	error,
+) {
+	var v findManyMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return []MessagesOnEventsModel{}, fmt.Errorf(first.Message)
+	}
+
+	return v.Data.FindManyMessagesOnEvents, err
+}
+
+func (r messagesOnEventsToMessageFindMany) Update(params ...iMessagesOnEventsSetParams) messagesOnEventsToMessageUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "MessagesOnEvents"
+	r.query.Outputs = countOutput
+
+	var v messagesOnEventsToMessageUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type messagesOnEventsToMessageUpdateMany struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsToMessageUpdateMany) Exec(ctx context.Context) (int, error) {
+	var v updateManyMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateManyMessagesOnEvents.Count, err
+}
+
+func (r messagesOnEventsToMessageFindMany) Delete() messagesOnEventsToMessageDeleteMany {
+	var v messagesOnEventsToMessageDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "MessagesOnEvents"
+	v.query.Outputs = countOutput
+	return v
+}
+
+type messagesOnEventsToMessageDeleteMany struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsToMessageDeleteMany) Exec(ctx context.Context) (int, error) {
+	var v deleteManyMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteManyMessagesOnEvents.Count, err
+}
+
+type messagesOnEventsToEventFindOne struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsToEventFindOne) getQuery() builder.Query {
+	return r.query
+}
+
+func (r messagesOnEventsToEventFindOne) with()                     {}
+func (r messagesOnEventsToEventFindOne) messagesOnEventsModel()    {}
+func (r messagesOnEventsToEventFindOne) messagesOnEventsRelation() {}
+
+func (r messagesOnEventsToEventFindOne) With(params ...iEventRelationWith) messagesOnEventsToEventFindOne {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r messagesOnEventsToEventFindOne) Exec(ctx context.Context) (
+	MessagesOnEventsModel,
+	error,
+) {
+	var v findOneMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return MessagesOnEventsModel{}, fmt.Errorf(first.Message)
+	}
+
+	if v.Data.FindOneMessagesOnEvents == nil {
+		return MessagesOnEventsModel{}, ErrNotFound
+	}
+
+	return *v.Data.FindOneMessagesOnEvents, err
+}
+
+func (r messagesOnEventsToEventFindOne) Update(params ...iMessagesOnEventsSetParams) messagesOnEventsToEventUpdateOne {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "MessagesOnEvents"
+	r.query.Outputs = messagesOnEventsOutput
+
+	var v messagesOnEventsToEventUpdateOne
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type messagesOnEventsToEventUpdateOne struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsToEventUpdateOne) Exec(ctx context.Context) (MessagesOnEventsModel, error) {
+	var v updateOneMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return MessagesOnEventsModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateOneMessagesOnEvents, err
+}
+
+func (r messagesOnEventsToEventFindOne) Delete() messagesOnEventsToEventDeleteOne {
+	var v messagesOnEventsToEventDeleteOne
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "MessagesOnEvents"
+	v.query.Outputs = messagesOnEventsOutput
+	return v
+}
+
+type messagesOnEventsToEventDeleteOne struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsToEventDeleteOne) Exec(ctx context.Context) (MessagesOnEventsModel, error) {
+	var v deleteOneMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return MessagesOnEventsModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteOneMessagesOnEvents, err
+}
+
+type messagesOnEventsToEventFindMany struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsToEventFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r messagesOnEventsToEventFindMany) with()                     {}
+func (r messagesOnEventsToEventFindMany) messagesOnEventsModel()    {}
+func (r messagesOnEventsToEventFindMany) messagesOnEventsRelation() {}
+
+func (r messagesOnEventsToEventFindMany) With(params ...iEventRelationWith) messagesOnEventsToEventFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r messagesOnEventsToEventFindMany) OrderBy(param iMessagesOnEventsOrderByParams) messagesOnEventsToEventFindMany {
+	direction, _ := param.field().Value.(runtime.Direction)
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "orderBy",
+		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
+	})
+	return r
+}
+
+func (r messagesOnEventsToEventFindMany) Skip(count int) messagesOnEventsToEventFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r messagesOnEventsToEventFindMany) Take(count int) messagesOnEventsToEventFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r messagesOnEventsToEventFindMany) Cursor(cursor iMessagesOnEventsCursorParams) messagesOnEventsToEventFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r messagesOnEventsToEventFindMany) Exec(ctx context.Context) (
+	[]MessagesOnEventsModel,
+	error,
+) {
+	var v findManyMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return []MessagesOnEventsModel{}, fmt.Errorf(first.Message)
+	}
+
+	return v.Data.FindManyMessagesOnEvents, err
+}
+
+func (r messagesOnEventsToEventFindMany) Update(params ...iMessagesOnEventsSetParams) messagesOnEventsToEventUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "MessagesOnEvents"
+	r.query.Outputs = countOutput
+
+	var v messagesOnEventsToEventUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type messagesOnEventsToEventUpdateMany struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsToEventUpdateMany) Exec(ctx context.Context) (int, error) {
+	var v updateManyMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateManyMessagesOnEvents.Count, err
+}
+
+func (r messagesOnEventsToEventFindMany) Delete() messagesOnEventsToEventDeleteMany {
+	var v messagesOnEventsToEventDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "MessagesOnEvents"
+	v.query.Outputs = countOutput
+	return v
+}
+
+type messagesOnEventsToEventDeleteMany struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsToEventDeleteMany) Exec(ctx context.Context) (int, error) {
+	var v deleteManyMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteManyMessagesOnEvents.Count, err
+}
+
+type messagesOnEventsFindOne struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsFindOne) getQuery() builder.Query {
+	return r.query
+}
+
+func (r messagesOnEventsFindOne) with()                     {}
+func (r messagesOnEventsFindOne) messagesOnEventsModel()    {}
+func (r messagesOnEventsFindOne) messagesOnEventsRelation() {}
+
+func (r messagesOnEventsActions) FindOne(
+
+	params iMessagesOnEventsEqualsParamsUnique,
+) messagesOnEventsFindOne {
+	var v messagesOnEventsFindOne
+	v.query = builder.NewQuery()
+	v.query.Client = r.client
+
+	v.query.Operation = "query"
+	v.query.Method = "findOne"
+	v.query.Model = "MessagesOnEvents"
+	v.query.Outputs = messagesOnEventsOutput
+
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "where",
+		Fields: []builder.Field{params.field()},
+	})
+
+	return v
+}
+
+func (r messagesOnEventsFindOne) With(params ...iMessagesOnEventsRelationWith) messagesOnEventsFindOne {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r messagesOnEventsFindOne) Exec(ctx context.Context) (
+	MessagesOnEventsModel,
+	error,
+) {
+	var v findOneMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return MessagesOnEventsModel{}, fmt.Errorf(first.Message)
+	}
+
+	if v.Data.FindOneMessagesOnEvents == nil {
+		return MessagesOnEventsModel{}, ErrNotFound
+	}
+
+	return *v.Data.FindOneMessagesOnEvents, err
+}
+
+func (r messagesOnEventsFindOne) Update(params ...iMessagesOnEventsSetParams) messagesOnEventsUpdateOne {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "MessagesOnEvents"
+	r.query.Outputs = messagesOnEventsOutput
+
+	var v messagesOnEventsUpdateOne
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type messagesOnEventsUpdateOne struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsUpdateOne) Exec(ctx context.Context) (MessagesOnEventsModel, error) {
+	var v updateOneMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return MessagesOnEventsModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateOneMessagesOnEvents, err
+}
+
+func (r messagesOnEventsFindOne) Delete() messagesOnEventsDeleteOne {
+	var v messagesOnEventsDeleteOne
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "MessagesOnEvents"
+	v.query.Outputs = messagesOnEventsOutput
+	return v
+}
+
+type messagesOnEventsDeleteOne struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsDeleteOne) Exec(ctx context.Context) (MessagesOnEventsModel, error) {
+	var v deleteOneMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return MessagesOnEventsModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteOneMessagesOnEvents, err
+}
+
+type messagesOnEventsFindMany struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r messagesOnEventsFindMany) with()                     {}
+func (r messagesOnEventsFindMany) messagesOnEventsModel()    {}
+func (r messagesOnEventsFindMany) messagesOnEventsRelation() {}
+
+func (r messagesOnEventsActions) FindMany(
+
+	params ...iMessagesOnEventsParams,
+) messagesOnEventsFindMany {
+	var v messagesOnEventsFindMany
+	v.query = builder.NewQuery()
+	v.query.Client = r.client
+
+	v.query.Operation = "query"
+	v.query.Method = "findMany"
+	v.query.Model = "MessagesOnEvents"
+	v.query.Outputs = messagesOnEventsOutput
+
+	var where []builder.Field
+	for _, q := range params {
+		if query := q.getQuery(); query.Operation != "" {
+			v.query.Outputs = append(v.query.Outputs, builder.Output{
+				Name:    query.Method,
+				Inputs:  query.Inputs,
+				Outputs: query.Outputs,
+			})
+		} else {
+			where = append(where, q.field())
+		}
+	}
+
+	if len(where) > 0 {
+		v.query.Inputs = append(v.query.Inputs, builder.Input{
+			Name:   "where",
+			Fields: where,
+		})
+	}
+
+	return v
+}
+
+func (r messagesOnEventsFindMany) With(params ...iMessagesOnEventsRelationWith) messagesOnEventsFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r messagesOnEventsFindMany) OrderBy(param iMessagesOnEventsOrderByParams) messagesOnEventsFindMany {
+	direction, _ := param.field().Value.(runtime.Direction)
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "orderBy",
+		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
+	})
+	return r
+}
+
+func (r messagesOnEventsFindMany) Skip(count int) messagesOnEventsFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r messagesOnEventsFindMany) Take(count int) messagesOnEventsFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r messagesOnEventsFindMany) Cursor(cursor iMessagesOnEventsCursorParams) messagesOnEventsFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r messagesOnEventsFindMany) Exec(ctx context.Context) (
+	[]MessagesOnEventsModel,
+	error,
+) {
+	var v findManyMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return []MessagesOnEventsModel{}, fmt.Errorf(first.Message)
+	}
+
+	return v.Data.FindManyMessagesOnEvents, err
+}
+
+func (r messagesOnEventsFindMany) Update(params ...iMessagesOnEventsSetParams) messagesOnEventsUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "MessagesOnEvents"
+	r.query.Outputs = countOutput
+
+	var v messagesOnEventsUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type messagesOnEventsUpdateMany struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsUpdateMany) Exec(ctx context.Context) (int, error) {
+	var v updateManyMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateManyMessagesOnEvents.Count, err
+}
+
+func (r messagesOnEventsFindMany) Delete() messagesOnEventsDeleteMany {
+	var v messagesOnEventsDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "MessagesOnEvents"
+	v.query.Outputs = countOutput
+	return v
+}
+
+type messagesOnEventsDeleteMany struct {
+	query builder.Query
+}
+
+func (r messagesOnEventsDeleteMany) Exec(ctx context.Context) (int, error) {
+	var v deleteManyMessagesOnEventsResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteManyMessagesOnEvents.Count, err
 }
 
 // --- template structs.gotpl ---
@@ -18362,6 +20438,94 @@ type deleteManyMessagesOnActionsResult struct {
 	Count int `json:"count"`
 }
 
+type findOneMessagesOnEventsResponse struct {
+	Errors []engine.GQLError `json:"errors"`
+	Data   struct {
+		FindOneMessagesOnEvents *MessagesOnEventsModel `json:"findOneMessagesOnEvents"`
+	} `json:"data"`
+}
+
+type findOneMessagesOnEventsResult struct {
+	Count int `json:"count"`
+}
+
+type findManyMessagesOnEventsResponse struct {
+	Errors []engine.GQLError `json:"errors"`
+	Data   struct {
+		FindManyMessagesOnEvents []MessagesOnEventsModel `json:"findManyMessagesOnEvents"`
+	} `json:"data"`
+}
+
+type findManyMessagesOnEventsResult struct {
+	Count int `json:"count"`
+}
+
+type createOneMessagesOnEventsResponse struct {
+	Errors []engine.GQLError `json:"errors"`
+	Data   struct {
+		CreateOneMessagesOnEvents MessagesOnEventsModel `json:"createOneMessagesOnEvents"`
+	} `json:"data"`
+}
+
+type createOneMessagesOnEventsResult struct {
+	Count int `json:"count"`
+}
+
+type createManyMessagesOnEventsResponse struct {
+	Errors []engine.GQLError `json:"errors"`
+	Data   struct {
+		CreateManyMessagesOnEvents createManyMessagesOnEventsResult `json:"createManyMessagesOnEvents"`
+	} `json:"data"`
+}
+
+type createManyMessagesOnEventsResult struct {
+	Count int `json:"count"`
+}
+
+type updateOneMessagesOnEventsResponse struct {
+	Errors []engine.GQLError `json:"errors"`
+	Data   struct {
+		UpdateOneMessagesOnEvents MessagesOnEventsModel `json:"updateOneMessagesOnEvents"`
+	} `json:"data"`
+}
+
+type updateOneMessagesOnEventsResult struct {
+	Count int `json:"count"`
+}
+
+type updateManyMessagesOnEventsResponse struct {
+	Errors []engine.GQLError `json:"errors"`
+	Data   struct {
+		UpdateManyMessagesOnEvents updateManyMessagesOnEventsResult `json:"updateManyMessagesOnEvents"`
+	} `json:"data"`
+}
+
+type updateManyMessagesOnEventsResult struct {
+	Count int `json:"count"`
+}
+
+type deleteOneMessagesOnEventsResponse struct {
+	Errors []engine.GQLError `json:"errors"`
+	Data   struct {
+		DeleteOneMessagesOnEvents MessagesOnEventsModel `json:"deleteOneMessagesOnEvents"`
+	} `json:"data"`
+}
+
+type deleteOneMessagesOnEventsResult struct {
+	Count int `json:"count"`
+}
+
+type deleteManyMessagesOnEventsResponse struct {
+	Errors []engine.GQLError `json:"errors"`
+	Data   struct {
+		DeleteManyMessagesOnEvents deleteManyMessagesOnEventsResult `json:"deleteManyMessagesOnEvents"`
+	} `json:"data"`
+}
+
+type deleteManyMessagesOnEventsResult struct {
+	Count int `json:"count"`
+}
+
 // --- template client.gotpl ---
 const schema = `datasource db {
     provider = "postgresql"
@@ -18474,16 +20638,16 @@ model StoriesOnRaids {
 
 // An Event represents a moment in a story in which Avatars can fulfill Actions
 model Event {
-    id        Int       @default(autoincrement()) @id
-    createdAt DateTime  @default(now())
-    deletedAt DateTime?
-    updatedAt DateTime  @updatedAt
-    story     Story     @relation(fields: [storyId], references: [id])
-    storyId   Int
+    id               Int                @default(autoincrement()) @id
+    createdAt        DateTime           @default(now())
+    deletedAt        DateTime?
+    updatedAt        DateTime           @updatedAt
+    story            Story              @relation(fields: [storyId], references: [id])
+    storyId          Int
     // The sequence dictates the order of events to occur in a story
-    sequence  Int
-    Action    Action[]
-
+    sequence         Int
+    Action           Action[]
+    MessagesOnEvents MessagesOnEvents[]
 
     @@unique([storyId, sequence])
 }
@@ -18510,9 +20674,12 @@ model Message {
     deletedAt         DateTime?
     updatedAt         DateTime            @updatedAt
     content           String
+    type              String
     MessagesOnActions MessagesOnActions[]
+    MessagesOnEvents  MessagesOnEvents[]
 }
 
+// An Action may send messages to users.
 model MessagesOnActions {
     createdAt DateTime  @default(now())
     deletedAt DateTime?
@@ -18524,6 +20691,20 @@ model MessagesOnActions {
 
     @@id([messageId, actionId])
     @@unique([messageId, actionId])
+}
+
+// An Event may send messages to users on completion.
+model MessagesOnEvents {
+    createdAt DateTime  @default(now())
+    deletedAt DateTime?
+    updatedAt DateTime  @updatedAt
+    message   Message   @relation(fields: [messageId], references: [id])
+    messageId Int
+    event     Event     @relation(fields: [eventId], references: [id])
+    eventId   Int
+
+    @@id([messageId, eventId])
+    @@unique([messageId, eventId])
 }
 `
 
@@ -18563,6 +20744,7 @@ func NewClient() *PrismaClient {
 	c.Action = actionActions{client: c}
 	c.Message = messageActions{client: c}
 	c.MessagesOnActions = messagesOnActionsActions{client: c}
+	c.MessagesOnEvents = messagesOnEventsActions{client: c}
 
 	c.Actions = &raw.Actions{Client: c}
 
@@ -18600,6 +20782,8 @@ type PrismaClient struct {
 	Message messageActions
 	// MessagesOnActions provides access to CRUD methods.
 	MessagesOnActions messagesOnActionsActions
+	// MessagesOnEvents provides access to CRUD methods.
+	MessagesOnEvents messagesOnEventsActions
 }
 
 // Connects to the Prisma query engine. Required to call before accessing data.
@@ -19046,8 +21230,9 @@ type InternalEvent struct {
 
 // RelationsEvent holds the relation data separately
 type RelationsEvent struct {
-	Story  *StoryModel   `json:"story"`
-	Action []ActionModel `json:"Action"`
+	Story            *StoryModel             `json:"story"`
+	Action           []ActionModel           `json:"Action"`
+	MessagesOnEvents []MessagesOnEventsModel `json:"MessagesOnEvents"`
 }
 
 func (r EventModel) DeletedAt() (value DateTime, ok bool) {
@@ -19069,6 +21254,13 @@ func (r EventModel) Action() (value []ActionModel) {
 		return value
 	}
 	return r.RelationsEvent.Action
+}
+
+func (r EventModel) MessagesOnEvents() (value []MessagesOnEventsModel) {
+	if r.RelationsEvent.MessagesOnEvents == nil {
+		return value
+	}
+	return r.RelationsEvent.MessagesOnEvents
 }
 
 // ActionModel represents the `json:"Action"` model and is a wrapper for accessing fields and methods
@@ -19127,11 +21319,13 @@ type InternalMessage struct {
 	DeletedAt *DateTime `json:"deletedAt"`
 	UpdatedAt DateTime  `json:"updatedAt"`
 	Content   string    `json:"content"`
+	Type      string    `json:"type"`
 }
 
 // RelationsMessage holds the relation data separately
 type RelationsMessage struct {
 	MessagesOnActions []MessagesOnActionsModel `json:"MessagesOnActions"`
+	MessagesOnEvents  []MessagesOnEventsModel  `json:"MessagesOnEvents"`
 }
 
 func (r MessageModel) DeletedAt() (value DateTime, ok bool) {
@@ -19146,6 +21340,13 @@ func (r MessageModel) MessagesOnActions() (value []MessagesOnActionsModel) {
 		return value
 	}
 	return r.RelationsMessage.MessagesOnActions
+}
+
+func (r MessageModel) MessagesOnEvents() (value []MessagesOnEventsModel) {
+	if r.RelationsMessage.MessagesOnEvents == nil {
+		return value
+	}
+	return r.RelationsMessage.MessagesOnEvents
 }
 
 // MessagesOnActionsModel represents the `json:"MessagesOnActions"` model and is a wrapper for accessing fields and methods
@@ -19188,6 +21389,48 @@ func (r MessagesOnActionsModel) Action() (value ActionModel) {
 		panic("attempted to access action but did not fetch it using the .With() syntax")
 	}
 	return *r.RelationsMessagesOnActions.Action
+}
+
+// MessagesOnEventsModel represents the `json:"MessagesOnEvents"` model and is a wrapper for accessing fields and methods
+type MessagesOnEventsModel struct {
+	InternalMessagesOnEvents
+	RelationsMessagesOnEvents
+}
+
+// InternalMessagesOnEvents holds the actual data
+type InternalMessagesOnEvents struct {
+	CreatedAt DateTime  `json:"createdAt"`
+	DeletedAt *DateTime `json:"deletedAt"`
+	UpdatedAt DateTime  `json:"updatedAt"`
+	MessageID int       `json:"messageId"`
+	EventID   int       `json:"eventId"`
+}
+
+// RelationsMessagesOnEvents holds the relation data separately
+type RelationsMessagesOnEvents struct {
+	Message *MessageModel `json:"message"`
+	Event   *EventModel   `json:"event"`
+}
+
+func (r MessagesOnEventsModel) DeletedAt() (value DateTime, ok bool) {
+	if r.InternalMessagesOnEvents.DeletedAt == nil {
+		return value, false
+	}
+	return *r.InternalMessagesOnEvents.DeletedAt, true
+}
+
+func (r MessagesOnEventsModel) Message() (value MessageModel) {
+	if r.RelationsMessagesOnEvents.Message == nil {
+		panic("attempted to access message but did not fetch it using the .With() syntax")
+	}
+	return *r.RelationsMessagesOnEvents.Message
+}
+
+func (r MessagesOnEventsModel) Event() (value EventModel) {
+	if r.RelationsMessagesOnEvents.Event == nil {
+		panic("attempted to access event but did not fetch it using the .With() syntax")
+	}
+	return *r.RelationsMessagesOnEvents.Event
 }
 
 // --- template query.gotpl ---
@@ -19317,6 +21560,12 @@ func (userQuery) Or(params ...iUserParams) userParams {
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
 
 // base struct
 type userQueryIDInt struct{}
@@ -20459,6 +22708,12 @@ func (avatarQuery) Or(params ...iAvatarParams) avatarParams {
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
 
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
 // base struct
 type avatarQueryIDInt struct{}
 
@@ -21266,6 +23521,12 @@ func (raidQuery) Or(params ...iRaidParams) raidParams {
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
 
 // base struct
 type raidQueryIDInt struct{}
@@ -22662,6 +24923,12 @@ func (raidBossQuery) Or(params ...iRaidBossParams) raidBossParams {
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
 
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
 // base struct
 type raidBossQueryIDInt struct{}
 
@@ -23529,6 +25796,12 @@ func (avatarsOnRaidsQuery) RaidIDAvatarID(
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
 
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
 // base struct
 type avatarsOnRaidsQueryCreatedAtDateTime struct{}
 
@@ -24357,6 +26630,12 @@ func (raidBossesOnRaidsQuery) RaidIDRaidBossID(
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
 
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
 // base struct
 type raidBossesOnRaidsQueryCreatedAtDateTime struct{}
 
@@ -25054,6 +27333,12 @@ func (storyQuery) Or(params ...iStoryParams) storyParams {
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
 
 // base struct
 type storyQueryIDInt struct{}
@@ -25834,6 +28119,12 @@ func (storiesOnRaidsQuery) RaidIDStoryID(
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
 
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
 // base struct
 type storiesOnRaidsQueryCreatedAtDateTime struct{}
 
@@ -26470,6 +28761,8 @@ type eventQuery struct {
 	Sequence eventQuerySequenceInt
 
 	Action eventQueryActionRelations
+
+	MessagesOnEvents eventQueryMessagesOnEventsRelations
 }
 
 func (eventQuery) Not(params ...iEventParams) eventParams {
@@ -26559,6 +28852,12 @@ func (eventQuery) StoryIDSequence(
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
 
 // base struct
 type eventQueryIDInt struct{}
@@ -27316,6 +29615,125 @@ func (r eventQueryActionRelations) Unlink() eventSetParams {
 	}
 }
 
+// base struct
+type eventQueryMessagesOnEventsMessagesOnEvents struct{}
+
+type eventQueryMessagesOnEventsRelations struct{}
+
+// Event -> MessagesOnEvents
+//
+// @relation
+// @optional
+func (eventQueryMessagesOnEventsRelations) Some(
+	params ...iMessagesOnEventsParams,
+) eventParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return eventParams{
+		data: builder.Field{
+			Name:   "MessagesOnEvents",
+			Action: "some",
+			Fields: fields,
+		},
+	}
+}
+
+// Event -> MessagesOnEvents
+//
+// @relation
+// @optional
+func (eventQueryMessagesOnEventsRelations) Every(
+	params ...iMessagesOnEventsParams,
+) eventParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return eventParams{
+		data: builder.Field{
+			Name:   "MessagesOnEvents",
+			Action: "every",
+			Fields: fields,
+		},
+	}
+}
+
+func (eventQueryMessagesOnEventsRelations) Fetch(
+
+	params ...iMessagesOnEventsParams,
+
+) eventToMessagesOnEventsFindMany {
+	var v eventToMessagesOnEventsFindMany
+
+	v.query.Operation = "query"
+	v.query.Method = "MessagesOnEvents"
+	v.query.Outputs = messagesOnEventsOutput
+
+	var where []builder.Field
+	for _, q := range params {
+		if query := q.getQuery(); query.Operation != "" {
+			v.query.Outputs = append(v.query.Outputs, builder.Output{
+				Name:    query.Method,
+				Inputs:  query.Inputs,
+				Outputs: query.Outputs,
+			})
+		} else {
+			where = append(where, q.field())
+		}
+	}
+
+	if len(where) > 0 {
+		v.query.Inputs = append(v.query.Inputs, builder.Input{
+			Name:   "where",
+			Fields: where,
+		})
+	}
+
+	return v
+}
+
+func (r eventQueryMessagesOnEventsRelations) Link(
+	params ...iMessagesOnEventsParams,
+) eventSetParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return eventSetParams{
+		data: builder.Field{
+			Name: "MessagesOnEvents",
+			Fields: []builder.Field{
+				{
+					Name:   "connect",
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r eventQueryMessagesOnEventsRelations) Unlink() eventSetParams {
+	return eventSetParams{
+		data: builder.Field{
+			Name: "MessagesOnEvents",
+			Fields: []builder.Field{
+				{
+					Name:  "disconnect",
+					Value: true,
+				},
+			},
+		},
+	}
+}
+
 // Action acts as a namespaces to access query methods for the Action model
 var Action = actionQuery{}
 
@@ -27443,6 +29861,12 @@ func (actionQuery) EventIDPosition(
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
 
 // base struct
 type actionQueryIDInt struct{}
@@ -28230,7 +30654,14 @@ type messageQuery struct {
 	// @required
 	Content messageQueryContentString
 
+	// Type
+	//
+	// @required
+	Type messageQueryTypeString
+
 	MessagesOnActions messageQueryMessagesOnActionsRelations
+
+	MessagesOnEvents messageQueryMessagesOnEventsRelations
 }
 
 func (messageQuery) Not(params ...iMessageParams) messageParams {
@@ -28302,6 +30733,12 @@ func (messageQuery) Or(params ...iMessageParams) messageParams {
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
 
 // base struct
 type messageQueryIDInt struct{}
@@ -28783,6 +31220,85 @@ func (r messageQueryContentString) HasSuffix(value string) messageParams {
 }
 
 // base struct
+type messageQueryTypeString struct{}
+
+// Set the required value of Type
+func (r messageQueryTypeString) Set(value string) messageWithPrismaTypeSetParams {
+
+	return messageWithPrismaTypeSetParams{
+		data: builder.Field{
+			Name:  "type",
+			Value: value,
+		},
+	}
+
+}
+
+func (r messageQueryTypeString) Equals(value string) messageWithPrismaTypeEqualsParams {
+	return messageWithPrismaTypeEqualsParams{
+		data: builder.Field{
+			Name:  "type",
+			Value: value,
+		},
+	}
+}
+
+func (r messageQueryTypeString) In(values []string) messageParams {
+	f := builder.Field{
+		Name:   "type",
+		Action: "in",
+		List:   true,
+	}
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
+		})
+	}
+	return messageParams{
+		data: f,
+	}
+}
+
+func (r messageQueryTypeString) Order(direction runtime.Direction) messageParams {
+	return messageParams{
+		data: builder.Field{
+			Name:  "type",
+			Value: direction,
+		},
+	}
+}
+
+func (r messageQueryTypeString) Contains(value string) messageParams {
+	return messageParams{
+		data: builder.Field{
+			Action: "contains",
+			Name:   "type",
+			Value:  value,
+		},
+	}
+}
+
+func (r messageQueryTypeString) HasPrefix(value string) messageParams {
+	return messageParams{
+		data: builder.Field{
+			Action: "starts_with",
+			Name:   "type",
+			Value:  value,
+		},
+	}
+}
+
+func (r messageQueryTypeString) HasSuffix(value string) messageParams {
+	return messageParams{
+		data: builder.Field{
+			Action: "ends_with",
+			Name:   "type",
+			Value:  value,
+		},
+	}
+}
+
+// base struct
 type messageQueryMessagesOnActionsMessagesOnActions struct{}
 
 type messageQueryMessagesOnActionsRelations struct{}
@@ -28891,6 +31407,125 @@ func (r messageQueryMessagesOnActionsRelations) Unlink() messageSetParams {
 	return messageSetParams{
 		data: builder.Field{
 			Name: "MessagesOnActions",
+			Fields: []builder.Field{
+				{
+					Name:  "disconnect",
+					Value: true,
+				},
+			},
+		},
+	}
+}
+
+// base struct
+type messageQueryMessagesOnEventsMessagesOnEvents struct{}
+
+type messageQueryMessagesOnEventsRelations struct{}
+
+// Message -> MessagesOnEvents
+//
+// @relation
+// @optional
+func (messageQueryMessagesOnEventsRelations) Some(
+	params ...iMessagesOnEventsParams,
+) messageParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return messageParams{
+		data: builder.Field{
+			Name:   "MessagesOnEvents",
+			Action: "some",
+			Fields: fields,
+		},
+	}
+}
+
+// Message -> MessagesOnEvents
+//
+// @relation
+// @optional
+func (messageQueryMessagesOnEventsRelations) Every(
+	params ...iMessagesOnEventsParams,
+) messageParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return messageParams{
+		data: builder.Field{
+			Name:   "MessagesOnEvents",
+			Action: "every",
+			Fields: fields,
+		},
+	}
+}
+
+func (messageQueryMessagesOnEventsRelations) Fetch(
+
+	params ...iMessagesOnEventsParams,
+
+) messageToMessagesOnEventsFindMany {
+	var v messageToMessagesOnEventsFindMany
+
+	v.query.Operation = "query"
+	v.query.Method = "MessagesOnEvents"
+	v.query.Outputs = messagesOnEventsOutput
+
+	var where []builder.Field
+	for _, q := range params {
+		if query := q.getQuery(); query.Operation != "" {
+			v.query.Outputs = append(v.query.Outputs, builder.Output{
+				Name:    query.Method,
+				Inputs:  query.Inputs,
+				Outputs: query.Outputs,
+			})
+		} else {
+			where = append(where, q.field())
+		}
+	}
+
+	if len(where) > 0 {
+		v.query.Inputs = append(v.query.Inputs, builder.Input{
+			Name:   "where",
+			Fields: where,
+		})
+	}
+
+	return v
+}
+
+func (r messageQueryMessagesOnEventsRelations) Link(
+	params ...iMessagesOnEventsParams,
+) messageSetParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return messageSetParams{
+		data: builder.Field{
+			Name: "MessagesOnEvents",
+			Fields: []builder.Field{
+				{
+					Name:   "connect",
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r messageQueryMessagesOnEventsRelations) Unlink() messageSetParams {
+	return messageSetParams{
+		data: builder.Field{
+			Name: "MessagesOnEvents",
 			Fields: []builder.Field{
 				{
 					Name:  "disconnect",
@@ -29041,6 +31676,12 @@ func (messagesOnActionsQuery) MessageIDActionID(
 		},
 	}
 }
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
 
 // base struct
 type messagesOnActionsQueryCreatedAtDateTime struct{}
@@ -29635,6 +32276,751 @@ func (r messagesOnActionsQueryActionIDInt) GTE(value int) messagesOnActionsParam
 		data: builder.Field{
 			Action: "gte",
 			Name:   "actionId",
+			Value:  value,
+		},
+	}
+}
+
+// MessagesOnEvents acts as a namespaces to access query methods for the MessagesOnEvents model
+var MessagesOnEvents = messagesOnEventsQuery{}
+
+// messagesOnEventsQuery exposes query functions for the messagesOnEvents model
+type messagesOnEventsQuery struct {
+	// CreatedAt
+	//
+	// @required
+	CreatedAt messagesOnEventsQueryCreatedAtDateTime
+
+	// DeletedAt
+	//
+	// @optional
+	DeletedAt messagesOnEventsQueryDeletedAtDateTime
+
+	// UpdatedAt
+	//
+	// @required
+	UpdatedAt messagesOnEventsQueryUpdatedAtDateTime
+
+	Message messagesOnEventsQueryMessageRelations
+
+	// MessageID
+	//
+	// @required
+	MessageID messagesOnEventsQueryMessageIDInt
+
+	Event messagesOnEventsQueryEventRelations
+
+	// EventID
+	//
+	// @required
+	EventID messagesOnEventsQueryEventIDInt
+}
+
+func (messagesOnEventsQuery) Not(params ...iMessagesOnEventsParams) messagesOnEventsParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Name:     "NOT",
+			List:     true,
+			WrapList: true,
+			Fields:   fields,
+		},
+	}
+}
+
+func (messagesOnEventsQuery) Or(params ...iMessagesOnEventsParams) messagesOnEventsParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Name:     "OR",
+			List:     true,
+			WrapList: true,
+			Fields:   fields,
+		},
+	}
+}
+
+// searched for field raidId_avatarId
+// type: RaidIdAvatarIdCompoundUniqueInput
+
+// searched for field raidId_avatarId
+// type: RaidIdAvatarIdCompoundUniqueInput
+
+// searched for field raidId_raidBossId
+// type: RaidIdRaidBossIdCompoundUniqueInput
+
+// searched for field raidId_raidBossId
+// type: RaidIdRaidBossIdCompoundUniqueInput
+
+// searched for field raidId_storyId
+// type: RaidIdStoryIdCompoundUniqueInput
+
+// searched for field raidId_storyId
+// type: RaidIdStoryIdCompoundUniqueInput
+
+// searched for field id
+// type: Int
+
+// searched for field storyId_sequence
+// type: StoryIdSequenceCompoundUniqueInput
+
+// searched for field id
+// type: Int
+
+// searched for field eventId_position
+// type: EventIdPositionCompoundUniqueInput
+
+// searched for field messageId_actionId
+// type: MessageIdActionIdCompoundUniqueInput
+
+// searched for field messageId_actionId
+// type: MessageIdActionIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+func (messagesOnEventsQuery) MessageIDEventID(
+	_messageID iMessagesOnEventsWithPrismaMessageIDEqualsParams,
+
+	_eventID iMessagesOnEventsWithPrismaEventIDEqualsParams,
+) iMessagesOnEventsEqualsParamsUnique {
+	var fields []builder.Field
+
+	fields = append(fields, _messageID.field())
+	fields = append(fields, _eventID.field())
+
+	return messagesOnEventsEqualsParamsUnique{
+		data: builder.Field{
+			Name:   "messageId_eventId",
+			Fields: fields,
+		},
+	}
+}
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
+func (messagesOnEventsQuery) MessageIDEventID(
+	_messageID iMessagesOnEventsWithPrismaMessageIDEqualsParams,
+
+	_eventID iMessagesOnEventsWithPrismaEventIDEqualsParams,
+) iMessagesOnEventsEqualsParamsUnique {
+	var fields []builder.Field
+
+	fields = append(fields, _messageID.field())
+	fields = append(fields, _eventID.field())
+
+	return messagesOnEventsEqualsParamsUnique{
+		data: builder.Field{
+			Name:   "messageId_eventId",
+			Fields: fields,
+		},
+	}
+}
+
+// base struct
+type messagesOnEventsQueryCreatedAtDateTime struct{}
+
+// Set the required value of CreatedAt
+func (r messagesOnEventsQueryCreatedAtDateTime) Set(value DateTime) messagesOnEventsSetParams {
+
+	return messagesOnEventsSetParams{
+		data: builder.Field{
+			Name:  "createdAt",
+			Value: value,
+		},
+	}
+
+}
+
+func (r messagesOnEventsQueryCreatedAtDateTime) Equals(value DateTime) messagesOnEventsWithPrismaCreatedAtEqualsParams {
+	return messagesOnEventsWithPrismaCreatedAtEqualsParams{
+		data: builder.Field{
+			Name:  "createdAt",
+			Value: value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryCreatedAtDateTime) In(values []DateTime) messagesOnEventsParams {
+	f := builder.Field{
+		Name:   "createdAt",
+		Action: "in",
+		List:   true,
+	}
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
+		})
+	}
+	return messagesOnEventsParams{
+		data: f,
+	}
+}
+
+func (r messagesOnEventsQueryCreatedAtDateTime) Order(direction runtime.Direction) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Name:  "createdAt",
+			Value: direction,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryCreatedAtDateTime) Before(value DateTime) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "lt",
+			Name:   "createdAt",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryCreatedAtDateTime) After(value DateTime) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "gt",
+			Name:   "createdAt",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryCreatedAtDateTime) BeforeEquals(value DateTime) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "lte",
+			Name:   "createdAt",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryCreatedAtDateTime) AfterEquals(value DateTime) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "gte",
+			Name:   "createdAt",
+			Value:  value,
+		},
+	}
+}
+
+// base struct
+type messagesOnEventsQueryDeletedAtDateTime struct{}
+
+// Set the optional value of DeletedAt
+func (r messagesOnEventsQueryDeletedAtDateTime) Set(value DateTime) messagesOnEventsSetParams {
+
+	return messagesOnEventsSetParams{
+		data: builder.Field{
+			Name:  "deletedAt",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of DeletedAt dynamically
+func (r messagesOnEventsQueryDeletedAtDateTime) SetOptional(value *DateTime) messagesOnEventsSetParams {
+	if value == nil {
+
+		var v *DateTime
+		return messagesOnEventsSetParams{
+			data: builder.Field{
+				Name:  "deletedAt",
+				Value: v,
+			},
+		}
+	}
+
+	return r.Set(*value)
+}
+
+func (r messagesOnEventsQueryDeletedAtDateTime) Equals(value DateTime) messagesOnEventsWithPrismaDeletedAtEqualsParams {
+	return messagesOnEventsWithPrismaDeletedAtEqualsParams{
+		data: builder.Field{
+			Name:  "deletedAt",
+			Value: value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryDeletedAtDateTime) In(values []DateTime) messagesOnEventsParams {
+	f := builder.Field{
+		Name:   "deletedAt",
+		Action: "in",
+		List:   true,
+	}
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
+		})
+	}
+	return messagesOnEventsParams{
+		data: f,
+	}
+}
+
+func (r messagesOnEventsQueryDeletedAtDateTime) EqualsOptional(value *DateTime) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Name:  "deletedAt",
+			Value: value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryDeletedAtDateTime) IsNull() messagesOnEventsParams {
+	var str *string = nil
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Name:  "deletedAt",
+			Value: str,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryDeletedAtDateTime) Order(direction runtime.Direction) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Name:  "deletedAt",
+			Value: direction,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryDeletedAtDateTime) Before(value DateTime) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "lt",
+			Name:   "deletedAt",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryDeletedAtDateTime) After(value DateTime) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "gt",
+			Name:   "deletedAt",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryDeletedAtDateTime) BeforeEquals(value DateTime) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "lte",
+			Name:   "deletedAt",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryDeletedAtDateTime) AfterEquals(value DateTime) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "gte",
+			Name:   "deletedAt",
+			Value:  value,
+		},
+	}
+}
+
+// base struct
+type messagesOnEventsQueryUpdatedAtDateTime struct{}
+
+// Set the required value of UpdatedAt
+func (r messagesOnEventsQueryUpdatedAtDateTime) Set(value DateTime) messagesOnEventsSetParams {
+
+	return messagesOnEventsSetParams{
+		data: builder.Field{
+			Name:  "updatedAt",
+			Value: value,
+		},
+	}
+
+}
+
+func (r messagesOnEventsQueryUpdatedAtDateTime) Equals(value DateTime) messagesOnEventsWithPrismaUpdatedAtEqualsParams {
+	return messagesOnEventsWithPrismaUpdatedAtEqualsParams{
+		data: builder.Field{
+			Name:  "updatedAt",
+			Value: value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryUpdatedAtDateTime) In(values []DateTime) messagesOnEventsParams {
+	f := builder.Field{
+		Name:   "updatedAt",
+		Action: "in",
+		List:   true,
+	}
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
+		})
+	}
+	return messagesOnEventsParams{
+		data: f,
+	}
+}
+
+func (r messagesOnEventsQueryUpdatedAtDateTime) Order(direction runtime.Direction) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Name:  "updatedAt",
+			Value: direction,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryUpdatedAtDateTime) Before(value DateTime) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "lt",
+			Name:   "updatedAt",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryUpdatedAtDateTime) After(value DateTime) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "gt",
+			Name:   "updatedAt",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryUpdatedAtDateTime) BeforeEquals(value DateTime) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "lte",
+			Name:   "updatedAt",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryUpdatedAtDateTime) AfterEquals(value DateTime) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "gte",
+			Name:   "updatedAt",
+			Value:  value,
+		},
+	}
+}
+
+// base struct
+type messagesOnEventsQueryMessageMessage struct{}
+
+type messagesOnEventsQueryMessageRelations struct{}
+
+// MessagesOnEvents -> Message
+//
+// @relation
+// @required
+func (messagesOnEventsQueryMessageRelations) Where(
+	params ...iMessageParams,
+) messagesOnEventsParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Name:   "message",
+			Action: "",
+			Fields: fields,
+		},
+	}
+}
+
+func (messagesOnEventsQueryMessageRelations) Fetch() messagesOnEventsToMessageFindOne {
+	var v messagesOnEventsToMessageFindOne
+
+	v.query.Operation = "query"
+	v.query.Method = "message"
+	v.query.Outputs = messageOutput
+
+	return v
+}
+
+func (r messagesOnEventsQueryMessageRelations) Link(
+	params ...iMessageParams,
+) messagesOnEventsWithPrismaMessageSetParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return messagesOnEventsWithPrismaMessageSetParams{
+		data: builder.Field{
+			Name: "message",
+			Fields: []builder.Field{
+				{
+					Name:   "connect",
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+// base struct
+type messagesOnEventsQueryMessageIDInt struct{}
+
+// Set the required value of MessageID
+func (r messagesOnEventsQueryMessageIDInt) Set(value int) messagesOnEventsWithPrismaMessageIDSetParams {
+
+	return messagesOnEventsWithPrismaMessageIDSetParams{
+		data: builder.Field{
+			Name:  "messageId",
+			Value: value,
+		},
+	}
+
+}
+
+func (r messagesOnEventsQueryMessageIDInt) Equals(value int) messagesOnEventsWithPrismaMessageIDEqualsParams {
+	return messagesOnEventsWithPrismaMessageIDEqualsParams{
+		data: builder.Field{
+			Name:  "messageId",
+			Value: value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryMessageIDInt) In(values []int) messagesOnEventsParams {
+	f := builder.Field{
+		Name:   "messageId",
+		Action: "in",
+		List:   true,
+	}
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
+		})
+	}
+	return messagesOnEventsParams{
+		data: f,
+	}
+}
+
+func (r messagesOnEventsQueryMessageIDInt) Order(direction runtime.Direction) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Name:  "messageId",
+			Value: direction,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryMessageIDInt) LT(value int) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "lt",
+			Name:   "messageId",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryMessageIDInt) GT(value int) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "gt",
+			Name:   "messageId",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryMessageIDInt) LTE(value int) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "lte",
+			Name:   "messageId",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryMessageIDInt) GTE(value int) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "gte",
+			Name:   "messageId",
+			Value:  value,
+		},
+	}
+}
+
+// base struct
+type messagesOnEventsQueryEventEvent struct{}
+
+type messagesOnEventsQueryEventRelations struct{}
+
+// MessagesOnEvents -> Event
+//
+// @relation
+// @required
+func (messagesOnEventsQueryEventRelations) Where(
+	params ...iEventParams,
+) messagesOnEventsParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Name:   "event",
+			Action: "",
+			Fields: fields,
+		},
+	}
+}
+
+func (messagesOnEventsQueryEventRelations) Fetch() messagesOnEventsToEventFindOne {
+	var v messagesOnEventsToEventFindOne
+
+	v.query.Operation = "query"
+	v.query.Method = "event"
+	v.query.Outputs = eventOutput
+
+	return v
+}
+
+func (r messagesOnEventsQueryEventRelations) Link(
+	params ...iEventParams,
+) messagesOnEventsWithPrismaEventSetParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return messagesOnEventsWithPrismaEventSetParams{
+		data: builder.Field{
+			Name: "event",
+			Fields: []builder.Field{
+				{
+					Name:   "connect",
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+// base struct
+type messagesOnEventsQueryEventIDInt struct{}
+
+// Set the required value of EventID
+func (r messagesOnEventsQueryEventIDInt) Set(value int) messagesOnEventsWithPrismaEventIDSetParams {
+
+	return messagesOnEventsWithPrismaEventIDSetParams{
+		data: builder.Field{
+			Name:  "eventId",
+			Value: value,
+		},
+	}
+
+}
+
+func (r messagesOnEventsQueryEventIDInt) Equals(value int) messagesOnEventsWithPrismaEventIDEqualsParams {
+	return messagesOnEventsWithPrismaEventIDEqualsParams{
+		data: builder.Field{
+			Name:  "eventId",
+			Value: value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryEventIDInt) In(values []int) messagesOnEventsParams {
+	f := builder.Field{
+		Name:   "eventId",
+		Action: "in",
+		List:   true,
+	}
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
+		})
+	}
+	return messagesOnEventsParams{
+		data: f,
+	}
+}
+
+func (r messagesOnEventsQueryEventIDInt) Order(direction runtime.Direction) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Name:  "eventId",
+			Value: direction,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryEventIDInt) LT(value int) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "lt",
+			Name:   "eventId",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryEventIDInt) GT(value int) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "gt",
+			Name:   "eventId",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryEventIDInt) LTE(value int) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "lte",
+			Name:   "eventId",
+			Value:  value,
+		},
+	}
+}
+
+func (r messagesOnEventsQueryEventIDInt) GTE(value int) messagesOnEventsParams {
+	return messagesOnEventsParams{
+		data: builder.Field{
+			Action: "gte",
+			Name:   "eventId",
 			Value:  value,
 		},
 	}

@@ -175,18 +175,12 @@ func Run() {
 		prisma.Event.Sequence.Set(1),
 	).Exec(ctx)
 
-	// Create the events for the story
 	alienStoryEvent6, err := db.Event.CreateOne(
 		prisma.Event.Story.Link(
 			prisma.Story.ID.Equals(alienStory.ID)),
 		prisma.Event.Sequence.Set(1),
 	).Exec(ctx)
-	// Create the events for the story
-	alienStoryEvent7, err := db.Event.CreateOne(
-		prisma.Event.Story.Link(
-			prisma.Story.ID.Equals(alienStory.ID)),
-		prisma.Event.Sequence.Set(1),
-	).Exec(ctx)
+
 }
 
 func handleError(err error) {
