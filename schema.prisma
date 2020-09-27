@@ -54,6 +54,7 @@ model RaidBoss {
     name              String              @unique
     image             String?
     RaidBossesOnRaids RaidBossesOnRaids[]
+    StoriesOnRaids    StoriesOnRaids[]
 }
 
 model AvatarsOnRaids {
@@ -81,20 +82,24 @@ model RaidBossesOnRaids {
     @@id([raidId, raidBossId])
 }
 
+// A Story is a series of events that can occur for a given raid
 model Story {
-    id        Int       @default(autoincrement()) @id
-    createdAt DateTime  @default(now())
-    deletedAt DateTime?
-    updatedAt DateTime  @updatedAt
+    id             Int              @default(autoincrement()) @id
+    createdAt      DateTime         @default(now())
+    deletedAt      DateTime?
+    updatedAt      DateTime         @updatedAt
+    StoriesOnRaids StoriesOnRaids[]
+    Event          Event[]
 }
 
+// A Raid may have multiple stories in succession
 model StoriesOnRaids {
     createdAt  DateTime  @default(now())
     deletedAt  DateTime?
     updatedAt  DateTime  @updatedAt
     raid       Raid      @relation(fields: [raidId], references: [id])
     raidId     Int
-    story      Story      @relation(fields: [storyId], references: [id])
+    story      Story     @relation(fields: [storyId], references: [id])
     storyId    Int
     raidBoss   RaidBoss  @relation(fields: [raidBossId], references: [id])
     raidBossId Int
@@ -102,6 +107,7 @@ model StoriesOnRaids {
     @@id([raidId, storyId, raidBossId])
 }
 
+// An Event represents a moment in a story in which Avatars can fulfill Actions
 model Event {
     id        Int       @default(autoincrement()) @id
     createdAt DateTime  @default(now())
@@ -109,25 +115,42 @@ model Event {
     updatedAt DateTime  @updatedAt
     story     Story     @relation(fields: [storyId], references: [id])
     storyId   Int
+    // The sequence dictates the order of events to occur in a story
     sequence  Int
+    Action    Action[]
 }
 
+// An Action prescribes a message and the raid member position required to fulfill the action.
+// This allows for customized actions per raid member. Wowzah!
 model Action {
-    id        Int       @default(autoincrement()) @id
-    createdAt DateTime  @default(now())
-    deletedAt DateTime?
-    updatedAt DateTime  @updatedAt
-    // raid       Raid      @relation(fields: [raidId], references: [id])
-    // raidId     Int
-    // avatar     Avatar    @relation(fields: [avatarId], references: [id])
-    // avatarId   Int
-    // RaidBoss   RaidBoss  @relation(fields: [raidBossId], references: [id])
-    // raidBossId Int
+    id                Int                 @default(autoincrement()) @id
+    createdAt         DateTime            @default(now())
+    deletedAt         DateTime?
+    updatedAt         DateTime            @updatedAt
+    position          Int
+    event             Event               @relation(fields: [eventId], references: [id])
+    eventId           Int
+    MessagesOnActions MessagesOnActions[]
 }
 
+// A Message holds message contents.
 model Message {
-    id        Int       @default(autoincrement()) @id
+    id                Int                 @default(autoincrement()) @id
+    createdAt         DateTime            @default(now())
+    deletedAt         DateTime?
+    updatedAt         DateTime            @updatedAt
+    content           String
+    MessagesOnActions MessagesOnActions[]
+}
+
+model MessagesOnActions {
     createdAt DateTime  @default(now())
     deletedAt DateTime?
     updatedAt DateTime  @updatedAt
+    message   Message   @relation(fields: [messageId], references: [id])
+    messageId Int
+    action    Action    @relation(fields: [actionId], references: [id])
+    actionId  Int
+
+    @@id([messageId, actionId])
 }
