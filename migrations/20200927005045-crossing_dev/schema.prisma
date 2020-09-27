@@ -26,7 +26,7 @@ model Avatar {
     deletedAt      DateTime?
     updatedAt      DateTime         @updatedAt
     User           User             @relation(fields: [userId], references: [id])
-    userId         Int
+    userId         Int              @unique
     AvatarsOnRaids AvatarsOnRaids[]
 }
 
@@ -67,6 +67,7 @@ model AvatarsOnRaids {
     avatarId  Int
 
     @@id([raidId, avatarId])
+
 }
 
 model RaidBossesOnRaids {
@@ -79,6 +80,7 @@ model RaidBossesOnRaids {
     raidBossId Int
 
     @@id([raidId, raidBossId])
+
 }
 
 // A Story is a series of events that can occur for a given raid
@@ -102,19 +104,23 @@ model StoriesOnRaids {
     storyId   Int
 
     @@id([raidId, storyId])
+
 }
 
 // An Event represents a moment in a story in which Avatars can fulfill Actions
 model Event {
-    id        Int       @default(autoincrement()) @id
-    createdAt DateTime  @default(now())
-    deletedAt DateTime?
-    updatedAt DateTime  @updatedAt
-    story     Story     @relation(fields: [storyId], references: [id])
-    storyId   Int
+    id               Int                @default(autoincrement()) @id
+    createdAt        DateTime           @default(now())
+    deletedAt        DateTime?
+    updatedAt        DateTime           @updatedAt
+    story            Story              @relation(fields: [storyId], references: [id])
+    storyId          Int
     // The sequence dictates the order of events to occur in a story
-    sequence  Int
-    Action    Action[]
+    sequence         Int
+    Action           Action[]
+    MessagesOnEvents MessagesOnEvents[]
+
+    @@unique([storyId, sequence])
 }
 
 // An Action prescribes a message and the raid member position required to fulfill the action.
@@ -128,6 +134,8 @@ model Action {
     event             Event               @relation(fields: [eventId], references: [id])
     eventId           Int
     MessagesOnActions MessagesOnActions[]
+
+    @@unique([eventId, position])
 }
 
 // A Message holds message contents.
@@ -137,9 +145,12 @@ model Message {
     deletedAt         DateTime?
     updatedAt         DateTime            @updatedAt
     content           String
+    type              String
     MessagesOnActions MessagesOnActions[]
+    MessagesOnEvents  MessagesOnEvents[]
 }
 
+// An Action may send messages to users.
 model MessagesOnActions {
     createdAt DateTime  @default(now())
     deletedAt DateTime?
@@ -150,4 +161,18 @@ model MessagesOnActions {
     actionId  Int
 
     @@id([messageId, actionId])
+
+}
+
+// An Event may send messages to users on completion.
+model MessagesOnEvents {
+    createdAt DateTime  @default(now())
+    deletedAt DateTime?
+    updatedAt DateTime  @updatedAt
+    message   Message   @relation(fields: [messageId], references: [id])
+    messageId Int
+    event     Event     @relation(fields: [eventId], references: [id])
+    eventId   Int
+
+    @@id([messageId, eventId])
 }

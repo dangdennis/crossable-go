@@ -67,7 +67,7 @@ model AvatarsOnRaids {
     avatarId  Int
 
     @@id([raidId, avatarId])
-    @@unique([raidId, avatarId])
+
 }
 
 model RaidBossesOnRaids {
@@ -80,7 +80,7 @@ model RaidBossesOnRaids {
     raidBossId Int
 
     @@id([raidId, raidBossId])
-    @@unique([raidId, raidBossId])
+
 }
 
 // A Story is a series of events that can occur for a given raid
@@ -104,7 +104,7 @@ model StoriesOnRaids {
     storyId   Int
 
     @@id([raidId, storyId])
-    @@unique([raidId, storyId])
+
 }
 
 // An Event represents a moment in a story in which Avatars can fulfill Actions
@@ -161,7 +161,7 @@ model MessagesOnActions {
     actionId  Int
 
     @@id([messageId, actionId])
-    @@unique([messageId, actionId])
+
 }
 
 // An Event may send messages to users on completion.
@@ -175,5 +175,4 @@ model MessagesOnEvents {
     eventId   Int
 
     @@id([messageId, eventId])
-    @@unique([messageId, eventId])
 }

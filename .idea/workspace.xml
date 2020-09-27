@@ -20,6 +20,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3e67fb9-c979-4b19-b287-50dc79d567d4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/migrations/20200927005045-crossing_dev/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/20200927005045-crossing_dev/schema.prisma" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/20200927005045-crossing_dev/steps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositories/messages/messages.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/db_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/db_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200920222537-crossing_dev/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200920222537-crossing_dev/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200920222537-crossing_dev/steps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200925012728-crossing_dev/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200925012728-crossing_dev/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200925012728-crossing_dev/steps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200926213950-crossing_dev/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200926213950-crossing_dev/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200926213950-crossing_dev/steps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200926232750-crossing_dev/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200926232750-crossing_dev/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200926232750-crossing_dev/steps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200926234108-crossing_dev/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200926234108-crossing_dev/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200926234108-crossing_dev/steps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200926234751-crossing_dev/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200926234751-crossing_dev/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20200926234751-crossing_dev/steps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/migrate.lock" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/migrate.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/raids/raids.go" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/raids/raids.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/schema.prisma" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seeder/seeder.go" beforeDir="false" afterPath="$PROJECT_DIR$/seeder/seeder.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +66,9 @@
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1hjb3euH9DWYKYCU3izyk8YIiGq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -46,6 +76,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -62,8 +93,8 @@
       <recent name="$PROJECT_DIR$/bot" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestFindWeeklyActiveRaid in github.com/dangdennis/crossing/repositories">
-    <configuration name="TestFindWeeklyActiveRaid in github.com/dangdennis/crossing/repositories" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestRun in github.com/dangdennis/crossing/seeder">
+    <configuration name="TestFindWeeklyActiveRaid in github.com/dangdennis/crossing/repositories" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
       <module name="crossing-bot-v2" />
       <working_directory value="$PROJECT_DIR$/repositories" />
       <framework value="gotest" />
@@ -87,8 +118,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestFindWeeklyActiveRaid in github.com/dangdennis/crossing/repositories" />
         <item itemvalue="Go Test.TestRun in github.com/dangdennis/crossing/seeder" />
+        <item itemvalue="Go Test.TestFindWeeklyActiveRaid in github.com/dangdennis/crossing/repositories" />
       </list>
     </recent_temporary>
   </component>
@@ -107,6 +138,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -128,26 +162,26 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="547" y="356" key="EditFileWatcherDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1600529713874" />
-    <state width="982" height="149" key="GridCell.Tab.0.bottom" timestamp="1600742370734">
+    <state width="1501" height="514" key="GridCell.Tab.0.bottom" timestamp="1601182343258">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="1750" height="322" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586839" />
-    <state width="982" height="149" key="GridCell.Tab.0.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1600742370734" />
-    <state width="982" height="149" key="GridCell.Tab.0.center" timestamp="1600742370733">
+    <state width="1501" height="514" key="GridCell.Tab.0.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1601182343258" />
+    <state width="1501" height="514" key="GridCell.Tab.0.center" timestamp="1601182343257">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="1750" height="322" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
-    <state width="982" height="149" key="GridCell.Tab.0.center/0.23.2048.1257@0.23.2048.1257" timestamp="1600742370733" />
-    <state width="982" height="149" key="GridCell.Tab.0.left" timestamp="1600742370733">
+    <state width="1501" height="514" key="GridCell.Tab.0.center/0.23.2048.1257@0.23.2048.1257" timestamp="1601182343257" />
+    <state width="1501" height="514" key="GridCell.Tab.0.left" timestamp="1601182343257">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="1750" height="322" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
-    <state width="982" height="149" key="GridCell.Tab.0.left/0.23.2048.1257@0.23.2048.1257" timestamp="1600742370733" />
-    <state width="982" height="149" key="GridCell.Tab.0.right" timestamp="1600742370734">
+    <state width="1501" height="514" key="GridCell.Tab.0.left/0.23.2048.1257@0.23.2048.1257" timestamp="1601182343257" />
+    <state width="1501" height="514" key="GridCell.Tab.0.right" timestamp="1601182343258">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="1750" height="322" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
-    <state width="982" height="149" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1600742370734" />
+    <state width="1501" height="514" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1601182343258" />
     <state width="982" height="149" key="GridCell.Tab.1.bottom" timestamp="1600742370735">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
@@ -194,17 +228,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/seeder/seeder.go</url>
-          <line>41</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/seeder/seeder.go</url>
-          <line>48</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/seeder/seeder.go</url>
-          <line>73</line>
+          <line>75</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>

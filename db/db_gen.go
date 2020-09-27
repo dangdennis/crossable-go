@@ -20596,7 +20596,7 @@ model AvatarsOnRaids {
     avatarId  Int
 
     @@id([raidId, avatarId])
-    @@unique([raidId, avatarId])
+
 }
 
 model RaidBossesOnRaids {
@@ -20609,7 +20609,7 @@ model RaidBossesOnRaids {
     raidBossId Int
 
     @@id([raidId, raidBossId])
-    @@unique([raidId, raidBossId])
+
 }
 
 // A Story is a series of events that can occur for a given raid
@@ -20633,7 +20633,7 @@ model StoriesOnRaids {
     storyId   Int
 
     @@id([raidId, storyId])
-    @@unique([raidId, storyId])
+
 }
 
 // An Event represents a moment in a story in which Avatars can fulfill Actions
@@ -20690,7 +20690,7 @@ model MessagesOnActions {
     actionId  Int
 
     @@id([messageId, actionId])
-    @@unique([messageId, actionId])
+
 }
 
 // An Event may send messages to users on completion.
@@ -20704,7 +20704,6 @@ model MessagesOnEvents {
     eventId   Int
 
     @@id([messageId, eventId])
-    @@unique([messageId, eventId])
 }
 `
 
@@ -21528,17 +21527,8 @@ func (userQuery) Or(params ...iUserParams) userParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
 
 // searched for field raidId_storyId
 // type: RaidIdStoryIdCompoundUniqueInput
@@ -21557,12 +21547,6 @@ func (userQuery) Or(params ...iUserParams) userParams {
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
@@ -22675,17 +22659,8 @@ func (avatarQuery) Or(params ...iAvatarParams) avatarParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
 
 // searched for field raidId_storyId
 // type: RaidIdStoryIdCompoundUniqueInput
@@ -22704,12 +22679,6 @@ func (avatarQuery) Or(params ...iAvatarParams) avatarParams {
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
@@ -23489,17 +23458,8 @@ func (raidQuery) Or(params ...iRaidParams) raidParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
 
 // searched for field raidId_storyId
 // type: RaidIdStoryIdCompoundUniqueInput
@@ -23518,12 +23478,6 @@ func (raidQuery) Or(params ...iRaidParams) raidParams {
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
@@ -24890,17 +24844,8 @@ func (raidBossQuery) Or(params ...iRaidBossParams) raidBossParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
 
 // searched for field raidId_storyId
 // type: RaidIdStoryIdCompoundUniqueInput
@@ -24919,12 +24864,6 @@ func (raidBossQuery) Or(params ...iRaidBossParams) raidBossParams {
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
@@ -25745,35 +25684,8 @@ func (avatarsOnRaidsQuery) RaidIDAvatarID(
 	}
 }
 
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
-func (avatarsOnRaidsQuery) RaidIDAvatarID(
-	_raidID iAvatarsOnRaidsWithPrismaRaidIDEqualsParams,
-
-	_avatarID iAvatarsOnRaidsWithPrismaAvatarIDEqualsParams,
-) iAvatarsOnRaidsEqualsParamsUnique {
-	var fields []builder.Field
-
-	fields = append(fields, _raidID.field())
-	fields = append(fields, _avatarID.field())
-
-	return avatarsOnRaidsEqualsParamsUnique{
-		data: builder.Field{
-			Name:   "raidId_avatarId",
-			Fields: fields,
-		},
-	}
-}
-
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
 
 // searched for field raidId_storyId
 // type: RaidIdStoryIdCompoundUniqueInput
@@ -25792,12 +25704,6 @@ func (avatarsOnRaidsQuery) RaidIDAvatarID(
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
@@ -26561,9 +26467,6 @@ func (raidBossesOnRaidsQuery) Or(params ...iRaidBossesOnRaidsParams) raidBossesO
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
 
@@ -26584,30 +26487,6 @@ func (raidBossesOnRaidsQuery) RaidIDRaidBossID(
 		},
 	}
 }
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-func (raidBossesOnRaidsQuery) RaidIDRaidBossID(
-	_raidID iRaidBossesOnRaidsWithPrismaRaidIDEqualsParams,
-
-	_raidBossID iRaidBossesOnRaidsWithPrismaRaidBossIDEqualsParams,
-) iRaidBossesOnRaidsEqualsParamsUnique {
-	var fields []builder.Field
-
-	fields = append(fields, _raidID.field())
-	fields = append(fields, _raidBossID.field())
-
-	return raidBossesOnRaidsEqualsParamsUnique{
-		data: builder.Field{
-			Name:   "raidId_raidBossId",
-			Fields: fields,
-		},
-	}
-}
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
 
 // searched for field raidId_storyId
 // type: RaidIdStoryIdCompoundUniqueInput
@@ -26626,12 +26505,6 @@ func (raidBossesOnRaidsQuery) RaidIDRaidBossID(
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
@@ -27301,17 +27174,8 @@ func (storyQuery) Or(params ...iStoryParams) storyParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
 
 // searched for field raidId_storyId
 // type: RaidIdStoryIdCompoundUniqueInput
@@ -27330,12 +27194,6 @@ func (storyQuery) Or(params ...iStoryParams) storyParams {
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
@@ -28050,35 +27908,8 @@ func (storiesOnRaidsQuery) Or(params ...iStoriesOnRaidsParams) storiesOnRaidsPar
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
-func (storiesOnRaidsQuery) RaidIDStoryID(
-	_raidID iStoriesOnRaidsWithPrismaRaidIDEqualsParams,
-
-	_storyID iStoriesOnRaidsWithPrismaStoryIDEqualsParams,
-) iStoriesOnRaidsEqualsParamsUnique {
-	var fields []builder.Field
-
-	fields = append(fields, _raidID.field())
-	fields = append(fields, _storyID.field())
-
-	return storiesOnRaidsEqualsParamsUnique{
-		data: builder.Field{
-			Name:   "raidId_storyId",
-			Fields: fields,
-		},
-	}
-}
 
 // searched for field raidId_storyId
 // type: RaidIdStoryIdCompoundUniqueInput
@@ -28115,12 +27946,6 @@ func (storiesOnRaidsQuery) RaidIDStoryID(
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
@@ -28802,17 +28627,8 @@ func (eventQuery) Or(params ...iEventParams) eventParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
 
 // searched for field raidId_storyId
 // type: RaidIdStoryIdCompoundUniqueInput
@@ -28849,12 +28665,6 @@ func (eventQuery) StoryIDSequence(
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
@@ -29811,17 +29621,8 @@ func (actionQuery) Or(params ...iActionParams) actionParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
 
 // searched for field raidId_storyId
 // type: RaidIdStoryIdCompoundUniqueInput
@@ -29858,12 +29659,6 @@ func (actionQuery) EventIDPosition(
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
@@ -30701,17 +30496,8 @@ func (messageQuery) Or(params ...iMessageParams) messageParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
 
 // searched for field raidId_storyId
 // type: RaidIdStoryIdCompoundUniqueInput
@@ -30730,12 +30516,6 @@ func (messageQuery) Or(params ...iMessageParams) messageParams {
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
@@ -31608,17 +31388,8 @@ func (messagesOnActionsQuery) Or(params ...iMessagesOnActionsParams) messagesOnA
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
 
 // searched for field raidId_storyId
 // type: RaidIdStoryIdCompoundUniqueInput
@@ -31655,30 +31426,6 @@ func (messagesOnActionsQuery) MessageIDActionID(
 		},
 	}
 }
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-func (messagesOnActionsQuery) MessageIDActionID(
-	_messageID iMessagesOnActionsWithPrismaMessageIDEqualsParams,
-
-	_actionID iMessagesOnActionsWithPrismaActionIDEqualsParams,
-) iMessagesOnActionsEqualsParamsUnique {
-	var fields []builder.Field
-
-	fields = append(fields, _messageID.field())
-	fields = append(fields, _actionID.field())
-
-	return messagesOnActionsEqualsParamsUnique{
-		data: builder.Field{
-			Name:   "messageId_actionId",
-			Fields: fields,
-		},
-	}
-}
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
@@ -32353,17 +32100,8 @@ func (messagesOnEventsQuery) Or(params ...iMessagesOnEventsParams) messagesOnEve
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
 
 // searched for field raidId_storyId
 // type: RaidIdStoryIdCompoundUniqueInput
@@ -32382,30 +32120,6 @@ func (messagesOnEventsQuery) Or(params ...iMessagesOnEventsParams) messagesOnEve
 
 // searched for field messageId_actionId
 // type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
-
-func (messagesOnEventsQuery) MessageIDEventID(
-	_messageID iMessagesOnEventsWithPrismaMessageIDEqualsParams,
-
-	_eventID iMessagesOnEventsWithPrismaEventIDEqualsParams,
-) iMessagesOnEventsEqualsParamsUnique {
-	var fields []builder.Field
-
-	fields = append(fields, _messageID.field())
-	fields = append(fields, _eventID.field())
-
-	return messagesOnEventsEqualsParamsUnique{
-		data: builder.Field{
-			Name:   "messageId_eventId",
-			Fields: fields,
-		},
-	}
-}
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
