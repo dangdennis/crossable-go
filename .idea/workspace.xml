@@ -19,7 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3e67fb9-c979-4b19-b287-50dc79d567d4" name="Default Changelist" comment="" />
+    <list default="true" id="c3e67fb9-c979-4b19-b287-50dc79d567d4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/db_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/db_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/migrate.lock" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/migrate.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeder/seeder.go" beforeDir="false" afterPath="$PROJECT_DIR$/seeder/seeder.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -192,23 +198,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/seeder/seeder.go</url>
-          <line>40</line>
+          <line>41</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/seeder/seeder.go</url>
-          <line>47</line>
+          <line>48</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/seeder/seeder.go</url>
-          <line>71</line>
+          <line>73</line>
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/repositories/raid_repository_test.go</url>
-          <line>14</line>
-          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

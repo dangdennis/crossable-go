@@ -1,0 +1,33 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteField",
+      "model": "RaidBoss",
+      "field": "StoriesOnRaids"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "StoriesOnRaids",
+      "field": "raidBoss"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "StoriesOnRaids",
+      "field": "raidBossId"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Model",
+          "model": "StoriesOnRaids"
+        },
+        "directive": "id"
+      },
+      "argument": "",
+      "newValue": "[raidId, storyId]"
+    }
+  ]
+}

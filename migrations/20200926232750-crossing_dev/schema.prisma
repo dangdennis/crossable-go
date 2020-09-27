@@ -1,6 +1,6 @@
 datasource db {
     provider = "postgresql"
-    url      = "postgresql://postgres:postgres@localhost:5432/crossing_dev"
+    url = "***"
 }
 
 generator db {
@@ -26,7 +26,7 @@ model Avatar {
     deletedAt      DateTime?
     updatedAt      DateTime         @updatedAt
     User           User             @relation(fields: [userId], references: [id])
-    userId         Int              @unique
+    userId         Int
     AvatarsOnRaids AvatarsOnRaids[]
 }
 
@@ -67,7 +67,6 @@ model AvatarsOnRaids {
     avatarId  Int
 
     @@id([raidId, avatarId])
-    @@unique([raidId, avatarId])
 }
 
 model RaidBossesOnRaids {
@@ -80,7 +79,6 @@ model RaidBossesOnRaids {
     raidBossId Int
 
     @@id([raidId, raidBossId])
-    @@unique([raidId, raidBossId])
 }
 
 // A Story is a series of events that can occur for a given raid
@@ -104,7 +102,6 @@ model StoriesOnRaids {
     storyId   Int
 
     @@id([raidId, storyId])
-    @@unique([raidId, storyId])
 }
 
 // An Event represents a moment in a story in which Avatars can fulfill Actions
@@ -118,9 +115,6 @@ model Event {
     // The sequence dictates the order of events to occur in a story
     sequence  Int
     Action    Action[]
-
-
-    @@unique([storyId, sequence])
 }
 
 // An Action prescribes a message and the raid member position required to fulfill the action.
@@ -134,8 +128,6 @@ model Action {
     event             Event               @relation(fields: [eventId], references: [id])
     eventId           Int
     MessagesOnActions MessagesOnActions[]
-
-    @@unique([eventId, position])
 }
 
 // A Message holds message contents.
@@ -158,5 +150,4 @@ model MessagesOnActions {
     actionId  Int
 
     @@id([messageId, actionId])
-    @@unique([messageId, actionId])
 }
