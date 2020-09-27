@@ -1474,6 +1474,70 @@ func (p avatarWithPrismaAvatarsOnRaidsEqualsParamsUnique) avatarsOnRaidsField() 
 func (avatarWithPrismaAvatarsOnRaidsEqualsParamsUnique) unique() {}
 func (avatarWithPrismaAvatarsOnRaidsEqualsParamsUnique) equals() {}
 
+type iAvatarWithPrismaActionEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	avatarModel()
+	actionField()
+}
+
+type avatarWithPrismaActionSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p avatarWithPrismaActionSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p avatarWithPrismaActionSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p avatarWithPrismaActionSetParams) avatarModel() {}
+
+func (p avatarWithPrismaActionSetParams) actionField() {}
+
+type avatarWithPrismaActionEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p avatarWithPrismaActionEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p avatarWithPrismaActionEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p avatarWithPrismaActionEqualsParams) avatarModel() {}
+
+func (p avatarWithPrismaActionEqualsParams) actionField() {}
+
+func (avatarWithPrismaActionSetParams) settable()  {}
+func (avatarWithPrismaActionEqualsParams) equals() {}
+
+type avatarWithPrismaActionEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p avatarWithPrismaActionEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p avatarWithPrismaActionEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p avatarWithPrismaActionEqualsParamsUnique) avatarModel() {}
+func (p avatarWithPrismaActionEqualsParamsUnique) actionField() {}
+
+func (avatarWithPrismaActionEqualsParamsUnique) unique() {}
+func (avatarWithPrismaActionEqualsParamsUnique) equals() {}
+
 type raidActions struct {
 	// client holds the prisma client
 	client *PrismaClient
@@ -5608,6 +5672,7 @@ var eventOutput = []builder.Output{
 	{Name: "updatedAt"},
 	{Name: "storyId"},
 	{Name: "sequence"},
+	{Name: "occurred"},
 }
 
 type iEventRelationWith interface {
@@ -6219,6 +6284,70 @@ func (p eventWithPrismaSequenceEqualsParamsUnique) sequenceField() {}
 func (eventWithPrismaSequenceEqualsParamsUnique) unique() {}
 func (eventWithPrismaSequenceEqualsParamsUnique) equals() {}
 
+type iEventWithPrismaOccurredEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	eventModel()
+	occurredField()
+}
+
+type eventWithPrismaOccurredSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p eventWithPrismaOccurredSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p eventWithPrismaOccurredSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p eventWithPrismaOccurredSetParams) eventModel() {}
+
+func (p eventWithPrismaOccurredSetParams) occurredField() {}
+
+type eventWithPrismaOccurredEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p eventWithPrismaOccurredEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p eventWithPrismaOccurredEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p eventWithPrismaOccurredEqualsParams) eventModel() {}
+
+func (p eventWithPrismaOccurredEqualsParams) occurredField() {}
+
+func (eventWithPrismaOccurredSetParams) settable()  {}
+func (eventWithPrismaOccurredEqualsParams) equals() {}
+
+type eventWithPrismaOccurredEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p eventWithPrismaOccurredEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p eventWithPrismaOccurredEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p eventWithPrismaOccurredEqualsParamsUnique) eventModel()    {}
+func (p eventWithPrismaOccurredEqualsParamsUnique) occurredField() {}
+
+func (eventWithPrismaOccurredEqualsParamsUnique) unique() {}
+func (eventWithPrismaOccurredEqualsParamsUnique) equals() {}
+
 type iEventWithPrismaActionEqualsParams interface {
 	field() builder.Field
 	getQuery() builder.Query
@@ -6359,6 +6488,8 @@ var actionOutput = []builder.Output{
 	{Name: "updatedAt"},
 	{Name: "position"},
 	{Name: "eventId"},
+	{Name: "avatarId"},
+	{Name: "taken"},
 }
 
 type iActionRelationWith interface {
@@ -6969,6 +7100,198 @@ func (p actionWithPrismaEventIDEqualsParamsUnique) eventIDField() {}
 
 func (actionWithPrismaEventIDEqualsParamsUnique) unique() {}
 func (actionWithPrismaEventIDEqualsParamsUnique) equals() {}
+
+type iActionWithPrismaActorEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	actionModel()
+	actorField()
+}
+
+type actionWithPrismaActorSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p actionWithPrismaActorSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p actionWithPrismaActorSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p actionWithPrismaActorSetParams) actionModel() {}
+
+func (p actionWithPrismaActorSetParams) actorField() {}
+
+type actionWithPrismaActorEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p actionWithPrismaActorEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p actionWithPrismaActorEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p actionWithPrismaActorEqualsParams) actionModel() {}
+
+func (p actionWithPrismaActorEqualsParams) actorField() {}
+
+func (actionWithPrismaActorSetParams) settable()  {}
+func (actionWithPrismaActorEqualsParams) equals() {}
+
+type actionWithPrismaActorEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p actionWithPrismaActorEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p actionWithPrismaActorEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p actionWithPrismaActorEqualsParamsUnique) actionModel() {}
+func (p actionWithPrismaActorEqualsParamsUnique) actorField()  {}
+
+func (actionWithPrismaActorEqualsParamsUnique) unique() {}
+func (actionWithPrismaActorEqualsParamsUnique) equals() {}
+
+type iActionWithPrismaAvatarIDEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	actionModel()
+	avatarIDField()
+}
+
+type actionWithPrismaAvatarIDSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p actionWithPrismaAvatarIDSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p actionWithPrismaAvatarIDSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p actionWithPrismaAvatarIDSetParams) actionModel() {}
+
+func (p actionWithPrismaAvatarIDSetParams) avatarIDField() {}
+
+type actionWithPrismaAvatarIDEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p actionWithPrismaAvatarIDEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p actionWithPrismaAvatarIDEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p actionWithPrismaAvatarIDEqualsParams) actionModel() {}
+
+func (p actionWithPrismaAvatarIDEqualsParams) avatarIDField() {}
+
+func (actionWithPrismaAvatarIDSetParams) settable()  {}
+func (actionWithPrismaAvatarIDEqualsParams) equals() {}
+
+type actionWithPrismaAvatarIDEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p actionWithPrismaAvatarIDEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p actionWithPrismaAvatarIDEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p actionWithPrismaAvatarIDEqualsParamsUnique) actionModel()   {}
+func (p actionWithPrismaAvatarIDEqualsParamsUnique) avatarIDField() {}
+
+func (actionWithPrismaAvatarIDEqualsParamsUnique) unique() {}
+func (actionWithPrismaAvatarIDEqualsParamsUnique) equals() {}
+
+type iActionWithPrismaTakenEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	actionModel()
+	takenField()
+}
+
+type actionWithPrismaTakenSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p actionWithPrismaTakenSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p actionWithPrismaTakenSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p actionWithPrismaTakenSetParams) actionModel() {}
+
+func (p actionWithPrismaTakenSetParams) takenField() {}
+
+type actionWithPrismaTakenEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p actionWithPrismaTakenEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p actionWithPrismaTakenEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p actionWithPrismaTakenEqualsParams) actionModel() {}
+
+func (p actionWithPrismaTakenEqualsParams) takenField() {}
+
+func (actionWithPrismaTakenSetParams) settable()  {}
+func (actionWithPrismaTakenEqualsParams) equals() {}
+
+type actionWithPrismaTakenEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p actionWithPrismaTakenEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p actionWithPrismaTakenEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p actionWithPrismaTakenEqualsParamsUnique) actionModel() {}
+func (p actionWithPrismaTakenEqualsParamsUnique) takenField()  {}
+
+func (actionWithPrismaTakenEqualsParamsUnique) unique() {}
+func (actionWithPrismaTakenEqualsParamsUnique) equals() {}
 
 type iActionWithPrismaMessagesOnActionsEqualsParams interface {
 	field() builder.Field
@@ -9478,7 +9801,7 @@ func (r eventCreateOne) Exec(ctx context.Context) (EventModel, error) {
 
 // Creates a single user.
 func (r actionActions) CreateOne(
-	_position actionWithPrismaPositionSetParams, _event actionWithPrismaEventSetParams,
+	_position actionWithPrismaPositionSetParams, _event actionWithPrismaEventSetParams, _actor actionWithPrismaActorSetParams,
 	optional ...actionSetParams,
 ) actionCreateOne {
 	var v actionCreateOne
@@ -9494,6 +9817,8 @@ func (r actionActions) CreateOne(
 
 	fields = append(fields, _position.data)
 	fields = append(fields, _event.data)
+
+	fields = append(fields, _actor.data)
 
 	for _, q := range optional {
 		fields = append(fields, q.data)
@@ -10672,6 +10997,235 @@ type avatarToAvatarsOnRaidsDeleteMany struct {
 }
 
 func (r avatarToAvatarsOnRaidsDeleteMany) Exec(ctx context.Context) (int, error) {
+	var v deleteManyAvatarResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteManyAvatar.Count, err
+}
+
+type avatarToActionFindOne struct {
+	query builder.Query
+}
+
+func (r avatarToActionFindOne) getQuery() builder.Query {
+	return r.query
+}
+
+func (r avatarToActionFindOne) with()           {}
+func (r avatarToActionFindOne) avatarModel()    {}
+func (r avatarToActionFindOne) avatarRelation() {}
+
+func (r avatarToActionFindOne) With(params ...iActionRelationWith) avatarToActionFindOne {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r avatarToActionFindOne) Exec(ctx context.Context) (
+	AvatarModel,
+	error,
+) {
+	var v findOneAvatarResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return AvatarModel{}, fmt.Errorf(first.Message)
+	}
+
+	if v.Data.FindOneAvatar == nil {
+		return AvatarModel{}, ErrNotFound
+	}
+
+	return *v.Data.FindOneAvatar, err
+}
+
+func (r avatarToActionFindOne) Update(params ...iAvatarSetParams) avatarToActionUpdateOne {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "Avatar"
+	r.query.Outputs = avatarOutput
+
+	var v avatarToActionUpdateOne
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type avatarToActionUpdateOne struct {
+	query builder.Query
+}
+
+func (r avatarToActionUpdateOne) Exec(ctx context.Context) (AvatarModel, error) {
+	var v updateOneAvatarResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return AvatarModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateOneAvatar, err
+}
+
+func (r avatarToActionFindOne) Delete() avatarToActionDeleteOne {
+	var v avatarToActionDeleteOne
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "Avatar"
+	v.query.Outputs = avatarOutput
+	return v
+}
+
+type avatarToActionDeleteOne struct {
+	query builder.Query
+}
+
+func (r avatarToActionDeleteOne) Exec(ctx context.Context) (AvatarModel, error) {
+	var v deleteOneAvatarResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return AvatarModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteOneAvatar, err
+}
+
+type avatarToActionFindMany struct {
+	query builder.Query
+}
+
+func (r avatarToActionFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r avatarToActionFindMany) with()           {}
+func (r avatarToActionFindMany) avatarModel()    {}
+func (r avatarToActionFindMany) avatarRelation() {}
+
+func (r avatarToActionFindMany) With(params ...iActionRelationWith) avatarToActionFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r avatarToActionFindMany) OrderBy(param iAvatarOrderByParams) avatarToActionFindMany {
+	direction, _ := param.field().Value.(runtime.Direction)
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "orderBy",
+		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
+	})
+	return r
+}
+
+func (r avatarToActionFindMany) Skip(count int) avatarToActionFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r avatarToActionFindMany) Take(count int) avatarToActionFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r avatarToActionFindMany) Cursor(cursor iAvatarCursorParams) avatarToActionFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r avatarToActionFindMany) Exec(ctx context.Context) (
+	[]AvatarModel,
+	error,
+) {
+	var v findManyAvatarResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return []AvatarModel{}, fmt.Errorf(first.Message)
+	}
+
+	return v.Data.FindManyAvatar, err
+}
+
+func (r avatarToActionFindMany) Update(params ...iAvatarSetParams) avatarToActionUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "Avatar"
+	r.query.Outputs = countOutput
+
+	var v avatarToActionUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type avatarToActionUpdateMany struct {
+	query builder.Query
+}
+
+func (r avatarToActionUpdateMany) Exec(ctx context.Context) (int, error) {
+	var v updateManyAvatarResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateManyAvatar.Count, err
+}
+
+func (r avatarToActionFindMany) Delete() avatarToActionDeleteMany {
+	var v avatarToActionDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "Avatar"
+	v.query.Outputs = countOutput
+	return v
+}
+
+type avatarToActionDeleteMany struct {
+	query builder.Query
+}
+
+func (r avatarToActionDeleteMany) Exec(ctx context.Context) (int, error) {
 	var v deleteManyAvatarResponse
 	err := r.query.Exec(ctx, &v)
 	if v.Errors != nil {
@@ -16633,6 +17187,235 @@ func (r actionToEventDeleteMany) Exec(ctx context.Context) (int, error) {
 	return v.Data.DeleteManyAction.Count, err
 }
 
+type actionToActorFindOne struct {
+	query builder.Query
+}
+
+func (r actionToActorFindOne) getQuery() builder.Query {
+	return r.query
+}
+
+func (r actionToActorFindOne) with()           {}
+func (r actionToActorFindOne) actionModel()    {}
+func (r actionToActorFindOne) actionRelation() {}
+
+func (r actionToActorFindOne) With(params ...iAvatarRelationWith) actionToActorFindOne {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r actionToActorFindOne) Exec(ctx context.Context) (
+	ActionModel,
+	error,
+) {
+	var v findOneActionResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return ActionModel{}, fmt.Errorf(first.Message)
+	}
+
+	if v.Data.FindOneAction == nil {
+		return ActionModel{}, ErrNotFound
+	}
+
+	return *v.Data.FindOneAction, err
+}
+
+func (r actionToActorFindOne) Update(params ...iActionSetParams) actionToActorUpdateOne {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "Action"
+	r.query.Outputs = actionOutput
+
+	var v actionToActorUpdateOne
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type actionToActorUpdateOne struct {
+	query builder.Query
+}
+
+func (r actionToActorUpdateOne) Exec(ctx context.Context) (ActionModel, error) {
+	var v updateOneActionResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return ActionModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateOneAction, err
+}
+
+func (r actionToActorFindOne) Delete() actionToActorDeleteOne {
+	var v actionToActorDeleteOne
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "Action"
+	v.query.Outputs = actionOutput
+	return v
+}
+
+type actionToActorDeleteOne struct {
+	query builder.Query
+}
+
+func (r actionToActorDeleteOne) Exec(ctx context.Context) (ActionModel, error) {
+	var v deleteOneActionResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return ActionModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteOneAction, err
+}
+
+type actionToActorFindMany struct {
+	query builder.Query
+}
+
+func (r actionToActorFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r actionToActorFindMany) with()           {}
+func (r actionToActorFindMany) actionModel()    {}
+func (r actionToActorFindMany) actionRelation() {}
+
+func (r actionToActorFindMany) With(params ...iAvatarRelationWith) actionToActorFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r actionToActorFindMany) OrderBy(param iActionOrderByParams) actionToActorFindMany {
+	direction, _ := param.field().Value.(runtime.Direction)
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "orderBy",
+		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
+	})
+	return r
+}
+
+func (r actionToActorFindMany) Skip(count int) actionToActorFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r actionToActorFindMany) Take(count int) actionToActorFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r actionToActorFindMany) Cursor(cursor iActionCursorParams) actionToActorFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r actionToActorFindMany) Exec(ctx context.Context) (
+	[]ActionModel,
+	error,
+) {
+	var v findManyActionResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return []ActionModel{}, fmt.Errorf(first.Message)
+	}
+
+	return v.Data.FindManyAction, err
+}
+
+func (r actionToActorFindMany) Update(params ...iActionSetParams) actionToActorUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "Action"
+	r.query.Outputs = countOutput
+
+	var v actionToActorUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type actionToActorUpdateMany struct {
+	query builder.Query
+}
+
+func (r actionToActorUpdateMany) Exec(ctx context.Context) (int, error) {
+	var v updateManyActionResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateManyAction.Count, err
+}
+
+func (r actionToActorFindMany) Delete() actionToActorDeleteMany {
+	var v actionToActorDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "Action"
+	v.query.Outputs = countOutput
+	return v
+}
+
+type actionToActorDeleteMany struct {
+	query builder.Query
+}
+
+func (r actionToActorDeleteMany) Exec(ctx context.Context) (int, error) {
+	var v deleteManyActionResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteManyAction.Count, err
+}
+
 type actionToMessagesOnActionsFindOne struct {
 	query builder.Query
 }
@@ -20557,6 +21340,7 @@ model Avatar {
     User           User             @relation(fields: [userId], references: [id])
     userId         Int              @unique
     AvatarsOnRaids AvatarsOnRaids[]
+    Action         Action[]
 }
 
 model Raid {
@@ -20646,6 +21430,7 @@ model Event {
     storyId          Int
     // The sequence dictates the order of events to occur in a story
     sequence         Int
+    occurred         Boolean            @default(false)
     Action           Action[]
     MessagesOnEvents MessagesOnEvents[]
 
@@ -20662,6 +21447,9 @@ model Action {
     position          Int
     event             Event               @relation(fields: [eventId], references: [id])
     eventId           Int
+    actor             Avatar              @relation(fields: [avatarId], references: [id])
+    avatarId Int
+    taken             Boolean             @default(false)
     MessagesOnActions MessagesOnActions[]
 
     @@unique([eventId, position])
@@ -20916,6 +21704,7 @@ type InternalAvatar struct {
 type RelationsAvatar struct {
 	User           *UserModel            `json:"User"`
 	AvatarsOnRaids []AvatarsOnRaidsModel `json:"AvatarsOnRaids"`
+	Action         []ActionModel         `json:"Action"`
 }
 
 func (r AvatarModel) DeletedAt() (value DateTime, ok bool) {
@@ -20937,6 +21726,13 @@ func (r AvatarModel) AvatarsOnRaids() (value []AvatarsOnRaidsModel) {
 		return value
 	}
 	return r.RelationsAvatar.AvatarsOnRaids
+}
+
+func (r AvatarModel) Action() (value []ActionModel) {
+	if r.RelationsAvatar.Action == nil {
+		return value
+	}
+	return r.RelationsAvatar.Action
 }
 
 // RaidModel represents the `json:"Raid"` model and is a wrapper for accessing fields and methods
@@ -21225,6 +22021,7 @@ type InternalEvent struct {
 	UpdatedAt DateTime  `json:"updatedAt"`
 	StoryID   int       `json:"storyId"`
 	Sequence  int       `json:"sequence"`
+	Occurred  bool      `json:"occurred"`
 }
 
 // RelationsEvent holds the relation data separately
@@ -21276,11 +22073,14 @@ type InternalAction struct {
 	UpdatedAt DateTime  `json:"updatedAt"`
 	Position  int       `json:"position"`
 	EventID   int       `json:"eventId"`
+	AvatarID  int       `json:"avatarId"`
+	Taken     bool      `json:"taken"`
 }
 
 // RelationsAction holds the relation data separately
 type RelationsAction struct {
 	Event             *EventModel              `json:"event"`
+	Actor             *AvatarModel             `json:"actor"`
 	MessagesOnActions []MessagesOnActionsModel `json:"MessagesOnActions"`
 }
 
@@ -21296,6 +22096,13 @@ func (r ActionModel) Event() (value EventModel) {
 		panic("attempted to access event but did not fetch it using the .With() syntax")
 	}
 	return *r.RelationsAction.Event
+}
+
+func (r ActionModel) Actor() (value AvatarModel) {
+	if r.RelationsAction.Actor == nil {
+		panic("attempted to access actor but did not fetch it using the .With() syntax")
+	}
+	return *r.RelationsAction.Actor
 }
 
 func (r ActionModel) MessagesOnActions() (value []MessagesOnActionsModel) {
@@ -22620,6 +23427,8 @@ type avatarQuery struct {
 	UserID avatarQueryUserIDInt
 
 	AvatarsOnRaids avatarQueryAvatarsOnRaidsRelations
+
+	Action avatarQueryActionRelations
 }
 
 func (avatarQuery) Not(params ...iAvatarParams) avatarParams {
@@ -23349,6 +24158,125 @@ func (r avatarQueryAvatarsOnRaidsRelations) Unlink() avatarSetParams {
 	return avatarSetParams{
 		data: builder.Field{
 			Name: "AvatarsOnRaids",
+			Fields: []builder.Field{
+				{
+					Name:  "disconnect",
+					Value: true,
+				},
+			},
+		},
+	}
+}
+
+// base struct
+type avatarQueryActionAction struct{}
+
+type avatarQueryActionRelations struct{}
+
+// Avatar -> Action
+//
+// @relation
+// @optional
+func (avatarQueryActionRelations) Some(
+	params ...iActionParams,
+) avatarParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return avatarParams{
+		data: builder.Field{
+			Name:   "Action",
+			Action: "some",
+			Fields: fields,
+		},
+	}
+}
+
+// Avatar -> Action
+//
+// @relation
+// @optional
+func (avatarQueryActionRelations) Every(
+	params ...iActionParams,
+) avatarParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return avatarParams{
+		data: builder.Field{
+			Name:   "Action",
+			Action: "every",
+			Fields: fields,
+		},
+	}
+}
+
+func (avatarQueryActionRelations) Fetch(
+
+	params ...iActionParams,
+
+) avatarToActionFindMany {
+	var v avatarToActionFindMany
+
+	v.query.Operation = "query"
+	v.query.Method = "Action"
+	v.query.Outputs = actionOutput
+
+	var where []builder.Field
+	for _, q := range params {
+		if query := q.getQuery(); query.Operation != "" {
+			v.query.Outputs = append(v.query.Outputs, builder.Output{
+				Name:    query.Method,
+				Inputs:  query.Inputs,
+				Outputs: query.Outputs,
+			})
+		} else {
+			where = append(where, q.field())
+		}
+	}
+
+	if len(where) > 0 {
+		v.query.Inputs = append(v.query.Inputs, builder.Input{
+			Name:   "where",
+			Fields: where,
+		})
+	}
+
+	return v
+}
+
+func (r avatarQueryActionRelations) Link(
+	params ...iActionParams,
+) avatarSetParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return avatarSetParams{
+		data: builder.Field{
+			Name: "Action",
+			Fields: []builder.Field{
+				{
+					Name:   "connect",
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+func (r avatarQueryActionRelations) Unlink() avatarSetParams {
+	return avatarSetParams{
+		data: builder.Field{
+			Name: "Action",
 			Fields: []builder.Field{
 				{
 					Name:  "disconnect",
@@ -28585,6 +29513,11 @@ type eventQuery struct {
 	// @required
 	Sequence eventQuerySequenceInt
 
+	// Occurred
+	//
+	// @required
+	Occurred eventQueryOccurredBoolean
+
 	Action eventQueryActionRelations
 
 	MessagesOnEvents eventQueryMessagesOnEventsRelations
@@ -29307,6 +30240,55 @@ func (r eventQuerySequenceInt) GTE(value int) eventParams {
 }
 
 // base struct
+type eventQueryOccurredBoolean struct{}
+
+// Set the required value of Occurred
+func (r eventQueryOccurredBoolean) Set(value bool) eventSetParams {
+
+	return eventSetParams{
+		data: builder.Field{
+			Name:  "occurred",
+			Value: value,
+		},
+	}
+
+}
+
+func (r eventQueryOccurredBoolean) Equals(value bool) eventWithPrismaOccurredEqualsParams {
+	return eventWithPrismaOccurredEqualsParams{
+		data: builder.Field{
+			Name:  "occurred",
+			Value: value,
+		},
+	}
+}
+
+func (r eventQueryOccurredBoolean) In(values []bool) eventParams {
+	f := builder.Field{
+		Name:   "occurred",
+		Action: "in",
+		List:   true,
+	}
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
+		})
+	}
+	return eventParams{
+		data: f,
+	}
+}
+
+func (r eventQueryOccurredBoolean) Order(direction runtime.Direction) eventParams {
+	return eventParams{
+		data: builder.Field{
+			Name:  "occurred",
+			Value: direction,
+		},
+	}
+}
+
+// base struct
 type eventQueryActionAction struct{}
 
 type eventQueryActionRelations struct{}
@@ -29580,6 +30562,18 @@ type actionQuery struct {
 	//
 	// @required
 	EventID actionQueryEventIDInt
+
+	Actor actionQueryActorRelations
+
+	// AvatarID
+	//
+	// @required
+	AvatarID actionQueryAvatarIDInt
+
+	// Taken
+	//
+	// @required
+	Taken actionQueryTakenBoolean
 
 	MessagesOnActions actionQueryMessagesOnActionsRelations
 }
@@ -30296,6 +31290,203 @@ func (r actionQueryEventIDInt) GTE(value int) actionParams {
 			Action: "gte",
 			Name:   "eventId",
 			Value:  value,
+		},
+	}
+}
+
+// base struct
+type actionQueryActorAvatar struct{}
+
+type actionQueryActorRelations struct{}
+
+// Action -> Actor
+//
+// @relation
+// @required
+func (actionQueryActorRelations) Where(
+	params ...iAvatarParams,
+) actionParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return actionParams{
+		data: builder.Field{
+			Name:   "actor",
+			Action: "",
+			Fields: fields,
+		},
+	}
+}
+
+func (actionQueryActorRelations) Fetch() actionToActorFindOne {
+	var v actionToActorFindOne
+
+	v.query.Operation = "query"
+	v.query.Method = "actor"
+	v.query.Outputs = avatarOutput
+
+	return v
+}
+
+func (r actionQueryActorRelations) Link(
+	params ...iAvatarParams,
+) actionWithPrismaActorSetParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return actionWithPrismaActorSetParams{
+		data: builder.Field{
+			Name: "actor",
+			Fields: []builder.Field{
+				{
+					Name:   "connect",
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+// base struct
+type actionQueryAvatarIDInt struct{}
+
+// Set the required value of AvatarID
+func (r actionQueryAvatarIDInt) Set(value int) actionWithPrismaAvatarIDSetParams {
+
+	return actionWithPrismaAvatarIDSetParams{
+		data: builder.Field{
+			Name:  "avatarId",
+			Value: value,
+		},
+	}
+
+}
+
+func (r actionQueryAvatarIDInt) Equals(value int) actionWithPrismaAvatarIDEqualsParams {
+	return actionWithPrismaAvatarIDEqualsParams{
+		data: builder.Field{
+			Name:  "avatarId",
+			Value: value,
+		},
+	}
+}
+
+func (r actionQueryAvatarIDInt) In(values []int) actionParams {
+	f := builder.Field{
+		Name:   "avatarId",
+		Action: "in",
+		List:   true,
+	}
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
+		})
+	}
+	return actionParams{
+		data: f,
+	}
+}
+
+func (r actionQueryAvatarIDInt) Order(direction runtime.Direction) actionParams {
+	return actionParams{
+		data: builder.Field{
+			Name:  "avatarId",
+			Value: direction,
+		},
+	}
+}
+
+func (r actionQueryAvatarIDInt) LT(value int) actionParams {
+	return actionParams{
+		data: builder.Field{
+			Action: "lt",
+			Name:   "avatarId",
+			Value:  value,
+		},
+	}
+}
+
+func (r actionQueryAvatarIDInt) GT(value int) actionParams {
+	return actionParams{
+		data: builder.Field{
+			Action: "gt",
+			Name:   "avatarId",
+			Value:  value,
+		},
+	}
+}
+
+func (r actionQueryAvatarIDInt) LTE(value int) actionParams {
+	return actionParams{
+		data: builder.Field{
+			Action: "lte",
+			Name:   "avatarId",
+			Value:  value,
+		},
+	}
+}
+
+func (r actionQueryAvatarIDInt) GTE(value int) actionParams {
+	return actionParams{
+		data: builder.Field{
+			Action: "gte",
+			Name:   "avatarId",
+			Value:  value,
+		},
+	}
+}
+
+// base struct
+type actionQueryTakenBoolean struct{}
+
+// Set the required value of Taken
+func (r actionQueryTakenBoolean) Set(value bool) actionSetParams {
+
+	return actionSetParams{
+		data: builder.Field{
+			Name:  "taken",
+			Value: value,
+		},
+	}
+
+}
+
+func (r actionQueryTakenBoolean) Equals(value bool) actionWithPrismaTakenEqualsParams {
+	return actionWithPrismaTakenEqualsParams{
+		data: builder.Field{
+			Name:  "taken",
+			Value: value,
+		},
+	}
+}
+
+func (r actionQueryTakenBoolean) In(values []bool) actionParams {
+	f := builder.Field{
+		Name:   "taken",
+		Action: "in",
+		List:   true,
+	}
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
+		})
+	}
+	return actionParams{
+		data: f,
+	}
+}
+
+func (r actionQueryTakenBoolean) Order(direction runtime.Direction) actionParams {
+	return actionParams{
+		data: builder.Field{
+			Name:  "taken",
+			Value: direction,
 		},
 	}
 }
