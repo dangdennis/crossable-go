@@ -1,0 +1,156 @@
+datasource db {
+    provider = "postgresql"
+    url = "***"
+}
+
+generator db {
+    provider = "go run github.com/prisma/prisma-client-go"
+}
+
+model User {
+    id              Int       @default(autoincrement()) @id
+    createdAt       DateTime  @default(now())
+    deletedAt       DateTime?
+    updatedAt       DateTime  @updatedAt
+    discordUserId   String    @unique
+    email           String?   @unique
+    discordUsername String?   @unique
+    firstName       String?
+    lastName        String?
+    avatar          Avatar?
+}
+
+model Avatar {
+    id             Int              @default(autoincrement()) @id
+    createdAt      DateTime         @default(now())
+    deletedAt      DateTime?
+    updatedAt      DateTime         @updatedAt
+    User           User             @relation(fields: [userId], references: [id])
+    userId         Int
+    AvatarsOnRaids AvatarsOnRaids[]
+}
+
+model Raid {
+    id                 Int                 @default(autoincrement()) @id
+    createdAt          DateTime            @default(now())
+    deletedAt          DateTime?
+    updatedAt          DateTime            @updatedAt
+    startTime          DateTime            @default(now())
+    endTime            DateTime?
+    completionProgress Float               @default(0)
+    active             Boolean             @default(false)
+    playerLimit        Int                 @default(10)
+    playerCount        Int                 @default(0)
+    AvatarsOnRaids     AvatarsOnRaids[]
+    RaidBossesOnRaids  RaidBossesOnRaids[]
+    StoriesOnRaids     StoriesOnRaids[]
+}
+
+model RaidBoss {
+    id                Int                 @default(autoincrement()) @id
+    createdAt         DateTime            @default(now())
+    deletedAt         DateTime?
+    updatedAt         DateTime            @updatedAt
+    name              String              @unique
+    image             String?
+    RaidBossesOnRaids RaidBossesOnRaids[]
+    StoriesOnRaids    StoriesOnRaids[]
+}
+
+model AvatarsOnRaids {
+    createdAt DateTime  @default(now())
+    deletedAt DateTime?
+    updatedAt DateTime  @updatedAt
+    position  Int
+    raid      Raid      @relation(fields: [raidId], references: [id])
+    raidId    Int
+    avatar    Avatar    @relation(fields: [avatarId], references: [id])
+    avatarId  Int
+
+    @@id([raidId, avatarId])
+}
+
+model RaidBossesOnRaids {
+    createdAt  DateTime  @default(now())
+    deletedAt  DateTime?
+    updatedAt  DateTime  @updatedAt
+    raid       Raid      @relation(fields: [raidId], references: [id])
+    raidId     Int
+    raidBoss   RaidBoss  @relation(fields: [raidBossId], references: [id])
+    raidBossId Int
+
+    @@id([raidId, raidBossId])
+}
+
+// A Story is a series of events that can occur for a given raid
+model Story {
+    id             Int              @default(autoincrement()) @id
+    createdAt      DateTime         @default(now())
+    deletedAt      DateTime?
+    updatedAt      DateTime         @updatedAt
+    StoriesOnRaids StoriesOnRaids[]
+    Event          Event[]
+}
+
+// A Raid may have multiple stories in succession
+model StoriesOnRaids {
+    createdAt  DateTime  @default(now())
+    deletedAt  DateTime?
+    updatedAt  DateTime  @updatedAt
+    raid       Raid      @relation(fields: [raidId], references: [id])
+    raidId     Int
+    story      Story     @relation(fields: [storyId], references: [id])
+    storyId    Int
+    raidBoss   RaidBoss  @relation(fields: [raidBossId], references: [id])
+    raidBossId Int
+
+    @@id([raidId, storyId, raidBossId])
+}
+
+// An Event represents a moment in a story in which Avatars can fulfill Actions
+model Event {
+    id        Int       @default(autoincrement()) @id
+    createdAt DateTime  @default(now())
+    deletedAt DateTime?
+    updatedAt DateTime  @updatedAt
+    story     Story     @relation(fields: [storyId], references: [id])
+    storyId   Int
+    // The sequence dictates the order of events to occur in a story
+    sequence  Int
+    Action    Action[]
+}
+
+// An Action prescribes a message and the raid member position required to fulfill the action.
+// This allows for customized actions per raid member. Wowzah!
+model Action {
+    id                Int                 @default(autoincrement()) @id
+    createdAt         DateTime            @default(now())
+    deletedAt         DateTime?
+    updatedAt         DateTime            @updatedAt
+    position          Int
+    event             Event               @relation(fields: [eventId], references: [id])
+    eventId           Int
+    MessagesOnActions MessagesOnActions[]
+}
+
+// A Message holds message contents.
+model Message {
+    id                Int                 @default(autoincrement()) @id
+    createdAt         DateTime            @default(now())
+    deletedAt         DateTime?
+    updatedAt         DateTime            @updatedAt
+    content           String
+    MessagesOnActions MessagesOnActions[]
+}
+
+model MessagesOnActions {
+    createdAt DateTime  @default(now())
+    deletedAt DateTime?
+    updatedAt DateTime  @updatedAt
+    message   Message   @relation(fields: [messageId], references: [id])
+    messageId Int
+    action    Action    @relation(fields: [actionId], references: [id])
+    actionId  Int
+
+    @@id([messageId, actionId])
+}
