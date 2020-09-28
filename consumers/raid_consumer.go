@@ -7,6 +7,7 @@ import (
 	"go.uber.org/zap"
 
 	"github.com/dangdennis/crossing/db"
+	prisma "github.com/dangdennis/crossing/db"
 	"github.com/dangdennis/crossing/libs/logger"
 	"github.com/dangdennis/crossing/repositories/raids"
 	"github.com/dangdennis/crossing/repositories/users"
@@ -14,7 +15,7 @@ import (
 
 // RaidCommand handles !raid
 func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
-	raid, err := raids.FindWeeklyActiveRaid(db.Client())
+	raid, err := raids.FindLatestActiveRaid(db.Client())
 	if err != nil {
 		fmt.Println(err)
 		_, err := s.ChannelMessageSend(m.ChannelID, `No active raid this week.`)
@@ -57,10 +58,10 @@ func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 // JoinCommand handles !join
 func JoinCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	fmt.Println("handling !join")
-	db := db.Client()
+	db := prisma.Client()
 	log := logger.GetLogger()
 
-	raid, err := raids.FindWeeklyActiveRaid(db)
+	raid, err := raids.FindLatestActiveRaid(db)
 	if err != nil {
 		log.Error("failed to get weekly active raid", zap.Error(err))
 		return

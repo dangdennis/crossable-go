@@ -19,7 +19,7 @@ func TestCreateRaid(t *testing.T) {
 
 func TestFindWeeklyActiveRaid(t *testing.T) {
 	// TODO seed data within the test
-	raid, err := FindWeeklyActiveRaid(db.Client())
+	raid, err := FindLatestActiveRaid(db.Client())
 	require.NoError(t, err)
 	require.True(t, raid.ID > 0)
 }
