@@ -1,0 +1,80 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Raid",
+      "field": "story",
+      "type": "Story",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Raid",
+          "field": "story"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Raid",
+          "field": "story"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[storyId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Raid",
+          "field": "story"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Raid",
+      "field": "storyId",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Story",
+      "field": "Raid",
+      "type": "Raid",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Story",
+      "field": "story"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Story",
+      "field": "storyId"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Story",
+      "field": "Story"
+    }
+  ]
+}
