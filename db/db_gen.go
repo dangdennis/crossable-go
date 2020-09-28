@@ -1554,6 +1554,7 @@ var raidOutput = []builder.Output{
 	{Name: "active"},
 	{Name: "playerLimit"},
 	{Name: "playerCount"},
+	{Name: "storyId"},
 }
 
 type iRaidRelationWith interface {
@@ -2357,6 +2358,134 @@ func (p raidWithPrismaPlayerCountEqualsParamsUnique) playerCountField() {}
 func (raidWithPrismaPlayerCountEqualsParamsUnique) unique() {}
 func (raidWithPrismaPlayerCountEqualsParamsUnique) equals() {}
 
+type iRaidWithPrismaStoryEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	raidModel()
+	storyField()
+}
+
+type raidWithPrismaStorySetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p raidWithPrismaStorySetParams) field() builder.Field {
+	return p.data
+}
+
+func (p raidWithPrismaStorySetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p raidWithPrismaStorySetParams) raidModel() {}
+
+func (p raidWithPrismaStorySetParams) storyField() {}
+
+type raidWithPrismaStoryEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p raidWithPrismaStoryEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p raidWithPrismaStoryEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p raidWithPrismaStoryEqualsParams) raidModel() {}
+
+func (p raidWithPrismaStoryEqualsParams) storyField() {}
+
+func (raidWithPrismaStorySetParams) settable()  {}
+func (raidWithPrismaStoryEqualsParams) equals() {}
+
+type raidWithPrismaStoryEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p raidWithPrismaStoryEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p raidWithPrismaStoryEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p raidWithPrismaStoryEqualsParamsUnique) raidModel()  {}
+func (p raidWithPrismaStoryEqualsParamsUnique) storyField() {}
+
+func (raidWithPrismaStoryEqualsParamsUnique) unique() {}
+func (raidWithPrismaStoryEqualsParamsUnique) equals() {}
+
+type iRaidWithPrismaStoryIDEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	raidModel()
+	storyIDField()
+}
+
+type raidWithPrismaStoryIDSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p raidWithPrismaStoryIDSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p raidWithPrismaStoryIDSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p raidWithPrismaStoryIDSetParams) raidModel() {}
+
+func (p raidWithPrismaStoryIDSetParams) storyIDField() {}
+
+type raidWithPrismaStoryIDEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p raidWithPrismaStoryIDEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p raidWithPrismaStoryIDEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p raidWithPrismaStoryIDEqualsParams) raidModel() {}
+
+func (p raidWithPrismaStoryIDEqualsParams) storyIDField() {}
+
+func (raidWithPrismaStoryIDSetParams) settable()  {}
+func (raidWithPrismaStoryIDEqualsParams) equals() {}
+
+type raidWithPrismaStoryIDEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p raidWithPrismaStoryIDEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p raidWithPrismaStoryIDEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p raidWithPrismaStoryIDEqualsParamsUnique) raidModel()    {}
+func (p raidWithPrismaStoryIDEqualsParamsUnique) storyIDField() {}
+
+func (raidWithPrismaStoryIDEqualsParamsUnique) unique() {}
+func (raidWithPrismaStoryIDEqualsParamsUnique) equals() {}
+
 type iRaidWithPrismaAvatarsOnRaidsEqualsParams interface {
 	field() builder.Field
 	getQuery() builder.Query
@@ -2484,70 +2613,6 @@ func (p raidWithPrismaRaidBossesOnRaidsEqualsParamsUnique) raidBossesOnRaidsFiel
 
 func (raidWithPrismaRaidBossesOnRaidsEqualsParamsUnique) unique() {}
 func (raidWithPrismaRaidBossesOnRaidsEqualsParamsUnique) equals() {}
-
-type iRaidWithPrismaStoriesOnRaidsEqualsParams interface {
-	field() builder.Field
-	getQuery() builder.Query
-	equals()
-	raidModel()
-	storiesOnRaidsField()
-}
-
-type raidWithPrismaStoriesOnRaidsSetParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p raidWithPrismaStoriesOnRaidsSetParams) field() builder.Field {
-	return p.data
-}
-
-func (p raidWithPrismaStoriesOnRaidsSetParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p raidWithPrismaStoriesOnRaidsSetParams) raidModel() {}
-
-func (p raidWithPrismaStoriesOnRaidsSetParams) storiesOnRaidsField() {}
-
-type raidWithPrismaStoriesOnRaidsEqualsParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p raidWithPrismaStoriesOnRaidsEqualsParams) field() builder.Field {
-	return p.data
-}
-
-func (p raidWithPrismaStoriesOnRaidsEqualsParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p raidWithPrismaStoriesOnRaidsEqualsParams) raidModel() {}
-
-func (p raidWithPrismaStoriesOnRaidsEqualsParams) storiesOnRaidsField() {}
-
-func (raidWithPrismaStoriesOnRaidsSetParams) settable()  {}
-func (raidWithPrismaStoriesOnRaidsEqualsParams) equals() {}
-
-type raidWithPrismaStoriesOnRaidsEqualsParamsUnique struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p raidWithPrismaStoriesOnRaidsEqualsParamsUnique) field() builder.Field {
-	return p.data
-}
-
-func (p raidWithPrismaStoriesOnRaidsEqualsParamsUnique) getQuery() builder.Query {
-	return p.query
-}
-
-func (p raidWithPrismaStoriesOnRaidsEqualsParamsUnique) raidModel()           {}
-func (p raidWithPrismaStoriesOnRaidsEqualsParamsUnique) storiesOnRaidsField() {}
-
-func (raidWithPrismaStoriesOnRaidsEqualsParamsUnique) unique() {}
-func (raidWithPrismaStoriesOnRaidsEqualsParamsUnique) equals() {}
 
 type raidBossActions struct {
 	// client holds the prisma client
@@ -4491,6 +4556,7 @@ var storyOutput = []builder.Output{
 	{Name: "createdAt"},
 	{Name: "deletedAt"},
 	{Name: "updatedAt"},
+	{Name: "active"},
 }
 
 type iStoryRelationWith interface {
@@ -4910,69 +4976,69 @@ func (p storyWithPrismaUpdatedAtEqualsParamsUnique) updatedAtField() {}
 func (storyWithPrismaUpdatedAtEqualsParamsUnique) unique() {}
 func (storyWithPrismaUpdatedAtEqualsParamsUnique) equals() {}
 
-type iStoryWithPrismaStoriesOnRaidsEqualsParams interface {
+type iStoryWithPrismaActiveEqualsParams interface {
 	field() builder.Field
 	getQuery() builder.Query
 	equals()
 	storyModel()
-	storiesOnRaidsField()
+	activeField()
 }
 
-type storyWithPrismaStoriesOnRaidsSetParams struct {
+type storyWithPrismaActiveSetParams struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p storyWithPrismaStoriesOnRaidsSetParams) field() builder.Field {
+func (p storyWithPrismaActiveSetParams) field() builder.Field {
 	return p.data
 }
 
-func (p storyWithPrismaStoriesOnRaidsSetParams) getQuery() builder.Query {
+func (p storyWithPrismaActiveSetParams) getQuery() builder.Query {
 	return p.query
 }
 
-func (p storyWithPrismaStoriesOnRaidsSetParams) storyModel() {}
+func (p storyWithPrismaActiveSetParams) storyModel() {}
 
-func (p storyWithPrismaStoriesOnRaidsSetParams) storiesOnRaidsField() {}
+func (p storyWithPrismaActiveSetParams) activeField() {}
 
-type storyWithPrismaStoriesOnRaidsEqualsParams struct {
+type storyWithPrismaActiveEqualsParams struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p storyWithPrismaStoriesOnRaidsEqualsParams) field() builder.Field {
+func (p storyWithPrismaActiveEqualsParams) field() builder.Field {
 	return p.data
 }
 
-func (p storyWithPrismaStoriesOnRaidsEqualsParams) getQuery() builder.Query {
+func (p storyWithPrismaActiveEqualsParams) getQuery() builder.Query {
 	return p.query
 }
 
-func (p storyWithPrismaStoriesOnRaidsEqualsParams) storyModel() {}
+func (p storyWithPrismaActiveEqualsParams) storyModel() {}
 
-func (p storyWithPrismaStoriesOnRaidsEqualsParams) storiesOnRaidsField() {}
+func (p storyWithPrismaActiveEqualsParams) activeField() {}
 
-func (storyWithPrismaStoriesOnRaidsSetParams) settable()  {}
-func (storyWithPrismaStoriesOnRaidsEqualsParams) equals() {}
+func (storyWithPrismaActiveSetParams) settable()  {}
+func (storyWithPrismaActiveEqualsParams) equals() {}
 
-type storyWithPrismaStoriesOnRaidsEqualsParamsUnique struct {
+type storyWithPrismaActiveEqualsParamsUnique struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p storyWithPrismaStoriesOnRaidsEqualsParamsUnique) field() builder.Field {
+func (p storyWithPrismaActiveEqualsParamsUnique) field() builder.Field {
 	return p.data
 }
 
-func (p storyWithPrismaStoriesOnRaidsEqualsParamsUnique) getQuery() builder.Query {
+func (p storyWithPrismaActiveEqualsParamsUnique) getQuery() builder.Query {
 	return p.query
 }
 
-func (p storyWithPrismaStoriesOnRaidsEqualsParamsUnique) storyModel()          {}
-func (p storyWithPrismaStoriesOnRaidsEqualsParamsUnique) storiesOnRaidsField() {}
+func (p storyWithPrismaActiveEqualsParamsUnique) storyModel()  {}
+func (p storyWithPrismaActiveEqualsParamsUnique) activeField() {}
 
-func (storyWithPrismaStoriesOnRaidsEqualsParamsUnique) unique() {}
-func (storyWithPrismaStoriesOnRaidsEqualsParamsUnique) equals() {}
+func (storyWithPrismaActiveEqualsParamsUnique) unique() {}
+func (storyWithPrismaActiveEqualsParamsUnique) equals() {}
 
 type iStoryWithPrismaEventEqualsParams interface {
 	field() builder.Field
@@ -5038,627 +5104,69 @@ func (p storyWithPrismaEventEqualsParamsUnique) eventField() {}
 func (storyWithPrismaEventEqualsParamsUnique) unique() {}
 func (storyWithPrismaEventEqualsParamsUnique) equals() {}
 
-type storiesOnRaidsActions struct {
-	// client holds the prisma client
-	client *PrismaClient
-}
-
-var storiesOnRaidsOutput = []builder.Output{
-	{Name: "createdAt"},
-	{Name: "deletedAt"},
-	{Name: "updatedAt"},
-	{Name: "raidId"},
-	{Name: "storyId"},
-}
-
-type iStoriesOnRaidsRelationWith interface {
-	getQuery() builder.Query
-	with()
-	storiesOnRaidsRelation()
-}
-
-type iStoriesOnRaidsParams interface {
-	field() builder.Field
-	getQuery() builder.Query
-	storiesOnRaidsModel()
-}
-
-type storiesOnRaidsParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsParams) storiesOnRaidsModel() {}
-
-type iStoriesOnRaidsOrderByParams interface {
-	field() builder.Field
-	getQuery() builder.Query
-	storiesOnRaidsModel()
-}
-
-type storiesOnRaidsOrderByParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsOrderByParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsOrderByParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsOrderByParams) storiesOnRaidsModel() {}
-
-type iStoriesOnRaidsCursorParams interface {
-	field() builder.Field
-	getQuery() builder.Query
-	storiesOnRaidsModel()
-	isCursor()
-}
-
-type storiesOnRaidsCursorParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsCursorParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsCursorParams) isCursor() {}
-
-func (p storiesOnRaidsCursorParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsCursorParams) storiesOnRaidsModel() {}
-
-type iStoriesOnRaidsParamsUnique interface {
-	field() builder.Field
-	getQuery() builder.Query
-	unique()
-	storiesOnRaidsModel()
-}
-
-type storiesOnRaidsParamsUnique struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsParamsUnique) storiesOnRaidsModel() {}
-
-func (storiesOnRaidsParamsUnique) unique() {}
-
-func (p storiesOnRaidsParamsUnique) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsParamsUnique) getQuery() builder.Query {
-	return p.query
-}
-
-type iStoriesOnRaidsEqualsParams interface {
+type iStoryWithPrismaRaidEqualsParams interface {
 	field() builder.Field
 	getQuery() builder.Query
 	equals()
-	storiesOnRaidsModel()
-}
-
-type storiesOnRaidsEqualsParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsEqualsParams) storiesOnRaidsModel() {}
-
-func (storiesOnRaidsEqualsParams) equals() {}
-
-func (p storiesOnRaidsEqualsParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsEqualsParams) getQuery() builder.Query {
-	return p.query
-}
-
-type iStoriesOnRaidsEqualsParamsUnique interface {
-	field() builder.Field
-	getQuery() builder.Query
-	equals()
-	unique()
-	storiesOnRaidsModel()
-}
-
-type storiesOnRaidsEqualsParamsUnique struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsEqualsParamsUnique) storiesOnRaidsModel() {}
-
-func (storiesOnRaidsEqualsParamsUnique) unique() {}
-func (storiesOnRaidsEqualsParamsUnique) equals() {}
-
-func (p storiesOnRaidsEqualsParamsUnique) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsEqualsParamsUnique) getQuery() builder.Query {
-	return p.query
-}
-
-type iStoriesOnRaidsSetParams interface {
-	field() builder.Field
-	settable()
-}
-
-type storiesOnRaidsSetParams struct {
-	data builder.Field
-}
-
-func (storiesOnRaidsSetParams) settable() {}
-
-func (p storiesOnRaidsSetParams) field() builder.Field {
-	return p.data
-}
-
-type iStoriesOnRaidsWithPrismaCreatedAtEqualsParams interface {
-	field() builder.Field
-	getQuery() builder.Query
-	equals()
-	storiesOnRaidsModel()
-	createdAtField()
-}
-
-type storiesOnRaidsWithPrismaCreatedAtSetParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaCreatedAtSetParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaCreatedAtSetParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaCreatedAtSetParams) storiesOnRaidsModel() {}
-
-func (p storiesOnRaidsWithPrismaCreatedAtSetParams) createdAtField() {}
-
-type storiesOnRaidsWithPrismaCreatedAtEqualsParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaCreatedAtEqualsParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaCreatedAtEqualsParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaCreatedAtEqualsParams) storiesOnRaidsModel() {}
-
-func (p storiesOnRaidsWithPrismaCreatedAtEqualsParams) createdAtField() {}
-
-func (storiesOnRaidsWithPrismaCreatedAtSetParams) settable()  {}
-func (storiesOnRaidsWithPrismaCreatedAtEqualsParams) equals() {}
-
-type storiesOnRaidsWithPrismaCreatedAtEqualsParamsUnique struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaCreatedAtEqualsParamsUnique) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaCreatedAtEqualsParamsUnique) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaCreatedAtEqualsParamsUnique) storiesOnRaidsModel() {}
-func (p storiesOnRaidsWithPrismaCreatedAtEqualsParamsUnique) createdAtField()      {}
-
-func (storiesOnRaidsWithPrismaCreatedAtEqualsParamsUnique) unique() {}
-func (storiesOnRaidsWithPrismaCreatedAtEqualsParamsUnique) equals() {}
-
-type iStoriesOnRaidsWithPrismaDeletedAtEqualsParams interface {
-	field() builder.Field
-	getQuery() builder.Query
-	equals()
-	storiesOnRaidsModel()
-	deletedAtField()
-}
-
-type storiesOnRaidsWithPrismaDeletedAtSetParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaDeletedAtSetParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaDeletedAtSetParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaDeletedAtSetParams) storiesOnRaidsModel() {}
-
-func (p storiesOnRaidsWithPrismaDeletedAtSetParams) deletedAtField() {}
-
-type storiesOnRaidsWithPrismaDeletedAtEqualsParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaDeletedAtEqualsParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaDeletedAtEqualsParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaDeletedAtEqualsParams) storiesOnRaidsModel() {}
-
-func (p storiesOnRaidsWithPrismaDeletedAtEqualsParams) deletedAtField() {}
-
-func (storiesOnRaidsWithPrismaDeletedAtSetParams) settable()  {}
-func (storiesOnRaidsWithPrismaDeletedAtEqualsParams) equals() {}
-
-type storiesOnRaidsWithPrismaDeletedAtEqualsParamsUnique struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaDeletedAtEqualsParamsUnique) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaDeletedAtEqualsParamsUnique) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaDeletedAtEqualsParamsUnique) storiesOnRaidsModel() {}
-func (p storiesOnRaidsWithPrismaDeletedAtEqualsParamsUnique) deletedAtField()      {}
-
-func (storiesOnRaidsWithPrismaDeletedAtEqualsParamsUnique) unique() {}
-func (storiesOnRaidsWithPrismaDeletedAtEqualsParamsUnique) equals() {}
-
-type iStoriesOnRaidsWithPrismaUpdatedAtEqualsParams interface {
-	field() builder.Field
-	getQuery() builder.Query
-	equals()
-	storiesOnRaidsModel()
-	updatedAtField()
-}
-
-type storiesOnRaidsWithPrismaUpdatedAtSetParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaUpdatedAtSetParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaUpdatedAtSetParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaUpdatedAtSetParams) storiesOnRaidsModel() {}
-
-func (p storiesOnRaidsWithPrismaUpdatedAtSetParams) updatedAtField() {}
-
-type storiesOnRaidsWithPrismaUpdatedAtEqualsParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaUpdatedAtEqualsParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaUpdatedAtEqualsParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaUpdatedAtEqualsParams) storiesOnRaidsModel() {}
-
-func (p storiesOnRaidsWithPrismaUpdatedAtEqualsParams) updatedAtField() {}
-
-func (storiesOnRaidsWithPrismaUpdatedAtSetParams) settable()  {}
-func (storiesOnRaidsWithPrismaUpdatedAtEqualsParams) equals() {}
-
-type storiesOnRaidsWithPrismaUpdatedAtEqualsParamsUnique struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaUpdatedAtEqualsParamsUnique) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaUpdatedAtEqualsParamsUnique) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaUpdatedAtEqualsParamsUnique) storiesOnRaidsModel() {}
-func (p storiesOnRaidsWithPrismaUpdatedAtEqualsParamsUnique) updatedAtField()      {}
-
-func (storiesOnRaidsWithPrismaUpdatedAtEqualsParamsUnique) unique() {}
-func (storiesOnRaidsWithPrismaUpdatedAtEqualsParamsUnique) equals() {}
-
-type iStoriesOnRaidsWithPrismaRaidEqualsParams interface {
-	field() builder.Field
-	getQuery() builder.Query
-	equals()
-	storiesOnRaidsModel()
+	storyModel()
 	raidField()
 }
 
-type storiesOnRaidsWithPrismaRaidSetParams struct {
+type storyWithPrismaRaidSetParams struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p storiesOnRaidsWithPrismaRaidSetParams) field() builder.Field {
+func (p storyWithPrismaRaidSetParams) field() builder.Field {
 	return p.data
 }
 
-func (p storiesOnRaidsWithPrismaRaidSetParams) getQuery() builder.Query {
+func (p storyWithPrismaRaidSetParams) getQuery() builder.Query {
 	return p.query
 }
 
-func (p storiesOnRaidsWithPrismaRaidSetParams) storiesOnRaidsModel() {}
+func (p storyWithPrismaRaidSetParams) storyModel() {}
 
-func (p storiesOnRaidsWithPrismaRaidSetParams) raidField() {}
+func (p storyWithPrismaRaidSetParams) raidField() {}
 
-type storiesOnRaidsWithPrismaRaidEqualsParams struct {
+type storyWithPrismaRaidEqualsParams struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p storiesOnRaidsWithPrismaRaidEqualsParams) field() builder.Field {
+func (p storyWithPrismaRaidEqualsParams) field() builder.Field {
 	return p.data
 }
 
-func (p storiesOnRaidsWithPrismaRaidEqualsParams) getQuery() builder.Query {
+func (p storyWithPrismaRaidEqualsParams) getQuery() builder.Query {
 	return p.query
 }
 
-func (p storiesOnRaidsWithPrismaRaidEqualsParams) storiesOnRaidsModel() {}
+func (p storyWithPrismaRaidEqualsParams) storyModel() {}
 
-func (p storiesOnRaidsWithPrismaRaidEqualsParams) raidField() {}
+func (p storyWithPrismaRaidEqualsParams) raidField() {}
 
-func (storiesOnRaidsWithPrismaRaidSetParams) settable()  {}
-func (storiesOnRaidsWithPrismaRaidEqualsParams) equals() {}
+func (storyWithPrismaRaidSetParams) settable()  {}
+func (storyWithPrismaRaidEqualsParams) equals() {}
 
-type storiesOnRaidsWithPrismaRaidEqualsParamsUnique struct {
+type storyWithPrismaRaidEqualsParamsUnique struct {
 	data  builder.Field
 	query builder.Query
 }
 
-func (p storiesOnRaidsWithPrismaRaidEqualsParamsUnique) field() builder.Field {
+func (p storyWithPrismaRaidEqualsParamsUnique) field() builder.Field {
 	return p.data
 }
 
-func (p storiesOnRaidsWithPrismaRaidEqualsParamsUnique) getQuery() builder.Query {
+func (p storyWithPrismaRaidEqualsParamsUnique) getQuery() builder.Query {
 	return p.query
 }
 
-func (p storiesOnRaidsWithPrismaRaidEqualsParamsUnique) storiesOnRaidsModel() {}
-func (p storiesOnRaidsWithPrismaRaidEqualsParamsUnique) raidField()           {}
+func (p storyWithPrismaRaidEqualsParamsUnique) storyModel() {}
+func (p storyWithPrismaRaidEqualsParamsUnique) raidField()  {}
 
-func (storiesOnRaidsWithPrismaRaidEqualsParamsUnique) unique() {}
-func (storiesOnRaidsWithPrismaRaidEqualsParamsUnique) equals() {}
-
-type iStoriesOnRaidsWithPrismaRaidIDEqualsParams interface {
-	field() builder.Field
-	getQuery() builder.Query
-	equals()
-	storiesOnRaidsModel()
-	raidIDField()
-}
-
-type storiesOnRaidsWithPrismaRaidIDSetParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaRaidIDSetParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaRaidIDSetParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaRaidIDSetParams) storiesOnRaidsModel() {}
-
-func (p storiesOnRaidsWithPrismaRaidIDSetParams) raidIDField() {}
-
-type storiesOnRaidsWithPrismaRaidIDEqualsParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaRaidIDEqualsParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaRaidIDEqualsParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaRaidIDEqualsParams) storiesOnRaidsModel() {}
-
-func (p storiesOnRaidsWithPrismaRaidIDEqualsParams) raidIDField() {}
-
-func (storiesOnRaidsWithPrismaRaidIDSetParams) settable()  {}
-func (storiesOnRaidsWithPrismaRaidIDEqualsParams) equals() {}
-
-type storiesOnRaidsWithPrismaRaidIDEqualsParamsUnique struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaRaidIDEqualsParamsUnique) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaRaidIDEqualsParamsUnique) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaRaidIDEqualsParamsUnique) storiesOnRaidsModel() {}
-func (p storiesOnRaidsWithPrismaRaidIDEqualsParamsUnique) raidIDField()         {}
-
-func (storiesOnRaidsWithPrismaRaidIDEqualsParamsUnique) unique() {}
-func (storiesOnRaidsWithPrismaRaidIDEqualsParamsUnique) equals() {}
-
-type iStoriesOnRaidsWithPrismaStoryEqualsParams interface {
-	field() builder.Field
-	getQuery() builder.Query
-	equals()
-	storiesOnRaidsModel()
-	storyField()
-}
-
-type storiesOnRaidsWithPrismaStorySetParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaStorySetParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaStorySetParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaStorySetParams) storiesOnRaidsModel() {}
-
-func (p storiesOnRaidsWithPrismaStorySetParams) storyField() {}
-
-type storiesOnRaidsWithPrismaStoryEqualsParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaStoryEqualsParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaStoryEqualsParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaStoryEqualsParams) storiesOnRaidsModel() {}
-
-func (p storiesOnRaidsWithPrismaStoryEqualsParams) storyField() {}
-
-func (storiesOnRaidsWithPrismaStorySetParams) settable()  {}
-func (storiesOnRaidsWithPrismaStoryEqualsParams) equals() {}
-
-type storiesOnRaidsWithPrismaStoryEqualsParamsUnique struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaStoryEqualsParamsUnique) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaStoryEqualsParamsUnique) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaStoryEqualsParamsUnique) storiesOnRaidsModel() {}
-func (p storiesOnRaidsWithPrismaStoryEqualsParamsUnique) storyField()          {}
-
-func (storiesOnRaidsWithPrismaStoryEqualsParamsUnique) unique() {}
-func (storiesOnRaidsWithPrismaStoryEqualsParamsUnique) equals() {}
-
-type iStoriesOnRaidsWithPrismaStoryIDEqualsParams interface {
-	field() builder.Field
-	getQuery() builder.Query
-	equals()
-	storiesOnRaidsModel()
-	storyIDField()
-}
-
-type storiesOnRaidsWithPrismaStoryIDSetParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaStoryIDSetParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaStoryIDSetParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaStoryIDSetParams) storiesOnRaidsModel() {}
-
-func (p storiesOnRaidsWithPrismaStoryIDSetParams) storyIDField() {}
-
-type storiesOnRaidsWithPrismaStoryIDEqualsParams struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaStoryIDEqualsParams) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaStoryIDEqualsParams) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaStoryIDEqualsParams) storiesOnRaidsModel() {}
-
-func (p storiesOnRaidsWithPrismaStoryIDEqualsParams) storyIDField() {}
-
-func (storiesOnRaidsWithPrismaStoryIDSetParams) settable()  {}
-func (storiesOnRaidsWithPrismaStoryIDEqualsParams) equals() {}
-
-type storiesOnRaidsWithPrismaStoryIDEqualsParamsUnique struct {
-	data  builder.Field
-	query builder.Query
-}
-
-func (p storiesOnRaidsWithPrismaStoryIDEqualsParamsUnique) field() builder.Field {
-	return p.data
-}
-
-func (p storiesOnRaidsWithPrismaStoryIDEqualsParamsUnique) getQuery() builder.Query {
-	return p.query
-}
-
-func (p storiesOnRaidsWithPrismaStoryIDEqualsParamsUnique) storiesOnRaidsModel() {}
-func (p storiesOnRaidsWithPrismaStoryIDEqualsParamsUnique) storyIDField()        {}
-
-func (storiesOnRaidsWithPrismaStoryIDEqualsParamsUnique) unique() {}
-func (storiesOnRaidsWithPrismaStoryIDEqualsParamsUnique) equals() {}
+func (storyWithPrismaRaidEqualsParamsUnique) unique() {}
+func (storyWithPrismaRaidEqualsParamsUnique) equals() {}
 
 type eventActions struct {
 	// client holds the prisma client
@@ -9404,7 +8912,7 @@ func (r avatarCreateOne) Exec(ctx context.Context) (AvatarModel, error) {
 
 // Creates a single user.
 func (r raidActions) CreateOne(
-
+	_story raidWithPrismaStorySetParams,
 	optional ...raidSetParams,
 ) raidCreateOne {
 	var v raidCreateOne
@@ -9417,6 +8925,8 @@ func (r raidActions) CreateOne(
 	v.query.Outputs = raidOutput
 
 	var fields []builder.Field
+
+	fields = append(fields, _story.data)
 
 	for _, q := range optional {
 		fields = append(fields, q.data)
@@ -9681,64 +9191,6 @@ func (r storyCreateOne) Exec(ctx context.Context) (StoryModel, error) {
 		return StoryModel{}, fmt.Errorf(first.Message)
 	}
 	return v.Data.CreateOneStory, err
-}
-
-// Creates a single user.
-func (r storiesOnRaidsActions) CreateOne(
-	_raid storiesOnRaidsWithPrismaRaidSetParams, _story storiesOnRaidsWithPrismaStorySetParams,
-	optional ...storiesOnRaidsSetParams,
-) storiesOnRaidsCreateOne {
-	var v storiesOnRaidsCreateOne
-	v.query = builder.NewQuery()
-	v.query.Client = r.client
-
-	v.query.Operation = "mutation"
-	v.query.Method = "createOne"
-	v.query.Model = "StoriesOnRaids"
-	v.query.Outputs = storiesOnRaidsOutput
-
-	var fields []builder.Field
-
-	fields = append(fields, _raid.data)
-
-	fields = append(fields, _story.data)
-
-	for _, q := range optional {
-		fields = append(fields, q.data)
-	}
-
-	v.query.Inputs = append(v.query.Inputs, builder.Input{
-		Name:   "data",
-		Fields: fields,
-	})
-	return v
-}
-
-func (r storiesOnRaidsCreateOne) With(params ...iStoriesOnRaidsRelationWith) storiesOnRaidsCreateOne {
-	for _, q := range params {
-		query := q.getQuery()
-		r.query.Outputs = append(r.query.Outputs, builder.Output{
-			Name:    query.Method,
-			Inputs:  query.Inputs,
-			Outputs: query.Outputs,
-		})
-	}
-
-	return r
-}
-
-type storiesOnRaidsCreateOne struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsCreateOne) Exec(ctx context.Context) (StoriesOnRaidsModel, error) {
-	var v createOneStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return StoriesOnRaidsModel{}, fmt.Errorf(first.Message)
-	}
-	return v.Data.CreateOneStoriesOnRaids, err
 }
 
 // Creates a single user.
@@ -11521,6 +10973,235 @@ func (r avatarDeleteMany) Exec(ctx context.Context) (int, error) {
 	return v.Data.DeleteManyAvatar.Count, err
 }
 
+type raidToStoryFindOne struct {
+	query builder.Query
+}
+
+func (r raidToStoryFindOne) getQuery() builder.Query {
+	return r.query
+}
+
+func (r raidToStoryFindOne) with()         {}
+func (r raidToStoryFindOne) raidModel()    {}
+func (r raidToStoryFindOne) raidRelation() {}
+
+func (r raidToStoryFindOne) With(params ...iStoryRelationWith) raidToStoryFindOne {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r raidToStoryFindOne) Exec(ctx context.Context) (
+	RaidModel,
+	error,
+) {
+	var v findOneRaidResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return RaidModel{}, fmt.Errorf(first.Message)
+	}
+
+	if v.Data.FindOneRaid == nil {
+		return RaidModel{}, ErrNotFound
+	}
+
+	return *v.Data.FindOneRaid, err
+}
+
+func (r raidToStoryFindOne) Update(params ...iRaidSetParams) raidToStoryUpdateOne {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "Raid"
+	r.query.Outputs = raidOutput
+
+	var v raidToStoryUpdateOne
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type raidToStoryUpdateOne struct {
+	query builder.Query
+}
+
+func (r raidToStoryUpdateOne) Exec(ctx context.Context) (RaidModel, error) {
+	var v updateOneRaidResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return RaidModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateOneRaid, err
+}
+
+func (r raidToStoryFindOne) Delete() raidToStoryDeleteOne {
+	var v raidToStoryDeleteOne
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "Raid"
+	v.query.Outputs = raidOutput
+	return v
+}
+
+type raidToStoryDeleteOne struct {
+	query builder.Query
+}
+
+func (r raidToStoryDeleteOne) Exec(ctx context.Context) (RaidModel, error) {
+	var v deleteOneRaidResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return RaidModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteOneRaid, err
+}
+
+type raidToStoryFindMany struct {
+	query builder.Query
+}
+
+func (r raidToStoryFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r raidToStoryFindMany) with()         {}
+func (r raidToStoryFindMany) raidModel()    {}
+func (r raidToStoryFindMany) raidRelation() {}
+
+func (r raidToStoryFindMany) With(params ...iStoryRelationWith) raidToStoryFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r raidToStoryFindMany) OrderBy(param iRaidOrderByParams) raidToStoryFindMany {
+	direction, _ := param.field().Value.(runtime.Direction)
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "orderBy",
+		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
+	})
+	return r
+}
+
+func (r raidToStoryFindMany) Skip(count int) raidToStoryFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r raidToStoryFindMany) Take(count int) raidToStoryFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r raidToStoryFindMany) Cursor(cursor iRaidCursorParams) raidToStoryFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r raidToStoryFindMany) Exec(ctx context.Context) (
+	[]RaidModel,
+	error,
+) {
+	var v findManyRaidResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return []RaidModel{}, fmt.Errorf(first.Message)
+	}
+
+	return v.Data.FindManyRaid, err
+}
+
+func (r raidToStoryFindMany) Update(params ...iRaidSetParams) raidToStoryUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "Raid"
+	r.query.Outputs = countOutput
+
+	var v raidToStoryUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type raidToStoryUpdateMany struct {
+	query builder.Query
+}
+
+func (r raidToStoryUpdateMany) Exec(ctx context.Context) (int, error) {
+	var v updateManyRaidResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateManyRaid.Count, err
+}
+
+func (r raidToStoryFindMany) Delete() raidToStoryDeleteMany {
+	var v raidToStoryDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "Raid"
+	v.query.Outputs = countOutput
+	return v
+}
+
+type raidToStoryDeleteMany struct {
+	query builder.Query
+}
+
+func (r raidToStoryDeleteMany) Exec(ctx context.Context) (int, error) {
+	var v deleteManyRaidResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteManyRaid.Count, err
+}
+
 type raidToAvatarsOnRaidsFindOne struct {
 	query builder.Query
 }
@@ -11970,235 +11651,6 @@ type raidToRaidBossesOnRaidsDeleteMany struct {
 }
 
 func (r raidToRaidBossesOnRaidsDeleteMany) Exec(ctx context.Context) (int, error) {
-	var v deleteManyRaidResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return -1, fmt.Errorf(first.Message)
-	}
-	return v.Data.DeleteManyRaid.Count, err
-}
-
-type raidToStoriesOnRaidsFindOne struct {
-	query builder.Query
-}
-
-func (r raidToStoriesOnRaidsFindOne) getQuery() builder.Query {
-	return r.query
-}
-
-func (r raidToStoriesOnRaidsFindOne) with()         {}
-func (r raidToStoriesOnRaidsFindOne) raidModel()    {}
-func (r raidToStoriesOnRaidsFindOne) raidRelation() {}
-
-func (r raidToStoriesOnRaidsFindOne) With(params ...iStoriesOnRaidsRelationWith) raidToStoriesOnRaidsFindOne {
-	for _, q := range params {
-		query := q.getQuery()
-		r.query.Outputs = append(r.query.Outputs, builder.Output{
-			Name:    query.Method,
-			Inputs:  query.Inputs,
-			Outputs: query.Outputs,
-		})
-	}
-
-	return r
-}
-
-func (r raidToStoriesOnRaidsFindOne) Exec(ctx context.Context) (
-	RaidModel,
-	error,
-) {
-	var v findOneRaidResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return RaidModel{}, fmt.Errorf(first.Message)
-	}
-
-	if v.Data.FindOneRaid == nil {
-		return RaidModel{}, ErrNotFound
-	}
-
-	return *v.Data.FindOneRaid, err
-}
-
-func (r raidToStoriesOnRaidsFindOne) Update(params ...iRaidSetParams) raidToStoriesOnRaidsUpdateOne {
-	r.query.Operation = "mutation"
-	r.query.Method = "updateOne"
-	r.query.Model = "Raid"
-	r.query.Outputs = raidOutput
-
-	var v raidToStoriesOnRaidsUpdateOne
-	v.query = r.query
-	var fields []builder.Field
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-	v.query.Inputs = append(v.query.Inputs, builder.Input{
-		Name:   "data",
-		Fields: fields,
-	})
-	return v
-}
-
-type raidToStoriesOnRaidsUpdateOne struct {
-	query builder.Query
-}
-
-func (r raidToStoriesOnRaidsUpdateOne) Exec(ctx context.Context) (RaidModel, error) {
-	var v updateOneRaidResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return RaidModel{}, fmt.Errorf(first.Message)
-	}
-	return v.Data.UpdateOneRaid, err
-}
-
-func (r raidToStoriesOnRaidsFindOne) Delete() raidToStoriesOnRaidsDeleteOne {
-	var v raidToStoriesOnRaidsDeleteOne
-	v.query = r.query
-	v.query.Operation = "mutation"
-	v.query.Method = "deleteOne"
-	v.query.Model = "Raid"
-	v.query.Outputs = raidOutput
-	return v
-}
-
-type raidToStoriesOnRaidsDeleteOne struct {
-	query builder.Query
-}
-
-func (r raidToStoriesOnRaidsDeleteOne) Exec(ctx context.Context) (RaidModel, error) {
-	var v deleteOneRaidResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return RaidModel{}, fmt.Errorf(first.Message)
-	}
-	return v.Data.DeleteOneRaid, err
-}
-
-type raidToStoriesOnRaidsFindMany struct {
-	query builder.Query
-}
-
-func (r raidToStoriesOnRaidsFindMany) getQuery() builder.Query {
-	return r.query
-}
-
-func (r raidToStoriesOnRaidsFindMany) with()         {}
-func (r raidToStoriesOnRaidsFindMany) raidModel()    {}
-func (r raidToStoriesOnRaidsFindMany) raidRelation() {}
-
-func (r raidToStoriesOnRaidsFindMany) With(params ...iStoriesOnRaidsRelationWith) raidToStoriesOnRaidsFindMany {
-	for _, q := range params {
-		query := q.getQuery()
-		r.query.Outputs = append(r.query.Outputs, builder.Output{
-			Name:    query.Method,
-			Inputs:  query.Inputs,
-			Outputs: query.Outputs,
-		})
-	}
-
-	return r
-}
-
-func (r raidToStoriesOnRaidsFindMany) OrderBy(param iRaidOrderByParams) raidToStoriesOnRaidsFindMany {
-	direction, _ := param.field().Value.(runtime.Direction)
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "orderBy",
-		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
-	})
-	return r
-}
-
-func (r raidToStoriesOnRaidsFindMany) Skip(count int) raidToStoriesOnRaidsFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "skip",
-		Value: count,
-	})
-	return r
-}
-
-func (r raidToStoriesOnRaidsFindMany) Take(count int) raidToStoriesOnRaidsFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "take",
-		Value: count,
-	})
-	return r
-}
-
-func (r raidToStoriesOnRaidsFindMany) Cursor(cursor iRaidCursorParams) raidToStoriesOnRaidsFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:   "cursor",
-		Fields: []builder.Field{cursor.field()},
-	})
-	return r
-}
-
-func (r raidToStoriesOnRaidsFindMany) Exec(ctx context.Context) (
-	[]RaidModel,
-	error,
-) {
-	var v findManyRaidResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return []RaidModel{}, fmt.Errorf(first.Message)
-	}
-
-	return v.Data.FindManyRaid, err
-}
-
-func (r raidToStoriesOnRaidsFindMany) Update(params ...iRaidSetParams) raidToStoriesOnRaidsUpdateMany {
-	r.query.Operation = "mutation"
-	r.query.Method = "updateMany"
-	r.query.Model = "Raid"
-	r.query.Outputs = countOutput
-
-	var v raidToStoriesOnRaidsUpdateMany
-	v.query = r.query
-	var fields []builder.Field
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-	v.query.Inputs = append(v.query.Inputs, builder.Input{
-		Name:   "data",
-		Fields: fields,
-	})
-	return v
-}
-
-type raidToStoriesOnRaidsUpdateMany struct {
-	query builder.Query
-}
-
-func (r raidToStoriesOnRaidsUpdateMany) Exec(ctx context.Context) (int, error) {
-	var v updateManyRaidResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return -1, fmt.Errorf(first.Message)
-	}
-	return v.Data.UpdateManyRaid.Count, err
-}
-
-func (r raidToStoriesOnRaidsFindMany) Delete() raidToStoriesOnRaidsDeleteMany {
-	var v raidToStoriesOnRaidsDeleteMany
-	v.query = r.query
-	v.query.Operation = "mutation"
-	v.query.Method = "deleteMany"
-	v.query.Model = "Raid"
-	v.query.Outputs = countOutput
-	return v
-}
-
-type raidToStoriesOnRaidsDeleteMany struct {
-	query builder.Query
-}
-
-func (r raidToStoriesOnRaidsDeleteMany) Exec(ctx context.Context) (int, error) {
 	var v deleteManyRaidResponse
 	err := r.query.Exec(ctx, &v)
 	if v.Errors != nil {
@@ -14497,235 +13949,6 @@ func (r raidBossesOnRaidsDeleteMany) Exec(ctx context.Context) (int, error) {
 	return v.Data.DeleteManyRaidBossesOnRaids.Count, err
 }
 
-type storyToStoriesOnRaidsFindOne struct {
-	query builder.Query
-}
-
-func (r storyToStoriesOnRaidsFindOne) getQuery() builder.Query {
-	return r.query
-}
-
-func (r storyToStoriesOnRaidsFindOne) with()          {}
-func (r storyToStoriesOnRaidsFindOne) storyModel()    {}
-func (r storyToStoriesOnRaidsFindOne) storyRelation() {}
-
-func (r storyToStoriesOnRaidsFindOne) With(params ...iStoriesOnRaidsRelationWith) storyToStoriesOnRaidsFindOne {
-	for _, q := range params {
-		query := q.getQuery()
-		r.query.Outputs = append(r.query.Outputs, builder.Output{
-			Name:    query.Method,
-			Inputs:  query.Inputs,
-			Outputs: query.Outputs,
-		})
-	}
-
-	return r
-}
-
-func (r storyToStoriesOnRaidsFindOne) Exec(ctx context.Context) (
-	StoryModel,
-	error,
-) {
-	var v findOneStoryResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return StoryModel{}, fmt.Errorf(first.Message)
-	}
-
-	if v.Data.FindOneStory == nil {
-		return StoryModel{}, ErrNotFound
-	}
-
-	return *v.Data.FindOneStory, err
-}
-
-func (r storyToStoriesOnRaidsFindOne) Update(params ...iStorySetParams) storyToStoriesOnRaidsUpdateOne {
-	r.query.Operation = "mutation"
-	r.query.Method = "updateOne"
-	r.query.Model = "Story"
-	r.query.Outputs = storyOutput
-
-	var v storyToStoriesOnRaidsUpdateOne
-	v.query = r.query
-	var fields []builder.Field
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-	v.query.Inputs = append(v.query.Inputs, builder.Input{
-		Name:   "data",
-		Fields: fields,
-	})
-	return v
-}
-
-type storyToStoriesOnRaidsUpdateOne struct {
-	query builder.Query
-}
-
-func (r storyToStoriesOnRaidsUpdateOne) Exec(ctx context.Context) (StoryModel, error) {
-	var v updateOneStoryResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return StoryModel{}, fmt.Errorf(first.Message)
-	}
-	return v.Data.UpdateOneStory, err
-}
-
-func (r storyToStoriesOnRaidsFindOne) Delete() storyToStoriesOnRaidsDeleteOne {
-	var v storyToStoriesOnRaidsDeleteOne
-	v.query = r.query
-	v.query.Operation = "mutation"
-	v.query.Method = "deleteOne"
-	v.query.Model = "Story"
-	v.query.Outputs = storyOutput
-	return v
-}
-
-type storyToStoriesOnRaidsDeleteOne struct {
-	query builder.Query
-}
-
-func (r storyToStoriesOnRaidsDeleteOne) Exec(ctx context.Context) (StoryModel, error) {
-	var v deleteOneStoryResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return StoryModel{}, fmt.Errorf(first.Message)
-	}
-	return v.Data.DeleteOneStory, err
-}
-
-type storyToStoriesOnRaidsFindMany struct {
-	query builder.Query
-}
-
-func (r storyToStoriesOnRaidsFindMany) getQuery() builder.Query {
-	return r.query
-}
-
-func (r storyToStoriesOnRaidsFindMany) with()          {}
-func (r storyToStoriesOnRaidsFindMany) storyModel()    {}
-func (r storyToStoriesOnRaidsFindMany) storyRelation() {}
-
-func (r storyToStoriesOnRaidsFindMany) With(params ...iStoriesOnRaidsRelationWith) storyToStoriesOnRaidsFindMany {
-	for _, q := range params {
-		query := q.getQuery()
-		r.query.Outputs = append(r.query.Outputs, builder.Output{
-			Name:    query.Method,
-			Inputs:  query.Inputs,
-			Outputs: query.Outputs,
-		})
-	}
-
-	return r
-}
-
-func (r storyToStoriesOnRaidsFindMany) OrderBy(param iStoryOrderByParams) storyToStoriesOnRaidsFindMany {
-	direction, _ := param.field().Value.(runtime.Direction)
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "orderBy",
-		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
-	})
-	return r
-}
-
-func (r storyToStoriesOnRaidsFindMany) Skip(count int) storyToStoriesOnRaidsFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "skip",
-		Value: count,
-	})
-	return r
-}
-
-func (r storyToStoriesOnRaidsFindMany) Take(count int) storyToStoriesOnRaidsFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "take",
-		Value: count,
-	})
-	return r
-}
-
-func (r storyToStoriesOnRaidsFindMany) Cursor(cursor iStoryCursorParams) storyToStoriesOnRaidsFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:   "cursor",
-		Fields: []builder.Field{cursor.field()},
-	})
-	return r
-}
-
-func (r storyToStoriesOnRaidsFindMany) Exec(ctx context.Context) (
-	[]StoryModel,
-	error,
-) {
-	var v findManyStoryResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return []StoryModel{}, fmt.Errorf(first.Message)
-	}
-
-	return v.Data.FindManyStory, err
-}
-
-func (r storyToStoriesOnRaidsFindMany) Update(params ...iStorySetParams) storyToStoriesOnRaidsUpdateMany {
-	r.query.Operation = "mutation"
-	r.query.Method = "updateMany"
-	r.query.Model = "Story"
-	r.query.Outputs = countOutput
-
-	var v storyToStoriesOnRaidsUpdateMany
-	v.query = r.query
-	var fields []builder.Field
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-	v.query.Inputs = append(v.query.Inputs, builder.Input{
-		Name:   "data",
-		Fields: fields,
-	})
-	return v
-}
-
-type storyToStoriesOnRaidsUpdateMany struct {
-	query builder.Query
-}
-
-func (r storyToStoriesOnRaidsUpdateMany) Exec(ctx context.Context) (int, error) {
-	var v updateManyStoryResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return -1, fmt.Errorf(first.Message)
-	}
-	return v.Data.UpdateManyStory.Count, err
-}
-
-func (r storyToStoriesOnRaidsFindMany) Delete() storyToStoriesOnRaidsDeleteMany {
-	var v storyToStoriesOnRaidsDeleteMany
-	v.query = r.query
-	v.query.Operation = "mutation"
-	v.query.Method = "deleteMany"
-	v.query.Model = "Story"
-	v.query.Outputs = countOutput
-	return v
-}
-
-type storyToStoriesOnRaidsDeleteMany struct {
-	query builder.Query
-}
-
-func (r storyToStoriesOnRaidsDeleteMany) Exec(ctx context.Context) (int, error) {
-	var v deleteManyStoryResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return -1, fmt.Errorf(first.Message)
-	}
-	return v.Data.DeleteManyStory.Count, err
-}
-
 type storyToEventFindOne struct {
 	query builder.Query
 }
@@ -14946,6 +14169,235 @@ type storyToEventDeleteMany struct {
 }
 
 func (r storyToEventDeleteMany) Exec(ctx context.Context) (int, error) {
+	var v deleteManyStoryResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteManyStory.Count, err
+}
+
+type storyToRaidFindOne struct {
+	query builder.Query
+}
+
+func (r storyToRaidFindOne) getQuery() builder.Query {
+	return r.query
+}
+
+func (r storyToRaidFindOne) with()          {}
+func (r storyToRaidFindOne) storyModel()    {}
+func (r storyToRaidFindOne) storyRelation() {}
+
+func (r storyToRaidFindOne) With(params ...iRaidRelationWith) storyToRaidFindOne {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r storyToRaidFindOne) Exec(ctx context.Context) (
+	StoryModel,
+	error,
+) {
+	var v findOneStoryResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return StoryModel{}, fmt.Errorf(first.Message)
+	}
+
+	if v.Data.FindOneStory == nil {
+		return StoryModel{}, ErrNotFound
+	}
+
+	return *v.Data.FindOneStory, err
+}
+
+func (r storyToRaidFindOne) Update(params ...iStorySetParams) storyToRaidUpdateOne {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateOne"
+	r.query.Model = "Story"
+	r.query.Outputs = storyOutput
+
+	var v storyToRaidUpdateOne
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type storyToRaidUpdateOne struct {
+	query builder.Query
+}
+
+func (r storyToRaidUpdateOne) Exec(ctx context.Context) (StoryModel, error) {
+	var v updateOneStoryResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return StoryModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateOneStory, err
+}
+
+func (r storyToRaidFindOne) Delete() storyToRaidDeleteOne {
+	var v storyToRaidDeleteOne
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteOne"
+	v.query.Model = "Story"
+	v.query.Outputs = storyOutput
+	return v
+}
+
+type storyToRaidDeleteOne struct {
+	query builder.Query
+}
+
+func (r storyToRaidDeleteOne) Exec(ctx context.Context) (StoryModel, error) {
+	var v deleteOneStoryResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return StoryModel{}, fmt.Errorf(first.Message)
+	}
+	return v.Data.DeleteOneStory, err
+}
+
+type storyToRaidFindMany struct {
+	query builder.Query
+}
+
+func (r storyToRaidFindMany) getQuery() builder.Query {
+	return r.query
+}
+
+func (r storyToRaidFindMany) with()          {}
+func (r storyToRaidFindMany) storyModel()    {}
+func (r storyToRaidFindMany) storyRelation() {}
+
+func (r storyToRaidFindMany) With(params ...iRaidRelationWith) storyToRaidFindMany {
+	for _, q := range params {
+		query := q.getQuery()
+		r.query.Outputs = append(r.query.Outputs, builder.Output{
+			Name:    query.Method,
+			Inputs:  query.Inputs,
+			Outputs: query.Outputs,
+		})
+	}
+
+	return r
+}
+
+func (r storyToRaidFindMany) OrderBy(param iStoryOrderByParams) storyToRaidFindMany {
+	direction, _ := param.field().Value.(runtime.Direction)
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "orderBy",
+		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
+	})
+	return r
+}
+
+func (r storyToRaidFindMany) Skip(count int) storyToRaidFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "skip",
+		Value: count,
+	})
+	return r
+}
+
+func (r storyToRaidFindMany) Take(count int) storyToRaidFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:  "take",
+		Value: count,
+	})
+	return r
+}
+
+func (r storyToRaidFindMany) Cursor(cursor iStoryCursorParams) storyToRaidFindMany {
+	r.query.Inputs = append(r.query.Inputs, builder.Input{
+		Name:   "cursor",
+		Fields: []builder.Field{cursor.field()},
+	})
+	return r
+}
+
+func (r storyToRaidFindMany) Exec(ctx context.Context) (
+	[]StoryModel,
+	error,
+) {
+	var v findManyStoryResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return []StoryModel{}, fmt.Errorf(first.Message)
+	}
+
+	return v.Data.FindManyStory, err
+}
+
+func (r storyToRaidFindMany) Update(params ...iStorySetParams) storyToRaidUpdateMany {
+	r.query.Operation = "mutation"
+	r.query.Method = "updateMany"
+	r.query.Model = "Story"
+	r.query.Outputs = countOutput
+
+	var v storyToRaidUpdateMany
+	v.query = r.query
+	var fields []builder.Field
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+	v.query.Inputs = append(v.query.Inputs, builder.Input{
+		Name:   "data",
+		Fields: fields,
+	})
+	return v
+}
+
+type storyToRaidUpdateMany struct {
+	query builder.Query
+}
+
+func (r storyToRaidUpdateMany) Exec(ctx context.Context) (int, error) {
+	var v updateManyStoryResponse
+	err := r.query.Exec(ctx, &v)
+	if v.Errors != nil {
+		first := v.Errors[0]
+		return -1, fmt.Errorf(first.Message)
+	}
+	return v.Data.UpdateManyStory.Count, err
+}
+
+func (r storyToRaidFindMany) Delete() storyToRaidDeleteMany {
+	var v storyToRaidDeleteMany
+	v.query = r.query
+	v.query.Operation = "mutation"
+	v.query.Method = "deleteMany"
+	v.query.Model = "Story"
+	v.query.Outputs = countOutput
+	return v
+}
+
+type storyToRaidDeleteMany struct {
+	query builder.Query
+}
+
+func (r storyToRaidDeleteMany) Exec(ctx context.Context) (int, error) {
 	var v deleteManyStoryResponse
 	err := r.query.Exec(ctx, &v)
 	if v.Errors != nil {
@@ -15239,750 +14691,6 @@ func (r storyDeleteMany) Exec(ctx context.Context) (int, error) {
 		return -1, fmt.Errorf(first.Message)
 	}
 	return v.Data.DeleteManyStory.Count, err
-}
-
-type storiesOnRaidsToRaidFindOne struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsToRaidFindOne) getQuery() builder.Query {
-	return r.query
-}
-
-func (r storiesOnRaidsToRaidFindOne) with()                   {}
-func (r storiesOnRaidsToRaidFindOne) storiesOnRaidsModel()    {}
-func (r storiesOnRaidsToRaidFindOne) storiesOnRaidsRelation() {}
-
-func (r storiesOnRaidsToRaidFindOne) With(params ...iRaidRelationWith) storiesOnRaidsToRaidFindOne {
-	for _, q := range params {
-		query := q.getQuery()
-		r.query.Outputs = append(r.query.Outputs, builder.Output{
-			Name:    query.Method,
-			Inputs:  query.Inputs,
-			Outputs: query.Outputs,
-		})
-	}
-
-	return r
-}
-
-func (r storiesOnRaidsToRaidFindOne) Exec(ctx context.Context) (
-	StoriesOnRaidsModel,
-	error,
-) {
-	var v findOneStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return StoriesOnRaidsModel{}, fmt.Errorf(first.Message)
-	}
-
-	if v.Data.FindOneStoriesOnRaids == nil {
-		return StoriesOnRaidsModel{}, ErrNotFound
-	}
-
-	return *v.Data.FindOneStoriesOnRaids, err
-}
-
-func (r storiesOnRaidsToRaidFindOne) Update(params ...iStoriesOnRaidsSetParams) storiesOnRaidsToRaidUpdateOne {
-	r.query.Operation = "mutation"
-	r.query.Method = "updateOne"
-	r.query.Model = "StoriesOnRaids"
-	r.query.Outputs = storiesOnRaidsOutput
-
-	var v storiesOnRaidsToRaidUpdateOne
-	v.query = r.query
-	var fields []builder.Field
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-	v.query.Inputs = append(v.query.Inputs, builder.Input{
-		Name:   "data",
-		Fields: fields,
-	})
-	return v
-}
-
-type storiesOnRaidsToRaidUpdateOne struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsToRaidUpdateOne) Exec(ctx context.Context) (StoriesOnRaidsModel, error) {
-	var v updateOneStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return StoriesOnRaidsModel{}, fmt.Errorf(first.Message)
-	}
-	return v.Data.UpdateOneStoriesOnRaids, err
-}
-
-func (r storiesOnRaidsToRaidFindOne) Delete() storiesOnRaidsToRaidDeleteOne {
-	var v storiesOnRaidsToRaidDeleteOne
-	v.query = r.query
-	v.query.Operation = "mutation"
-	v.query.Method = "deleteOne"
-	v.query.Model = "StoriesOnRaids"
-	v.query.Outputs = storiesOnRaidsOutput
-	return v
-}
-
-type storiesOnRaidsToRaidDeleteOne struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsToRaidDeleteOne) Exec(ctx context.Context) (StoriesOnRaidsModel, error) {
-	var v deleteOneStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return StoriesOnRaidsModel{}, fmt.Errorf(first.Message)
-	}
-	return v.Data.DeleteOneStoriesOnRaids, err
-}
-
-type storiesOnRaidsToRaidFindMany struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsToRaidFindMany) getQuery() builder.Query {
-	return r.query
-}
-
-func (r storiesOnRaidsToRaidFindMany) with()                   {}
-func (r storiesOnRaidsToRaidFindMany) storiesOnRaidsModel()    {}
-func (r storiesOnRaidsToRaidFindMany) storiesOnRaidsRelation() {}
-
-func (r storiesOnRaidsToRaidFindMany) With(params ...iRaidRelationWith) storiesOnRaidsToRaidFindMany {
-	for _, q := range params {
-		query := q.getQuery()
-		r.query.Outputs = append(r.query.Outputs, builder.Output{
-			Name:    query.Method,
-			Inputs:  query.Inputs,
-			Outputs: query.Outputs,
-		})
-	}
-
-	return r
-}
-
-func (r storiesOnRaidsToRaidFindMany) OrderBy(param iStoriesOnRaidsOrderByParams) storiesOnRaidsToRaidFindMany {
-	direction, _ := param.field().Value.(runtime.Direction)
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "orderBy",
-		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
-	})
-	return r
-}
-
-func (r storiesOnRaidsToRaidFindMany) Skip(count int) storiesOnRaidsToRaidFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "skip",
-		Value: count,
-	})
-	return r
-}
-
-func (r storiesOnRaidsToRaidFindMany) Take(count int) storiesOnRaidsToRaidFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "take",
-		Value: count,
-	})
-	return r
-}
-
-func (r storiesOnRaidsToRaidFindMany) Cursor(cursor iStoriesOnRaidsCursorParams) storiesOnRaidsToRaidFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:   "cursor",
-		Fields: []builder.Field{cursor.field()},
-	})
-	return r
-}
-
-func (r storiesOnRaidsToRaidFindMany) Exec(ctx context.Context) (
-	[]StoriesOnRaidsModel,
-	error,
-) {
-	var v findManyStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return []StoriesOnRaidsModel{}, fmt.Errorf(first.Message)
-	}
-
-	return v.Data.FindManyStoriesOnRaids, err
-}
-
-func (r storiesOnRaidsToRaidFindMany) Update(params ...iStoriesOnRaidsSetParams) storiesOnRaidsToRaidUpdateMany {
-	r.query.Operation = "mutation"
-	r.query.Method = "updateMany"
-	r.query.Model = "StoriesOnRaids"
-	r.query.Outputs = countOutput
-
-	var v storiesOnRaidsToRaidUpdateMany
-	v.query = r.query
-	var fields []builder.Field
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-	v.query.Inputs = append(v.query.Inputs, builder.Input{
-		Name:   "data",
-		Fields: fields,
-	})
-	return v
-}
-
-type storiesOnRaidsToRaidUpdateMany struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsToRaidUpdateMany) Exec(ctx context.Context) (int, error) {
-	var v updateManyStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return -1, fmt.Errorf(first.Message)
-	}
-	return v.Data.UpdateManyStoriesOnRaids.Count, err
-}
-
-func (r storiesOnRaidsToRaidFindMany) Delete() storiesOnRaidsToRaidDeleteMany {
-	var v storiesOnRaidsToRaidDeleteMany
-	v.query = r.query
-	v.query.Operation = "mutation"
-	v.query.Method = "deleteMany"
-	v.query.Model = "StoriesOnRaids"
-	v.query.Outputs = countOutput
-	return v
-}
-
-type storiesOnRaidsToRaidDeleteMany struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsToRaidDeleteMany) Exec(ctx context.Context) (int, error) {
-	var v deleteManyStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return -1, fmt.Errorf(first.Message)
-	}
-	return v.Data.DeleteManyStoriesOnRaids.Count, err
-}
-
-type storiesOnRaidsToStoryFindOne struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsToStoryFindOne) getQuery() builder.Query {
-	return r.query
-}
-
-func (r storiesOnRaidsToStoryFindOne) with()                   {}
-func (r storiesOnRaidsToStoryFindOne) storiesOnRaidsModel()    {}
-func (r storiesOnRaidsToStoryFindOne) storiesOnRaidsRelation() {}
-
-func (r storiesOnRaidsToStoryFindOne) With(params ...iStoryRelationWith) storiesOnRaidsToStoryFindOne {
-	for _, q := range params {
-		query := q.getQuery()
-		r.query.Outputs = append(r.query.Outputs, builder.Output{
-			Name:    query.Method,
-			Inputs:  query.Inputs,
-			Outputs: query.Outputs,
-		})
-	}
-
-	return r
-}
-
-func (r storiesOnRaidsToStoryFindOne) Exec(ctx context.Context) (
-	StoriesOnRaidsModel,
-	error,
-) {
-	var v findOneStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return StoriesOnRaidsModel{}, fmt.Errorf(first.Message)
-	}
-
-	if v.Data.FindOneStoriesOnRaids == nil {
-		return StoriesOnRaidsModel{}, ErrNotFound
-	}
-
-	return *v.Data.FindOneStoriesOnRaids, err
-}
-
-func (r storiesOnRaidsToStoryFindOne) Update(params ...iStoriesOnRaidsSetParams) storiesOnRaidsToStoryUpdateOne {
-	r.query.Operation = "mutation"
-	r.query.Method = "updateOne"
-	r.query.Model = "StoriesOnRaids"
-	r.query.Outputs = storiesOnRaidsOutput
-
-	var v storiesOnRaidsToStoryUpdateOne
-	v.query = r.query
-	var fields []builder.Field
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-	v.query.Inputs = append(v.query.Inputs, builder.Input{
-		Name:   "data",
-		Fields: fields,
-	})
-	return v
-}
-
-type storiesOnRaidsToStoryUpdateOne struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsToStoryUpdateOne) Exec(ctx context.Context) (StoriesOnRaidsModel, error) {
-	var v updateOneStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return StoriesOnRaidsModel{}, fmt.Errorf(first.Message)
-	}
-	return v.Data.UpdateOneStoriesOnRaids, err
-}
-
-func (r storiesOnRaidsToStoryFindOne) Delete() storiesOnRaidsToStoryDeleteOne {
-	var v storiesOnRaidsToStoryDeleteOne
-	v.query = r.query
-	v.query.Operation = "mutation"
-	v.query.Method = "deleteOne"
-	v.query.Model = "StoriesOnRaids"
-	v.query.Outputs = storiesOnRaidsOutput
-	return v
-}
-
-type storiesOnRaidsToStoryDeleteOne struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsToStoryDeleteOne) Exec(ctx context.Context) (StoriesOnRaidsModel, error) {
-	var v deleteOneStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return StoriesOnRaidsModel{}, fmt.Errorf(first.Message)
-	}
-	return v.Data.DeleteOneStoriesOnRaids, err
-}
-
-type storiesOnRaidsToStoryFindMany struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsToStoryFindMany) getQuery() builder.Query {
-	return r.query
-}
-
-func (r storiesOnRaidsToStoryFindMany) with()                   {}
-func (r storiesOnRaidsToStoryFindMany) storiesOnRaidsModel()    {}
-func (r storiesOnRaidsToStoryFindMany) storiesOnRaidsRelation() {}
-
-func (r storiesOnRaidsToStoryFindMany) With(params ...iStoryRelationWith) storiesOnRaidsToStoryFindMany {
-	for _, q := range params {
-		query := q.getQuery()
-		r.query.Outputs = append(r.query.Outputs, builder.Output{
-			Name:    query.Method,
-			Inputs:  query.Inputs,
-			Outputs: query.Outputs,
-		})
-	}
-
-	return r
-}
-
-func (r storiesOnRaidsToStoryFindMany) OrderBy(param iStoriesOnRaidsOrderByParams) storiesOnRaidsToStoryFindMany {
-	direction, _ := param.field().Value.(runtime.Direction)
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "orderBy",
-		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
-	})
-	return r
-}
-
-func (r storiesOnRaidsToStoryFindMany) Skip(count int) storiesOnRaidsToStoryFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "skip",
-		Value: count,
-	})
-	return r
-}
-
-func (r storiesOnRaidsToStoryFindMany) Take(count int) storiesOnRaidsToStoryFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "take",
-		Value: count,
-	})
-	return r
-}
-
-func (r storiesOnRaidsToStoryFindMany) Cursor(cursor iStoriesOnRaidsCursorParams) storiesOnRaidsToStoryFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:   "cursor",
-		Fields: []builder.Field{cursor.field()},
-	})
-	return r
-}
-
-func (r storiesOnRaidsToStoryFindMany) Exec(ctx context.Context) (
-	[]StoriesOnRaidsModel,
-	error,
-) {
-	var v findManyStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return []StoriesOnRaidsModel{}, fmt.Errorf(first.Message)
-	}
-
-	return v.Data.FindManyStoriesOnRaids, err
-}
-
-func (r storiesOnRaidsToStoryFindMany) Update(params ...iStoriesOnRaidsSetParams) storiesOnRaidsToStoryUpdateMany {
-	r.query.Operation = "mutation"
-	r.query.Method = "updateMany"
-	r.query.Model = "StoriesOnRaids"
-	r.query.Outputs = countOutput
-
-	var v storiesOnRaidsToStoryUpdateMany
-	v.query = r.query
-	var fields []builder.Field
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-	v.query.Inputs = append(v.query.Inputs, builder.Input{
-		Name:   "data",
-		Fields: fields,
-	})
-	return v
-}
-
-type storiesOnRaidsToStoryUpdateMany struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsToStoryUpdateMany) Exec(ctx context.Context) (int, error) {
-	var v updateManyStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return -1, fmt.Errorf(first.Message)
-	}
-	return v.Data.UpdateManyStoriesOnRaids.Count, err
-}
-
-func (r storiesOnRaidsToStoryFindMany) Delete() storiesOnRaidsToStoryDeleteMany {
-	var v storiesOnRaidsToStoryDeleteMany
-	v.query = r.query
-	v.query.Operation = "mutation"
-	v.query.Method = "deleteMany"
-	v.query.Model = "StoriesOnRaids"
-	v.query.Outputs = countOutput
-	return v
-}
-
-type storiesOnRaidsToStoryDeleteMany struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsToStoryDeleteMany) Exec(ctx context.Context) (int, error) {
-	var v deleteManyStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return -1, fmt.Errorf(first.Message)
-	}
-	return v.Data.DeleteManyStoriesOnRaids.Count, err
-}
-
-type storiesOnRaidsFindOne struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsFindOne) getQuery() builder.Query {
-	return r.query
-}
-
-func (r storiesOnRaidsFindOne) with()                   {}
-func (r storiesOnRaidsFindOne) storiesOnRaidsModel()    {}
-func (r storiesOnRaidsFindOne) storiesOnRaidsRelation() {}
-
-func (r storiesOnRaidsActions) FindOne(
-
-	params iStoriesOnRaidsEqualsParamsUnique,
-) storiesOnRaidsFindOne {
-	var v storiesOnRaidsFindOne
-	v.query = builder.NewQuery()
-	v.query.Client = r.client
-
-	v.query.Operation = "query"
-	v.query.Method = "findOne"
-	v.query.Model = "StoriesOnRaids"
-	v.query.Outputs = storiesOnRaidsOutput
-
-	v.query.Inputs = append(v.query.Inputs, builder.Input{
-		Name:   "where",
-		Fields: []builder.Field{params.field()},
-	})
-
-	return v
-}
-
-func (r storiesOnRaidsFindOne) With(params ...iStoriesOnRaidsRelationWith) storiesOnRaidsFindOne {
-	for _, q := range params {
-		query := q.getQuery()
-		r.query.Outputs = append(r.query.Outputs, builder.Output{
-			Name:    query.Method,
-			Inputs:  query.Inputs,
-			Outputs: query.Outputs,
-		})
-	}
-
-	return r
-}
-
-func (r storiesOnRaidsFindOne) Exec(ctx context.Context) (
-	StoriesOnRaidsModel,
-	error,
-) {
-	var v findOneStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return StoriesOnRaidsModel{}, fmt.Errorf(first.Message)
-	}
-
-	if v.Data.FindOneStoriesOnRaids == nil {
-		return StoriesOnRaidsModel{}, ErrNotFound
-	}
-
-	return *v.Data.FindOneStoriesOnRaids, err
-}
-
-func (r storiesOnRaidsFindOne) Update(params ...iStoriesOnRaidsSetParams) storiesOnRaidsUpdateOne {
-	r.query.Operation = "mutation"
-	r.query.Method = "updateOne"
-	r.query.Model = "StoriesOnRaids"
-	r.query.Outputs = storiesOnRaidsOutput
-
-	var v storiesOnRaidsUpdateOne
-	v.query = r.query
-	var fields []builder.Field
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-	v.query.Inputs = append(v.query.Inputs, builder.Input{
-		Name:   "data",
-		Fields: fields,
-	})
-	return v
-}
-
-type storiesOnRaidsUpdateOne struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsUpdateOne) Exec(ctx context.Context) (StoriesOnRaidsModel, error) {
-	var v updateOneStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return StoriesOnRaidsModel{}, fmt.Errorf(first.Message)
-	}
-	return v.Data.UpdateOneStoriesOnRaids, err
-}
-
-func (r storiesOnRaidsFindOne) Delete() storiesOnRaidsDeleteOne {
-	var v storiesOnRaidsDeleteOne
-	v.query = r.query
-	v.query.Operation = "mutation"
-	v.query.Method = "deleteOne"
-	v.query.Model = "StoriesOnRaids"
-	v.query.Outputs = storiesOnRaidsOutput
-	return v
-}
-
-type storiesOnRaidsDeleteOne struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsDeleteOne) Exec(ctx context.Context) (StoriesOnRaidsModel, error) {
-	var v deleteOneStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return StoriesOnRaidsModel{}, fmt.Errorf(first.Message)
-	}
-	return v.Data.DeleteOneStoriesOnRaids, err
-}
-
-type storiesOnRaidsFindMany struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsFindMany) getQuery() builder.Query {
-	return r.query
-}
-
-func (r storiesOnRaidsFindMany) with()                   {}
-func (r storiesOnRaidsFindMany) storiesOnRaidsModel()    {}
-func (r storiesOnRaidsFindMany) storiesOnRaidsRelation() {}
-
-func (r storiesOnRaidsActions) FindMany(
-
-	params ...iStoriesOnRaidsParams,
-) storiesOnRaidsFindMany {
-	var v storiesOnRaidsFindMany
-	v.query = builder.NewQuery()
-	v.query.Client = r.client
-
-	v.query.Operation = "query"
-	v.query.Method = "findMany"
-	v.query.Model = "StoriesOnRaids"
-	v.query.Outputs = storiesOnRaidsOutput
-
-	var where []builder.Field
-	for _, q := range params {
-		if query := q.getQuery(); query.Operation != "" {
-			v.query.Outputs = append(v.query.Outputs, builder.Output{
-				Name:    query.Method,
-				Inputs:  query.Inputs,
-				Outputs: query.Outputs,
-			})
-		} else {
-			where = append(where, q.field())
-		}
-	}
-
-	if len(where) > 0 {
-		v.query.Inputs = append(v.query.Inputs, builder.Input{
-			Name:   "where",
-			Fields: where,
-		})
-	}
-
-	return v
-}
-
-func (r storiesOnRaidsFindMany) With(params ...iStoriesOnRaidsRelationWith) storiesOnRaidsFindMany {
-	for _, q := range params {
-		query := q.getQuery()
-		r.query.Outputs = append(r.query.Outputs, builder.Output{
-			Name:    query.Method,
-			Inputs:  query.Inputs,
-			Outputs: query.Outputs,
-		})
-	}
-
-	return r
-}
-
-func (r storiesOnRaidsFindMany) OrderBy(param iStoriesOnRaidsOrderByParams) storiesOnRaidsFindMany {
-	direction, _ := param.field().Value.(runtime.Direction)
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "orderBy",
-		Value: runtime.Direction(param.field().Name + "_" + string(direction)),
-	})
-	return r
-}
-
-func (r storiesOnRaidsFindMany) Skip(count int) storiesOnRaidsFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "skip",
-		Value: count,
-	})
-	return r
-}
-
-func (r storiesOnRaidsFindMany) Take(count int) storiesOnRaidsFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:  "take",
-		Value: count,
-	})
-	return r
-}
-
-func (r storiesOnRaidsFindMany) Cursor(cursor iStoriesOnRaidsCursorParams) storiesOnRaidsFindMany {
-	r.query.Inputs = append(r.query.Inputs, builder.Input{
-		Name:   "cursor",
-		Fields: []builder.Field{cursor.field()},
-	})
-	return r
-}
-
-func (r storiesOnRaidsFindMany) Exec(ctx context.Context) (
-	[]StoriesOnRaidsModel,
-	error,
-) {
-	var v findManyStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return []StoriesOnRaidsModel{}, fmt.Errorf(first.Message)
-	}
-
-	return v.Data.FindManyStoriesOnRaids, err
-}
-
-func (r storiesOnRaidsFindMany) Update(params ...iStoriesOnRaidsSetParams) storiesOnRaidsUpdateMany {
-	r.query.Operation = "mutation"
-	r.query.Method = "updateMany"
-	r.query.Model = "StoriesOnRaids"
-	r.query.Outputs = countOutput
-
-	var v storiesOnRaidsUpdateMany
-	v.query = r.query
-	var fields []builder.Field
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-	v.query.Inputs = append(v.query.Inputs, builder.Input{
-		Name:   "data",
-		Fields: fields,
-	})
-	return v
-}
-
-type storiesOnRaidsUpdateMany struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsUpdateMany) Exec(ctx context.Context) (int, error) {
-	var v updateManyStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return -1, fmt.Errorf(first.Message)
-	}
-	return v.Data.UpdateManyStoriesOnRaids.Count, err
-}
-
-func (r storiesOnRaidsFindMany) Delete() storiesOnRaidsDeleteMany {
-	var v storiesOnRaidsDeleteMany
-	v.query = r.query
-	v.query.Operation = "mutation"
-	v.query.Method = "deleteMany"
-	v.query.Model = "StoriesOnRaids"
-	v.query.Outputs = countOutput
-	return v
-}
-
-type storiesOnRaidsDeleteMany struct {
-	query builder.Query
-}
-
-func (r storiesOnRaidsDeleteMany) Exec(ctx context.Context) (int, error) {
-	var v deleteManyStoriesOnRaidsResponse
-	err := r.query.Exec(ctx, &v)
-	if v.Errors != nil {
-		first := v.Errors[0]
-		return -1, fmt.Errorf(first.Message)
-	}
-	return v.Data.DeleteManyStoriesOnRaids.Count, err
 }
 
 type eventToStoryFindOne struct {
@@ -20781,94 +19489,6 @@ type deleteManyStoryResult struct {
 	Count int `json:"count"`
 }
 
-type findOneStoriesOnRaidsResponse struct {
-	Errors []engine.GQLError `json:"errors"`
-	Data   struct {
-		FindOneStoriesOnRaids *StoriesOnRaidsModel `json:"findOneStoriesOnRaids"`
-	} `json:"data"`
-}
-
-type findOneStoriesOnRaidsResult struct {
-	Count int `json:"count"`
-}
-
-type findManyStoriesOnRaidsResponse struct {
-	Errors []engine.GQLError `json:"errors"`
-	Data   struct {
-		FindManyStoriesOnRaids []StoriesOnRaidsModel `json:"findManyStoriesOnRaids"`
-	} `json:"data"`
-}
-
-type findManyStoriesOnRaidsResult struct {
-	Count int `json:"count"`
-}
-
-type createOneStoriesOnRaidsResponse struct {
-	Errors []engine.GQLError `json:"errors"`
-	Data   struct {
-		CreateOneStoriesOnRaids StoriesOnRaidsModel `json:"createOneStoriesOnRaids"`
-	} `json:"data"`
-}
-
-type createOneStoriesOnRaidsResult struct {
-	Count int `json:"count"`
-}
-
-type createManyStoriesOnRaidsResponse struct {
-	Errors []engine.GQLError `json:"errors"`
-	Data   struct {
-		CreateManyStoriesOnRaids createManyStoriesOnRaidsResult `json:"createManyStoriesOnRaids"`
-	} `json:"data"`
-}
-
-type createManyStoriesOnRaidsResult struct {
-	Count int `json:"count"`
-}
-
-type updateOneStoriesOnRaidsResponse struct {
-	Errors []engine.GQLError `json:"errors"`
-	Data   struct {
-		UpdateOneStoriesOnRaids StoriesOnRaidsModel `json:"updateOneStoriesOnRaids"`
-	} `json:"data"`
-}
-
-type updateOneStoriesOnRaidsResult struct {
-	Count int `json:"count"`
-}
-
-type updateManyStoriesOnRaidsResponse struct {
-	Errors []engine.GQLError `json:"errors"`
-	Data   struct {
-		UpdateManyStoriesOnRaids updateManyStoriesOnRaidsResult `json:"updateManyStoriesOnRaids"`
-	} `json:"data"`
-}
-
-type updateManyStoriesOnRaidsResult struct {
-	Count int `json:"count"`
-}
-
-type deleteOneStoriesOnRaidsResponse struct {
-	Errors []engine.GQLError `json:"errors"`
-	Data   struct {
-		DeleteOneStoriesOnRaids StoriesOnRaidsModel `json:"deleteOneStoriesOnRaids"`
-	} `json:"data"`
-}
-
-type deleteOneStoriesOnRaidsResult struct {
-	Count int `json:"count"`
-}
-
-type deleteManyStoriesOnRaidsResponse struct {
-	Errors []engine.GQLError `json:"errors"`
-	Data   struct {
-		DeleteManyStoriesOnRaids deleteManyStoriesOnRaidsResult `json:"deleteManyStoriesOnRaids"`
-	} `json:"data"`
-}
-
-type deleteManyStoriesOnRaidsResult struct {
-	Count int `json:"count"`
-}
-
 type findOneEventResponse struct {
 	Errors []engine.GQLError `json:"errors"`
 	Data   struct {
@@ -21354,9 +19974,10 @@ model Raid {
     active             Boolean             @default(false)
     playerLimit        Int                 @default(10)
     playerCount        Int                 @default(0)
+    story              Story               @relation(fields: [storyId], references: [id])
+    storyId            Int
     AvatarsOnRaids     AvatarsOnRaids[]
     RaidBossesOnRaids  RaidBossesOnRaids[]
-    StoriesOnRaids     StoriesOnRaids[]
 }
 
 model RaidBoss {
@@ -21398,26 +20019,13 @@ model RaidBossesOnRaids {
 
 // A Story is a series of events that can occur for a given raid
 model Story {
-    id             Int              @default(autoincrement()) @id
-    createdAt      DateTime         @default(now())
-    deletedAt      DateTime?
-    updatedAt      DateTime         @updatedAt
-    StoriesOnRaids StoriesOnRaids[]
-    Event          Event[]
-}
-
-// A Raid may have multiple stories in succession
-model StoriesOnRaids {
+    id        Int       @default(autoincrement()) @id
     createdAt DateTime  @default(now())
     deletedAt DateTime?
     updatedAt DateTime  @updatedAt
-    raid      Raid      @relation(fields: [raidId], references: [id])
-    raidId    Int
-    story     Story     @relation(fields: [storyId], references: [id])
-    storyId   Int
-
-    @@id([raidId, storyId])
-
+    active    Boolean   @default(true)
+    Event     Event[]
+    Raid      Raid[]
 }
 
 // An Event represents a moment in a story in which Avatars can fulfill Actions
@@ -21448,7 +20056,7 @@ model Action {
     event             Event               @relation(fields: [eventId], references: [id])
     eventId           Int
     actor             Avatar              @relation(fields: [avatarId], references: [id])
-    avatarId Int
+    avatarId          Int
     taken             Boolean             @default(false)
     MessagesOnActions MessagesOnActions[]
 
@@ -21526,7 +20134,6 @@ func NewClient() *PrismaClient {
 	c.AvatarsOnRaids = avatarsOnRaidsActions{client: c}
 	c.RaidBossesOnRaids = raidBossesOnRaidsActions{client: c}
 	c.Story = storyActions{client: c}
-	c.StoriesOnRaids = storiesOnRaidsActions{client: c}
 	c.Event = eventActions{client: c}
 	c.Action = actionActions{client: c}
 	c.Message = messageActions{client: c}
@@ -21559,8 +20166,6 @@ type PrismaClient struct {
 	RaidBossesOnRaids raidBossesOnRaidsActions
 	// Story provides access to CRUD methods.
 	Story storyActions
-	// StoriesOnRaids provides access to CRUD methods.
-	StoriesOnRaids storiesOnRaidsActions
 	// Event provides access to CRUD methods.
 	Event eventActions
 	// Action provides access to CRUD methods.
@@ -21753,13 +20358,14 @@ type InternalRaid struct {
 	Active             bool      `json:"active"`
 	PlayerLimit        int       `json:"playerLimit"`
 	PlayerCount        int       `json:"playerCount"`
+	StoryID            int       `json:"storyId"`
 }
 
 // RelationsRaid holds the relation data separately
 type RelationsRaid struct {
+	Story             *StoryModel              `json:"story"`
 	AvatarsOnRaids    []AvatarsOnRaidsModel    `json:"AvatarsOnRaids"`
 	RaidBossesOnRaids []RaidBossesOnRaidsModel `json:"RaidBossesOnRaids"`
-	StoriesOnRaids    []StoriesOnRaidsModel    `json:"StoriesOnRaids"`
 }
 
 func (r RaidModel) DeletedAt() (value DateTime, ok bool) {
@@ -21776,6 +20382,13 @@ func (r RaidModel) EndTime() (value DateTime, ok bool) {
 	return *r.InternalRaid.EndTime, true
 }
 
+func (r RaidModel) Story() (value StoryModel) {
+	if r.RelationsRaid.Story == nil {
+		panic("attempted to access story but did not fetch it using the .With() syntax")
+	}
+	return *r.RelationsRaid.Story
+}
+
 func (r RaidModel) AvatarsOnRaids() (value []AvatarsOnRaidsModel) {
 	if r.RelationsRaid.AvatarsOnRaids == nil {
 		return value
@@ -21788,13 +20401,6 @@ func (r RaidModel) RaidBossesOnRaids() (value []RaidBossesOnRaidsModel) {
 		return value
 	}
 	return r.RelationsRaid.RaidBossesOnRaids
-}
-
-func (r RaidModel) StoriesOnRaids() (value []StoriesOnRaidsModel) {
-	if r.RelationsRaid.StoriesOnRaids == nil {
-		return value
-	}
-	return r.RelationsRaid.StoriesOnRaids
 }
 
 // RaidBossModel represents the `json:"RaidBoss"` model and is a wrapper for accessing fields and methods
@@ -21936,12 +20542,13 @@ type InternalStory struct {
 	CreatedAt DateTime  `json:"createdAt"`
 	DeletedAt *DateTime `json:"deletedAt"`
 	UpdatedAt DateTime  `json:"updatedAt"`
+	Active    bool      `json:"active"`
 }
 
 // RelationsStory holds the relation data separately
 type RelationsStory struct {
-	StoriesOnRaids []StoriesOnRaidsModel `json:"StoriesOnRaids"`
-	Event          []EventModel          `json:"Event"`
+	Event []EventModel `json:"Event"`
+	Raid  []RaidModel  `json:"Raid"`
 }
 
 func (r StoryModel) DeletedAt() (value DateTime, ok bool) {
@@ -21951,13 +20558,6 @@ func (r StoryModel) DeletedAt() (value DateTime, ok bool) {
 	return *r.InternalStory.DeletedAt, true
 }
 
-func (r StoryModel) StoriesOnRaids() (value []StoriesOnRaidsModel) {
-	if r.RelationsStory.StoriesOnRaids == nil {
-		return value
-	}
-	return r.RelationsStory.StoriesOnRaids
-}
-
 func (r StoryModel) Event() (value []EventModel) {
 	if r.RelationsStory.Event == nil {
 		return value
@@ -21965,46 +20565,11 @@ func (r StoryModel) Event() (value []EventModel) {
 	return r.RelationsStory.Event
 }
 
-// StoriesOnRaidsModel represents the `json:"StoriesOnRaids"` model and is a wrapper for accessing fields and methods
-type StoriesOnRaidsModel struct {
-	InternalStoriesOnRaids
-	RelationsStoriesOnRaids
-}
-
-// InternalStoriesOnRaids holds the actual data
-type InternalStoriesOnRaids struct {
-	CreatedAt DateTime  `json:"createdAt"`
-	DeletedAt *DateTime `json:"deletedAt"`
-	UpdatedAt DateTime  `json:"updatedAt"`
-	RaidID    int       `json:"raidId"`
-	StoryID   int       `json:"storyId"`
-}
-
-// RelationsStoriesOnRaids holds the relation data separately
-type RelationsStoriesOnRaids struct {
-	Raid  *RaidModel  `json:"raid"`
-	Story *StoryModel `json:"story"`
-}
-
-func (r StoriesOnRaidsModel) DeletedAt() (value DateTime, ok bool) {
-	if r.InternalStoriesOnRaids.DeletedAt == nil {
-		return value, false
+func (r StoryModel) Raid() (value []RaidModel) {
+	if r.RelationsStory.Raid == nil {
+		return value
 	}
-	return *r.InternalStoriesOnRaids.DeletedAt, true
-}
-
-func (r StoriesOnRaidsModel) Raid() (value RaidModel) {
-	if r.RelationsStoriesOnRaids.Raid == nil {
-		panic("attempted to access raid but did not fetch it using the .With() syntax")
-	}
-	return *r.RelationsStoriesOnRaids.Raid
-}
-
-func (r StoriesOnRaidsModel) Story() (value StoryModel) {
-	if r.RelationsStoriesOnRaids.Story == nil {
-		panic("attempted to access story but did not fetch it using the .With() syntax")
-	}
-	return *r.RelationsStoriesOnRaids.Story
+	return r.RelationsStory.Raid
 }
 
 // EventModel represents the `json:"Event"` model and is a wrapper for accessing fields and methods
@@ -22334,12 +20899,6 @@ func (userQuery) Or(params ...iUserParams) userParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
 // searched for field id
 // type: Int
 
@@ -22357,6 +20916,9 @@ func (userQuery) Or(params ...iUserParams) userParams {
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field raidId_raidBossId
+// type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
 type userQueryIDInt struct{}
@@ -23468,12 +22030,6 @@ func (avatarQuery) Or(params ...iAvatarParams) avatarParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
 // searched for field id
 // type: Int
 
@@ -23491,6 +22047,9 @@ func (avatarQuery) Or(params ...iAvatarParams) avatarParams {
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field raidId_raidBossId
+// type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
 type avatarQueryIDInt struct{}
@@ -24342,11 +22901,16 @@ type raidQuery struct {
 	// @required
 	PlayerCount raidQueryPlayerCountInt
 
+	Story raidQueryStoryRelations
+
+	// StoryID
+	//
+	// @required
+	StoryID raidQueryStoryIDInt
+
 	AvatarsOnRaids raidQueryAvatarsOnRaidsRelations
 
 	RaidBossesOnRaids raidQueryRaidBossesOnRaidsRelations
-
-	StoriesOnRaids raidQueryStoriesOnRaidsRelations
 }
 
 func (raidQuery) Not(params ...iRaidParams) raidParams {
@@ -24386,12 +22950,6 @@ func (raidQuery) Or(params ...iRaidParams) raidParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
 // searched for field id
 // type: Int
 
@@ -24409,6 +22967,9 @@ func (raidQuery) Or(params ...iRaidParams) raidParams {
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field raidId_raidBossId
+// type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
 type raidQueryIDInt struct{}
@@ -25340,6 +23901,154 @@ func (r raidQueryPlayerCountInt) GTE(value int) raidParams {
 }
 
 // base struct
+type raidQueryStoryStory struct{}
+
+type raidQueryStoryRelations struct{}
+
+// Raid -> Story
+//
+// @relation
+// @required
+func (raidQueryStoryRelations) Where(
+	params ...iStoryParams,
+) raidParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return raidParams{
+		data: builder.Field{
+			Name:   "story",
+			Action: "",
+			Fields: fields,
+		},
+	}
+}
+
+func (raidQueryStoryRelations) Fetch() raidToStoryFindOne {
+	var v raidToStoryFindOne
+
+	v.query.Operation = "query"
+	v.query.Method = "story"
+	v.query.Outputs = storyOutput
+
+	return v
+}
+
+func (r raidQueryStoryRelations) Link(
+	params ...iStoryParams,
+) raidWithPrismaStorySetParams {
+	var fields []builder.Field
+
+	for _, q := range params {
+		fields = append(fields, q.field())
+	}
+
+	return raidWithPrismaStorySetParams{
+		data: builder.Field{
+			Name: "story",
+			Fields: []builder.Field{
+				{
+					Name:   "connect",
+					Fields: fields,
+				},
+			},
+		},
+	}
+}
+
+// base struct
+type raidQueryStoryIDInt struct{}
+
+// Set the required value of StoryID
+func (r raidQueryStoryIDInt) Set(value int) raidWithPrismaStoryIDSetParams {
+
+	return raidWithPrismaStoryIDSetParams{
+		data: builder.Field{
+			Name:  "storyId",
+			Value: value,
+		},
+	}
+
+}
+
+func (r raidQueryStoryIDInt) Equals(value int) raidWithPrismaStoryIDEqualsParams {
+	return raidWithPrismaStoryIDEqualsParams{
+		data: builder.Field{
+			Name:  "storyId",
+			Value: value,
+		},
+	}
+}
+
+func (r raidQueryStoryIDInt) In(values []int) raidParams {
+	f := builder.Field{
+		Name:   "storyId",
+		Action: "in",
+		List:   true,
+	}
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
+		})
+	}
+	return raidParams{
+		data: f,
+	}
+}
+
+func (r raidQueryStoryIDInt) Order(direction runtime.Direction) raidParams {
+	return raidParams{
+		data: builder.Field{
+			Name:  "storyId",
+			Value: direction,
+		},
+	}
+}
+
+func (r raidQueryStoryIDInt) LT(value int) raidParams {
+	return raidParams{
+		data: builder.Field{
+			Action: "lt",
+			Name:   "storyId",
+			Value:  value,
+		},
+	}
+}
+
+func (r raidQueryStoryIDInt) GT(value int) raidParams {
+	return raidParams{
+		data: builder.Field{
+			Action: "gt",
+			Name:   "storyId",
+			Value:  value,
+		},
+	}
+}
+
+func (r raidQueryStoryIDInt) LTE(value int) raidParams {
+	return raidParams{
+		data: builder.Field{
+			Action: "lte",
+			Name:   "storyId",
+			Value:  value,
+		},
+	}
+}
+
+func (r raidQueryStoryIDInt) GTE(value int) raidParams {
+	return raidParams{
+		data: builder.Field{
+			Action: "gte",
+			Name:   "storyId",
+			Value:  value,
+		},
+	}
+}
+
+// base struct
 type raidQueryAvatarsOnRaidsAvatarsOnRaids struct{}
 
 type raidQueryAvatarsOnRaidsRelations struct{}
@@ -25577,125 +24286,6 @@ func (r raidQueryRaidBossesOnRaidsRelations) Unlink() raidSetParams {
 	}
 }
 
-// base struct
-type raidQueryStoriesOnRaidsStoriesOnRaids struct{}
-
-type raidQueryStoriesOnRaidsRelations struct{}
-
-// Raid -> StoriesOnRaids
-//
-// @relation
-// @optional
-func (raidQueryStoriesOnRaidsRelations) Some(
-	params ...iStoriesOnRaidsParams,
-) raidParams {
-	var fields []builder.Field
-
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-
-	return raidParams{
-		data: builder.Field{
-			Name:   "StoriesOnRaids",
-			Action: "some",
-			Fields: fields,
-		},
-	}
-}
-
-// Raid -> StoriesOnRaids
-//
-// @relation
-// @optional
-func (raidQueryStoriesOnRaidsRelations) Every(
-	params ...iStoriesOnRaidsParams,
-) raidParams {
-	var fields []builder.Field
-
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-
-	return raidParams{
-		data: builder.Field{
-			Name:   "StoriesOnRaids",
-			Action: "every",
-			Fields: fields,
-		},
-	}
-}
-
-func (raidQueryStoriesOnRaidsRelations) Fetch(
-
-	params ...iStoriesOnRaidsParams,
-
-) raidToStoriesOnRaidsFindMany {
-	var v raidToStoriesOnRaidsFindMany
-
-	v.query.Operation = "query"
-	v.query.Method = "StoriesOnRaids"
-	v.query.Outputs = storiesOnRaidsOutput
-
-	var where []builder.Field
-	for _, q := range params {
-		if query := q.getQuery(); query.Operation != "" {
-			v.query.Outputs = append(v.query.Outputs, builder.Output{
-				Name:    query.Method,
-				Inputs:  query.Inputs,
-				Outputs: query.Outputs,
-			})
-		} else {
-			where = append(where, q.field())
-		}
-	}
-
-	if len(where) > 0 {
-		v.query.Inputs = append(v.query.Inputs, builder.Input{
-			Name:   "where",
-			Fields: where,
-		})
-	}
-
-	return v
-}
-
-func (r raidQueryStoriesOnRaidsRelations) Link(
-	params ...iStoriesOnRaidsParams,
-) raidSetParams {
-	var fields []builder.Field
-
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-
-	return raidSetParams{
-		data: builder.Field{
-			Name: "StoriesOnRaids",
-			Fields: []builder.Field{
-				{
-					Name:   "connect",
-					Fields: fields,
-				},
-			},
-		},
-	}
-}
-
-func (r raidQueryStoriesOnRaidsRelations) Unlink() raidSetParams {
-	return raidSetParams{
-		data: builder.Field{
-			Name: "StoriesOnRaids",
-			Fields: []builder.Field{
-				{
-					Name:  "disconnect",
-					Value: true,
-				},
-			},
-		},
-	}
-}
-
 // RaidBoss acts as a namespaces to access query methods for the RaidBoss model
 var RaidBoss = raidBossQuery{}
 
@@ -25772,12 +24362,6 @@ func (raidBossQuery) Or(params ...iRaidBossParams) raidBossParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
 // searched for field id
 // type: Int
 
@@ -25795,6 +24379,9 @@ func (raidBossQuery) Or(params ...iRaidBossParams) raidBossParams {
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field raidId_raidBossId
+// type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
 type raidBossQueryIDInt struct{}
@@ -26612,12 +25199,6 @@ func (avatarsOnRaidsQuery) RaidIDAvatarID(
 	}
 }
 
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
 // searched for field id
 // type: Int
 
@@ -26635,6 +25216,9 @@ func (avatarsOnRaidsQuery) RaidIDAvatarID(
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field raidId_raidBossId
+// type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
 type avatarsOnRaidsQueryCreatedAtDateTime struct{}
@@ -27395,6 +25979,24 @@ func (raidBossesOnRaidsQuery) Or(params ...iRaidBossesOnRaidsParams) raidBossesO
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
+// searched for field id
+// type: Int
+
+// searched for field storyId_sequence
+// type: StoryIdSequenceCompoundUniqueInput
+
+// searched for field id
+// type: Int
+
+// searched for field eventId_position
+// type: EventIdPositionCompoundUniqueInput
+
+// searched for field messageId_actionId
+// type: MessageIdActionIdCompoundUniqueInput
+
+// searched for field messageId_eventId
+// type: MessageIdEventIdCompoundUniqueInput
+
 // searched for field raidId_raidBossId
 // type: RaidIdRaidBossIdCompoundUniqueInput
 
@@ -27415,27 +26017,6 @@ func (raidBossesOnRaidsQuery) RaidIDRaidBossID(
 		},
 	}
 }
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
-// searched for field id
-// type: Int
-
-// searched for field storyId_sequence
-// type: StoryIdSequenceCompoundUniqueInput
-
-// searched for field id
-// type: Int
-
-// searched for field eventId_position
-// type: EventIdPositionCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
 
 // base struct
 type raidBossesOnRaidsQueryCreatedAtDateTime struct{}
@@ -28060,9 +26641,14 @@ type storyQuery struct {
 	// @required
 	UpdatedAt storyQueryUpdatedAtDateTime
 
-	StoriesOnRaids storyQueryStoriesOnRaidsRelations
+	// Active
+	//
+	// @required
+	Active storyQueryActiveBoolean
 
 	Event storyQueryEventRelations
+
+	Raid storyQueryRaidRelations
 }
 
 func (storyQuery) Not(params ...iStoryParams) storyParams {
@@ -28102,12 +26688,6 @@ func (storyQuery) Or(params ...iStoryParams) storyParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
 // searched for field id
 // type: Int
 
@@ -28125,6 +26705,9 @@ func (storyQuery) Or(params ...iStoryParams) storyParams {
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field raidId_raidBossId
+// type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
 type storyQueryIDInt struct{}
@@ -28527,120 +27110,50 @@ func (r storyQueryUpdatedAtDateTime) AfterEquals(value DateTime) storyParams {
 }
 
 // base struct
-type storyQueryStoriesOnRaidsStoriesOnRaids struct{}
+type storyQueryActiveBoolean struct{}
 
-type storyQueryStoriesOnRaidsRelations struct{}
+// Set the required value of Active
+func (r storyQueryActiveBoolean) Set(value bool) storySetParams {
 
-// Story -> StoriesOnRaids
-//
-// @relation
-// @optional
-func (storyQueryStoriesOnRaidsRelations) Some(
-	params ...iStoriesOnRaidsParams,
-) storyParams {
-	var fields []builder.Field
-
-	for _, q := range params {
-		fields = append(fields, q.field())
+	return storySetParams{
+		data: builder.Field{
+			Name:  "active",
+			Value: value,
+		},
 	}
 
-	return storyParams{
+}
+
+func (r storyQueryActiveBoolean) Equals(value bool) storyWithPrismaActiveEqualsParams {
+	return storyWithPrismaActiveEqualsParams{
 		data: builder.Field{
-			Name:   "StoriesOnRaids",
-			Action: "some",
-			Fields: fields,
+			Name:  "active",
+			Value: value,
 		},
 	}
 }
 
-// Story -> StoriesOnRaids
-//
-// @relation
-// @optional
-func (storyQueryStoriesOnRaidsRelations) Every(
-	params ...iStoriesOnRaidsParams,
-) storyParams {
-	var fields []builder.Field
-
-	for _, q := range params {
-		fields = append(fields, q.field())
+func (r storyQueryActiveBoolean) In(values []bool) storyParams {
+	f := builder.Field{
+		Name:   "active",
+		Action: "in",
+		List:   true,
 	}
-
-	return storyParams{
-		data: builder.Field{
-			Name:   "StoriesOnRaids",
-			Action: "every",
-			Fields: fields,
-		},
-	}
-}
-
-func (storyQueryStoriesOnRaidsRelations) Fetch(
-
-	params ...iStoriesOnRaidsParams,
-
-) storyToStoriesOnRaidsFindMany {
-	var v storyToStoriesOnRaidsFindMany
-
-	v.query.Operation = "query"
-	v.query.Method = "StoriesOnRaids"
-	v.query.Outputs = storiesOnRaidsOutput
-
-	var where []builder.Field
-	for _, q := range params {
-		if query := q.getQuery(); query.Operation != "" {
-			v.query.Outputs = append(v.query.Outputs, builder.Output{
-				Name:    query.Method,
-				Inputs:  query.Inputs,
-				Outputs: query.Outputs,
-			})
-		} else {
-			where = append(where, q.field())
-		}
-	}
-
-	if len(where) > 0 {
-		v.query.Inputs = append(v.query.Inputs, builder.Input{
-			Name:   "where",
-			Fields: where,
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
 		})
 	}
-
-	return v
-}
-
-func (r storyQueryStoriesOnRaidsRelations) Link(
-	params ...iStoriesOnRaidsParams,
-) storySetParams {
-	var fields []builder.Field
-
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-
-	return storySetParams{
-		data: builder.Field{
-			Name: "StoriesOnRaids",
-			Fields: []builder.Field{
-				{
-					Name:   "connect",
-					Fields: fields,
-				},
-			},
-		},
+	return storyParams{
+		data: f,
 	}
 }
 
-func (r storyQueryStoriesOnRaidsRelations) Unlink() storySetParams {
-	return storySetParams{
+func (r storyQueryActiveBoolean) Order(direction runtime.Direction) storyParams {
+	return storyParams{
 		data: builder.Field{
-			Name: "StoriesOnRaids",
-			Fields: []builder.Field{
-				{
-					Name:  "disconnect",
-					Value: true,
-				},
-			},
+			Name:  "active",
+			Value: direction,
 		},
 	}
 }
@@ -28764,471 +27277,101 @@ func (r storyQueryEventRelations) Unlink() storySetParams {
 	}
 }
 
-// StoriesOnRaids acts as a namespaces to access query methods for the StoriesOnRaids model
-var StoriesOnRaids = storiesOnRaidsQuery{}
+// base struct
+type storyQueryRaidRaid struct{}
 
-// storiesOnRaidsQuery exposes query functions for the storiesOnRaids model
-type storiesOnRaidsQuery struct {
-	// CreatedAt
-	//
-	// @required
-	CreatedAt storiesOnRaidsQueryCreatedAtDateTime
+type storyQueryRaidRelations struct{}
 
-	// DeletedAt
-	//
-	// @optional
-	DeletedAt storiesOnRaidsQueryDeletedAtDateTime
-
-	// UpdatedAt
-	//
-	// @required
-	UpdatedAt storiesOnRaidsQueryUpdatedAtDateTime
-
-	Raid storiesOnRaidsQueryRaidRelations
-
-	// RaidID
-	//
-	// @required
-	RaidID storiesOnRaidsQueryRaidIDInt
-
-	Story storiesOnRaidsQueryStoryRelations
-
-	// StoryID
-	//
-	// @required
-	StoryID storiesOnRaidsQueryStoryIDInt
-}
-
-func (storiesOnRaidsQuery) Not(params ...iStoriesOnRaidsParams) storiesOnRaidsParams {
+// Story -> Raid
+//
+// @relation
+// @optional
+func (storyQueryRaidRelations) Some(
+	params ...iRaidParams,
+) storyParams {
 	var fields []builder.Field
 
 	for _, q := range params {
 		fields = append(fields, q.field())
 	}
 
-	return storiesOnRaidsParams{
+	return storyParams{
 		data: builder.Field{
-			Name:     "NOT",
-			List:     true,
-			WrapList: true,
-			Fields:   fields,
-		},
-	}
-}
-
-func (storiesOnRaidsQuery) Or(params ...iStoriesOnRaidsParams) storiesOnRaidsParams {
-	var fields []builder.Field
-
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Name:     "OR",
-			List:     true,
-			WrapList: true,
-			Fields:   fields,
-		},
-	}
-}
-
-// searched for field raidId_avatarId
-// type: RaidIdAvatarIdCompoundUniqueInput
-
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
-func (storiesOnRaidsQuery) RaidIDStoryID(
-	_raidID iStoriesOnRaidsWithPrismaRaidIDEqualsParams,
-
-	_storyID iStoriesOnRaidsWithPrismaStoryIDEqualsParams,
-) iStoriesOnRaidsEqualsParamsUnique {
-	var fields []builder.Field
-
-	fields = append(fields, _raidID.field())
-	fields = append(fields, _storyID.field())
-
-	return storiesOnRaidsEqualsParamsUnique{
-		data: builder.Field{
-			Name:   "raidId_storyId",
+			Name:   "Raid",
+			Action: "some",
 			Fields: fields,
 		},
 	}
 }
 
-// searched for field id
-// type: Int
+// Story -> Raid
+//
+// @relation
+// @optional
+func (storyQueryRaidRelations) Every(
+	params ...iRaidParams,
+) storyParams {
+	var fields []builder.Field
 
-// searched for field storyId_sequence
-// type: StoryIdSequenceCompoundUniqueInput
-
-// searched for field id
-// type: Int
-
-// searched for field eventId_position
-// type: EventIdPositionCompoundUniqueInput
-
-// searched for field messageId_actionId
-// type: MessageIdActionIdCompoundUniqueInput
-
-// searched for field messageId_eventId
-// type: MessageIdEventIdCompoundUniqueInput
-
-// base struct
-type storiesOnRaidsQueryCreatedAtDateTime struct{}
-
-// Set the required value of CreatedAt
-func (r storiesOnRaidsQueryCreatedAtDateTime) Set(value DateTime) storiesOnRaidsSetParams {
-
-	return storiesOnRaidsSetParams{
-		data: builder.Field{
-			Name:  "createdAt",
-			Value: value,
-		},
+	for _, q := range params {
+		fields = append(fields, q.field())
 	}
 
-}
-
-func (r storiesOnRaidsQueryCreatedAtDateTime) Equals(value DateTime) storiesOnRaidsWithPrismaCreatedAtEqualsParams {
-	return storiesOnRaidsWithPrismaCreatedAtEqualsParams{
+	return storyParams{
 		data: builder.Field{
-			Name:  "createdAt",
-			Value: value,
+			Name:   "Raid",
+			Action: "every",
+			Fields: fields,
 		},
 	}
 }
 
-func (r storiesOnRaidsQueryCreatedAtDateTime) In(values []DateTime) storiesOnRaidsParams {
-	f := builder.Field{
-		Name:   "createdAt",
-		Action: "in",
-		List:   true,
-	}
-	for _, v := range values {
-		f.Fields = append(f.Fields, builder.Field{
-			Value: v,
-		})
-	}
-	return storiesOnRaidsParams{
-		data: f,
-	}
-}
+func (storyQueryRaidRelations) Fetch(
 
-func (r storiesOnRaidsQueryCreatedAtDateTime) Order(direction runtime.Direction) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Name:  "createdAt",
-			Value: direction,
-		},
-	}
-}
+	params ...iRaidParams,
 
-func (r storiesOnRaidsQueryCreatedAtDateTime) Before(value DateTime) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "lt",
-			Name:   "createdAt",
-			Value:  value,
-		},
-	}
-}
+) storyToRaidFindMany {
+	var v storyToRaidFindMany
 
-func (r storiesOnRaidsQueryCreatedAtDateTime) After(value DateTime) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "gt",
-			Name:   "createdAt",
-			Value:  value,
-		},
-	}
-}
+	v.query.Operation = "query"
+	v.query.Method = "Raid"
+	v.query.Outputs = raidOutput
 
-func (r storiesOnRaidsQueryCreatedAtDateTime) BeforeEquals(value DateTime) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "lte",
-			Name:   "createdAt",
-			Value:  value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryCreatedAtDateTime) AfterEquals(value DateTime) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "gte",
-			Name:   "createdAt",
-			Value:  value,
-		},
-	}
-}
-
-// base struct
-type storiesOnRaidsQueryDeletedAtDateTime struct{}
-
-// Set the optional value of DeletedAt
-func (r storiesOnRaidsQueryDeletedAtDateTime) Set(value DateTime) storiesOnRaidsSetParams {
-
-	return storiesOnRaidsSetParams{
-		data: builder.Field{
-			Name:  "deletedAt",
-			Value: value,
-		},
-	}
-
-}
-
-// Set the optional value of DeletedAt dynamically
-func (r storiesOnRaidsQueryDeletedAtDateTime) SetOptional(value *DateTime) storiesOnRaidsSetParams {
-	if value == nil {
-
-		var v *DateTime
-		return storiesOnRaidsSetParams{
-			data: builder.Field{
-				Name:  "deletedAt",
-				Value: v,
-			},
+	var where []builder.Field
+	for _, q := range params {
+		if query := q.getQuery(); query.Operation != "" {
+			v.query.Outputs = append(v.query.Outputs, builder.Output{
+				Name:    query.Method,
+				Inputs:  query.Inputs,
+				Outputs: query.Outputs,
+			})
+		} else {
+			where = append(where, q.field())
 		}
 	}
 
-	return r.Set(*value)
-}
-
-func (r storiesOnRaidsQueryDeletedAtDateTime) Equals(value DateTime) storiesOnRaidsWithPrismaDeletedAtEqualsParams {
-	return storiesOnRaidsWithPrismaDeletedAtEqualsParams{
-		data: builder.Field{
-			Name:  "deletedAt",
-			Value: value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryDeletedAtDateTime) In(values []DateTime) storiesOnRaidsParams {
-	f := builder.Field{
-		Name:   "deletedAt",
-		Action: "in",
-		List:   true,
-	}
-	for _, v := range values {
-		f.Fields = append(f.Fields, builder.Field{
-			Value: v,
+	if len(where) > 0 {
+		v.query.Inputs = append(v.query.Inputs, builder.Input{
+			Name:   "where",
+			Fields: where,
 		})
 	}
-	return storiesOnRaidsParams{
-		data: f,
-	}
-}
-
-func (r storiesOnRaidsQueryDeletedAtDateTime) EqualsOptional(value *DateTime) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Name:  "deletedAt",
-			Value: value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryDeletedAtDateTime) IsNull() storiesOnRaidsParams {
-	var str *string = nil
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Name:  "deletedAt",
-			Value: str,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryDeletedAtDateTime) Order(direction runtime.Direction) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Name:  "deletedAt",
-			Value: direction,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryDeletedAtDateTime) Before(value DateTime) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "lt",
-			Name:   "deletedAt",
-			Value:  value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryDeletedAtDateTime) After(value DateTime) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "gt",
-			Name:   "deletedAt",
-			Value:  value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryDeletedAtDateTime) BeforeEquals(value DateTime) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "lte",
-			Name:   "deletedAt",
-			Value:  value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryDeletedAtDateTime) AfterEquals(value DateTime) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "gte",
-			Name:   "deletedAt",
-			Value:  value,
-		},
-	}
-}
-
-// base struct
-type storiesOnRaidsQueryUpdatedAtDateTime struct{}
-
-// Set the required value of UpdatedAt
-func (r storiesOnRaidsQueryUpdatedAtDateTime) Set(value DateTime) storiesOnRaidsSetParams {
-
-	return storiesOnRaidsSetParams{
-		data: builder.Field{
-			Name:  "updatedAt",
-			Value: value,
-		},
-	}
-
-}
-
-func (r storiesOnRaidsQueryUpdatedAtDateTime) Equals(value DateTime) storiesOnRaidsWithPrismaUpdatedAtEqualsParams {
-	return storiesOnRaidsWithPrismaUpdatedAtEqualsParams{
-		data: builder.Field{
-			Name:  "updatedAt",
-			Value: value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryUpdatedAtDateTime) In(values []DateTime) storiesOnRaidsParams {
-	f := builder.Field{
-		Name:   "updatedAt",
-		Action: "in",
-		List:   true,
-	}
-	for _, v := range values {
-		f.Fields = append(f.Fields, builder.Field{
-			Value: v,
-		})
-	}
-	return storiesOnRaidsParams{
-		data: f,
-	}
-}
-
-func (r storiesOnRaidsQueryUpdatedAtDateTime) Order(direction runtime.Direction) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Name:  "updatedAt",
-			Value: direction,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryUpdatedAtDateTime) Before(value DateTime) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "lt",
-			Name:   "updatedAt",
-			Value:  value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryUpdatedAtDateTime) After(value DateTime) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "gt",
-			Name:   "updatedAt",
-			Value:  value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryUpdatedAtDateTime) BeforeEquals(value DateTime) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "lte",
-			Name:   "updatedAt",
-			Value:  value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryUpdatedAtDateTime) AfterEquals(value DateTime) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "gte",
-			Name:   "updatedAt",
-			Value:  value,
-		},
-	}
-}
-
-// base struct
-type storiesOnRaidsQueryRaidRaid struct{}
-
-type storiesOnRaidsQueryRaidRelations struct{}
-
-// StoriesOnRaids -> Raid
-//
-// @relation
-// @required
-func (storiesOnRaidsQueryRaidRelations) Where(
-	params ...iRaidParams,
-) storiesOnRaidsParams {
-	var fields []builder.Field
-
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Name:   "raid",
-			Action: "",
-			Fields: fields,
-		},
-	}
-}
-
-func (storiesOnRaidsQueryRaidRelations) Fetch() storiesOnRaidsToRaidFindOne {
-	var v storiesOnRaidsToRaidFindOne
-
-	v.query.Operation = "query"
-	v.query.Method = "raid"
-	v.query.Outputs = raidOutput
 
 	return v
 }
 
-func (r storiesOnRaidsQueryRaidRelations) Link(
+func (r storyQueryRaidRelations) Link(
 	params ...iRaidParams,
-) storiesOnRaidsWithPrismaRaidSetParams {
+) storySetParams {
 	var fields []builder.Field
 
 	for _, q := range params {
 		fields = append(fields, q.field())
 	}
 
-	return storiesOnRaidsWithPrismaRaidSetParams{
+	return storySetParams{
 		data: builder.Field{
-			Name: "raid",
+			Name: "Raid",
 			Fields: []builder.Field{
 				{
 					Name:   "connect",
@@ -29239,239 +27382,16 @@ func (r storiesOnRaidsQueryRaidRelations) Link(
 	}
 }
 
-// base struct
-type storiesOnRaidsQueryRaidIDInt struct{}
-
-// Set the required value of RaidID
-func (r storiesOnRaidsQueryRaidIDInt) Set(value int) storiesOnRaidsWithPrismaRaidIDSetParams {
-
-	return storiesOnRaidsWithPrismaRaidIDSetParams{
+func (r storyQueryRaidRelations) Unlink() storySetParams {
+	return storySetParams{
 		data: builder.Field{
-			Name:  "raidId",
-			Value: value,
-		},
-	}
-
-}
-
-func (r storiesOnRaidsQueryRaidIDInt) Equals(value int) storiesOnRaidsWithPrismaRaidIDEqualsParams {
-	return storiesOnRaidsWithPrismaRaidIDEqualsParams{
-		data: builder.Field{
-			Name:  "raidId",
-			Value: value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryRaidIDInt) In(values []int) storiesOnRaidsParams {
-	f := builder.Field{
-		Name:   "raidId",
-		Action: "in",
-		List:   true,
-	}
-	for _, v := range values {
-		f.Fields = append(f.Fields, builder.Field{
-			Value: v,
-		})
-	}
-	return storiesOnRaidsParams{
-		data: f,
-	}
-}
-
-func (r storiesOnRaidsQueryRaidIDInt) Order(direction runtime.Direction) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Name:  "raidId",
-			Value: direction,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryRaidIDInt) LT(value int) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "lt",
-			Name:   "raidId",
-			Value:  value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryRaidIDInt) GT(value int) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "gt",
-			Name:   "raidId",
-			Value:  value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryRaidIDInt) LTE(value int) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "lte",
-			Name:   "raidId",
-			Value:  value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryRaidIDInt) GTE(value int) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "gte",
-			Name:   "raidId",
-			Value:  value,
-		},
-	}
-}
-
-// base struct
-type storiesOnRaidsQueryStoryStory struct{}
-
-type storiesOnRaidsQueryStoryRelations struct{}
-
-// StoriesOnRaids -> Story
-//
-// @relation
-// @required
-func (storiesOnRaidsQueryStoryRelations) Where(
-	params ...iStoryParams,
-) storiesOnRaidsParams {
-	var fields []builder.Field
-
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Name:   "story",
-			Action: "",
-			Fields: fields,
-		},
-	}
-}
-
-func (storiesOnRaidsQueryStoryRelations) Fetch() storiesOnRaidsToStoryFindOne {
-	var v storiesOnRaidsToStoryFindOne
-
-	v.query.Operation = "query"
-	v.query.Method = "story"
-	v.query.Outputs = storyOutput
-
-	return v
-}
-
-func (r storiesOnRaidsQueryStoryRelations) Link(
-	params ...iStoryParams,
-) storiesOnRaidsWithPrismaStorySetParams {
-	var fields []builder.Field
-
-	for _, q := range params {
-		fields = append(fields, q.field())
-	}
-
-	return storiesOnRaidsWithPrismaStorySetParams{
-		data: builder.Field{
-			Name: "story",
+			Name: "Raid",
 			Fields: []builder.Field{
 				{
-					Name:   "connect",
-					Fields: fields,
+					Name:  "disconnect",
+					Value: true,
 				},
 			},
-		},
-	}
-}
-
-// base struct
-type storiesOnRaidsQueryStoryIDInt struct{}
-
-// Set the required value of StoryID
-func (r storiesOnRaidsQueryStoryIDInt) Set(value int) storiesOnRaidsWithPrismaStoryIDSetParams {
-
-	return storiesOnRaidsWithPrismaStoryIDSetParams{
-		data: builder.Field{
-			Name:  "storyId",
-			Value: value,
-		},
-	}
-
-}
-
-func (r storiesOnRaidsQueryStoryIDInt) Equals(value int) storiesOnRaidsWithPrismaStoryIDEqualsParams {
-	return storiesOnRaidsWithPrismaStoryIDEqualsParams{
-		data: builder.Field{
-			Name:  "storyId",
-			Value: value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryStoryIDInt) In(values []int) storiesOnRaidsParams {
-	f := builder.Field{
-		Name:   "storyId",
-		Action: "in",
-		List:   true,
-	}
-	for _, v := range values {
-		f.Fields = append(f.Fields, builder.Field{
-			Value: v,
-		})
-	}
-	return storiesOnRaidsParams{
-		data: f,
-	}
-}
-
-func (r storiesOnRaidsQueryStoryIDInt) Order(direction runtime.Direction) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Name:  "storyId",
-			Value: direction,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryStoryIDInt) LT(value int) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "lt",
-			Name:   "storyId",
-			Value:  value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryStoryIDInt) GT(value int) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "gt",
-			Name:   "storyId",
-			Value:  value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryStoryIDInt) LTE(value int) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "lte",
-			Name:   "storyId",
-			Value:  value,
-		},
-	}
-}
-
-func (r storiesOnRaidsQueryStoryIDInt) GTE(value int) storiesOnRaidsParams {
-	return storiesOnRaidsParams{
-		data: builder.Field{
-			Action: "gte",
-			Name:   "storyId",
-			Value:  value,
 		},
 	}
 }
@@ -29560,12 +27480,6 @@ func (eventQuery) Or(params ...iEventParams) eventParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
 // searched for field id
 // type: Int
 
@@ -29601,6 +27515,9 @@ func (eventQuery) StoryIDSequence(
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field raidId_raidBossId
+// type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
 type eventQueryIDInt struct{}
@@ -30615,12 +28532,6 @@ func (actionQuery) Or(params ...iActionParams) actionParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
 // searched for field id
 // type: Int
 
@@ -30656,6 +28567,9 @@ func (actionQuery) EventIDPosition(
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field raidId_raidBossId
+// type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
 type actionQueryIDInt struct{}
@@ -31687,12 +29601,6 @@ func (messageQuery) Or(params ...iMessageParams) messageParams {
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
 // searched for field id
 // type: Int
 
@@ -31710,6 +29618,9 @@ func (messageQuery) Or(params ...iMessageParams) messageParams {
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field raidId_raidBossId
+// type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
 type messageQueryIDInt struct{}
@@ -32579,12 +30490,6 @@ func (messagesOnActionsQuery) Or(params ...iMessagesOnActionsParams) messagesOnA
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
 // searched for field id
 // type: Int
 
@@ -32620,6 +30525,9 @@ func (messagesOnActionsQuery) MessageIDActionID(
 
 // searched for field messageId_eventId
 // type: MessageIdEventIdCompoundUniqueInput
+
+// searched for field raidId_raidBossId
+// type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
 type messagesOnActionsQueryCreatedAtDateTime struct{}
@@ -33291,12 +31199,6 @@ func (messagesOnEventsQuery) Or(params ...iMessagesOnEventsParams) messagesOnEve
 // searched for field raidId_avatarId
 // type: RaidIdAvatarIdCompoundUniqueInput
 
-// searched for field raidId_raidBossId
-// type: RaidIdRaidBossIdCompoundUniqueInput
-
-// searched for field raidId_storyId
-// type: RaidIdStoryIdCompoundUniqueInput
-
 // searched for field id
 // type: Int
 
@@ -33332,6 +31234,9 @@ func (messagesOnEventsQuery) MessageIDEventID(
 		},
 	}
 }
+
+// searched for field raidId_raidBossId
+// type: RaidIdRaidBossIdCompoundUniqueInput
 
 // base struct
 type messagesOnEventsQueryCreatedAtDateTime struct{}

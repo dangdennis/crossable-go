@@ -1,12 +1,12 @@
 package consumers
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/bwmarrin/discordgo"
 	"go.uber.org/zap"
 
-	"github.com/dangdennis/crossing/db"
 	prisma "github.com/dangdennis/crossing/db"
 	"github.com/dangdennis/crossing/libs/logger"
 	"github.com/dangdennis/crossing/repositories/raids"
@@ -15,7 +15,7 @@ import (
 
 // RaidCommand handles !raid
 func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
-	raid, err := raids.FindLatestActiveRaid(db.Client())
+	raid, err := raids.FindLatestActiveRaid(prisma.Client())
 	if err != nil {
 		fmt.Println(err)
 		_, err := s.ChannelMessageSend(m.ChannelID, `No active raid this week.`)
@@ -103,10 +103,43 @@ func JoinCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 // ActionCommand handles !action
 func ActionCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	fmt.Println("handling !action")
-	// query active raid
-	// query for user
-	// query for avatar
-	// perform action
-	// - reveal next story segment
-	// - increase raid's completion progress
+	db := prisma.Client()
+	log := logger.GetLogger()
+
+	raid, err := raids.FindLatestActiveRaid(db)
+	if err != nil {
+		log.Error("failed to get weekly active raid", zap.Error(err))
+		return
+	}
+
+	user, err := users.FindUserByDiscordID(db, m.Author.ID)
+	if err != nil {
+		log.Error("failed to get weekly active raid", zap.Error(err))
+		return
+	}
+
+	avatar, ok := user.Avatar()
+	if !ok {
+		log.Error("user does not have avatar", zap.Int("userID", user.ID), zap.Error(err))
+		return
+	}
+
+	// verify that the avatar is a part of the raid
+	avatarOnRaid, err := db.AvatarsOnRaids.FindMany(
+		prisma.AvatarsOnRaids.AvatarID.Equals(avatar.ID),
+		prisma.AvatarsOnRaids.RaidID.Equals(raid.ID),
+	).Exec(context.Background())
+
+	if len(avatarOnRaid) == 0 {
+		log.Error("user is not a part of the raid", zap.Int("avatarID", avatar.ID), zap.Int("raidID", raid.ID))
+		return
+	}
+
+	// get the next event in the story sequence that hasn't occurred yet
+
+	// find the relevant action for the user
+
+	// complete the action
+
+	// send the action's message to the user
 }

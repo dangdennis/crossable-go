@@ -42,9 +42,10 @@ model Raid {
     active             Boolean             @default(false)
     playerLimit        Int                 @default(10)
     playerCount        Int                 @default(0)
+    story              Story               @relation(fields: [storyId], references: [id])
+    storyId            Int
     AvatarsOnRaids     AvatarsOnRaids[]
     RaidBossesOnRaids  RaidBossesOnRaids[]
-    StoriesOnRaids     StoriesOnRaids[]
 }
 
 model RaidBoss {
@@ -86,26 +87,13 @@ model RaidBossesOnRaids {
 
 // A Story is a series of events that can occur for a given raid
 model Story {
-    id             Int              @default(autoincrement()) @id
-    createdAt      DateTime         @default(now())
-    deletedAt      DateTime?
-    updatedAt      DateTime         @updatedAt
-    StoriesOnRaids StoriesOnRaids[]
-    Event          Event[]
-}
-
-// A Raid may have multiple stories in succession
-model StoriesOnRaids {
+    id        Int       @default(autoincrement()) @id
     createdAt DateTime  @default(now())
     deletedAt DateTime?
     updatedAt DateTime  @updatedAt
-    raid      Raid      @relation(fields: [raidId], references: [id])
-    raidId    Int
-    story     Story     @relation(fields: [storyId], references: [id])
-    storyId   Int
-
-    @@id([raidId, storyId])
-
+    active    Boolean   @default(true)
+    Event     Event[]
+    Raid      Raid[]
 }
 
 // An Event represents a moment in a story in which Avatars can fulfill Actions
@@ -136,7 +124,7 @@ model Action {
     event             Event               @relation(fields: [eventId], references: [id])
     eventId           Int
     actor             Avatar              @relation(fields: [avatarId], references: [id])
-    avatarId Int
+    avatarId          Int
     taken             Boolean             @default(false)
     MessagesOnActions MessagesOnActions[]
 

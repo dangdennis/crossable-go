@@ -378,6 +378,13 @@
       "arity": "List"
     },
     {
+      "tag": "CreateField",
+      "model": "Avatar",
+      "field": "Action",
+      "type": "Action",
+      "arity": "List"
+    },
+    {
       "tag": "CreateModel",
       "model": "Raid"
     },
@@ -651,6 +658,59 @@
     {
       "tag": "CreateField",
       "model": "Raid",
+      "field": "story",
+      "type": "Story",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Raid",
+          "field": "story"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Raid",
+          "field": "story"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[storyId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Raid",
+          "field": "story"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Raid",
+      "field": "storyId",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Raid",
       "field": "AvatarsOnRaids",
       "type": "AvatarsOnRaids",
       "arity": "List"
@@ -660,13 +720,6 @@
       "model": "Raid",
       "field": "RaidBossesOnRaids",
       "type": "RaidBossesOnRaids",
-      "arity": "List"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Raid",
-      "field": "StoriesOnRaids",
-      "type": "StoriesOnRaids",
       "arity": "List"
     },
     {
@@ -1299,9 +1352,34 @@
     {
       "tag": "CreateField",
       "model": "Story",
-      "field": "StoriesOnRaids",
-      "type": "StoriesOnRaids",
-      "arity": "List"
+      "field": "active",
+      "type": "Boolean",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Story",
+          "field": "active"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Story",
+          "field": "active"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "true"
     },
     {
       "tag": "CreateField",
@@ -1311,194 +1389,11 @@
       "arity": "List"
     },
     {
-      "tag": "CreateModel",
-      "model": "StoriesOnRaids"
-    },
-    {
       "tag": "CreateField",
-      "model": "StoriesOnRaids",
-      "field": "createdAt",
-      "type": "DateTime",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "StoriesOnRaids",
-          "field": "createdAt"
-        },
-        "directive": "default"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "StoriesOnRaids",
-          "field": "createdAt"
-        },
-        "directive": "default"
-      },
-      "argument": "",
-      "value": "now()"
-    },
-    {
-      "tag": "CreateField",
-      "model": "StoriesOnRaids",
-      "field": "deletedAt",
-      "type": "DateTime",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateField",
-      "model": "StoriesOnRaids",
-      "field": "updatedAt",
-      "type": "DateTime",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "StoriesOnRaids",
-          "field": "updatedAt"
-        },
-        "directive": "updatedAt"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "StoriesOnRaids",
-      "field": "raid",
+      "model": "Story",
+      "field": "Raid",
       "type": "Raid",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "StoriesOnRaids",
-          "field": "raid"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "StoriesOnRaids",
-          "field": "raid"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[raidId]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "StoriesOnRaids",
-          "field": "raid"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "StoriesOnRaids",
-      "field": "raidId",
-      "type": "Int",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "StoriesOnRaids",
-      "field": "story",
-      "type": "Story",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "StoriesOnRaids",
-          "field": "story"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "StoriesOnRaids",
-          "field": "story"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[storyId]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "StoriesOnRaids",
-          "field": "story"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "StoriesOnRaids",
-      "field": "storyId",
-      "type": "Int",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Model",
-          "model": "StoriesOnRaids"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Model",
-          "model": "StoriesOnRaids"
-        },
-        "directive": "id"
-      },
-      "argument": "",
-      "value": "[raidId, storyId]"
+      "arity": "List"
     },
     {
       "tag": "CreateModel",
@@ -1663,6 +1558,38 @@
       "field": "sequence",
       "type": "Int",
       "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Event",
+      "field": "occurred",
+      "type": "Boolean",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Event",
+          "field": "occurred"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Event",
+          "field": "occurred"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "false"
     },
     {
       "tag": "CreateField",
@@ -1857,6 +1784,91 @@
       "field": "eventId",
       "type": "Int",
       "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Action",
+      "field": "actor",
+      "type": "Avatar",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Action",
+          "field": "actor"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Action",
+          "field": "actor"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[avatarId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Action",
+          "field": "actor"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Action",
+      "field": "avatarId",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Action",
+      "field": "taken",
+      "type": "Boolean",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Action",
+          "field": "taken"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Action",
+          "field": "taken"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "false"
     },
     {
       "tag": "CreateField",

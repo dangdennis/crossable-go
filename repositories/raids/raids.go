@@ -8,11 +8,21 @@ import (
 
 	prisma "github.com/dangdennis/crossing/db"
 	"github.com/dangdennis/crossing/libs/logger"
+	"github.com/dangdennis/crossing/repositories/story"
 )
 
 // CreateRaid creates a new raid
 func CreateRaid(db *prisma.PrismaClient) (r prisma.RaidModel, err error) {
-	return db.Raid.CreateOne().Exec(context.Background())
+	newStory, err := story.CreateStory(db)
+	if err != nil {
+		return r, err
+	}
+
+	return db.Raid.CreateOne(
+		prisma.Raid.Story.Link(
+			prisma.Story.ID.Equals(newStory.ID),
+		),
+	).Exec(context.Background())
 }
 
 // FindLatestActiveRaid gets the active raid of the week and its raid bosses
@@ -26,6 +36,7 @@ func FindLatestActiveRaid(db *prisma.PrismaClient) (r prisma.RaidModel, err erro
 		prisma.Raid.AvatarsOnRaids.Fetch().With(
 			prisma.AvatarsOnRaids.Avatar.Fetch(),
 		),
+		prisma.Raid.Story.Fetch(),
 	).OrderBy(
 		prisma.Raid.StartTime.Order(prisma.DESC),
 	).Take(1).Exec(context.Background())

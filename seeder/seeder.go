@@ -71,9 +71,15 @@ func Run() {
 	now := time.Now()
 	later := time.Now().Add(49 * time.Hour)
 
-	// Create a couple raids
+	// Create a couple raids and story
 	// The first is inactive. The second is active, open for another 7 days from time of seed.
+	story1, err := db.Story.CreateOne().Exec(ctx)
+	handleError(err)
+
 	raid1, err := db.Raid.CreateOne(
+		prisma.Raid.Story.Link(
+			prisma.Story.ID.Equals(story1.ID),
+		),
 		prisma.Raid.Active.Set(false),
 		prisma.Raid.PlayerLimit.Set(20),
 		prisma.Raid.StartTime.Set(now.Add(1*time.Second)),
@@ -82,7 +88,14 @@ func Run() {
 	).Exec(ctx)
 	handleError(err)
 
+	// Create the Alien Queen story
+	alienStory, err := db.Story.CreateOne().Exec(ctx)
+	handleError(err)
+
 	raid2, err := db.Raid.CreateOne(
+		prisma.Raid.Story.Link(
+			prisma.Story.ID.Equals(alienStory.ID),
+		),
 		prisma.Raid.Active.Set(true),
 		prisma.Raid.PlayerLimit.Set(20),
 		prisma.Raid.StartTime.Set(now),
@@ -126,21 +139,6 @@ func Run() {
 		),
 		prisma.AvatarsOnRaids.Avatar.Link(
 			prisma.Avatar.ID.Equals(avatar2.ID),
-		),
-	).Exec(ctx)
-	handleError(err)
-
-	// Create the Alien Queen story
-	alienStory, err := db.Story.CreateOne().Exec(ctx)
-	handleError(err)
-
-	// Attach the alien story to the second created raid
-	_, err = db.StoriesOnRaids.CreateOne(
-		prisma.StoriesOnRaids.Raid.Link(
-			prisma.Raid.ID.Equals(alienStory.ID),
-		),
-		prisma.StoriesOnRaids.Story.Link(
-			prisma.Story.ID.Equals(alienStory.ID),
 		),
 	).Exec(ctx)
 	handleError(err)
