@@ -8,12 +8,12 @@ import (
 
 	prisma "github.com/dangdennis/crossing/db"
 	"github.com/dangdennis/crossing/libs/logger"
-	"github.com/dangdennis/crossing/repositories/story"
+	"github.com/dangdennis/crossing/repositories/stories"
 )
 
 // CreateRaid creates a new raid
 func CreateRaid(db *prisma.PrismaClient) (r prisma.RaidModel, err error) {
-	newStory, err := story.CreateStory(db)
+	newStory, err := stories.CreateStory(db)
 	if err != nil {
 		return r, err
 	}
