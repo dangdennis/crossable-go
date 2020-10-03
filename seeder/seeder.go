@@ -174,10 +174,27 @@ func Run() {
 		1,
 	)
 
+	// Create specialized action messages for the first N raid members. Everyone will get the last one as the default.
+	seedActionMessages(db, alienStoryEvent1.ID,
+		[]string{
+			"You have been selected by the council to lead this team for your heroism and cunning. It is your responsibility to ensure your teammates complete their habits each day and that the invasion is thwarted.",
+			"What does it mean to die?  Welcome aboard! Get familiar with your new teammates, because you're all in this together now.",
+			"Welcome aboard! Say hi to your teammates!",
+		},
+	)
+
 	// alien day 2 intro/completion messages
 	seedEventMessage(db, alienStoryEvent2.ID, "Our heroes are honored to defend Earth and understand the sheer magnitude of this threat. The plan is to venture to the edge of the galaxy and run reconnaissance on the Scout ships gathering there. The far-reach spectral analysis has been unable to determine how many ships are forming on the edge of the galaxy and the size of the force threatening Earth.",
 		"5... 4... 3... 2... 1. Blast off! The ship launches safely towards the moon base to refuel with our heroes onboard.",
 		2,
+	)
+
+	seedActionMessages(db, alienStoryEvent2.ID,
+		[]string{
+			"You have been select by the council to lead this team for your heroism and cunning. It is your responsibility to ensure your teammates complete their habits each day and that the invasion is thwarted.",
+			"What does it mean to die?  Welcome aboard! Get familiar with your new teammates, because you're all in this together now.",
+			"Welcome aboard! Say hi to your teammates!",
+		},
 	)
 
 	// alien day 3 intro/completion messages
@@ -186,10 +203,27 @@ func Run() {
 		3,
 	)
 
+	seedActionMessages(db, alienStoryEvent3.ID,
+		[]string{
+			"You boldly walk into the mission control room after decompression, ready to take command.",
+			"You have successfully decompressed, and not to be outdone, you take your place standing on top of the command deck...table.",
+			"You have successfully decompressed and join the rest of the team in the mission readiness room.",
+		},
+	)
+
 	// alien day 4 intro/completion messages
 	seedEventMessage(db, alienStoryEvent4.ID, "Our heroes are further briefed by the Moon Galaxy Mission control on the details of their reconnaissance mission. It's a lot of information to take in as they need to cross navigate the galaxy, refueling at the rings of Saturday, and acquire some materials on Uranus before their final destination, the last sighting of the alien ships. This is going to be a long, quiet one.",
 		"Our heroes pore their brains over the complexities required to cross navigate the length of the galaxy using hyper-flux technology.",
 		4,
+	)
+
+	seedActionMessages(db, alienStoryEvent4.ID,
+		[]string{
+			"You have a strong grasp of the complex mission strategy. Your brain remains alert!",
+			"You understand the mission but remain wary of failure. Self pat.",
+			"You understand the mission but are sweating buckets.",
+			"You understand the mission and ready to do what it takes.",
+		},
 	)
 
 	// alien day 5 intro/completion messages
@@ -198,11 +232,31 @@ func Run() {
 		5,
 	)
 
+	seedActionMessages(db, alienStoryEvent5.ID,
+		[]string{
+			"You are in the vehicle and ready to attack! Seat belts check!",
+			"You are in the vehicle and ready to attack! Glove compartment closed!",
+			"You are in the vehicle and ready to attack! Rearview mirror? Never mind there isn't any.",
+			"You are in the vehicle and ready to attack!",
+		},
+	)
+
 	// alien day 6 intro/completion messages
 	seedEventMessage(db, alienStoryEvent6.ID, "The aliens fire their advanced weaponry at the heroes' ship. They work as team to deftly maneuver among the onslaughts of beams! It's their turn now.",
-		"Boom! The alien ships explodes in a silent purple-hued, ionized gas.  Our heroes have received their first taste of combat against the Sintari. This certainly won't be the last. They may not be so lucky next time. They realize they will need to learn to work together, encourage and motivate each other to work as strong team to save the Earth. They will need to learn many skills along the way and will need to be disciplined.",
+		"Boom! The team have destroyed the final enemy vehicle. The alien ships explodes in a silent purple-hued, ionized gas.  The lunar base is now safe. Our heroes have received their first taste of combat against the Sintari. This certainly won't be the last. They may not be so lucky next time. They realize they will need to learn to work together, encourage and motivate each other to work as strong team to save the Earth. They will need to learn many skills along the way and will need to be disciplined.",
 		6,
 	)
+
+	seedActionMessages(db, alienStoryEvent6.ID,
+		[]string{
+			"You're an ace shot and have destroyed the first the enemy vehicle.",
+			"Your shots destroyed another enemy vehicle.",
+			"You rally to destroy some incoming projectiles! Nice save.",
+			"You have destroyed another enemy vehicle.",
+		},
+	)
+
+	return
 }
 
 func handleError(err error) {
@@ -247,6 +301,26 @@ func seedEventMessage(db *prisma.PrismaClient, eventID int, intro string, comple
 		),
 		prisma.Message.Content.Set(completion),
 		prisma.Message.Type.Set(messages.MessageTypeEventCompletion.String()),
+		prisma.Message.Sequence.Set(seq),
+	).Exec(ctx)
+	handleError(err)
+}
+
+func seedActionMessages(db *prisma.PrismaClient, eventID int, msgs []string) {
+	for i, msg := range msgs {
+		seedActionMessage(db, eventID, msg, i+1)
+	}
+}
+
+func seedActionMessage(db *prisma.PrismaClient, eventID int, content string, seq int) {
+	ctx := context.Background()
+
+	_, err := db.Message.CreateOne(
+		prisma.Message.Event.Link(
+			prisma.Event.ID.Equals(eventID),
+		),
+		prisma.Message.Content.Set(content),
+		prisma.Message.Type.Set(messages.MessageTypeActionSingle.String()),
 		prisma.Message.Sequence.Set(seq),
 	).Exec(ctx)
 	handleError(err)

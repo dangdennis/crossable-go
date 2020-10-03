@@ -4556,6 +4556,7 @@ var storyOutput = []builder.Output{
 	{Name: "createdAt"},
 	{Name: "deletedAt"},
 	{Name: "updatedAt"},
+	{Name: "name"},
 	{Name: "active"},
 }
 
@@ -4976,6 +4977,70 @@ func (p storyWithPrismaUpdatedAtEqualsParamsUnique) updatedAtField() {}
 func (storyWithPrismaUpdatedAtEqualsParamsUnique) unique() {}
 func (storyWithPrismaUpdatedAtEqualsParamsUnique) equals() {}
 
+type iStoryWithPrismaNameEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	storyModel()
+	nameField()
+}
+
+type storyWithPrismaNameSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p storyWithPrismaNameSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p storyWithPrismaNameSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p storyWithPrismaNameSetParams) storyModel() {}
+
+func (p storyWithPrismaNameSetParams) nameField() {}
+
+type storyWithPrismaNameEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p storyWithPrismaNameEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p storyWithPrismaNameEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p storyWithPrismaNameEqualsParams) storyModel() {}
+
+func (p storyWithPrismaNameEqualsParams) nameField() {}
+
+func (storyWithPrismaNameSetParams) settable()  {}
+func (storyWithPrismaNameEqualsParams) equals() {}
+
+type storyWithPrismaNameEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p storyWithPrismaNameEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p storyWithPrismaNameEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p storyWithPrismaNameEqualsParamsUnique) storyModel() {}
+func (p storyWithPrismaNameEqualsParamsUnique) nameField()  {}
+
+func (storyWithPrismaNameEqualsParamsUnique) unique() {}
+func (storyWithPrismaNameEqualsParamsUnique) equals() {}
+
 type iStoryWithPrismaActiveEqualsParams interface {
 	field() builder.Field
 	getQuery() builder.Query
@@ -5178,6 +5243,7 @@ var eventOutput = []builder.Output{
 	{Name: "createdAt"},
 	{Name: "deletedAt"},
 	{Name: "updatedAt"},
+	{Name: "name"},
 	{Name: "storyId"},
 	{Name: "sequence"},
 	{Name: "occurred"},
@@ -5599,6 +5665,70 @@ func (p eventWithPrismaUpdatedAtEqualsParamsUnique) updatedAtField() {}
 
 func (eventWithPrismaUpdatedAtEqualsParamsUnique) unique() {}
 func (eventWithPrismaUpdatedAtEqualsParamsUnique) equals() {}
+
+type iEventWithPrismaNameEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	eventModel()
+	nameField()
+}
+
+type eventWithPrismaNameSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p eventWithPrismaNameSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p eventWithPrismaNameSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p eventWithPrismaNameSetParams) eventModel() {}
+
+func (p eventWithPrismaNameSetParams) nameField() {}
+
+type eventWithPrismaNameEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p eventWithPrismaNameEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p eventWithPrismaNameEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p eventWithPrismaNameEqualsParams) eventModel() {}
+
+func (p eventWithPrismaNameEqualsParams) nameField() {}
+
+func (eventWithPrismaNameSetParams) settable()  {}
+func (eventWithPrismaNameEqualsParams) equals() {}
+
+type eventWithPrismaNameEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p eventWithPrismaNameEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p eventWithPrismaNameEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p eventWithPrismaNameEqualsParamsUnique) eventModel() {}
+func (p eventWithPrismaNameEqualsParamsUnique) nameField()  {}
+
+func (eventWithPrismaNameEqualsParamsUnique) unique() {}
+func (eventWithPrismaNameEqualsParamsUnique) equals() {}
 
 type iEventWithPrismaStoryEqualsParams interface {
 	field() builder.Field
@@ -16413,6 +16543,7 @@ model Story {
     createdAt DateTime  @default(now())
     deletedAt DateTime?
     updatedAt DateTime  @updatedAt
+    name      String?
     active    Boolean   @default(true)
     Event     Event[]
     Raid      Raid[]
@@ -16424,6 +16555,7 @@ model Event {
     createdAt DateTime  @default(now())
     deletedAt DateTime?
     updatedAt DateTime  @updatedAt
+    name      String?
     story     Story     @relation(fields: [storyId], references: [id])
     storyId   Int
     // The sequence dictates the order of events to occur in a story
@@ -16898,6 +17030,7 @@ type InternalStory struct {
 	CreatedAt DateTime  `json:"createdAt"`
 	DeletedAt *DateTime `json:"deletedAt"`
 	UpdatedAt DateTime  `json:"updatedAt"`
+	Name      *string   `json:"name"`
 	Active    bool      `json:"active"`
 }
 
@@ -16912,6 +17045,13 @@ func (r StoryModel) DeletedAt() (value DateTime, ok bool) {
 		return value, false
 	}
 	return *r.InternalStory.DeletedAt, true
+}
+
+func (r StoryModel) Name() (value string, ok bool) {
+	if r.InternalStory.Name == nil {
+		return value, false
+	}
+	return *r.InternalStory.Name, true
 }
 
 func (r StoryModel) Event() (value []EventModel) {
@@ -16940,6 +17080,7 @@ type InternalEvent struct {
 	CreatedAt DateTime  `json:"createdAt"`
 	DeletedAt *DateTime `json:"deletedAt"`
 	UpdatedAt DateTime  `json:"updatedAt"`
+	Name      *string   `json:"name"`
 	StoryID   int       `json:"storyId"`
 	Sequence  int       `json:"sequence"`
 	Occurred  bool      `json:"occurred"`
@@ -16957,6 +17098,13 @@ func (r EventModel) DeletedAt() (value DateTime, ok bool) {
 		return value, false
 	}
 	return *r.InternalEvent.DeletedAt, true
+}
+
+func (r EventModel) Name() (value string, ok bool) {
+	if r.InternalEvent.Name == nil {
+		return value, false
+	}
+	return *r.InternalEvent.Name, true
 }
 
 func (r EventModel) Story() (value StoryModel) {
@@ -22900,6 +23048,11 @@ type storyQuery struct {
 	// @required
 	UpdatedAt storyQueryUpdatedAtDateTime
 
+	// Name
+	//
+	// @optional
+	Name storyQueryNameString
+
 	// Active
 	//
 	// @required
@@ -23369,6 +23522,120 @@ func (r storyQueryUpdatedAtDateTime) AfterEquals(value DateTime) storyParams {
 }
 
 // base struct
+type storyQueryNameString struct{}
+
+// Set the optional value of Name
+func (r storyQueryNameString) Set(value string) storySetParams {
+
+	return storySetParams{
+		data: builder.Field{
+			Name:  "name",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of Name dynamically
+func (r storyQueryNameString) SetOptional(value *string) storySetParams {
+	if value == nil {
+
+		var v *string
+		return storySetParams{
+			data: builder.Field{
+				Name:  "name",
+				Value: v,
+			},
+		}
+	}
+
+	return r.Set(*value)
+}
+
+func (r storyQueryNameString) Equals(value string) storyWithPrismaNameEqualsParams {
+	return storyWithPrismaNameEqualsParams{
+		data: builder.Field{
+			Name:  "name",
+			Value: value,
+		},
+	}
+}
+
+func (r storyQueryNameString) In(values []string) storyParams {
+	f := builder.Field{
+		Name:   "name",
+		Action: "in",
+		List:   true,
+	}
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
+		})
+	}
+	return storyParams{
+		data: f,
+	}
+}
+
+func (r storyQueryNameString) EqualsOptional(value *string) storyParams {
+	return storyParams{
+		data: builder.Field{
+			Name:  "name",
+			Value: value,
+		},
+	}
+}
+
+func (r storyQueryNameString) IsNull() storyParams {
+	var str *string = nil
+	return storyParams{
+		data: builder.Field{
+			Name:  "name",
+			Value: str,
+		},
+	}
+}
+
+func (r storyQueryNameString) Order(direction runtime.Direction) storyParams {
+	return storyParams{
+		data: builder.Field{
+			Name:  "name",
+			Value: direction,
+		},
+	}
+}
+
+func (r storyQueryNameString) Contains(value string) storyParams {
+	return storyParams{
+		data: builder.Field{
+			Action: "contains",
+			Name:   "name",
+			Value:  value,
+		},
+	}
+}
+
+func (r storyQueryNameString) HasPrefix(value string) storyParams {
+	return storyParams{
+		data: builder.Field{
+			Action: "starts_with",
+			Name:   "name",
+			Value:  value,
+		},
+	}
+}
+
+func (r storyQueryNameString) HasSuffix(value string) storyParams {
+	return storyParams{
+		data: builder.Field{
+			Action: "ends_with",
+			Name:   "name",
+			Value:  value,
+		},
+	}
+}
+
+// base struct
 type storyQueryActiveBoolean struct{}
 
 // Set the required value of Active
@@ -23679,6 +23946,11 @@ type eventQuery struct {
 	//
 	// @required
 	UpdatedAt eventQueryUpdatedAtDateTime
+
+	// Name
+	//
+	// @optional
+	Name eventQueryNameString
 
 	Story eventQueryStoryRelations
 
@@ -24173,6 +24445,120 @@ func (r eventQueryUpdatedAtDateTime) AfterEquals(value DateTime) eventParams {
 		data: builder.Field{
 			Action: "gte",
 			Name:   "updatedAt",
+			Value:  value,
+		},
+	}
+}
+
+// base struct
+type eventQueryNameString struct{}
+
+// Set the optional value of Name
+func (r eventQueryNameString) Set(value string) eventSetParams {
+
+	return eventSetParams{
+		data: builder.Field{
+			Name:  "name",
+			Value: value,
+		},
+	}
+
+}
+
+// Set the optional value of Name dynamically
+func (r eventQueryNameString) SetOptional(value *string) eventSetParams {
+	if value == nil {
+
+		var v *string
+		return eventSetParams{
+			data: builder.Field{
+				Name:  "name",
+				Value: v,
+			},
+		}
+	}
+
+	return r.Set(*value)
+}
+
+func (r eventQueryNameString) Equals(value string) eventWithPrismaNameEqualsParams {
+	return eventWithPrismaNameEqualsParams{
+		data: builder.Field{
+			Name:  "name",
+			Value: value,
+		},
+	}
+}
+
+func (r eventQueryNameString) In(values []string) eventParams {
+	f := builder.Field{
+		Name:   "name",
+		Action: "in",
+		List:   true,
+	}
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
+		})
+	}
+	return eventParams{
+		data: f,
+	}
+}
+
+func (r eventQueryNameString) EqualsOptional(value *string) eventParams {
+	return eventParams{
+		data: builder.Field{
+			Name:  "name",
+			Value: value,
+		},
+	}
+}
+
+func (r eventQueryNameString) IsNull() eventParams {
+	var str *string = nil
+	return eventParams{
+		data: builder.Field{
+			Name:  "name",
+			Value: str,
+		},
+	}
+}
+
+func (r eventQueryNameString) Order(direction runtime.Direction) eventParams {
+	return eventParams{
+		data: builder.Field{
+			Name:  "name",
+			Value: direction,
+		},
+	}
+}
+
+func (r eventQueryNameString) Contains(value string) eventParams {
+	return eventParams{
+		data: builder.Field{
+			Action: "contains",
+			Name:   "name",
+			Value:  value,
+		},
+	}
+}
+
+func (r eventQueryNameString) HasPrefix(value string) eventParams {
+	return eventParams{
+		data: builder.Field{
+			Action: "starts_with",
+			Name:   "name",
+			Value:  value,
+		},
+	}
+}
+
+func (r eventQueryNameString) HasSuffix(value string) eventParams {
+	return eventParams{
+		data: builder.Field{
+			Action: "ends_with",
+			Name:   "name",
 			Value:  value,
 		},
 	}
