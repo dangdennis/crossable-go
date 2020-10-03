@@ -1,0 +1,35 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteModel",
+      "model": "MessagesOnActions"
+    },
+    {
+      "tag": "DeleteModel",
+      "model": "MessagesOnEvents"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Event",
+      "field": "MessagesOnEvents"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Message",
+      "field": "sequence",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Message",
+      "field": "MessagesOnActions"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Message",
+      "field": "MessagesOnEvents"
+    }
+  ]
+}

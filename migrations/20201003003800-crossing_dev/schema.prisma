@@ -1,6 +1,6 @@
 datasource db {
     provider = "postgresql"
-    url      = "postgresql://postgres:postgres@localhost:5432/crossing_dev"
+    url = "***"
 }
 
 generator db {
@@ -68,7 +68,7 @@ model AvatarsOnRaids {
     avatar    Avatar    @relation(fields: [avatarId], references: [id])
     avatarId  Int
 
-    @@id([raidId, avatarId, position])
+    @@id([raidId, avatarId])
 }
 
 model RaidBossesOnRaids {
@@ -96,46 +96,71 @@ model Story {
 
 // An Event represents a moment in a story in which Avatars can fulfill Actions
 model Event {
-    id        Int       @id @default(autoincrement())
-    createdAt DateTime  @default(now())
-    deletedAt DateTime?
-    updatedAt DateTime  @updatedAt
-    story     Story     @relation(fields: [storyId], references: [id])
-    storyId   Int
+    id               Int                @id @default(autoincrement())
+    createdAt        DateTime           @default(now())
+    deletedAt        DateTime?
+    updatedAt        DateTime           @updatedAt
+    story            Story              @relation(fields: [storyId], references: [id])
+    storyId          Int
     // The sequence dictates the order of events to occur in a story
-    sequence  Int
-    occurred  Boolean   @default(false)
-    Action    Action[]
+    sequence         Int
+    occurred         Boolean            @default(false)
+    Action           Action[]
+    MessagesOnEvents MessagesOnEvents[]
 
-    Message Message[]
     @@unique([storyId, sequence])
 }
 
 // An Action indicates that an Avatar has taken action for an Event
 model Action {
-    id        Int       @id @default(autoincrement())
-    createdAt DateTime  @default(now())
-    deletedAt DateTime?
-    updatedAt DateTime  @updatedAt
-    event     Event     @relation(fields: [eventId], references: [id])
-    eventId   Int
-    avatar    Avatar    @relation(fields: [avatarId], references: [id])
-    avatarId  Int
+    id                Int                 @id @default(autoincrement())
+    createdAt         DateTime            @default(now())
+    deletedAt         DateTime?
+    updatedAt         DateTime            @updatedAt
+    position          Int
+    event             Event               @relation(fields: [eventId], references: [id])
+    eventId           Int
+    avatar            Avatar              @relation(fields: [avatarId], references: [id])
+    avatarId          Int
+    MessagesOnActions MessagesOnActions[]
 
     @@unique([eventId, avatarId])
 }
 
-// A Message indicates its type of message (i.e. event message, player message), its sequence, and its content.
+// A Message holds message contents.
 model Message {
-    id        Int       @id @default(autoincrement())
+    id                Int                 @id @default(autoincrement())
+    createdAt         DateTime            @default(now())
+    deletedAt         DateTime?
+    updatedAt         DateTime            @updatedAt
+    content           String
+    type              String
+    MessagesOnActions MessagesOnActions[]
+    MessagesOnEvents  MessagesOnEvents[]
+}
+
+// An Action may send messages to users.
+model MessagesOnActions {
     createdAt DateTime  @default(now())
     deletedAt DateTime?
     updatedAt DateTime  @updatedAt
+    message   Message   @relation(fields: [messageId], references: [id])
+    messageId Int
+    action    Action    @relation(fields: [actionId], references: [id])
+    actionId  Int
+
+    @@id([messageId, actionId])
+}
+
+// An Event may send messages to users on completion.
+model MessagesOnEvents {
+    createdAt DateTime  @default(now())
+    deletedAt DateTime?
+    updatedAt DateTime  @updatedAt
+    message   Message   @relation(fields: [messageId], references: [id])
+    messageId Int
     event     Event     @relation(fields: [eventId], references: [id])
     eventId   Int
-    content   String
-    type      String
-    sequence  Int
 
-    @@unique([eventId, sequence, type])
+    @@id([messageId, eventId])
 }

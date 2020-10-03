@@ -171,31 +171,37 @@ func Run() {
 		"The CryptoFlowFightingForce (C3F) has spotted their scout ships at the edge of the galaxy and a forming a emergency team to defend earth from the impending invasion.  A call has gone out to the world's greatest Superheroes, scientists and soldiers to be the first wave of the resistance against an overwhelming threat...\n\n"+
 		"Are you brave and courageous enough to join the C3F?\n",
 		"The new heroes meet at Superhero HQ, don their new outfits, and receive training at the top secret facility at Area 52.\n\n",
+		1,
 	)
 
 	// alien day 2 intro/completion messages
 	seedEventMessage(db, alienStoryEvent2.ID, "Our heroes are honored to defend Earth and understand the sheer magnitude of this threat. The plan is to venture to the edge of the galaxy and run reconnaissance on the Scout ships gathering there. The far-reach spectral analysis has been unable to determine how many ships are forming on the edge of the galaxy and the size of the force threatening Earth.",
 		"5... 4... 3... 2... 1. Blast off! The ship launches safely towards the moon base to refuel with our heroes onboard.",
+		2,
 	)
 
 	// alien day 3 intro/completion messages
 	seedEventMessage(db, alienStoryEvent3.ID, "Our heroes land safely on the moon using a SpaceZ 9000 rocket. They must refuel with the most powerful rocket fuel found only on the moon.",
 		"Our heroes are debriefed at the super advanced, super secretive Lunar Base on the on the dark side the moon.",
+		3,
 	)
 
 	// alien day 4 intro/completion messages
 	seedEventMessage(db, alienStoryEvent4.ID, "Our heroes are further briefed by the Moon Galaxy Mission control on the details of their reconnaissance mission. It's a lot of information to take in as they need to cross navigate the galaxy, refueling at the rings of Saturday, and acquire some materials on Uranus before their final destination, the last sighting of the alien ships. This is going to be a long, quiet one.",
 		"Our heroes pore their brains over the complexities required to cross navigate the length of the galaxy using hyper-flux technology.",
+		4,
 	)
 
 	// alien day 5 intro/completion messages
 	seedEventMessage(db, alienStoryEvent5.ID, "Emergency! A small battalion of unknown ships breaches the lunar orbit. The technology is unlike anything seen before. And these are presumably just the scout ships from the Alien Queen. Are our heroes ready?",
 		"Our heroes are strapped in to defend. They weren't expecting to fight so soon. Is the team really ready for this?",
+		5,
 	)
 
 	// alien day 6 intro/completion messages
 	seedEventMessage(db, alienStoryEvent6.ID, "The aliens fire their advanced weaponry at the heroes' ship. They work as team to deftly maneuver among the onslaughts of beams! It's their turn now.",
 		"Boom! The alien ships explodes in a silent purple-hued, ionized gas.  Our heroes have received their first taste of combat against the Sintari. This certainly won't be the last. They may not be so lucky next time. They realize they will need to learn to work together, encourage and motivate each other to work as strong team to save the Earth. They will need to learn many skills along the way and will need to be disciplined.",
+		6,
 	)
 }
 
@@ -222,32 +228,26 @@ func seedEvent(db *prisma.PrismaClient, storyID int, sequence int) prisma.EventM
 	return evt
 }
 
-func seedEventMessage(db *prisma.PrismaClient, eventId int, intro string, completion string) {
+func seedEventMessage(db *prisma.PrismaClient, eventID int, intro string, completion string, seq int) {
 	ctx := context.Background()
 
-	introMsg, err := db.Message.CreateOne(
+	_, err := db.Message.CreateOne(
+		prisma.Message.Event.Link(
+			prisma.Event.ID.Equals(eventID),
+		),
 		prisma.Message.Content.Set(intro),
-		prisma.Message.Type.Set(messages.MessageTypeIntro.String()),
+		prisma.Message.Type.Set(messages.MessageTypeEventIntro.String()),
+		prisma.Message.Sequence.Set(seq),
 	).Exec(ctx)
 	handleError(err)
 
-	_, err = db.MessagesOnEvents.CreateOne(
-		prisma.MessagesOnEvents.Message.Link(
-			prisma.Message.ID.Equals(introMsg.ID)),
-		prisma.MessagesOnEvents.Event.Link(
-			prisma.Event.ID.Equals(eventId)),
-	).Exec(ctx)
-
-	completionMsg, err := db.Message.CreateOne(
+	_, err = db.Message.CreateOne(
+		prisma.Message.Event.Link(
+			prisma.Event.ID.Equals(eventID),
+		),
 		prisma.Message.Content.Set(completion),
-		prisma.Message.Type.Set(messages.MessageTypeCompletion.String()),
+		prisma.Message.Type.Set(messages.MessageTypeEventCompletion.String()),
+		prisma.Message.Sequence.Set(seq),
 	).Exec(ctx)
 	handleError(err)
-
-	_, err = db.MessagesOnEvents.CreateOne(
-		prisma.MessagesOnEvents.Message.Link(
-			prisma.Message.ID.Equals(completionMsg.ID)),
-		prisma.MessagesOnEvents.Event.Link(
-			prisma.Event.ID.Equals(eventId)),
-	).Exec(ctx)
 }

@@ -1,0 +1,40 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteField",
+      "model": "Action",
+      "field": "MessagesOnActions"
+    },
+    {
+      "tag": "CreateField",
+      "model": "MessagesOnActions",
+      "field": "sequence",
+      "type": "Int",
+      "arity": "Required"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "MessagesOnActions",
+      "field": "action"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "MessagesOnActions",
+      "field": "actionId"
+    },
+    {
+      "tag": "UpdateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Model",
+          "model": "MessagesOnActions"
+        },
+        "directive": "id"
+      },
+      "argument": "",
+      "newValue": "[messageId]"
+    }
+  ]
+}

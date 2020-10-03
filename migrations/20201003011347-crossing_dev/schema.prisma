@@ -1,6 +1,6 @@
 datasource db {
     provider = "postgresql"
-    url      = "postgresql://postgres:postgres@localhost:5432/crossing_dev"
+    url = "***"
 }
 
 generator db {
@@ -107,8 +107,8 @@ model Event {
     occurred  Boolean   @default(false)
     Action    Action[]
 
-    Message Message[]
     @@unique([storyId, sequence])
+    Message Message[]
 }
 
 // An Action indicates that an Avatar has taken action for an Event
@@ -136,6 +136,4 @@ model Message {
     content   String
     type      String
     sequence  Int
-
-    @@unique([eventId, sequence, type])
 }

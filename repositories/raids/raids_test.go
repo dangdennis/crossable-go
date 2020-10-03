@@ -25,22 +25,22 @@ func TestFindWeeklyActiveRaid(t *testing.T) {
 }
 
 func TestJoinRaid(t *testing.T) {
-	db := db.Client()
-	rando, _ := rand.Prime(rand.Reader, 128)
-	gofakeit.Seed(rando.Int64())
+	client := db.Client()
+	prime, _ := rand.Prime(rand.Reader, 128)
+	gofakeit.Seed(prime.Int64())
 
-	user, err := users.CreateUser(db, users.UserAttrs{
+	user, err := users.CreateUser(client, users.UserAttrs{
 		DiscordUserID: gofakeit.UUID(),
 	})
 	require.NoError(t, err)
 
-	avatar, err := users.CreateAvatar(db, user.ID)
+	avatar, err := users.CreateAvatar(client, user.ID)
 	require.NoError(t, err)
 
-	raid, err := CreateRaid(db)
+	raid, err := CreateRaid(client)
 	require.NoError(t, err)
 
-	raidMember, err := JoinRaid(db, raid, avatar)
+	raidMember, err := JoinRaid(client, raid, avatar)
 	require.NoError(t, err)
 	require.True(t, raidMember.AvatarID == avatar.ID)
 	require.True(t, raidMember.RaidID == raid.ID)

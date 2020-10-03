@@ -9,6 +9,7 @@ import (
 
 	prisma "github.com/dangdennis/crossing/db"
 	"github.com/dangdennis/crossing/libs/logger"
+	"github.com/dangdennis/crossing/repositories/messages"
 	"github.com/dangdennis/crossing/repositories/raids"
 	"github.com/dangdennis/crossing/repositories/users"
 )
@@ -125,21 +126,75 @@ func ActionCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	// verify that the avatar is a part of the raid
-	avatarOnRaid, err := db.AvatarsOnRaids.FindMany(
+	avatarOnRaids, err := db.AvatarsOnRaids.FindMany(
 		prisma.AvatarsOnRaids.AvatarID.Equals(avatar.ID),
 		prisma.AvatarsOnRaids.RaidID.Equals(raid.ID),
-	).Exec(context.Background())
+	).Take(1).Exec(context.Background())
 
-	if len(avatarOnRaid) == 0 {
+	if len(avatarOnRaids) == 0 {
 		log.Error("user is not a part of the raid", zap.Int("avatarID", avatar.ID), zap.Int("raidID", raid.ID))
 		return
 	}
 
+	raidMember := avatarOnRaids[0]
+	currentStory := raid.Story()
+
 	// get the next event in the story sequence that hasn't occurred yet
+	events, err := db.Event.FindMany(
+		prisma.Event.StoryID.Equals(currentStory.ID),
+		prisma.Event.Occurred.Equals(false),
+	).OrderBy(
+		prisma.Event.Sequence.Order(prisma.ASC),
+	).Take(1).Exec(context.Background())
+	if err != nil {
+		log.Error("failed to find events for story", zap.Error(err), zap.Int("storyID", currentStory.ID))
+		return
+	}
 
-	// find the relevant action for the user
+	if len(events) == 0 {
+		log.Error("no active event found for current storyline", zap.Int("storyID", currentStory.ID))
+		return
+	}
 
-	// complete the action
+	currentEvent := events[0]
+
+	// find the relevant player message for the avatar
+	msgs, err := db.Message.FindMany(
+		prisma.Message.EventID.Equals(currentEvent.ID),
+		prisma.Message.Type.Equals(messages.MessageTypeActionSingle.String()),
+		prisma.Message.Sequence.Equals(raidMember.Position),
+	).Take(1).Exec(context.Background())
+	if err != nil {
+		log.Error("failed to find a message for the action",
+			zap.Error(err),
+			zap.Int("eventID", currentEvent.ID),
+			zap.String("messageType", messages.MessageTypeActionSingle.String()),
+			zap.Int("sequence", raidMember.Position),
+		)
+	}
+	if len(msgs) == 0 {
+		log.Error("failed to find a message for avatar action")
+		return
+	}
+
+	actionMessage := msgs[0]
+
+	// log the avatar's action for the event
+	_, err = db.Action.CreateOne(
+		prisma.Action.Event.Link(
+			prisma.Event.ID.Equals(currentEvent.ID),
+		),
+		prisma.Action.Avatar.Link(
+			prisma.Avatar.ID.Equals(avatar.ID)),
+	).Exec(context.Background())
+	if err != nil {
+		log.Error("failed to create action for avatar", zap.Error(err), zap.Int("avatarID", avatar.ID))
+		return
+	}
 
 	// send the action's message to the user
+	_, err = s.ChannelMessageSend(m.ChannelID, actionMessage.Content)
+	if err != nil {
+		log.Error("failed to send message", zap.Error(err))
+	}
 }
