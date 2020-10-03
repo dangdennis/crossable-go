@@ -6815,6 +6815,7 @@ var messageOutput = []builder.Output{
 	{Name: "content"},
 	{Name: "type"},
 	{Name: "sequence"},
+	{Name: "default"},
 }
 
 type iMessageRelationWith interface {
@@ -7553,6 +7554,70 @@ func (p messageWithPrismaSequenceEqualsParamsUnique) sequenceField() {}
 
 func (messageWithPrismaSequenceEqualsParamsUnique) unique() {}
 func (messageWithPrismaSequenceEqualsParamsUnique) equals() {}
+
+type iMessageWithPrismaDefaultEqualsParams interface {
+	field() builder.Field
+	getQuery() builder.Query
+	equals()
+	messageModel()
+	defaultField()
+}
+
+type messageWithPrismaDefaultSetParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messageWithPrismaDefaultSetParams) field() builder.Field {
+	return p.data
+}
+
+func (p messageWithPrismaDefaultSetParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messageWithPrismaDefaultSetParams) messageModel() {}
+
+func (p messageWithPrismaDefaultSetParams) defaultField() {}
+
+type messageWithPrismaDefaultEqualsParams struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messageWithPrismaDefaultEqualsParams) field() builder.Field {
+	return p.data
+}
+
+func (p messageWithPrismaDefaultEqualsParams) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messageWithPrismaDefaultEqualsParams) messageModel() {}
+
+func (p messageWithPrismaDefaultEqualsParams) defaultField() {}
+
+func (messageWithPrismaDefaultSetParams) settable()  {}
+func (messageWithPrismaDefaultEqualsParams) equals() {}
+
+type messageWithPrismaDefaultEqualsParamsUnique struct {
+	data  builder.Field
+	query builder.Query
+}
+
+func (p messageWithPrismaDefaultEqualsParamsUnique) field() builder.Field {
+	return p.data
+}
+
+func (p messageWithPrismaDefaultEqualsParamsUnique) getQuery() builder.Query {
+	return p.query
+}
+
+func (p messageWithPrismaDefaultEqualsParamsUnique) messageModel() {}
+func (p messageWithPrismaDefaultEqualsParamsUnique) defaultField() {}
+
+func (messageWithPrismaDefaultEqualsParamsUnique) unique() {}
+func (messageWithPrismaDefaultEqualsParamsUnique) equals() {}
 
 // --- template create.gotpl ---
 
@@ -16592,6 +16657,7 @@ model Message {
     content   String
     type      String
     sequence  Int
+    default   Boolean   @default(false)
 
     @@unique([eventId, sequence, type])
 }
@@ -17187,6 +17253,7 @@ type InternalMessage struct {
 	Content   string    `json:"content"`
 	Type      string    `json:"type"`
 	Sequence  int       `json:"sequence"`
+	Default   bool      `json:"default"`
 }
 
 // RelationsMessage holds the relation data separately
@@ -25946,6 +26013,11 @@ type messageQuery struct {
 	//
 	// @required
 	Sequence messageQuerySequenceInt
+
+	// Default
+	//
+	// @required
+	Default messageQueryDefaultBoolean
 }
 
 func (messageQuery) Not(params ...iMessageParams) messageParams {
@@ -26818,6 +26890,55 @@ func (r messageQuerySequenceInt) GTE(value int) messageParams {
 			Action: "gte",
 			Name:   "sequence",
 			Value:  value,
+		},
+	}
+}
+
+// base struct
+type messageQueryDefaultBoolean struct{}
+
+// Set the required value of Default
+func (r messageQueryDefaultBoolean) Set(value bool) messageSetParams {
+
+	return messageSetParams{
+		data: builder.Field{
+			Name:  "default",
+			Value: value,
+		},
+	}
+
+}
+
+func (r messageQueryDefaultBoolean) Equals(value bool) messageWithPrismaDefaultEqualsParams {
+	return messageWithPrismaDefaultEqualsParams{
+		data: builder.Field{
+			Name:  "default",
+			Value: value,
+		},
+	}
+}
+
+func (r messageQueryDefaultBoolean) In(values []bool) messageParams {
+	f := builder.Field{
+		Name:   "default",
+		Action: "in",
+		List:   true,
+	}
+	for _, v := range values {
+		f.Fields = append(f.Fields, builder.Field{
+			Value: v,
+		})
+	}
+	return messageParams{
+		data: f,
+	}
+}
+
+func (r messageQueryDefaultBoolean) Order(direction runtime.Direction) messageParams {
+	return messageParams{
+		data: builder.Field{
+			Name:  "default",
+			Value: direction,
 		},
 	}
 }

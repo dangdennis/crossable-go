@@ -195,15 +195,30 @@ func createAvatarEventAction(db *prisma.PrismaClient, currentEvent prisma.EventM
 	return nil
 }
 
-// getActionMessageForEventAndRaidMember find the relevant player message for the avatar
+// getActionMessageForEventAndRaidMember find the relevant player message for the avatar.
+// If an action message does not exist for the current raid member, use the last one in the message sequence as the default.
 func getActionMessageForEventAndRaidMember(db *prisma.PrismaClient, currentEvent prisma.EventModel, raidMember prisma.AvatarsOnRaidsModel) (prisma.MessageModel, error) {
 	manyMessages, err := db.Message.FindMany(
 		prisma.Message.EventID.Equals(currentEvent.ID),
 		prisma.Message.Type.Equals(messages.MessageTypeActionSingle.String()),
 		prisma.Message.Sequence.Equals(raidMember.Position),
+		prisma.Message.Default.Equals(false),
 	).Take(1).Exec(context.Background())
 	if err != nil {
-		return prisma.MessageModel{}, fmt.Errorf("failed to find a message for the action. err=%w", err)
+		defaultMessages, err := db.Message.FindMany(
+			prisma.Message.EventID.Equals(currentEvent.ID),
+			prisma.Message.Type.Equals(messages.MessageTypeActionSingle.String()),
+			prisma.Message.Default.Equals(true),
+		).Take(1).Exec(context.Background())
+		if err != nil {
+			return prisma.MessageModel{}, fmt.Errorf("failed to find a message for the action. err=%w", err)
+		}
+
+		if len(defaultMessages) == 0 {
+			return prisma.MessageModel{}, fmt.Errorf("failed to find a default message for avatar action")
+		}
+
+		return defaultMessages[0], nil
 	}
 
 	if len(manyMessages) == 0 {

@@ -191,9 +191,10 @@ func Run() {
 
 	seedActionMessages(db, alienStoryEvent2.ID,
 		[]string{
-			"You have been select by the council to lead this team for your heroism and cunning. It is your responsibility to ensure your teammates complete their habits each day and that the invasion is thwarted.",
-			"What does it mean to die?  Welcome aboard! Get familiar with your new teammates, because you're all in this together now.",
-			"Welcome aboard! Say hi to your teammates!",
+			"Nice socks. You have successfully completed the space training and are ready to board the space shuttle. Lock and loaded!",
+			"You have successfully completed the space training and ready to board the space shuttle. Leave the baby bottle at home.",
+			"You have successfully completed the space training and ready to board the space shuttle. Do return in one piece.",
+			"You have successfully completed the space training and ready to board the space shuttle.",
 		},
 	)
 
@@ -308,13 +309,16 @@ func seedEventMessage(db *prisma.PrismaClient, eventID int, intro string, comple
 
 func seedActionMessages(db *prisma.PrismaClient, eventID int, msgs []string) {
 	for i, msg := range msgs {
-		seedActionMessage(db, eventID, msg, i+1)
+		if i == len(msgs)-1 {
+			seedDefaultActionMessage(db, eventID, msg, i+1)
+		} else {
+			seedActionMessage(db, eventID, msg, i+1)
+		}
 	}
 }
 
 func seedActionMessage(db *prisma.PrismaClient, eventID int, content string, seq int) {
 	ctx := context.Background()
-
 	_, err := db.Message.CreateOne(
 		prisma.Message.Event.Link(
 			prisma.Event.ID.Equals(eventID),
@@ -322,6 +326,20 @@ func seedActionMessage(db *prisma.PrismaClient, eventID int, content string, seq
 		prisma.Message.Content.Set(content),
 		prisma.Message.Type.Set(messages.MessageTypeActionSingle.String()),
 		prisma.Message.Sequence.Set(seq),
+	).Exec(ctx)
+	handleError(err)
+}
+
+func seedDefaultActionMessage(db *prisma.PrismaClient, eventID int, content string, seq int) {
+	ctx := context.Background()
+	_, err := db.Message.CreateOne(
+		prisma.Message.Event.Link(
+			prisma.Event.ID.Equals(eventID),
+		),
+		prisma.Message.Content.Set(content),
+		prisma.Message.Type.Set(messages.MessageTypeActionSingle.String()),
+		prisma.Message.Sequence.Set(seq),
+		prisma.Message.Default.Set(true),
 	).Exec(ctx)
 	handleError(err)
 }
