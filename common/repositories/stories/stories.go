@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	prisma "github.com/dangdennis/crossing/db"
-	"github.com/dangdennis/crossing/repositories/messages"
+	prisma "github.com/dangdennis/crossing/common/db"
+	"github.com/dangdennis/crossing/common/repositories/messages"
 )
 
 // CreateStory creates a new stories

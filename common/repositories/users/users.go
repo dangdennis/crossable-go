@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	prisma "github.com/dangdennis/crossing/db"
+	prisma "github.com/dangdennis/crossing/common/db"
 )
 
 // FindUserByDiscordID finds a user entity by their discord id and their avatar
@@ -13,6 +13,7 @@ func FindUserByDiscordID(db *prisma.PrismaClient, discordID string) (prisma.User
 		prisma.User.DiscordUserID.Equals(discordID),
 	).With(
 		prisma.User.Avatar.Fetch(),
+		prisma.User.Wallet.Fetch(),
 	).Exec(context.Background())
 }
 
@@ -27,8 +28,6 @@ type UserAttrs struct {
 
 // CreateUser creates a user
 func CreateUser(db *prisma.PrismaClient, attrs UserAttrs) (prisma.UserModel, error) {
-	fmt.Println("creating a user")
-
 	user, err := db.User.CreateOne(
 		prisma.User.DiscordUserID.Set(attrs.DiscordUserID),
 		prisma.User.DiscordUsername.SetOptional(attrs.DiscordUsername),
@@ -45,8 +44,6 @@ func CreateUser(db *prisma.PrismaClient, attrs UserAttrs) (prisma.UserModel, err
 
 // CreateAvatar creates an avatar
 func CreateAvatar(db *prisma.PrismaClient, userID int) (prisma.AvatarModel, error) {
-	fmt.Println("creating an avatar")
-
 	avatar, err := db.Avatar.CreateOne(
 		prisma.Avatar.User.Link(
 			prisma.User.ID.Equals(userID),
@@ -56,4 +53,43 @@ func CreateAvatar(db *prisma.PrismaClient, userID int) (prisma.AvatarModel, erro
 	}
 
 	return avatar, nil
+}
+
+// CreateWallet creates an avatar
+func CreateWallet(db *prisma.PrismaClient, userID int) (prisma.WalletModel, error) {
+	avatar, err := db.Wallet.CreateOne(
+		prisma.Wallet.User.Link(
+			prisma.User.ID.Equals(userID),
+		)).Exec(context.Background())
+	if err != nil {
+		return avatar, err
+	}
+
+	return avatar, nil
+}
+
+// AwardTokens awards an amount of tokens to a user
+func AwardTokens(db *prisma.PrismaClient, userID int, amount int) error {
+	user, err := db.User.FindOne(
+		prisma.User.ID.Equals(userID),
+	).Exec(context.Background())
+	if err != nil {
+		return fmt.Errorf("failed to find user. err=%w", err)
+	}
+
+	wallet, ok := user.Wallet()
+	if !ok {
+		return fmt.Errorf("failed to find user wallet")
+	}
+
+	_, err = db.Wallet.FindOne(
+		prisma.Wallet.ID.Equals(wallet.ID),
+	).Update(
+		prisma.Wallet.Balance.Set(wallet.Balance + amount),
+	).Exec(context.Background())
+	if err != nil {
+		return fmt.Errorf("failed to update wallet. err=%w", err)
+	}
+
+	return nil
 }

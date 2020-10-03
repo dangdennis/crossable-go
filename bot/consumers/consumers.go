@@ -6,8 +6,8 @@ import (
 
 	"github.com/bwmarrin/discordgo"
 
-	prisma "github.com/dangdennis/crossing/db"
-	"github.com/dangdennis/crossing/repositories/users"
+	prisma "github.com/dangdennis/crossing/common/db"
+	"github.com/dangdennis/crossing/common/repositories/users"
 )
 
 // MessageCreate consumes Discord MessageCreate events
@@ -46,7 +46,7 @@ func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 }
 
-// initUser creates a new user account if the current account is not found
+// initUser creates a new user, avatar, and wallet
 func initUser(m *discordgo.MessageCreate) error {
 	// Consider hardening this with an additional cache layer. Check the LRU cache for a discord user id that's recently messaged the channel
 	if !strings.HasPrefix(m.Content, "!") {
@@ -67,6 +67,11 @@ func initUser(m *discordgo.MessageCreate) error {
 	}
 
 	_, err = users.CreateAvatar(prisma.Client(), user.ID)
+	if err != nil {
+		return err
+	}
+
+	_, err = users.CreateWallet(prisma.Client(), user.ID)
 	if err != nil {
 		return err
 	}

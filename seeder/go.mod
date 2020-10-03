@@ -1,4 +1,4 @@
-module github.com/dangdennis/crossing
+module github.com/dangdennis/crossing/seeder
 
 go 1.14
 

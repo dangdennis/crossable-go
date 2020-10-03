@@ -6,13 +6,14 @@ import (
 	"github.com/bwmarrin/discordgo"
 	"go.uber.org/zap"
 
-	prisma "github.com/dangdennis/crossing/db"
-	"github.com/dangdennis/crossing/libs/dg"
-	"github.com/dangdennis/crossing/libs/logger"
-	"github.com/dangdennis/crossing/repositories/messages"
-	"github.com/dangdennis/crossing/repositories/raids"
-	"github.com/dangdennis/crossing/repositories/stories"
-	"github.com/dangdennis/crossing/repositories/users"
+	prisma "github.com/dangdennis/crossing/common/db"
+	"github.com/dangdennis/crossing/common/dg"
+	"github.com/dangdennis/crossing/common/logger"
+	"github.com/dangdennis/crossing/common/repositories/messages"
+	"github.com/dangdennis/crossing/common/repositories/raids"
+	"github.com/dangdennis/crossing/common/repositories/stories"
+	"github.com/dangdennis/crossing/common/repositories/users"
+	"github.com/dangdennis/crossing/common/services/auth"
 )
 
 // RaidCommand handles !raid
@@ -57,7 +58,6 @@ func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 // JoinCommand handles !join
 func JoinCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
-	fmt.Println("handling !join")
 	db := prisma.Client()
 	log := logger.GetLogger()
 
@@ -154,17 +154,27 @@ func ActionCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 		return
 	}
 
+	err = users.AwardTokens(db, user.ID, 2)
+
 	// send the action's message to the user
 	dg.ChannelMessageSend(s, m.ChannelID, actionMessage.Content)
 }
 
 // IntroCommand handles admin-only !intro command
 func IntroCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
+	if !auth.IsAdmin(m.Author.ID) {
+		return
+	}
+
 	RaidCommand(s, m)
 }
 
 // OutroCommand handles admin-only !outro command
 func OutroCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
+	if !auth.IsAdmin(m.Author.ID) {
+		return
+	}
+
 	db := prisma.Client()
 	log := logger.GetLogger()
 

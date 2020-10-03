@@ -9,9 +9,10 @@ import (
 
 	"github.com/bwmarrin/discordgo"
 
-	"github.com/dangdennis/crossing/consumers"
 	prisma "github.com/dangdennis/crossing/db"
 	"github.com/dangdennis/crossing/env"
+
+	"github.com/dangdennis/crossing/bot/consumers"
 )
 
 func main() {

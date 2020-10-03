@@ -1,5 +1,7 @@
-package seeder
+package main
+
+import "github.com/dangdennis/crossing/seeder"
 
 func main() {
-	Run()
+	seeder.Run()
 }

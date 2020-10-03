@@ -4,7 +4,7 @@ import (
 	"github.com/bwmarrin/discordgo"
 	"go.uber.org/zap"
 
-	"github.com/dangdennis/crossing/libs/logger"
+	"github.com/dangdennis/crossing/common/logger"
 )
 
 // ChannelMessageSend sends a message to Discord and logs any error

@@ -6,9 +6,9 @@ import (
 
 	"go.uber.org/zap"
 
-	prisma "github.com/dangdennis/crossing/db"
-	"github.com/dangdennis/crossing/libs/logger"
-	"github.com/dangdennis/crossing/repositories/stories"
+	prisma "github.com/dangdennis/crossing/common/db"
+	"github.com/dangdennis/crossing/common/logger"
+	"github.com/dangdennis/crossing/common/repositories/stories"
 )
 
 // CreateRaid creates a new raid

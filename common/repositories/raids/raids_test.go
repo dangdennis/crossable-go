@@ -7,8 +7,8 @@ import (
 	"github.com/brianvoe/gofakeit/v5"
 	"github.com/stretchr/testify/require"
 
+	"github.com/dangdennis/crossing/common/repositories/users"
 	"github.com/dangdennis/crossing/db"
-	"github.com/dangdennis/crossing/repositories/users"
 )
 
 func TestCreateRaid(t *testing.T) {

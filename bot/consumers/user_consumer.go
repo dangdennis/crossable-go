@@ -8,16 +8,13 @@ import (
 
 // HelpCommand handles !help
 func HelpCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
-	s.ChannelMessageSend(m.ChannelID,
+	_, _ = s.ChannelMessageSend(m.ChannelID,
 		`
 Available commands:
-!raid - status on the weekly raid.
-!join - join the week's raid.
+!raid - check out the today's event.
+!join - join the active raid.
 !action - confirm that you've completed your daily task, and take part in the struggle!
 !help - get a list of all available commands.
-
-Real serious commands:
-!bomb - deletes all your data.
 		`,
 	)
 }
