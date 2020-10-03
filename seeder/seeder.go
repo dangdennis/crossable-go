@@ -89,7 +89,7 @@ func Run() {
 	handleError(err)
 
 	// Create the Alien Queen story
-	alienStory, err := db.Story.CreateOne().Exec(ctx)
+	alienStory, err := db.Story.CreateOne(prisma.Story.Name.Set("Alien Queen Saga")).Exec(ctx)
 	handleError(err)
 
 	raid2, err := db.Raid.CreateOne(
@@ -145,22 +145,22 @@ func Run() {
 
 	// Create the events for the story
 	// Days 1 through 6
-	alienStoryEvent1 := seedEvent(db, alienStory.ID, 1)
+	alienStoryEvent1 := seedEvent(db, "Day 1: Assemble", alienStory.ID, 1)
 	fmt.Println(alienStoryEvent1)
 
-	alienStoryEvent2 := seedEvent(db, alienStory.ID, 2)
+	alienStoryEvent2 := seedEvent(db, "Day 2: Preparation", alienStory.ID, 2)
 	fmt.Println(alienStoryEvent2)
 
-	alienStoryEvent3 := seedEvent(db, alienStory.ID, 3)
+	alienStoryEvent3 := seedEvent(db, "Day 3: Moon Landing", alienStory.ID, 3)
 	fmt.Println(alienStoryEvent3)
 
-	alienStoryEvent4 := seedEvent(db, alienStory.ID, 4)
+	alienStoryEvent4 := seedEvent(db, "Day 4: Cross-Galaxy Journey Debrief", alienStory.ID, 4)
 	fmt.Println(alienStoryEvent4)
 
-	alienStoryEvent5 := seedEvent(db, alienStory.ID, 5)
+	alienStoryEvent5 := seedEvent(db, "Day 5: First Encounter", alienStory.ID, 5)
 	fmt.Println(alienStoryEvent5)
 
-	alienStoryEvent6 := seedEvent(db, alienStory.ID, 6)
+	alienStoryEvent6 := seedEvent(db, "Day 6: Skirmish", alienStory.ID, 6)
 	fmt.Println(alienStoryEvent6)
 
 	// Create the intro and completion messages.
@@ -168,9 +168,9 @@ func Run() {
 
 	// alien day 1 intro/completion messages
 	seedEventMessage(db, alienStoryEvent1.ID, "The Sintari are a distant Alien hive-race that are distant relatives of Ants who have an almighty conquering Alien Queen with hoards of soldiers and minions serving her. They suck up resources and enslave species from every planet they encounter that serves their endless pre-programmed need for expansion. They now have their sights set on Earth, which has rare life-giving nutrients.\n\n"+
-		"The CryptoFlowFightingForce (C3F) has spotted their scout ships at the edge of the galaxy and a forming a emergency team to defend earth from the impending invasion.  A call has gone out to the world's greatest Superheroes, scientists and soldiers to be the first wave of the resistance against an overwhelming threat...\n\n"+
-		"Are you brave and courageous enough to join the C3F?\n",
-		"The new heroes meet at Superhero HQ, don their new outfits, and receive training at the top secret facility at Area 52.\n\n",
+		"The CryptoFlowFightingForce (C3F) has spotted their scout ships at the edge of the galaxy and a forming a emergency team to defend earth from the impending invasion.  A call has gone out to the world's greatest heroes, scientists and soldiers to be the first wave of the resistance against an overwhelming threat...\n\n"+
+		"Are you brave and courageous enough to join the C3F?",
+		"The new heroes meet at the C3F HQ, don their new gear, and receive training at the top secret facility at Area 52.",
 		1,
 	)
 
@@ -270,13 +270,14 @@ func toPtrString(str string) *string {
 	return &str
 }
 
-func seedEvent(db *prisma.PrismaClient, storyID int, sequence int) prisma.EventModel {
+func seedEvent(db *prisma.PrismaClient, eventName string, storyID int, sequence int) prisma.EventModel {
 	ctx := context.Background()
 
 	evt, err := db.Event.CreateOne(
 		prisma.Event.Story.Link(
 			prisma.Story.ID.Equals(storyID)),
 		prisma.Event.Sequence.Set(sequence),
+		prisma.Event.Name.Set(eventName),
 	).Exec(ctx)
 	handleError(err)
 
@@ -301,7 +302,7 @@ func seedEventMessage(db *prisma.PrismaClient, eventID int, intro string, comple
 			prisma.Event.ID.Equals(eventID),
 		),
 		prisma.Message.Content.Set(completion),
-		prisma.Message.Type.Set(messages.MessageTypeEventCompletion.String()),
+		prisma.Message.Type.Set(messages.MessageTypeEventOutro.String()),
 		prisma.Message.Sequence.Set(seq),
 	).Exec(ctx)
 	handleError(err)

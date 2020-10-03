@@ -20,14 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3e67fb9-c979-4b19-b287-50dc79d567d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/20201003150033-crossing_dev/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/20201003150033-crossing_dev/schema.prisma" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/20201003150033-crossing_dev/steps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/dg/dg.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/consumers/consumers.go" beforeDir="false" afterPath="$PROJECT_DIR$/consumers/consumers.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/consumers/raid_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/consumers/raid_consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/db_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/db/db_gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/migrate.lock" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/migrate.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/messages/messages.go" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/messages/messages.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/raids/raids.go" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/raids/raids.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/stories/stories.go" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/stories/stories.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/seeder/seeder.go" beforeDir="false" afterPath="$PROJECT_DIR$/seeder/seeder.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,6 +73,10 @@
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
+    <key name="GoMoveDeclarationDialog.RECENT_KEY">
+      <recent name="$PROJECT_DIR$/repositories/stories" />
+      <recent name="$PROJECT_DIR$/repositories/raids" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/bot" />
@@ -168,52 +171,52 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="547" y="356" key="EditFileWatcherDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1600529713874" />
-    <state width="2201" height="380" key="GridCell.Tab.0.bottom" timestamp="1601751790744">
+    <state width="2201" height="380" key="GridCell.Tab.0.bottom" timestamp="1601755696767">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state width="2201" height="380" key="GridCell.Tab.0.bottom/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601751790744" />
+    <state width="2201" height="380" key="GridCell.Tab.0.bottom/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696767" />
     <state width="1750" height="322" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586839" />
     <state width="2006" height="411" key="GridCell.Tab.0.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1601702675445" />
-    <state width="2201" height="380" key="GridCell.Tab.0.center" timestamp="1601751790744">
+    <state width="2201" height="380" key="GridCell.Tab.0.center" timestamp="1601755696766">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state width="2201" height="380" key="GridCell.Tab.0.center/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601751790744" />
+    <state width="2201" height="380" key="GridCell.Tab.0.center/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696766" />
     <state width="1750" height="322" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
     <state width="2006" height="411" key="GridCell.Tab.0.center/0.23.2048.1257@0.23.2048.1257" timestamp="1601702675445" />
-    <state width="2201" height="380" key="GridCell.Tab.0.left" timestamp="1601751790743">
+    <state width="2201" height="380" key="GridCell.Tab.0.left" timestamp="1601755696766">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state width="2201" height="380" key="GridCell.Tab.0.left/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601751790743" />
+    <state width="2201" height="380" key="GridCell.Tab.0.left/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696766" />
     <state width="1750" height="322" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
     <state width="2006" height="411" key="GridCell.Tab.0.left/0.23.2048.1257@0.23.2048.1257" timestamp="1601702675445" />
-    <state width="2201" height="380" key="GridCell.Tab.0.right" timestamp="1601751790744">
+    <state width="2201" height="380" key="GridCell.Tab.0.right" timestamp="1601755696766">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state width="2201" height="380" key="GridCell.Tab.0.right/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601751790744" />
+    <state width="2201" height="380" key="GridCell.Tab.0.right/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696766" />
     <state width="1750" height="322" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
     <state width="2006" height="411" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1601702675445" />
-    <state width="2201" height="504" key="GridCell.Tab.1.bottom" timestamp="1601751159418">
+    <state width="2201" height="504" key="GridCell.Tab.1.bottom" timestamp="1601755695710">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state width="2201" height="504" key="GridCell.Tab.1.bottom/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601751159418" />
+    <state width="2201" height="504" key="GridCell.Tab.1.bottom/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755695710" />
     <state width="1750" height="322" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1600654113968" />
     <state width="982" height="149" key="GridCell.Tab.1.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1600742370735" />
-    <state width="2201" height="504" key="GridCell.Tab.1.center" timestamp="1601751159418">
+    <state width="2201" height="504" key="GridCell.Tab.1.center" timestamp="1601755695709">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state width="2201" height="504" key="GridCell.Tab.1.center/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601751159418" />
+    <state width="2201" height="504" key="GridCell.Tab.1.center/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755695709" />
     <state width="1750" height="322" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1600654113967" />
     <state width="982" height="149" key="GridCell.Tab.1.center/0.23.2048.1257@0.23.2048.1257" timestamp="1600742370735" />
-    <state width="2201" height="504" key="GridCell.Tab.1.left" timestamp="1601751159418">
+    <state width="2201" height="504" key="GridCell.Tab.1.left" timestamp="1601755695709">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state width="2201" height="504" key="GridCell.Tab.1.left/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601751159418" />
+    <state width="2201" height="504" key="GridCell.Tab.1.left/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755695709" />
     <state width="1750" height="322" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1600654113967" />
     <state width="982" height="149" key="GridCell.Tab.1.left/0.23.2048.1257@0.23.2048.1257" timestamp="1600742370734" />
-    <state width="2201" height="504" key="GridCell.Tab.1.right" timestamp="1601751159418">
+    <state width="2201" height="504" key="GridCell.Tab.1.right" timestamp="1601755695710">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state width="2201" height="504" key="GridCell.Tab.1.right/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601751159418" />
+    <state width="2201" height="504" key="GridCell.Tab.1.right/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755695710" />
     <state width="1750" height="322" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1600654113968" />
     <state width="982" height="149" key="GridCell.Tab.1.right/0.23.2048.1257@0.23.2048.1257" timestamp="1600742370735" />
     <state x="253" y="186" key="SettingsEditor" timestamp="1600529742899">
@@ -232,6 +235,14 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="896" height="548" key="XDebugger.FullValuePopup/0.23.1792.1097@0.23.1792.1097" timestamp="1600653790477" />
+    <state x="-2189" y="307" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1601753046203">
+      <screen x="-3360" y="-320" width="3360" height="1867" />
+    </state>
+    <state x="-2189" y="307" key="com.goide.refactor.move.GoMoveDeclarationDialog/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601753046203" />
+    <state x="-2319" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601752830936">
+      <screen x="-3360" y="-320" width="3360" height="1867" />
+    </state>
+    <state x="-2319" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601752830936" />
     <state x="-2241" y="-12" width="1122" height="1251" key="find.popup" timestamp="1601253565699">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
@@ -241,10 +252,10 @@
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
     <state x="-2118" y="343" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601252240887" />
-    <state x="-2308" y="97" width="1257" height="1151" key="search.everywhere.popup" timestamp="1601750453759">
+    <state x="-2308" y="97" width="1257" height="1151" key="search.everywhere.popup" timestamp="1601753549311">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state x="-2308" y="97" width="1257" height="1151" key="search.everywhere.popup/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601750453759" />
+    <state x="-2308" y="97" width="1257" height="1151" key="search.everywhere.popup/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601753549311" />
     <state x="561" y="268" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1600651686020" />
     <state x="641" y="304" width="767" height="775" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1601701890176" />
   </component>
@@ -255,11 +266,6 @@
           <url>file://$PROJECT_DIR$/seeder/seeder_test.go</url>
           <line>4</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/consumers/raid_consumer.go</url>
-          <line>133</line>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -59,7 +59,7 @@ func JoinRaid(db *prisma.PrismaClient, raid prisma.RaidModel, avatar prisma.Avat
 		return prisma.AvatarsOnRaidsModel{}, fmt.Errorf("party has reached its limit of %d", raidPartySize)
 	}
 
-	incrementedRaid, err := IncrementPartySize(db, raid.ID)
+	incrementedRaid, err := IncrementRaidTeamSize(db, raid.ID)
 	if err != nil {
 		return prisma.AvatarsOnRaidsModel{}, err
 	}
@@ -84,8 +84,8 @@ func JoinRaid(db *prisma.PrismaClient, raid prisma.RaidModel, avatar prisma.Avat
 	return raidMember, nil
 }
 
-// IncrementPartySize increases the raid party size by one
-func IncrementPartySize(db *prisma.PrismaClient, raidID int) (prisma.RaidModel, error) {
+// IncrementRaidTeamSize increases the raid party size by one
+func IncrementRaidTeamSize(db *prisma.PrismaClient, raidID int) (prisma.RaidModel, error) {
 	// Prisma doesn't support incrementing values within one query yet. So we have to fetch twice. Once to get the original player count. Second to update that value.
 	raid, err := db.Raid.FindOne(
 		prisma.Raid.ID.Equals(raidID),
@@ -109,4 +109,22 @@ func IncrementPartySize(db *prisma.PrismaClient, raidID int) (prisma.RaidModel, 
 	}
 
 	return incrementedRaid, nil
+}
+
+// GetAvatarRaidMembership makes sure an avatar is a member of a raid
+func GetAvatarRaidMembership(db *prisma.PrismaClient, avatar prisma.AvatarModel, raid prisma.RaidModel) (prisma.AvatarsOnRaidsModel, error) {
+	// verify that the avatar is a part of the raid
+	avatarOnRaids, err := db.AvatarsOnRaids.FindMany(
+		prisma.AvatarsOnRaids.AvatarID.Equals(avatar.ID),
+		prisma.AvatarsOnRaids.RaidID.Equals(raid.ID),
+	).Take(1).Exec(context.Background())
+	if err != nil {
+		return prisma.AvatarsOnRaidsModel{}, fmt.Errorf("failed to avatar raid membership. err=%w", err)
+	}
+
+	if len(avatarOnRaids) == 0 {
+		return prisma.AvatarsOnRaidsModel{}, fmt.Errorf("user is not a part of the raid")
+	}
+
+	return avatarOnRaids[0], nil
 }

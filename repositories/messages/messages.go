@@ -10,7 +10,7 @@ func (m MessageType) String() string {
 
 // Constants for our message types
 const (
-	MessageTypeEventIntro      MessageType = "@event/intro"
-	MessageTypeEventCompletion MessageType = "@event/completion"
-	MessageTypeActionSingle    MessageType = "@action/single"
+	MessageTypeEventIntro   MessageType = "@event/intro"
+	MessageTypeEventOutro   MessageType = "@event/outro"
+	MessageTypeActionSingle MessageType = "@action/single"
 )

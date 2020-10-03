@@ -39,6 +39,10 @@ func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 		HelpCommand(s, m)
 	case "!bomb":
 		BombCommand(s, m)
+	case "!intro":
+		IntroCommand(s, m)
+	case "!outro":
+		OutroCommand(s, m)
 	}
 }
 
