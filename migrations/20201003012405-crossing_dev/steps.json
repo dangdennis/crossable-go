@@ -42,6 +42,17 @@
           "model": "User",
           "field": "id"
         },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "id"
+        },
         "directive": "default"
       }
     },
@@ -58,17 +69,6 @@
       },
       "argument": "",
       "value": "autoincrement()"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "User",
-          "field": "id"
-        },
-        "directive": "id"
-      }
     },
     {
       "tag": "CreateField",
@@ -221,6 +221,17 @@
           "model": "Avatar",
           "field": "id"
         },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Avatar",
+          "field": "id"
+        },
         "directive": "default"
       }
     },
@@ -237,17 +248,6 @@
       },
       "argument": "",
       "value": "autoincrement()"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Avatar",
-          "field": "id"
-        },
-        "directive": "id"
-      }
     },
     {
       "tag": "CreateField",
@@ -403,6 +403,17 @@
           "model": "Raid",
           "field": "id"
         },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Raid",
+          "field": "id"
+        },
         "directive": "default"
       }
     },
@@ -419,17 +430,6 @@
       },
       "argument": "",
       "value": "autoincrement()"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Raid",
-          "field": "id"
-        },
-        "directive": "id"
-      }
     },
     {
       "tag": "CreateField",
@@ -741,6 +741,17 @@
           "model": "RaidBoss",
           "field": "id"
         },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "RaidBoss",
+          "field": "id"
+        },
         "directive": "default"
       }
     },
@@ -757,17 +768,6 @@
       },
       "argument": "",
       "value": "autoincrement()"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "RaidBoss",
-          "field": "id"
-        },
-        "directive": "id"
-      }
     },
     {
       "tag": "CreateField",
@@ -1053,7 +1053,7 @@
         "directive": "id"
       },
       "argument": "",
-      "value": "[raidId, avatarId]"
+      "value": "[raidId, avatarId, position]"
     },
     {
       "tag": "CreateModel",
@@ -1264,6 +1264,17 @@
           "model": "Story",
           "field": "id"
         },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Story",
+          "field": "id"
+        },
         "directive": "default"
       }
     },
@@ -1280,17 +1291,6 @@
       },
       "argument": "",
       "value": "autoincrement()"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Story",
-          "field": "id"
-        },
-        "directive": "id"
-      }
     },
     {
       "tag": "CreateField",
@@ -1414,6 +1414,17 @@
           "model": "Event",
           "field": "id"
         },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Event",
+          "field": "id"
+        },
         "directive": "default"
       }
     },
@@ -1430,17 +1441,6 @@
       },
       "argument": "",
       "value": "autoincrement()"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Event",
-          "field": "id"
-        },
-        "directive": "id"
-      }
     },
     {
       "tag": "CreateField",
@@ -1601,8 +1601,8 @@
     {
       "tag": "CreateField",
       "model": "Event",
-      "field": "MessagesOnEvents",
-      "type": "MessagesOnEvents",
+      "field": "Message",
+      "type": "Message",
       "arity": "List"
     },
     {
@@ -1640,6 +1640,17 @@
           "model": "Action",
           "field": "id"
         },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Action",
+          "field": "id"
+        },
         "directive": "default"
       }
     },
@@ -1656,17 +1667,6 @@
       },
       "argument": "",
       "value": "autoincrement()"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Action",
-          "field": "id"
-        },
-        "directive": "id"
-      }
     },
     {
       "tag": "CreateField",
@@ -1728,13 +1728,6 @@
     {
       "tag": "CreateField",
       "model": "Action",
-      "field": "position",
-      "type": "Int",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Action",
       "field": "event",
       "type": "Event",
       "arity": "Required"
@@ -1788,7 +1781,7 @@
     {
       "tag": "CreateField",
       "model": "Action",
-      "field": "actor",
+      "field": "avatar",
       "type": "Avatar",
       "arity": "Required"
     },
@@ -1798,7 +1791,7 @@
         "path": {
           "tag": "Field",
           "model": "Action",
-          "field": "actor"
+          "field": "avatar"
         },
         "directive": "relation"
       }
@@ -1810,7 +1803,7 @@
         "path": {
           "tag": "Field",
           "model": "Action",
-          "field": "actor"
+          "field": "avatar"
         },
         "directive": "relation"
       },
@@ -1824,7 +1817,7 @@
         "path": {
           "tag": "Field",
           "model": "Action",
-          "field": "actor"
+          "field": "avatar"
         },
         "directive": "relation"
       },
@@ -1839,45 +1832,6 @@
       "arity": "Required"
     },
     {
-      "tag": "CreateField",
-      "model": "Action",
-      "field": "taken",
-      "type": "Boolean",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Action",
-          "field": "taken"
-        },
-        "directive": "default"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "Action",
-          "field": "taken"
-        },
-        "directive": "default"
-      },
-      "argument": "",
-      "value": "false"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Action",
-      "field": "MessagesOnActions",
-      "type": "MessagesOnActions",
-      "arity": "List"
-    },
-    {
       "tag": "CreateDirective",
       "location": {
         "path": {
@@ -1886,7 +1840,7 @@
           "arguments": [
             {
               "name": "",
-              "value": "[eventId, position]"
+              "value": "[eventId, avatarId]"
             }
           ]
         },
@@ -1912,6 +1866,17 @@
           "model": "Message",
           "field": "id"
         },
+        "directive": "id"
+      }
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Message",
+          "field": "id"
+        },
         "directive": "default"
       }
     },
@@ -1930,17 +1895,6 @@
       "value": "autoincrement()"
     },
     {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "Message",
-          "field": "id"
-        },
-        "directive": "id"
-      }
-    },
-    {
       "tag": "CreateField",
       "model": "Message",
       "field": "createdAt",
@@ -1996,6 +1950,59 @@
         },
         "directive": "updatedAt"
       }
+    },
+    {
+      "tag": "CreateField",
+      "model": "Message",
+      "field": "event",
+      "type": "Event",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Message",
+          "field": "event"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Message",
+          "field": "event"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[eventId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Message",
+          "field": "event"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Message",
+      "field": "eventId",
+      "type": "Int",
+      "arity": "Required"
     },
     {
       "tag": "CreateField",
@@ -2014,181 +2021,7 @@
     {
       "tag": "CreateField",
       "model": "Message",
-      "field": "MessagesOnActions",
-      "type": "MessagesOnActions",
-      "arity": "List"
-    },
-    {
-      "tag": "CreateField",
-      "model": "Message",
-      "field": "MessagesOnEvents",
-      "type": "MessagesOnEvents",
-      "arity": "List"
-    },
-    {
-      "tag": "CreateModel",
-      "model": "MessagesOnActions"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnActions",
-      "field": "createdAt",
-      "type": "DateTime",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnActions",
-          "field": "createdAt"
-        },
-        "directive": "default"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnActions",
-          "field": "createdAt"
-        },
-        "directive": "default"
-      },
-      "argument": "",
-      "value": "now()"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnActions",
-      "field": "deletedAt",
-      "type": "DateTime",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnActions",
-      "field": "updatedAt",
-      "type": "DateTime",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnActions",
-          "field": "updatedAt"
-        },
-        "directive": "updatedAt"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnActions",
-      "field": "message",
-      "type": "Message",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnActions",
-          "field": "message"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnActions",
-          "field": "message"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[messageId]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnActions",
-          "field": "message"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnActions",
-      "field": "messageId",
-      "type": "Int",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnActions",
-      "field": "action",
-      "type": "Action",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnActions",
-          "field": "action"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnActions",
-          "field": "action"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[actionId]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnActions",
-          "field": "action"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnActions",
-      "field": "actionId",
+      "field": "sequence",
       "type": "Int",
       "arity": "Required"
     },
@@ -2197,213 +2030,16 @@
       "location": {
         "path": {
           "tag": "Model",
-          "model": "MessagesOnActions"
+          "model": "Message",
+          "arguments": [
+            {
+              "name": "",
+              "value": "[eventId, sequence, type]"
+            }
+          ]
         },
-        "directive": "id"
+        "directive": "unique"
       }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Model",
-          "model": "MessagesOnActions"
-        },
-        "directive": "id"
-      },
-      "argument": "",
-      "value": "[messageId, actionId]"
-    },
-    {
-      "tag": "CreateModel",
-      "model": "MessagesOnEvents"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnEvents",
-      "field": "createdAt",
-      "type": "DateTime",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnEvents",
-          "field": "createdAt"
-        },
-        "directive": "default"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnEvents",
-          "field": "createdAt"
-        },
-        "directive": "default"
-      },
-      "argument": "",
-      "value": "now()"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnEvents",
-      "field": "deletedAt",
-      "type": "DateTime",
-      "arity": "Optional"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnEvents",
-      "field": "updatedAt",
-      "type": "DateTime",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnEvents",
-          "field": "updatedAt"
-        },
-        "directive": "updatedAt"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnEvents",
-      "field": "message",
-      "type": "Message",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnEvents",
-          "field": "message"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnEvents",
-          "field": "message"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[messageId]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnEvents",
-          "field": "message"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnEvents",
-      "field": "messageId",
-      "type": "Int",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnEvents",
-      "field": "event",
-      "type": "Event",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnEvents",
-          "field": "event"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnEvents",
-          "field": "event"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[eventId]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "MessagesOnEvents",
-          "field": "event"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "MessagesOnEvents",
-      "field": "eventId",
-      "type": "Int",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Model",
-          "model": "MessagesOnEvents"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Model",
-          "model": "MessagesOnEvents"
-        },
-        "directive": "id"
-      },
-      "argument": "",
-      "value": "[messageId, eventId]"
     }
   ]
 }
