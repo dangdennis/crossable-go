@@ -4,6 +4,7 @@ import (
 	"context"
 	"crypto/rand"
 	"fmt"
+	"os"
 	"strconv"
 	"time"
 
@@ -260,12 +261,12 @@ func Run() {
 		},
 	)
 
-	return
+	os.Exit(1)
 }
 
 func handleError(err error) {
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 }
 
