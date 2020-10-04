@@ -9,9 +9,9 @@ import (
 
 	"github.com/brianvoe/gofakeit/v5"
 
+	"github.com/dangdennis/crossing/common/repositories/messages"
+	"github.com/dangdennis/crossing/common/repositories/users"
 	prisma "github.com/dangdennis/crossing/db"
-	"github.com/dangdennis/crossing/repositories/messages"
-	"github.com/dangdennis/crossing/repositories/users"
 )
 
 // Run runs the seeder

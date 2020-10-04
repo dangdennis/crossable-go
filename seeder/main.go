@@ -1,4 +1,4 @@
-package seeder
+package main
 
 func main() {
 	Run()
