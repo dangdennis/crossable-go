@@ -20,38 +20,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3e67fb9-c979-4b19-b287-50dc79d567d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/db/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/db/client.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/env/env.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/services/auth/auth.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/seeder/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consumers/consumers.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/consumers/consumers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consumers/raid_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/consumers/raid_consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consumers/user_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/consumers/user_consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/client.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/db_gen.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/query-engine-darwin_gen.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/query-engine-linux_gen.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/env/env.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/bot/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/bot/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/dg/dg.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/dg/dg.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/logger/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/logger/logger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/migrate.lock" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/migrate.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/messages/messages.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/repositories/messages/messages.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/raids/raids.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/repositories/raids/raids.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/raids/raids_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/repositories/raids/raids_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/stories/stories.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/repositories/stories/stories.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/users/users.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/repositories/users/users.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seeder/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/seeder/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seeder/seeder.go" beforeDir="false" afterPath="$PROJECT_DIR$/seeder/seeder.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/auth/auth.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/bot/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/db/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/common/db/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/db/query-engine-darwin_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/db/query-engine-darwin_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/db/query-engine-linux_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/db/query-engine-linux_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/common/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/repositories/raids/raids_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/repositories/raids/raids_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_migrate.sh" beforeDir="false" afterPath="$PROJECT_DIR$/db_migrate.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003012405-crossing_dev/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003012405-crossing_dev/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003012405-crossing_dev/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003012405-crossing_dev/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003012405-crossing_dev/steps.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003012405-crossing_dev/steps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003141742-crossing_dev/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003141742-crossing_dev/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003141742-crossing_dev/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003141742-crossing_dev/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003141742-crossing_dev/steps.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003141742-crossing_dev/steps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003150033-crossing_dev/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003150033-crossing_dev/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003150033-crossing_dev/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003150033-crossing_dev/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003150033-crossing_dev/steps.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003150033-crossing_dev/steps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003184249-crossing_dev/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003184249-crossing_dev/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003184249-crossing_dev/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003184249-crossing_dev/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003184249-crossing_dev/steps.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003184249-crossing_dev/steps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003185543-crossing_dev/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003185543-crossing_dev/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003185543-crossing_dev/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003185543-crossing_dev/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003185543-crossing_dev/steps.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003185543-crossing_dev/steps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003185638-crossing_dev/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003185638-crossing_dev/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003185638-crossing_dev/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003185638-crossing_dev/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/20201003185638-crossing_dev/steps.json" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/20201003185638-crossing_dev/steps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/migrate.lock" beforeDir="false" afterPath="$PROJECT_DIR$/common/migrations/migrate.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/common/schema.prisma" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,30 +194,30 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="547" y="356" key="EditFileWatcherDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1600529713874" />
-    <state width="1489" height="274" key="GridCell.Tab.0.bottom" timestamp="1601769168463">
+    <state width="1489" height="334" key="GridCell.Tab.0.bottom" timestamp="1601769727317">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="2201" height="380" key="GridCell.Tab.0.bottom/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696767" />
     <state width="1750" height="322" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586839" />
-    <state width="1489" height="274" key="GridCell.Tab.0.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1601769168463" />
-    <state width="1489" height="274" key="GridCell.Tab.0.center" timestamp="1601769168462">
+    <state width="1489" height="334" key="GridCell.Tab.0.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1601769727317" />
+    <state width="1489" height="334" key="GridCell.Tab.0.center" timestamp="1601769727316">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="2201" height="380" key="GridCell.Tab.0.center/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696766" />
     <state width="1750" height="322" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
-    <state width="1489" height="274" key="GridCell.Tab.0.center/0.23.2048.1257@0.23.2048.1257" timestamp="1601769168462" />
-    <state width="1489" height="274" key="GridCell.Tab.0.left" timestamp="1601769168462">
+    <state width="1489" height="334" key="GridCell.Tab.0.center/0.23.2048.1257@0.23.2048.1257" timestamp="1601769727316" />
+    <state width="1489" height="334" key="GridCell.Tab.0.left" timestamp="1601769727316">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="2201" height="380" key="GridCell.Tab.0.left/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696766" />
     <state width="1750" height="322" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
-    <state width="1489" height="274" key="GridCell.Tab.0.left/0.23.2048.1257@0.23.2048.1257" timestamp="1601769168462" />
-    <state width="1489" height="274" key="GridCell.Tab.0.right" timestamp="1601769168463">
+    <state width="1489" height="334" key="GridCell.Tab.0.left/0.23.2048.1257@0.23.2048.1257" timestamp="1601769727316" />
+    <state width="1489" height="334" key="GridCell.Tab.0.right" timestamp="1601769727316">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="2201" height="380" key="GridCell.Tab.0.right/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696766" />
     <state width="1750" height="322" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
-    <state width="1489" height="274" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1601769168463" />
+    <state width="1489" height="334" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1601769727316" />
     <state width="2201" height="504" key="GridCell.Tab.1.bottom" timestamp="1601755695710">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
