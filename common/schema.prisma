@@ -1,6 +1,6 @@
 datasource db {
     provider = "postgresql"
-    url      = "postgresql://postgres:postgres@localhost:5432/crossing_dev"
+    url      = env("CROSSING_DATABASE_URL")
 }
 
 generator db {
