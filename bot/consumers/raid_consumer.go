@@ -157,7 +157,7 @@ func ActionCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	err = users.AwardTokens(db, user.ID, 2)
 
 	// send the action's message to the user
-	dg.ChannelMessageSend(s, m.ChannelID, actionMessage.Content)
+	dg.ChannelMessageSend(s, m.ChannelID, fmt.Sprintf("%s\n\n%s", actionMessage.Content, "+2 tokens for you!"))
 }
 
 // IntroCommand handles admin-only !intro command
