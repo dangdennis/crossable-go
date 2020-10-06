@@ -217,7 +217,7 @@ func Run() {
 	)
 
 	// alien day 4 intro/completion messages
-	seedEventMessage(db, alienStoryEvent4.ID, "Our heroes are further briefed by the Moon Galaxy Mission control on the details of their reconnaissance mission. It's a lot of information to take in as they need to cross navigate the galaxy, refueling at the rings of Saturday, and acquire some materials on Uranus before their final destination, the last sighting of the alien ships. This is going to be a long, quiet one.",
+	seedEventMessage(db, alienStoryEvent4.ID, "Our heroes are further briefed by the Moon Galaxy Mission control on the details of their reconnaissance mission. It's a lot of information to take in as they need to cross navigate the galaxy, refuel at the rings of Saturday, and acquire some materials on Uranus before their final destination, the last sighting of the alien ships. This is going to be a long, quiet one.",
 		"Our heroes pore their brains over the complexities required to cross navigate the length of the galaxy using hyper-flux technology.",
 		4,
 	)

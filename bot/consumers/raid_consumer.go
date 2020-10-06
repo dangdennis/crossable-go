@@ -50,7 +50,7 @@ func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	message = fmt.Sprintf("%s\n\n%s", message, introMessage.Content)
 
 	if currentEvent.Sequence == 1 || currentEvent.Sequence == 2 {
-		message = fmt.Sprintf("%s\n\n%s", message, "`!join` to join mission!")
+		message = fmt.Sprintf("%s\n\n%s", message, "`!join` to join mission!\n\n`!action` to take action.")
 	}
 
 	dg.ChannelMessageSend(s, m.ChannelID, message)
@@ -150,11 +150,15 @@ func ActionCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 	err = stories.CreateAvatarEventAction(db, currentEvent, avatar)
 	if err != nil {
-		log.Error("failed to create avatar event", zap.Error(err))
+		log.Error("failed to create avatar action", zap.Error(err))
+		dg.ChannelMessageSend(s, m.ChannelID, "You've already performed your action today.")
 		return
 	}
 
 	err = users.AwardTokens(db, user.ID, 2)
+	if err != nil {
+		log.Error("failed to award user tokens", zap.Error(err), zap.Int("userID", user.ID))
+	}
 
 	// send the action's message to the user
 	dg.ChannelMessageSend(s, m.ChannelID, fmt.Sprintf("%s\n\n%s", actionMessage.Content, "+2 tokens for you!"))

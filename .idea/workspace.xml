@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3e67fb9-c979-4b19-b287-50dc79d567d4" name="Default Changelist" comment="" />
+    <list default="true" id="c3e67fb9-c979-4b19-b287-50dc79d567d4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/consumers/raid_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/consumers/raid_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seeder/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/seeder/main.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,10 +78,10 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build main.go">
-    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="crossing-bot-v2" />
-      <working_directory value="$PROJECT_DIR$" />
+  <component name="RunManager" selected="Go Build.go run bot">
+    <configuration name="go run bot" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="crossing" />
+      <working_directory value="$PROJECT_DIR$/bot" />
       <EXTENSION ID="net.ashald.envfile">
         <option name="IS_ENABLED" value="false" />
         <option name="IS_SUBST" value="false" />
@@ -90,7 +94,6 @@
       </EXTENSION>
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/bot/main.go" />
-      <package value="github.com/dangdennis/crossing" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -116,9 +119,13 @@
       <pattern value="^\QTestRun\E$" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Go Test.TestFindWeeklyActiveRaid in github.com/dangdennis/crossing/repositories" />
+      <item itemvalue="Go Test.TestRun in github.com/dangdennis/crossing/seeder" />
+      <item itemvalue="Go Build.go run bot" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Test.TestRun in github.com/dangdennis/crossing/seeder" />
         <item itemvalue="Go Test.TestFindWeeklyActiveRaid in github.com/dangdennis/crossing/repositories" />
       </list>
@@ -153,10 +160,11 @@
     <state x="-2199" y="325" key="#Notifications/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601254877246" />
     <state x="619" y="402" key="#Notifications/0.23.1792.1097@0.23.1792.1097" timestamp="1600529728483" />
     <state x="708" y="457" key="#Notifications/0.23.2048.1257@0.23.2048.1257" timestamp="1601764454110" />
-    <state x="496" y="237" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600650663325">
-      <screen x="0" y="23" width="1792" height="1097" />
+    <state x="567" y="268" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601952670750">
+      <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state x="496" y="237" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1600650663325" />
+    <state x="567" y="268" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2048.1257@0.23.2048.1257" timestamp="1601952670750" />
     <state x="-2296" y="-29" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1600618855250">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
@@ -165,30 +173,30 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="547" y="356" key="EditFileWatcherDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1600529713874" />
-    <state width="1489" height="334" key="GridCell.Tab.0.bottom" timestamp="1601769754021">
+    <state width="1489" height="334" key="GridCell.Tab.0.bottom" timestamp="1601952703150">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="2201" height="380" key="GridCell.Tab.0.bottom/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696767" />
     <state width="1750" height="322" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586839" />
-    <state width="1489" height="334" key="GridCell.Tab.0.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1601769754021" />
-    <state width="1489" height="334" key="GridCell.Tab.0.center" timestamp="1601769754020">
+    <state width="1489" height="334" key="GridCell.Tab.0.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1601952703150" />
+    <state width="1489" height="334" key="GridCell.Tab.0.center" timestamp="1601952703149">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="2201" height="380" key="GridCell.Tab.0.center/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696766" />
     <state width="1750" height="322" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
-    <state width="1489" height="334" key="GridCell.Tab.0.center/0.23.2048.1257@0.23.2048.1257" timestamp="1601769754020" />
-    <state width="1489" height="334" key="GridCell.Tab.0.left" timestamp="1601769754020">
+    <state width="1489" height="334" key="GridCell.Tab.0.center/0.23.2048.1257@0.23.2048.1257" timestamp="1601952703149" />
+    <state width="1489" height="334" key="GridCell.Tab.0.left" timestamp="1601952703148">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="2201" height="380" key="GridCell.Tab.0.left/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696766" />
     <state width="1750" height="322" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
-    <state width="1489" height="334" key="GridCell.Tab.0.left/0.23.2048.1257@0.23.2048.1257" timestamp="1601769754020" />
-    <state width="1489" height="334" key="GridCell.Tab.0.right" timestamp="1601769754020">
+    <state width="1489" height="334" key="GridCell.Tab.0.left/0.23.2048.1257@0.23.2048.1257" timestamp="1601952703148" />
+    <state width="1489" height="334" key="GridCell.Tab.0.right" timestamp="1601952703149">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state width="2201" height="380" key="GridCell.Tab.0.right/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696766" />
     <state width="1750" height="322" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
-    <state width="1489" height="334" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1601769754020" />
+    <state width="1489" height="334" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1601952703149" />
     <state width="2201" height="504" key="GridCell.Tab.1.bottom" timestamp="1601755695710">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
@@ -247,12 +255,12 @@
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
     <state x="-2118" y="343" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601252240887" />
-    <state x="641" y="304" width="767" height="775" key="search.everywhere.popup" timestamp="1601764646134">
+    <state x="641" y="304" width="767" height="775" key="search.everywhere.popup" timestamp="1601952098981">
       <screen x="0" y="23" width="2048" height="1257" />
     </state>
     <state x="-2308" y="97" width="1257" height="1151" key="search.everywhere.popup/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601753549311" />
     <state x="561" y="268" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1600651686020" />
-    <state x="641" y="304" width="767" height="775" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1601764646134" />
+    <state x="641" y="304" width="767" height="775" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1601952098981" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -264,7 +272,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/bot/consumers/raid_consumer.go</url>
-          <line>172</line>
+          <line>176</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
