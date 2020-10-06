@@ -1,7 +1,9 @@
 package consumers
 
 import (
+	"context"
 	"fmt"
+	"strings"
 
 	"github.com/bwmarrin/discordgo"
 	"go.uber.org/zap"
@@ -201,7 +203,28 @@ func OutroCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 		return
 	}
 
-	_, err = s.ChannelMessageSend(m.ChannelID, outroMessage.Content)
+	var engagedUsersMsg string
+	actions, err := db.Action.FindMany(
+		prisma.Action.EventID.Equals(currentEvent.ID),
+		).With(
+			prisma.Action.Avatar.Fetch().With(
+				prisma.Avatar.User.Fetch(),),
+			).Exec(context.Background())
+	if err != nil {
+		log.Error("failed to find the actions performed for event", zap.Error(err), zap.Int("eventID", currentEvent.ID))
+	} else {
+		engagedUsersMsg = ""
+		for _, action := range actions {
+			username, ok := action.Avatar().User().DiscordUsername()
+			if ok {
+				engagedUsersMsg = engagedUsersMsg + username + ", "
+			}
+		}
+		engagedUsersMsg = strings.TrimRight(strings.Trim(engagedUsersMsg, " "), ",")
+		engagedUsersMsg = engagedUsersMsg + ": You're our heroes."
+	}
+
+	_, err = s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("%s\n\n%s",outroMessage.Content, engagedUsersMsg))
 	if err != nil {
 		fmt.Println(err)
 		return

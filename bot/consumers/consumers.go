@@ -61,7 +61,7 @@ func initUser(m *discordgo.MessageCreate) error {
 
 	fmt.Println("initializing new user")
 
-	user, err := users.CreateUser(prisma.Client(), users.UserAttrs{DiscordUserID: m.Author.ID})
+	user, err := users.CreateUser(prisma.Client(), users.UserAttrs{DiscordUserID: m.Author.ID, DiscordUsername: &m.Author.Username})
 	if err != nil {
 		return err
 	}
