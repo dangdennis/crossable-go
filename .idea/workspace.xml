@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,9 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3e67fb9-c979-4b19-b287-50dc79d567d4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/common/services/raid/raid.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/services/raid/raid_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/testUtil/testUtil.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/consumers/consumers.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/consumers/consumers.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/consumers/raid_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/bot/consumers/raid_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/common/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +75,7 @@
   </component>
   <component name="RecentsManager">
     <key name="GoMoveDeclarationDialog.RECENT_KEY">
+      <recent name="$PROJECT_DIR$/common/testUtil" />
       <recent name="$PROJECT_DIR$/repositories/stories" />
       <recent name="$PROJECT_DIR$/repositories/raids" />
     </key>
@@ -78,7 +85,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go run bot">
+  <component name="RunManager" selected="Go Test.TestAssignAvatarToRaid in github.com/dangdennis/crossing/common/services/raid">
     <configuration name="go run bot" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="crossing" />
       <working_directory value="$PROJECT_DIR$/bot" />
@@ -95,6 +102,17 @@
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/bot/main.go" />
       <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestAssignAvatarToRaid in github.com/dangdennis/crossing/common/services/raid" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="crossing" />
+      <working_directory value="$PROJECT_DIR$/common/services/raid" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/dangdennis/crossing/common/services/raid" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestAssignAvatarToRaid\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestFindWeeklyActiveRaid in github.com/dangdennis/crossing/repositories" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
@@ -120,12 +138,14 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Go Build.go run bot" />
       <item itemvalue="Go Test.TestFindWeeklyActiveRaid in github.com/dangdennis/crossing/repositories" />
       <item itemvalue="Go Test.TestRun in github.com/dangdennis/crossing/seeder" />
-      <item itemvalue="Go Build.go run bot" />
+      <item itemvalue="Go Test.TestAssignAvatarToRaid in github.com/dangdennis/crossing/common/services/raid" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestAssignAvatarToRaid in github.com/dangdennis/crossing/common/services/raid" />
         <item itemvalue="Go Test.TestRun in github.com/dangdennis/crossing/seeder" />
         <item itemvalue="Go Test.TestFindWeeklyActiveRaid in github.com/dangdennis/crossing/repositories" />
       </list>
@@ -173,52 +193,56 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="547" y="356" key="EditFileWatcherDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1600529713874" />
-    <state width="1489" height="334" key="GridCell.Tab.0.bottom" timestamp="1601955903033">
-      <screen x="0" y="23" width="2048" height="1257" />
-    </state>
-    <state width="2201" height="380" key="GridCell.Tab.0.bottom/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696767" />
-    <state width="1750" height="322" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586839" />
-    <state width="1489" height="334" key="GridCell.Tab.0.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1601955903033" />
-    <state width="1489" height="334" key="GridCell.Tab.0.center" timestamp="1601955903032">
-      <screen x="0" y="23" width="2048" height="1257" />
-    </state>
-    <state width="2201" height="380" key="GridCell.Tab.0.center/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696766" />
-    <state width="1750" height="322" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
-    <state width="1489" height="334" key="GridCell.Tab.0.center/0.23.2048.1257@0.23.2048.1257" timestamp="1601955903032" />
-    <state width="1489" height="334" key="GridCell.Tab.0.left" timestamp="1601955903032">
-      <screen x="0" y="23" width="2048" height="1257" />
-    </state>
-    <state width="2201" height="380" key="GridCell.Tab.0.left/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696766" />
-    <state width="1750" height="322" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
-    <state width="1489" height="334" key="GridCell.Tab.0.left/0.23.2048.1257@0.23.2048.1257" timestamp="1601955903032" />
-    <state width="1489" height="334" key="GridCell.Tab.0.right" timestamp="1601955903032">
-      <screen x="0" y="23" width="2048" height="1257" />
-    </state>
-    <state width="2201" height="380" key="GridCell.Tab.0.right/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755696766" />
-    <state width="1750" height="322" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
-    <state width="1489" height="334" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1601955903032" />
-    <state width="2201" height="504" key="GridCell.Tab.1.bottom" timestamp="1601755695710">
+    <state width="2251" height="483" key="GridCell.Tab.0.bottom" timestamp="1602027318550">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state width="2201" height="504" key="GridCell.Tab.1.bottom/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755695710" />
+    <state width="2251" height="483" key="GridCell.Tab.0.bottom/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1602027318550" />
+    <state width="1489" height="334" key="GridCell.Tab.0.bottom/-3360.-320.3360.1867/0.23.1792.1097@0.23.1792.1097" timestamp="1601993553187" />
+    <state width="1750" height="322" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586839" />
+    <state width="2006" height="374" key="GridCell.Tab.0.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1602003543014" />
+    <state width="2251" height="483" key="GridCell.Tab.0.center" timestamp="1602027318549">
+      <screen x="-3360" y="-320" width="3360" height="1867" />
+    </state>
+    <state width="2251" height="483" key="GridCell.Tab.0.center/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1602027318549" />
+    <state width="1489" height="334" key="GridCell.Tab.0.center/-3360.-320.3360.1867/0.23.1792.1097@0.23.1792.1097" timestamp="1601993553186" />
+    <state width="1750" height="322" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
+    <state width="2006" height="374" key="GridCell.Tab.0.center/0.23.2048.1257@0.23.2048.1257" timestamp="1602003543014" />
+    <state width="2251" height="483" key="GridCell.Tab.0.left" timestamp="1602027318548">
+      <screen x="-3360" y="-320" width="3360" height="1867" />
+    </state>
+    <state width="2251" height="483" key="GridCell.Tab.0.left/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1602027318548" />
+    <state width="1489" height="334" key="GridCell.Tab.0.left/-3360.-320.3360.1867/0.23.1792.1097@0.23.1792.1097" timestamp="1601993553186" />
+    <state width="1750" height="322" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
+    <state width="2006" height="374" key="GridCell.Tab.0.left/0.23.2048.1257@0.23.2048.1257" timestamp="1602003543014" />
+    <state width="2251" height="483" key="GridCell.Tab.0.right" timestamp="1602027318550">
+      <screen x="-3360" y="-320" width="3360" height="1867" />
+    </state>
+    <state width="2251" height="483" key="GridCell.Tab.0.right/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1602027318550" />
+    <state width="1489" height="334" key="GridCell.Tab.0.right/-3360.-320.3360.1867/0.23.1792.1097@0.23.1792.1097" timestamp="1601993553187" />
+    <state width="1750" height="322" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1600654586838" />
+    <state width="2006" height="374" key="GridCell.Tab.0.right/0.23.2048.1257@0.23.2048.1257" timestamp="1602003543014" />
+    <state width="1980" height="471" key="GridCell.Tab.1.bottom" timestamp="1602027088572">
+      <screen x="-3360" y="-320" width="3360" height="1867" />
+    </state>
+    <state width="1980" height="471" key="GridCell.Tab.1.bottom/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1602027088572" />
     <state width="1750" height="322" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1600654113968" />
     <state width="982" height="149" key="GridCell.Tab.1.bottom/0.23.2048.1257@0.23.2048.1257" timestamp="1600742370735" />
-    <state width="2201" height="504" key="GridCell.Tab.1.center" timestamp="1601755695709">
+    <state width="1980" height="471" key="GridCell.Tab.1.center" timestamp="1602027088572">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state width="2201" height="504" key="GridCell.Tab.1.center/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755695709" />
+    <state width="1980" height="471" key="GridCell.Tab.1.center/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1602027088572" />
     <state width="1750" height="322" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1600654113967" />
     <state width="982" height="149" key="GridCell.Tab.1.center/0.23.2048.1257@0.23.2048.1257" timestamp="1600742370735" />
-    <state width="2201" height="504" key="GridCell.Tab.1.left" timestamp="1601755695709">
+    <state width="1980" height="471" key="GridCell.Tab.1.left" timestamp="1602027088572">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state width="2201" height="504" key="GridCell.Tab.1.left/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755695709" />
+    <state width="1980" height="471" key="GridCell.Tab.1.left/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1602027088572" />
     <state width="1750" height="322" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1600654113967" />
     <state width="982" height="149" key="GridCell.Tab.1.left/0.23.2048.1257@0.23.2048.1257" timestamp="1600742370734" />
-    <state width="2201" height="504" key="GridCell.Tab.1.right" timestamp="1601755695710">
+    <state width="1980" height="471" key="GridCell.Tab.1.right" timestamp="1602027088572">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state width="2201" height="504" key="GridCell.Tab.1.right/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601755695710" />
+    <state width="1980" height="471" key="GridCell.Tab.1.right/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1602027088572" />
     <state width="1750" height="322" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1600654113968" />
     <state width="982" height="149" key="GridCell.Tab.1.right/0.23.2048.1257@0.23.2048.1257" timestamp="1600742370735" />
     <state x="289" y="210" key="SettingsEditor" timestamp="1601765425659">
@@ -234,46 +258,53 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="496" y="311" key="Vcs.Push.Dialog.v2/0.23.1792.1097@0.23.1792.1097" timestamp="1600654461997" />
-    <state width="896" height="548" key="XDebugger.FullValuePopup" timestamp="1600653790477">
-      <screen x="0" y="23" width="1792" height="1097" />
-    </state>
-    <state width="896" height="548" key="XDebugger.FullValuePopup/0.23.1792.1097@0.23.1792.1097" timestamp="1600653790477" />
-    <state x="-2189" y="307" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1601753046203">
+    <state width="1680" height="933" key="XDebugger.FullValuePopup" timestamp="1602026992157">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state x="-2189" y="307" key="com.goide.refactor.move.GoMoveDeclarationDialog/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601753046203" />
+    <state width="1680" height="933" key="XDebugger.FullValuePopup/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1602026992157" />
+    <state width="896" height="548" key="XDebugger.FullValuePopup/0.23.1792.1097@0.23.1792.1097" timestamp="1600653790477" />
+    <state x="-2189" y="307" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1602027193688">
+      <screen x="-3360" y="-320" width="3360" height="1867" />
+    </state>
+    <state x="-2189" y="307" key="com.goide.refactor.move.GoMoveDeclarationDialog/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1602027193688" />
+    <state x="714" y="445" key="com.goide.refactor.move.GoMoveDeclarationDialog/0.23.2048.1257@0.23.2048.1257" timestamp="1602002567577" />
     <state x="-2319" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601752830936">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
     <state x="-2319" y="131" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601752830936" />
-    <state x="-2241" y="-12" width="1122" height="1251" key="find.popup" timestamp="1601253565699">
+    <state x="-2241" y="-12" width="1122" height="1251" key="find.popup" timestamp="1602026773371">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state x="-2241" y="-12" width="1122" height="1251" key="find.popup/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601253565699" />
+    <state x="-2241" y="-12" width="1122" height="1251" key="find.popup/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1602026773371" />
     <state x="597" y="204" width="598" height="735" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1600648488580" />
     <state x="-2118" y="343" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup" timestamp="1601252240887">
       <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
     <state x="-2118" y="343" width="250" height="278" key="jetbrains.javascript.buildTools.run-task-popup/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601252240887" />
-    <state x="641" y="304" width="767" height="775" key="search.everywhere.popup" timestamp="1601952098981">
-      <screen x="0" y="23" width="2048" height="1257" />
+    <state x="-2308" y="97" width="1257" height="1151" key="search.everywhere.popup" timestamp="1602027007522">
+      <screen x="-3360" y="-320" width="3360" height="1867" />
     </state>
-    <state x="-2308" y="97" width="1257" height="1151" key="search.everywhere.popup/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1601753549311" />
+    <state x="-2308" y="97" width="1257" height="1151" key="search.everywhere.popup/-3360.-320.3360.1867/0.23.1792.1097@-3360.-320.3360.1867" timestamp="1602027007522" />
     <state x="561" y="268" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1600651686020" />
-    <state x="641" y="304" width="767" height="775" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1601952098981" />
+    <state x="641" y="304" width="767" height="775" key="search.everywhere.popup/0.23.2048.1257@0.23.2048.1257" timestamp="1602002807133" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/bot/consumers/raid_consumer.go</url>
-          <line>32</line>
+          <line>34</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/bot/consumers/raid_consumer.go</url>
-          <line>178</line>
+          <line>158</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/common/services/raid/raid_test.go</url>
+          <line>11</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
