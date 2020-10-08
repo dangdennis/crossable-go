@@ -69,6 +69,10 @@ func GetActionMessageForEventAndRaidMember(db *prisma.PrismaClient, event prisma
 		prisma.Message.Default.Equals(false),
 	).Take(1).Exec(context.Background())
 	if err != nil {
+		return prisma.MessageModel{}, fmt.Errorf("failed to find a message for avatar action. err=%w", err)
+	}
+
+	if len(manyMessages) == 0 {
 		defaultMessages, err := db.Message.FindMany(
 			prisma.Message.EventID.Equals(event.ID),
 			prisma.Message.Type.Equals(messages.MessageTypeActionSingle.String()),
@@ -83,10 +87,6 @@ func GetActionMessageForEventAndRaidMember(db *prisma.PrismaClient, event prisma
 		}
 
 		return defaultMessages[0], nil
-	}
-
-	if len(manyMessages) == 0 {
-		return prisma.MessageModel{}, fmt.Errorf("failed to find a message for avatar action")
 	}
 
 	return manyMessages[0], nil

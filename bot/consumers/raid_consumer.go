@@ -54,7 +54,9 @@ func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	message = fmt.Sprintf("%s\n\n%s", message, introMessage.Content)
 
 	if currentEvent.Sequence == 1 || currentEvent.Sequence == 2 {
-		message = fmt.Sprintf("%s\n\n%s", message, "`!join` to join mission!\n\n`!action` to take action.")
+		message = fmt.Sprintf("%s\n\n%s", message, "`!join` to join mission!\n`!action` to take action.")
+	} else {
+		message = fmt.Sprintf("%s\n\n%s", message, "`!action` to take action.")
 	}
 
 	dg.ChannelMessageSend(s, m.ChannelID, message)

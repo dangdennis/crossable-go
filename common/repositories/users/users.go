@@ -72,7 +72,9 @@ func CreateWallet(db *prisma.PrismaClient, userID int) (prisma.WalletModel, erro
 func AwardTokens(db *prisma.PrismaClient, userID int, amount int) error {
 	user, err := db.User.FindOne(
 		prisma.User.ID.Equals(userID),
-	).Exec(context.Background())
+	).With(
+		prisma.User.Wallet.Fetch(),
+		).Exec(context.Background())
 	if err != nil {
 		return fmt.Errorf("failed to find user. err=%w", err)
 	}
