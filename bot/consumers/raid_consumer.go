@@ -59,7 +59,7 @@ func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 		message = fmt.Sprintf("%s\n\n%s", message, "`!action` to take action.")
 	}
 
-	dg.ChannelMessageSend(s, m.ChannelID, message)
+	dg.DirectMessageSend(s, m.Author.ID, message)
 }
 
 // JoinCommand handles !join
@@ -188,10 +188,10 @@ func OutroCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 	var engagedUsersMsg string
 	actions, err := db.Action.FindMany(
 		prisma.Action.EventID.Equals(currentEvent.ID),
-		).With(
-			prisma.Action.Avatar.Fetch().With(
-				prisma.Avatar.User.Fetch(),),
-			).Exec(context.Background())
+	).With(
+		prisma.Action.Avatar.Fetch().With(
+			prisma.Avatar.User.Fetch()),
+	).Exec(context.Background())
 	if err != nil {
 		log.Error("failed to find the actions performed for event", zap.Error(err), zap.Int("eventID", currentEvent.ID))
 	} else {
@@ -206,7 +206,7 @@ func OutroCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 		engagedUsersMsg = "Nice job: " + engagedUsersMsg
 	}
 
-	_, err = s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("%s\n\n%s",outroMessage.Content, engagedUsersMsg))
+	_, err = s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("%s\n\n%s", outroMessage.Content, engagedUsersMsg))
 	if err != nil {
 		fmt.Println(err)
 		return
