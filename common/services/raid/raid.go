@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	prisma "github.com/dangdennis/crossing/common/db"
+	"github.com/dangdennis/crossing/common/db"
 	"github.com/dangdennis/crossing/common/repositories/raids"
 	"github.com/dangdennis/crossing/common/repositories/users"
 )
@@ -13,15 +13,13 @@ import (
 var ErrExistingRaidMembership error = errors.New("avatar is already a member of the raid")
 
 // AssignAvatarToRaid assigns an avatar to the most recently started active raid
-func AssignAvatarToRaid(discordID string) error {
-	db := prisma.Client()
-
-	raid, err := raids.FindLatestActiveRaid(db)
+func AssignAvatarToRaid(client *db.PrismaClient, discordID string) error {
+	raid, err := raids.FindLatestActiveRaid(client)
 	if err != nil {
 		return err
 	}
 
-	user, err := users.FindUserByDiscordID(db, discordID)
+	user, err := users.FindUserByDiscordID(client, discordID)
 	if err != nil {
 		return err
 	}
@@ -31,16 +29,15 @@ func AssignAvatarToRaid(discordID string) error {
 		return fmt.Errorf("user does not have an avatar")
 	}
 
-	raidMember, err := raids.GetAvatarRaidMembership(db, avatar, raid)
+	raidMember, err := raids.GetAvatarRaidMembership(client, avatar, raid)
 	if err == nil && raidMember.AvatarID > 0 {
 		return ErrExistingRaidMembership
 	}
 
-	_, err = raids.JoinRaid(db, raid, avatar)
+	_, err = raids.JoinRaid(client, raid, avatar)
 	if err != nil {
 		return nil
 	}
 
 	return nil
 }
-

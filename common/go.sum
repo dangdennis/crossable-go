@@ -35,6 +35,7 @@ github.com/cloudflare/cloudflare-go v0.10.2-0.20190916151808-a80f83b9add9/go.mod
 github.com/cpuguy83/go-md2man/v2 v2.0.0-20190314233015-f79a8a8ca69d/go.mod h1:maD7wRr/U5Z6m/iR4s+kqSMx2CaBsrgA7czyZG/E6dU=
 github.com/dangdennis/crossing v0.0.0-20201003200838-9157c1dab528 h1:ginOtVkjx02YXi54pHGsIPQ91vpigNQCUzBQ0dSEvwk=
 github.com/dangdennis/crossing v0.0.0-20201003200838-9157c1dab528/go.mod h1:3qd9A6PlZ0wVJZDcTMqyeCFWLYhK4X4Dd94nEFk2ymw=
+github.com/dangdennis/crossing v0.0.0-20201101050520-a0a6c2a504b6 h1:LRR+sbP8Jsk9U2RP3vxALPeBA2TGIQSHScaGGr5amEY=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

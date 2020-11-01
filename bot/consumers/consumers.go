@@ -6,19 +6,19 @@ import (
 
 	"github.com/bwmarrin/discordgo"
 
-	prisma "github.com/dangdennis/crossing/common/db"
+	"github.com/dangdennis/crossing/common/db"
 	"github.com/dangdennis/crossing/common/repositories/users"
 )
 
-// MessageCreate consumes Discord MessageCreate events
-func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
+// HandleMessageCreate consumes Discord MessageCreate events
+func HandleMessageCreate(client *db.PrismaClient, s *discordgo.Session, m *discordgo.MessageCreate) {
 	// Ignore all messages created by the bot itself
 	// This isn't required in this specific example but it's a good practice.
 	if m.Author.ID == s.State.User.ID {
 		return
 	}
 
-	err := initUser(m)
+	err := initUser(client, m)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -30,30 +30,30 @@ func MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	case "!pong":
 		_, _ = s.ChannelMessageSend(m.ChannelID, "Ping!")
 	case "!raid":
-		RaidCommand(s, m)
+		RaidCommand(client, s, m)
 	case "!join":
-		JoinCommand(s, m)
+		JoinCommand(client, s, m)
 	case "!action":
-		ActionCommand(s, m)
+		ActionCommand(client, s, m)
 	case "!help":
-		HelpCommand(s, m)
+		HelpCommand(client, s, m)
 	case "!bomb":
-		BombCommand(s, m)
+		BombCommand(client, s, m)
 	case "!intro":
-		IntroCommand(s, m)
+		IntroCommand(client, s, m)
 	case "!outro":
-		OutroCommand(s, m)
+		OutroCommand(client, s, m)
 	}
 }
 
 // initUser creates a new user, avatar, and wallet
-func initUser(m *discordgo.MessageCreate) error {
+func initUser(client *db.PrismaClient, m *discordgo.MessageCreate) error {
 	// Consider hardening this with an additional cache layer. Check the LRU cache for a discord user id that's recently messaged the channel
 	if !strings.HasPrefix(m.Content, "!") {
 		return nil
 	}
 
-	_, err := users.FindUserByDiscordID(prisma.Client(), m.Author.ID)
+	_, err := users.FindUserByDiscordID(client, m.Author.ID)
 	if err == nil {
 		fmt.Println("user already exists")
 		return nil
@@ -61,17 +61,17 @@ func initUser(m *discordgo.MessageCreate) error {
 
 	fmt.Println("initializing new user")
 
-	user, err := users.CreateUser(prisma.Client(), users.UserAttrs{DiscordUserID: m.Author.ID, DiscordUsername: &m.Author.Username})
+	user, err := users.CreateUser(client, users.UserAttrs{DiscordUserID: m.Author.ID, DiscordUsername: &m.Author.Username})
 	if err != nil {
 		return err
 	}
 
-	_, err = users.CreateAvatar(prisma.Client(), user.ID)
+	_, err = users.CreateAvatar(client, user.ID)
 	if err != nil {
 		return err
 	}
 
-	_, err = users.CreateWallet(prisma.Client(), user.ID)
+	_, err = users.CreateWallet(client, user.ID)
 	if err != nil {
 		return err
 	}

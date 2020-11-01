@@ -1,4 +1,4 @@
-package testUtil
+package test
 
 import (
 	"context"
@@ -102,8 +102,5 @@ func (t *Mocks) Cleanup(db *prisma.PrismaClient) error {
 		}
 	}
 
-
-
 	return nil
 }
-

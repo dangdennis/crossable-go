@@ -10,12 +10,16 @@ import (
 	"github.com/bwmarrin/discordgo"
 
 	"github.com/dangdennis/crossing/bot/consumers"
-	prisma "github.com/dangdennis/crossing/common/db"
+	"github.com/dangdennis/crossing/common/db"
 	"github.com/dangdennis/crossing/common/env"
 )
 
 func main() {
-	client := prisma.Client()
+	client := db.NewClient()
+	err := client.Connect()
+	if err != nil {
+		panic(err)
+	}
 
 	defer func() {
 		err := client.Disconnect()
@@ -35,7 +39,9 @@ func main() {
 	}()
 
 	// Register the messageCreate func as a callback for MessageCreate events.
-	dg.AddHandler(consumers.MessageCreate)
+	dg.AddHandler(func(s *discordgo.Session, m *discordgo.MessageCreate) {
+		consumers.HandleMessageCreate(client, s, m)
+	})
 
 	// In this example, we only care about receiving message events.
 	dg.Identify.Intents = discordgo.MakeIntent(discordgo.IntentsGuildMessages | discordgo.IntentsDirectMessages)

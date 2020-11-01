@@ -9,7 +9,7 @@ import (
 	"github.com/bwmarrin/discordgo"
 	"go.uber.org/zap"
 
-	prisma "github.com/dangdennis/crossing/common/db"
+	"github.com/dangdennis/crossing/common/db"
 	"github.com/dangdennis/crossing/common/dg"
 	"github.com/dangdennis/crossing/common/logger"
 	"github.com/dangdennis/crossing/common/repositories/messages"
@@ -21,18 +21,17 @@ import (
 )
 
 // RaidCommand handles !raid
-func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
-	db := prisma.Client()
+func RaidCommand(client *db.PrismaClient, s *discordgo.Session, m *discordgo.MessageCreate) {
 	log := logger.GetLogger()
 
-	raid, err := raids.FindLatestActiveRaid(db)
+	raid, err := raids.FindLatestActiveRaid(client)
 	if err != nil {
 		log.Error("failed to find an active raid", zap.Error(err))
 		dg.ChannelMessageSend(s, m.ChannelID, "No active raid this week.")
 		return
 	}
 
-	currentEvent, err := stories.GetCurrentEventInStory(db, raid.Story())
+	currentEvent, err := stories.GetCurrentEventInStory(client, raid.Story())
 	if err != nil {
 		log.Error("failed to find current event for story", zap.Error(err), zap.Int("storyID", currentEvent.ID), zap.Int("raidID", raid.ID))
 		return
@@ -45,7 +44,7 @@ func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 		message = message + eventName
 	}
 
-	introMessage, err := stories.GetEventIntroMessage(db, currentEvent)
+	introMessage, err := stories.GetEventIntroMessage(client, currentEvent)
 	if err != nil {
 		log.Error("failed to get intro message for event story", zap.Error(err), zap.Int("eventID", currentEvent.ID), zap.Int("raidID", raid.ID))
 		return
@@ -63,10 +62,10 @@ func RaidCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 }
 
 // JoinCommand handles !join
-func JoinCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
+func JoinCommand(client *db.PrismaClient, s *discordgo.Session, m *discordgo.MessageCreate) {
 	log := logger.GetLogger()
 
-	err := raidService.AssignAvatarToRaid(m.Author.ID)
+	err := raidService.AssignAvatarToRaid(client, m.Author.ID)
 	if err != nil {
 		if errors.Is(err, raidService.ErrExistingRaidMembership) {
 			dg.ChannelMessageSend(s, m.ChannelID, "You've already joined the raid.")
@@ -85,18 +84,17 @@ func JoinCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 }
 
 // ActionCommand handles !action
-func ActionCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
+func ActionCommand(client *db.PrismaClient, s *discordgo.Session, m *discordgo.MessageCreate) {
 	fmt.Println("handling !action")
-	db := prisma.Client()
 	log := logger.GetLogger()
 
-	raid, err := raids.FindLatestActiveRaid(db)
+	raid, err := raids.FindLatestActiveRaid(client)
 	if err != nil {
 		log.Error("failed to get weekly active raid", zap.Error(err))
 		return
 	}
 
-	user, err := users.FindUserByDiscordID(db, m.Author.ID)
+	user, err := users.FindUserByDiscordID(client, m.Author.ID)
 	if err != nil {
 		log.Error("failed to get weekly active raid", zap.Error(err))
 		return
@@ -108,20 +106,20 @@ func ActionCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 		return
 	}
 
-	raidMember, err := raids.GetAvatarRaidMembership(db, avatar, raid)
+	raidMember, err := raids.GetAvatarRaidMembership(client, avatar, raid)
 	if err != nil {
 		log.Error("user is not a part of the raid", zap.Error(err), zap.Int("avatarID", avatar.ID), zap.Int("raidID", raid.ID))
 		dg.ChannelMessageSend(s, m.ChannelID, "You're not part of the raid yet. You can `!join` within the first two days.")
 		return
 	}
 
-	currentEvent, err := stories.GetCurrentEventInStory(db, raid.Story())
+	currentEvent, err := stories.GetCurrentEventInStory(client, raid.Story())
 	if err != nil {
 		log.Error("failed to find current event for story", zap.Error(err), zap.Int("storyID", currentEvent.ID))
 		return
 	}
 
-	actionMessage, err := stories.GetActionMessageForEventAndRaidMember(db, currentEvent, raidMember)
+	actionMessage, err := stories.GetActionMessageForEventAndRaidMember(client, currentEvent, raidMember)
 	if err != nil {
 		log.Error("failed to find a message for the action",
 			zap.Error(err),
@@ -132,14 +130,14 @@ func ActionCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 		return
 	}
 
-	err = stories.CreateAvatarEventAction(db, currentEvent, avatar)
+	err = stories.CreateAvatarEventAction(client, currentEvent, avatar)
 	if err != nil {
 		log.Error("failed to create avatar action", zap.Error(err))
 		dg.ChannelMessageSend(s, m.ChannelID, "You've already performed your action today.")
 		return
 	}
 
-	err = users.AwardTokens(db, user.ID, 2)
+	err = users.AwardTokens(client, user.ID, 2)
 	if err != nil {
 		log.Error("failed to award user tokens", zap.Error(err), zap.Int("userID", user.ID))
 	}
@@ -149,48 +147,47 @@ func ActionCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
 }
 
 // IntroCommand handles admin-only !intro command
-func IntroCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
+func IntroCommand(client *db.PrismaClient, s *discordgo.Session, m *discordgo.MessageCreate) {
 	if !auth.IsAdmin(m.Author.ID) {
 		return
 	}
 
-	RaidCommand(s, m)
+	RaidCommand(client, s, m)
 }
 
 // OutroCommand handles admin-only !outro command
-func OutroCommand(s *discordgo.Session, m *discordgo.MessageCreate) {
+func OutroCommand(client *db.PrismaClient, s *discordgo.Session, m *discordgo.MessageCreate) {
 	if !auth.IsAdmin(m.Author.ID) {
 		return
 	}
 
-	db := prisma.Client()
 	log := logger.GetLogger()
 
-	raid, err := raids.FindLatestActiveRaid(db)
+	raid, err := raids.FindLatestActiveRaid(client)
 	if err != nil {
 		log.Error("failed to find an active raid", zap.Error(err))
 		dg.ChannelMessageSend(s, m.ChannelID, "No active raid this week.")
 		return
 	}
 
-	currentEvent, err := stories.GetCurrentEventInStory(db, raid.Story())
+	currentEvent, err := stories.GetCurrentEventInStory(client, raid.Story())
 	if err != nil {
 		log.Error("failed to find current event for story", zap.Error(err), zap.Int("storyID", currentEvent.ID), zap.Int("raidID", raid.ID))
 		return
 	}
 
-	outroMessage, err := stories.GetEventOutroMessage(db, currentEvent)
+	outroMessage, err := stories.GetEventOutroMessage(client, currentEvent)
 	if err != nil {
 		log.Error("failed to get outro message for event story", zap.Error(err), zap.Int("eventID", currentEvent.ID), zap.Int("raidID", raid.ID))
 		return
 	}
 
 	var engagedUsersMsg string
-	actions, err := db.Action.FindMany(
-		prisma.Action.EventID.Equals(currentEvent.ID),
+	actions, err := client.Action.FindMany(
+		db.Action.EventID.Equals(currentEvent.ID),
 	).With(
-		prisma.Action.Avatar.Fetch().With(
-			prisma.Avatar.User.Fetch()),
+		db.Action.Avatar.Fetch().With(
+			db.Avatar.User.Fetch()),
 	).Exec(context.Background())
 	if err != nil {
 		log.Error("failed to find the actions performed for event", zap.Error(err), zap.Int("eventID", currentEvent.ID))
